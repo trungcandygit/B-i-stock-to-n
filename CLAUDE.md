@@ -19,6 +19,9 @@
 - Hook `.claude/settings.json` (`SessionStart` + `UserPromptSubmit`) tự nhắc lại quy tắc này ở mỗi
   phiên và mỗi prompt. Không được xoá/tắt hook.
 - Không hỏi lại người dùng những thứ skill đã có quy trình mặc định — cứ chạy theo skill.
+- Vòng ngôn ngữ (sau tối đa 2 vòng revision của ARS): dùng skill `proofreading` (vendor/proofreading,
+  upstream JakobThumm/proofreading) + `stop-slop` (vendor/stop-slop, upstream hardikpandya/stop-slop),
+  mỗi vòng phải qua cổng kiểm tra của `academic-paper` (số liệu khớp R, trích dẫn, giới hạn từ, quy định tạp chí).
 - Skill nội bộ `Python for Algorithmic Trading/NCKH/Bài stock toán/skill gộp/` (quy tắc biên tập,
   checklist 120 điểm, playbook từng section) dùng **bổ sung** khi sửa bài báo.
 

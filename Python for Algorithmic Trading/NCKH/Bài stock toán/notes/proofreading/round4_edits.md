@@ -1,0 +1,10 @@
+- [enumerator consistency] “Firstly, we quantify” → “First, we quantify”
+- [enumerator consistency] “Secondly, we provide” → “Second, we provide”
+- [enumerator consistency] “Thirdly, we quantify” → “Third, we quantify”
+- [SS adverb] “Both profiles are subsequently partitioned” → “Both profiles are then partitioned”
+- [PR 5.1 we-voice; PR 5.2 present tense] “The analysis evaluates four trading frequencies: 30-minute (M30), 1-hour (H1), 4-hour (H4) and daily (1D). The index series were synchronized by exact inner joins on timestamps, and log returns were computed as below; no index price was filled or interpolated:” → “The analysis covers four trading frequencies: 30-minute (M30), 1-hour (H1), 4-hour (H4) and daily (1D). We synchronize the index series by exact inner joins on timestamps and compute log returns as below; no index price is filled or interpolated:”
+- [PR 5.1 we-voice] “Regime dependence is evaluated under two definitions based on the 20-day rolling standard deviation of VNINDEX returns (Fig. 1).” → “We evaluate regime dependence under two definitions based on the 20-day rolling standard deviation of VNINDEX returns (Fig. 1).”
+- [PR 5.4 serial-comma consistency (house style: none)] “commodity baskets, and cross-border assets” → “commodity baskets and cross-border assets”
+- [clarity: antecedent] “Risk models that use these correlations conflate” → “Risk models built on index-level correlations therefore conflate”
+- [SS inflated] “The empirical research design operates across two complementary sample tiers:” → “We use two sample tiers.”
+- [noop-check] “representing linear DCCA) and compute” → “representing linear DCCA) and compute”

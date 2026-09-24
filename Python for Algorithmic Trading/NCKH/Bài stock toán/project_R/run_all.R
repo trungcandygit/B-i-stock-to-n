@@ -219,7 +219,7 @@ g1 <- ggplot(f1, aes(date, vol)) +
   annotate("text", x = shade$start + (shade$end - shade$start) / 2, y = ytop * c(1.10, 1.22, 1.10), label = shade$lab,
            size = 2.5, family = "sans", lineheight = .85) +
   scale_y_continuous(limits = c(0, ytop * 1.3), expand = c(0, 0)) + scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
-  labs(x = NULL, y = "20-day rolling volatility (annualized, %)") + theme_paper
+  labs(x = "Date", y = "20-day rolling volatility (annualized, %)") + theme_paper
 ggsave(file.path(OUT, "figures", "fig1_volatility_regimes.png"), g1, width = 6.5, height = 3.2, dpi = 600)
 ggsave(file.path(OUT, "figures", "Fig1.eps"), g1, width = 6.5, height = 3.2, device = cairo_ps)
 # Figure 2: multiscale DCCA curves, four panels
@@ -242,7 +242,7 @@ f3 <- rbind(data.frame(pair = sp$pair, x = sp$alpha, y = sp$f_alpha, panel = "(a
 f3$pair <- factor(f3$pair, levels = PAIR_LEV)
 g3 <- ggplot(f3, aes(x, y, linetype = pair, shape = pair)) + geom_line(linewidth = .4) + geom_point(size = 1.2) +
   facet_wrap(~panel, ncol = 2, scales = "free", labeller = label_parsed) + scale_linetype_discrete(labels = PAIR_LAB) + scale_shape_discrete(labels = PAIR_LAB) +
-  labs(x = expression(alpha~"(panel a)"~~"or"~~q~"(panel b)"), y = NULL) + theme_paper
+  labs(x = expression(alpha~"(panel a)"~~"or"~~q~"(panel b)"), y = expression(f(alpha)~"(panel a)"~~"or"~~h[xy](q)~"(panel b)")) + theme_paper
 ggsave(file.path(OUT, "figures", "fig3_mfdcca.png"), g3, width = 6.5, height = 3.4, dpi = 600)
 ggsave(file.path(OUT, "figures", "Fig3.eps"), g3, width = 6.5, height = 3.4, device = cairo_ps)
 

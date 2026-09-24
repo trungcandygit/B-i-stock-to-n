@@ -1,5 +1,30 @@
 # Audit Ledger — BaiBao_DCCA_EN
 
+## Iter 21 — full 5-seat review (academic-paper-reviewer `full`) → 2 ARS revision rounds → 2 language rounds (proofreading + stop-slop, gated by academic-paper)
+
+User pre-authorized autonomous completion; the decisions below were taken by skill defaults.
+
+**Round map** (ARS IRON RULE: at most 2 revision rounds; language rounds added at the user's request)
+1. **R1 (review + revision):** 5-seat panel under sprint contract `reviewer/reviewer_full/v2` → major_revision (F2: D1 and D3 block) → roadmap RR1–RR18 (`review_full/06_editorial_synthesis.md`). Revision in `docx_build/stage3.py` + `stage3_text.py`, with new R analyses in `project_R/run_revision.R` (outputs R1–R7).
+2. **R2 (re-review + residual fixes):** three-gate re-review (`review_full/08_rereview_round2.md`) → all RR resolved (RR5 as a limitation, RR17 REVIEWER_DISAGREE upheld). 15 residual fixes in `stage4.py` (`proofreading/round2_edits.md`). The revision loop closes here.
+3. **R3 (proofreading + stop-slop):** six-check report (`proofreading/round3_report.md`), 48 findings, 59 edits (`stage5.py`, `round3_edits.md`); stop-slop score 29 → 39/50.
+4. **R4 (second proofreading + stop-slop pass):** 9 residual findings, 10 edits (`stage6.py`, `round4_edits.md`); stop-slop score 41/50. Academic-paper gate passed.
+
+**Decisions**
+- D14 stop-slop is applied in academic register. Its "no passive / use *you* / kill all adverbs" rules conflict with the APFM register required by academic-paper. Applied as: we-voice where an actor exists, no second person, filler and intensifying adverbs removed, technical adverbs kept.
+- D15 Proofreading rules overridden by journal rules: captions without final period (Springer style); no serial comma (manuscript house style); numbered display equations kept; no "first to…" novelty claim, which is unverifiable without new references (IRON RULE).
+- D16 Figures: x label "Date" (Fig. 1) and y label f(α)/h_xy(q) (Fig. 3) added in `run_all.R`. Full re-run with the fixed seed: all 26 CSVs byte-identical to the previous run, confirming reproducibility.
+- D17 Table 6 caption corrected (it reported 1D/H1/H4, not M30); "at least 0.052" → "at least 0.05" (rounded tables give 0.053); δ wording ("variance of VN30 returns").
+- D18 Numeric-token diff of Round-2 vs Round-4 text: no result number changed in the language rounds.
+- D19 Final checks:
+  - length: 7,604 words including tables and references (< 8,500); abstract 222 words (150–250);
+  - page count: 21;
+  - docx validates against the original;
+  - references: all 23 cited, no new authors;
+  - tables and figures: every one cited before it appears; every note ≤ 3 sentences.
+
+**Open items for the authors** (unchanged): fill the Title_Page.docx placeholders; open the docx once in Microsoft Word to check the OMML equations (LibreOffice does not render them); obtain the VNMIDCAP history if possible (RR5).
+
 ## Iter 20 — supervisor revision (Hạnh, 24/9) + R replication + APFM formatting (ARS academic-paper revision mode, 2 rounds; academic-paper-reviewer quick re-check)
 
 User pre-authorized autonomous completion (no questions); decisions below were taken by skill defaults.

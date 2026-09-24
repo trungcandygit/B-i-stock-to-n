@@ -1,0 +1,15 @@
+- [RR14 domain W6] “Podobnik et al. (2011) established the analytical finite-sample distribution for hypothesis testing” → “Podobnik et al. (2011) proposed statistical tests for power-law cross-correlations”
+- [Abbrev ASEAN in body] “Across Southeast Asian equity markets, index providers routinely employ” → “Across the equity markets of the Association of Southeast Asian Nations (ASEAN), index providers use”
+- [RR7/RR16 unsupported regional generalization] “While mature ASEAN exchanges, such as Bursa Malaysia, support continuous cash-futures arbitrage and market completeness through Regulated Short Selling (RSS) and Intraday Short Selling (IDSS) on eligible constituent equities, emerging frontier exchanges frequently operate under binding short-sale prohibitions and slower settlement cycles.” → “Bursa Malaysia permits Regulated Short Selling (RSS) and Intraday Short Selling (IDSS) on eligible constituents, whereas Vietnam prohibits cash short selling (Section 1.1).”
+- [RR15 price-band wording] “heavily sold equities frequently hit lower limits, causing liquidity to freeze” → “heavily sold stocks can reach the lower limit, where trading dries up”
+- [RR15 derivative claim] “no exchange-traded hedging instrument exists for the mid-cap segment” → “no futures contract is listed on a mid-cap index”
+- [RR1 methods pre-judged result] “aggregation synchronizes price discovery, producing a positive scaling slope that reflects the fading of microstructure frictions combined with gradual information diffusion (Hong and Stein 1999).” → “aggregation synchronizes price discovery and can produce a positive scaling slope; gradual information diffusion (Hong and Stein 1999) can have the same effect. Section 3.7 tests whether such slopes are present.”
+- [pseudo-heading inconsistent with heading hierarchy] “Economic Mechanisms and Identification Boundaries:” → “”
+- [accuracy: delta refers to VN30] “the variance of the underlying assets has risen” → “the variance of VN30 returns has risen”
+- [traceability: 0.977-0.924=0.053 from rounded table] “remains at least 0.052 below” → “remains at least 0.05 below”
+- [redundant with first-tier paragraph] “ All four frequencies overlap without any calendar gap in the first tier, which is used for cross-frequency comparisons.” → “”
+- [Abbrev OLS introduced] “using ordinary least squares (” → “using ordinary least squares (OLS; ”
+- [Abbrev GARCH introduced] “with GARCH(1,1) surrogates” → “with generalized autoregressive conditional heteroskedasticity, GARCH(1,1), surrogates”
+- [style] “Utilizing Detrended” → “Using Detrended”
+- [style] “this study illustrates that” → “this study shows that”
+- [RR6 overclaim] “Mid-cap diversification failure during Vietnamese market stress is therefore” → “The loss of mid-cap diversification during Vietnamese market stress is therefore”

@@ -24,3 +24,18 @@ File nộp: `submission/final_APFM/Co_movement_manuscript_APFM_final.docx` (kèm
 6. **Tài liệu tham khảo**: đã kiểm tra từng tài liệu. Bỏ 4 tài liệu không xác minh được (Goh & Wong 2020, Vo 2017, Nguyen & Nguyen 2021, Lee & Azali 2012). Sửa sai thông tin của Epps (1979) (đúng là JASA 74(366), 291–298), Karim & Ning (2013) và Lean & Teng (2013). Không thêm tác giả mới. Trích dẫn theo kiểu Springer, ví dụ (Hong and Stein 1999).
 7. **Chuẩn tạp chí APFM**: Abstract 198 từ; 6 keywords theo thứ tự ABC; JEL; heading thập phân tối đa 3 cấp; chú thích hình dạng “**Fig. 1** …”; hình dùng font sans-serif, có file EPS riêng; bản thảo ẩn danh; trang tiêu đề riêng (tên tác giả, CRediT, Funding) — **cô/nhóm cần điền phần bôi vàng trong `Title_Page.docx`**. Tổng độ dài khoảng 8.080 từ (< 8.500).
 8. Giảm ký hiệu toán trong văn xuôi, giữ lại các phương trình hiển thị.
+
+## D. Vòng phản biện đầy đủ và 4 vòng chỉnh sửa (24/9, sau góp ý của cô)
+
+- **Vòng 1–2 (skill academic-paper, tối đa 2 vòng):**
+  - Hội đồng phản biện mô phỏng 5 ghế (chế độ full) kết luận *major revision*, với 18 mục cần sửa (RR1–RR18).
+  - Đã chạy thêm các phân tích bằng R: bootstrap khối cho hệ số DCCA và độ dốc; Forbes–Rigobon với tương quan Pearson kèm khoảng tin cậy và power; sai số phương sai danh mục kèm khoảng tin cậy; ngưỡng tin cậy GARCH-t; surrogate cho độ rộng đa phân dạng.
+  - Phản biện lại (vòng 2): mọi mục đều đã xử lý. Riêng dữ liệu VNMIDCAP không có, nên được ghi là hạn chế của nghiên cứu.
+  - Chi tiết: `review_full/08_rereview_round2.md` và `09_response_to_reviewers.md`.
+- **Vòng 3–4 (skill proofreading + stop-slop, có kiểm tra theo academic-paper):**
+  - Sửa lỗi viết tắt chưa giới thiệu (ASEAN, OLS, GARCH).
+  - Bỏ các câu nêu động cơ đặt trong phần Methods, bỏ từ ngữ phóng đại, thống nhất văn phong.
+  - Thêm nhãn trục cho Hình 1 và Hình 3; sửa chú thích Bảng 6.
+  - Kết quả vẫn trùng khớp 100%: không con số nào thay đổi, và chạy lại R cho ra 26 file CSV giống hệt.
+  - Báo cáo: `proofreading/round3_report.md` và `round4_report.md`.
+- **Bản cuối:** 7.604 từ (dưới 8.500), 21 trang; cấu trúc Introduction / Methods / Results / Discussion (4.1–4.4).
