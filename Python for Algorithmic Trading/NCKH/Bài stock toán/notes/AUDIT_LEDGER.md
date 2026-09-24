@@ -1,5 +1,21 @@
 # Audit Ledger — BaiBao_DCCA_EN
 
+## Iter 22 — submission package for Asia-Pacific Financial Markets + repository clean-up
+
+- D20 Package `submission/APFM_submission/` modelled on the authors' folder layout (00–08). Title page and cover letter are rebuilt from the authors' uploaded templates for this manuscript and journal (the templates were for a different paper and journal).
+- D21 Author order per the user: Nguyen Thanh Binh^a, Nguyen Van Trung^a,* (corresponding), Ha Hong Hanh^b (moved to third), Nguyen Bach Diep^a. CRediT roles are kept as supplied by the authors, reordered only.
+- D22 Double-blind compliance: `02_Manuscript_Anonymized.docx` has creator/lastModifiedBy metadata cleared and `word/people.xml` (tracked-change author list, which named the supervisor) removed. The build asserts that no author name or e-mail domain appears.
+- D23 Replication package (Online Resource 1): R code with in-package data paths, all outputs and figures, README with the table↔output map. Raw TradingView data are excluded under the vendor terms (consistent with the Data availability statement).
+- D24 Highlights and the separate competing-interest declaration are optional for APFM; they are provided and flagged as such in the checklist.
+- D25 Removed redundant files (history kept in git):
+  - duplicate `Data/` (byte-identical to `project/data/`; its README moved there);
+  - `submission/excel/` (old Excel charts, superseded by the R figures);
+  - `submission/final_APFM/` (superseded by `APFM_submission/`);
+  - `project/figures/` (old Python figures);
+  - `merged.txt` (raw phrasebank dump, duplicated in `skill gộp/`);
+  - `TLTK/` (text of an uncited article);
+  - two empty `.schema` files and all `.DS_Store` files.
+
 ## Iter 21 — full 5-seat review (academic-paper-reviewer `full`) → 2 ARS revision rounds → 2 language rounds (proofreading + stop-slop, gated by academic-paper)
 
 User pre-authorized autonomous completion; the decisions below were taken by skill defaults.

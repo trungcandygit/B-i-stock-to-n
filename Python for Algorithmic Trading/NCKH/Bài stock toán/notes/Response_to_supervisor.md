@@ -1,6 +1,6 @@
 # Phản hồi góp ý của cô (bản ngày 24/9) — bản thảo nộp Asia-Pacific Financial Markets
 
-File nộp: `submission/final_APFM/Co_movement_manuscript_APFM_final.docx` (kèm `Title_Page.docx` và thư mục `figures/`).
+Bộ hồ sơ nộp: `submission/APFM_submission/` (xem `00_CHECKLIST_NopBai.md`); bản thảo ẩn danh là `02_Manuscript_Anonymized.docx`.
 
 ## A. Ba comment của cô
 

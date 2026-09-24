@@ -46,5 +46,7 @@
 ## 3. Bài báo
 
 - Bản đang làm việc: `Python for Algorithmic Trading/NCKH/Bài stock toán/submission/*.docx`
+- Bộ hồ sơ nộp Asia-Pacific Financial Markets: `Python for Algorithmic Trading/NCKH/Bài stock toán/submission/APFM_submission/`
+  (dựng lại bằng `project_R/docx_build/build_submission.py`; thứ tự tác giả: Binh, Trung*, Hanh, Diep).
   (có comment và tracked changes của cô giáo — phải xử lý hết, từng cái một).
 - Nhật ký chỉnh sửa: `notes/AUDIT_LEDGER.md` — ghi lại mỗi vòng sửa.
