@@ -1,5 +1,26 @@
 # Audit Ledger — BaiBao_DCCA_EN
 
+## Iter 20 — supervisor revision (Hạnh, 24/9) + R replication + APFM formatting (ARS academic-paper revision mode, 2 rounds; academic-paper-reviewer quick re-check)
+
+User pre-authorized autonomous completion (no questions); decisions below were taken by skill defaults.
+
+**Decisions**
+- D1 Accepted all supervisor tracked changes (56 ins / 38 del, incl. 2 paragraph merges); fixed artefacts they introduced.
+- D2 Comment 48/49 → institutional context moved out of Methods into §1.1 "Current Situation and Institutional Background of the HOSE".
+- D3 Comment 65 → "Source:" line on every table and figure; notes cut to ≤ 3 sentences; every table/figure cited before it appears.
+- D4 Comment 117 → final section "4 Discussion and Conclusion" with 4.2 Limitations and Future Research (journal structure Intro/Methods/Results/Discussion, Asia-Pacific Financial Markets instructions).
+- D5 All experiments re-run in R (project_R/run_all.R; seed-fixed). R reproduces the Python DCCA values exactly (1D VN30–VNINDEX curve identical to 1e-7).
+- D6 VN70/VNMIDCAP: no series exists in data, pipeline archive or figure workbooks → all VN70 results removed (IRON RULE: no fabricated data); disclosed as limitation. The uploaded 05_Replication_Package (405 stocks, 2024–2026, no caps/constituents, different paper) cannot rebuild VN70 → not used (scope creep).
+- D7 Forbes–Rigobon Panel A did not reproduce (paper 0.629/t=7.71 → R 0.844/t=−2.28); paper re-framed to interdependence; Panel B reproduced (t=0.97).
+- D8 Monte Carlo reliability run as 1,002 sims/frequency (6 ρ0 × 167) → s_rel 50/444/233/88 (old 34/217/141/57 came from 48 sims while text claimed 1,000).
+- D9 Table 1 recomputed (old skew/kurt wrong); Table 7 recomputed (old direction reversed); MF-DCCA widths and detrending sensitivity recomputed.
+- D10 Crisis rule changed from ">30% drawdown" (2018 fails: 26.2%) to ">25% drawdown and ≥45% top-quartile-volatility days", both computed in R.
+- D11 References: removed unverifiable Goh & Wong 2020, Vo 2017, Nguyen & Nguyen 2021, Lee & Azali 2012; corrected Epps 1979, Karim & Ning 2013, Lean & Teng 2013 to verified records; no new authors added (user rule). Springer name–year style.
+- D12 Mandatory statements: Ethics, Data availability, Code availability, COI, AI-use in manuscript; CRediT + Funding on separate Title_Page.docx (double-blind journal) with highlighted placeholders for the authors.
+- D13 Round 2: inline math in prose replaced by words; display equations kept. Word count 8,083 (< 8,500); abstract 198.
+
+**Open items for the authors**: fill Title_Page.docx placeholders; check OMML equations once in Microsoft Word; obtain VNMIDCAP history if possible (reviewer issue 1).
+
 ## Iter 19 (this pass) — proofreading review round 11 (3 ERROR, 4 WARN)
 
 Round 11 verified the Iter 18 proxy rename was clean in running text/tables (all 51 symbol occurrences

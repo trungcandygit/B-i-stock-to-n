@@ -1,0 +1,52 @@
+p='stage2.py'; s=open(p).read()
+R=[
+("implying a scaling factor 1/(1 − w_{30}) = 3.151. Because the decomposition is applied to logarithmic returns, it carries a single-period Jensen term Δ_{t} = ½[w_{30}σ^{2}_{30} + (1 − w_{30})σ^{2}_{mid} − σ^{2}_{100}], which equals 3.6 × 10^{−6} at the daily frequency. Log returns aggregate additively, so the cumulative term over s days is bounded by sΔ_{t}, i.e., below 1.8 × 10^{−4} over the reliable daily range (s ≤ 50), about 2.5% of the corresponding cumulative return variance; its effect on the DCCA estimates is negligible.",
+ "implying a scaling factor of 3.151. Because the decomposition is applied to logarithmic rather than arithmetic returns, it carries a small Jensen-inequality term; at the daily frequency this term is 3.6 × 10^{−6} per day and, accumulated over the reliable daily horizons (up to 50 days), remains below 2.5% of the corresponding cumulative return variance, so its effect on the DCCA estimates is negligible."),
+("the denominator 1 − w_{heur} collapses toward zero (0.0115–0.0135)","the denominator collapses toward zero (0.0115–0.0135)"),
+("the ratio-spread proxy, P_{ratio,t} = Δln(P_{100,t}/P_{30,t}) = R_{100,t} − R_{30,t}, and the orthogonal residual proxy, P_{res,t} = ε_{t} = R_{100,t} − α_{OLS} − β_{OLS}R_{30,t}.",
+ "the ratio-spread proxy (P_{ratio}), defined as the change in the log ratio of VN100 to VN30 and therefore equal to the VN100 return minus the VN30 return, and the orthogonal residual proxy (P_{res}), defined as the residual of the auxiliary regression above."),
+("which introduces a time-varying return leakage term proportional to the weight discrepancy w_{30,t} − w^{*}. Because only one factsheet snapshot of free-float weights is available, we do not reconstruct the historical path of w_{30,t}; instead, Section 3.8.2 re-estimates the key statistics for w_{30} ∈ [0.60, 0.75], a range that brackets plausible drift around the baseline.",
+ "which introduces a time-varying leakage of large-cap returns into the proxy, proportional to the gap between the true and the baseline weight. Because only one factsheet snapshot of free-float weights is available, we do not reconstruct the historical weight path; instead, Section 3.8.2 re-estimates the key statistics for weights between 0.60 and 0.75, a range that brackets plausible drift around the baseline."),
+("require that the conditioning benchmark x_{t} be exogenous, with no contemporaneous feedback from y_{t} to x_{t}.","require that the conditioning benchmark be exogenous, with no contemporaneous feedback from the dependent series."),
+("the formal test of a structural correlation increase (H_{0}: ρ^{*} ≤ ρ_{low}) to the P_{cap}–VN30 pair.","the formal test of a structural correlation increase to the P_{cap}–VN30 pair."),
+("weakens the exogeneity condition (Cov(ε_{t}, x_{t}) = 0), so ρ^{*} should be interpreted","weakens the exogeneity condition, so the adjusted correlation should be interpreted"),
+("with the timescale s evaluated on 30 logarithmically spaced points between s = 5 and s = ⌊N/4⌋ (5 ≤ s ≤ 5,485 at M30); Section 3.8.1 re-estimates the regression below the reliability threshold s_{rel} (Section 3.3).",
+ "with the timescale evaluated on 30 logarithmically spaced points between 5 bars and one quarter of the sample length (5 to 5,485 bars at M30); Section 3.8.1 re-estimates the regression below the reliability threshold of Section 3.3."),
+("standard errors with lag truncation L_{NW} = ⌊4(N_{scales}/100)^{2/9}⌋ = 3.","standard errors with a lag truncation of three, the value given by the standard data-dependent rule for 30 observations."),
+("The generalized cross-correlation exponent h_{xy}(q), frequently denoted λ_{xy}(q), is the OLS slope of ln F_{q}(s) on ln s over 24 logarithmically spaced scales, following the power law F_{q}(s) ∝ s^{h(q)} with h(q) ≡ h_{xy}(q). Through the Legendre transform, the singularity strength α and spectrum f(α) are:",
+ "The generalized cross-correlation exponent h(q) is the slope of the log fluctuation function against the log timescale over 24 logarithmically spaced scales. Through the Legendre transform, the singularity strength α and the spectrum f(α) are:"),
+("When asset volatilities are identical (σ_{1} = σ_{2}), the term ½(σ_{1}/σ_{2} + σ_{2}/σ_{1}) equals one. In the daily data (Table 1), σ_{1} = 0.012384 for P_{cap} and σ_{2} = 0.012131 for VN30, so σ_{1}/σ_{2} = 1.0209 and the term equals 1.0002, changing the denominator by only 0.02%; all reported figures nevertheless use the exact expression.",
+ "When the two assets have equal volatility, the volatility term in the denominator equals one. In the daily data (Table 1), the volatilities of P_{cap} (0.0124) and VN30 (0.0121) are so close that the term equals 1.0002, changing the denominator by only 0.02%; all reported figures nevertheless use the exact expression."),
+("but the adjustment factor [1 + 7.06(1 − 0.929^{2})]^{1/2} = 1.402 pulls ρ^{*} down to 0.663,","but the volatility adjustment (a factor of 1.402) pulls the adjusted correlation down to 0.663,"),
+("Raw cross-tier correlation rises from ρ_{low} = 0.844 in calm years to ρ_{high} = 0.924 during crises,","Raw cross-tier correlation rises from 0.844 in calm years to 0.924 during crises,"),
+("the adjusted crisis correlation falls to ρ^{*} = 0.803, below its calm level,","the adjusted crisis correlation falls to 0.803, below its calm level,"),
+("the calm-regime correlation is ρ_{low} = 0.633, whereas the full-sample static correlation is ρ_{static} = 0.889, so the static model overstates portfolio variance by RE_{low} = +15.63%;",
+ "the calm-regime correlation is 0.633, whereas the full-sample static correlation is 0.889, so the static model overstates portfolio variance by 15.63%;"),
+("understates portfolio variance by RE_{high} = −2.10% under the rolling definition and by −1.83%","understates portfolio variance by 2.10% under the rolling definition and by 1.83%"),
+("indistinguishable from zero (β_{scale} = 0.0001, p = 0.636, R^{2} = 0.020):","indistinguishable from zero (0.0001, p = 0.636):"),
+("VN30–VNINDEX (β_{scale} = 0.0016, p < 0.001), VN100–VNINDEX (β_{scale} = 0.0009, p = 0.038) and P_{cap}–VN30 (β_{scale} = 0.0025, p = 0.009).","VN30–VNINDEX (0.0016, p < 0.001), VN100–VNINDEX (0.0009, p = 0.038) and P_{cap}–VN30 (0.0025, p = 0.009)."),
+("slope is insignificant (β_{scale} = 0.0014, p = 0.47), whereas VN30–VNINDEX remains significant (β_{scale} = 0.0020, p < 0.001).","slope is insignificant (0.0014, p = 0.47), whereas VN30–VNINDEX remains significant (0.0020, p < 0.001)."),
+("both imply an upward-sloping scaling trajectory (β_{scale} > 0),","both imply correlations that rise with the timescale,"),
+("strengthen in the reliable range (β_{{scale}} = 0.0022, p < 0.001 for both)","strengthen in the reliable range (0.0022, p < 0.001 for both)"),
+("keeps its positive sign (β_{{scale}} = {f(b['slope'],4)})","keeps its positive sign ({f(b['slope'],4)})"),
+("(s ≤ s_{{rel}} = {rel_m30} at M30)","(timescales up to {rel_m30} bars at M30)"),
+("for large-cap weights from w_{30} = 0.60 to w_{30} = 0.75.","for large-cap weights from 0.60 to 0.75."),
+("(from 0.924 at w_{30} = 0.60 to 0.824 at w_{30} = 0.75)","(from 0.924 at a weight of 0.60 to 0.824 at 0.75)"),
+("(significant at the 5% level for w_{30} ≥ 0.65 and at the 10% level for w_{30} = 0.60)","(significant at the 5% level for weights of at least 0.65 and at the 10% level for 0.60)"),
+("Because the number of segments shrinks as s grows, ρ_{DCCA}(s) becomes unreliable at large timescales. For each sample size N, we simulate pairs of Gaussian white-noise series with known correlation ρ_{0} ∈ {−0.3, 0, 0.3, 0.5, 0.7, 0.9} (167 replications per value, 1,002 per frequency) and compute the mean absolute error |ρ_{DCCA}(s) − ρ_{0}| on 40 log-spaced scales. The threshold s_{rel} is the largest scale below the first scale at which the worst-case error exceeds 0.05.",
+ "Because the number of segments shrinks as the timescale grows, the DCCA coefficient becomes unreliable at large timescales. For each sample size, we simulate pairs of Gaussian white-noise series with known correlations of −0.3, 0, 0.3, 0.5, 0.7 and 0.9 (167 replications each, 1,002 per frequency) and compute the mean absolute estimation error on 40 log-spaced scales. The reliability threshold is the largest scale below the first scale at which the worst-case error exceeds 0.05."),
+("However, the multifractal spectrum width Δh = h_{xy}(−5) − h_{xy}(5) reveals","However, the multifractal spectrum width, the difference between the exponents at q = −5 and q = 5, reveals"),
+("For the nested index pairs, Δh spans 0.252–0.431.","For the nested index pairs, the width spans 0.252–0.431."),
+]
+bad=[a[:60] for a,b in R if a not in s]
+assert not bad, bad
+for a,b in R: s=s.replace(a,b)
+extra='''
+set_text(P[98], "As market volatility rises from a calm to a crisis regime, the unadjusted correlation increases toward one purely because the variance of the conditioning market rises, even when the structural slope and residual variance remain constant.")
+set_text(P[108], "To evaluate how cross-correlation scales with the investment horizon, we regress the DCCA coefficient of each index pair at each trading frequency on the logarithm of the timescale; the slope coefficient is the multiscale scaling slope:")
+set_text(P[111], "We also account for the Epps (1979) effect: at high frequencies (M30, H1), non-synchronous transactions between liquid VN30 large caps and less liquid mid-caps depress the correlation at small timescales (roughly ten bars or fewer). As the timescale increases, aggregation synchronizes price discovery, producing a positive scaling slope that reflects the fading of microstructure frictions combined with gradual information diffusion (Hong and Stein 1999).")
+set_text(P[113], "To capture multifractal heterogeneity across fluctuation magnitudes, we implement the MF-DCCA of Zhou (2008) with the absolute-value operator (Oświęcimka et al. 2014), incorporating bivariate moving-average formalisms (Jiang and Zhou 2011). The q-th order fluctuation function is:")
+set_text(P[120], "The multifractal spectrum width, the difference between the exponents at the smallest and largest q, quantifies the degree of multifractal complexity and sensitivity to market shocks.")
+'''
+s=s.replace("# ---- 3.6 MF-DCCA", extra+"\n# ---- 3.6 MF-DCCA")
+open(p,'w').write(s); print('patched', len(R))

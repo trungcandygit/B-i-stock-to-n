@@ -1,0 +1,9 @@
+List of 7
+ $ detrend_order_rho       : num [1:3] 0.967 0.966 0.967
+ $ alt_proxy_mean_rho_range: num [1:2] -0.163 0.067
+ $ jensen_delta            : num 3.63e-06
+ $ n_crisis_days           : int 539
+ $ n_calm_days             : int 1000
+ $ vol_quartiles_ann_pct   : Named num [1:2] 10.6 20
+  ..- attr(*, "names")= chr [1:2] "25%" "75%"
+ $ m30_scale_grid          : num [1:2] 5 5485
