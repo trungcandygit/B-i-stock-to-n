@@ -178,3 +178,19 @@ def delete_col(tbl, c):
             tw = tc.find(W + 'tcPr/' + W + 'tcW')
             if tw is not None and tw.get(W + 'type') == 'dxa':
                 tw.set(W + 'w', str(int(tw.get(W + 'w')) + add))
+
+
+def add_row(tbl, template_index=-1):
+    trs = tbl.findall(W + 'tr'); new = copy.deepcopy(trs[template_index]); trs[-1].addnext(new); return new
+
+
+def add_col(tbl, template_col=-1):
+    grid = tbl.find(W + 'tblGrid'); gcols = grid.findall(W + 'gridCol')
+    newg = copy.deepcopy(gcols[template_col]); gcols[-1].addnext(newg)
+    for tr in tbl.findall(W + 'tr'):
+        tcs = tr.findall(W + 'tc')
+        if len(tcs) == 1:
+            gs = tcs[0].find(W + 'tcPr/' + W + 'gridSpan')
+            if gs is not None: gs.set(W + 'val', str(int(gs.get(W + 'val')) + 1))
+            continue
+        tcs[-1].addnext(copy.deepcopy(tcs[template_col]))
