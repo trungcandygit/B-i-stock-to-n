@@ -21,6 +21,15 @@ sửa 1 dòng), phải gọi `Skill` tool để load skill ARS phù hợp, đọ
 - Skill nội bộ `Python for Algorithmic Trading/NCKH/Bài stock toán/skill gộp/` (quy tắc biên tập,
   checklist 120 điểm, playbook từng section) dùng **bổ sung** khi sửa bài báo.
 
+## 1b. FORCE RULE — Không hỏi lại
+
+- Người dùng đã ủy quyền trước: **không hỏi lại, không dừng chờ xác nhận** — kể cả các checkpoint
+  "user must confirm" / IRON RULE xác nhận cấu hình của skill ARS. Tự chọn mặc định hợp lý nhất theo
+  skill, ghi lại quyết định + lý do vào `notes/AUDIT_LEDGER.md`, và làm tới khi ra sản phẩm cuối.
+- Không dùng AskUserQuestion. Chỉ dừng khi thật sự bị chặn (thiếu dữ liệu không thể suy ra) — khi đó
+  ghi rõ vào ledger và vẫn hoàn thành mọi phần còn lại.
+- Mọi chỉnh sửa phải chỉn chu nhất theo skill (quy trình, checklist, IRON RULE về trích dẫn thật).
+
 ## 2. FORCE RULE — Thực nghiệm bằng R
 
 - Mọi thực nghiệm, phân tích, chạy lại code, vẽ hình, bảng số liệu mới đều làm bằng **R** (`Rscript`).

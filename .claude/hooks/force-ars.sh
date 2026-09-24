@@ -11,7 +11,8 @@ MSG='[FORCE RULE — BẮT BUỘC 100%] Trước khi làm BẤT KỲ task nào t
 - Nghiên cứu, tổng quan tài liệu, fact-check, phương pháp → Skill "deep-research"
 - Quy trình trọn gói research→write→review→revise→finalize, hoặc KHÔNG chắc chọn skill nào → Skill "academic-pipeline" (orchestrator, mặc định)
 Đọc SKILL.md của skill đó rồi làm theo quy trình của nó. Nếu skill đã load trong phiên này thì vẫn phải bám theo nó cho task mới.
-[FORCE RULE — R] Mọi thực nghiệm/phân tích/chạy lại code/vẽ hình đều làm bằng R (Rscript), không dùng Python cho thực nghiệm mới. Kết quả phải khớp 100% với số liệu trong bài báo; lệch thì phải báo và sửa. Chi tiết: CLAUDE.md.'
+[FORCE RULE — R] Mọi thực nghiệm/phân tích/chạy lại code/vẽ hình đều làm bằng R (Rscript), không dùng Python cho thực nghiệm mới. Kết quả phải khớp 100% với số liệu trong bài báo; lệch thì phải báo và sửa. Chi tiết: CLAUDE.md.
+[FORCE RULE — KHÔNG HỎI LẠI] Người dùng đã ủy quyền trước: KHÔNG hỏi lại, KHÔNG dừng chờ xác nhận (kể cả các checkpoint/IRON RULE "user must confirm" của skill). Tự chọn phương án mặc định hợp lý nhất theo skill, ghi quyết định vào notes/AUDIT_LEDGER.md, làm đến khi xong sản phẩm cuối. Mọi chỉnh sửa phải chỉn chu nhất theo skill.'
 
 python3 - "$EVENT" "$MSG" <<'PY' 2>/dev/null || printf '%s\n' "$MSG"
 import json, sys
