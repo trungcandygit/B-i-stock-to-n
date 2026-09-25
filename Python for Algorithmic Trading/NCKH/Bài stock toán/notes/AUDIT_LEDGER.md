@@ -1,5 +1,11 @@
 # Audit Ledger — BaiBao_DCCA_EN
 
+## Iter 23 — journal-fit check against the APFM aims & scope (academic-paper-reviewer, Journal-Fit seat only)
+
+- D26 Verdict: in scope. The scope names "financial time series", "portfolio analysis", "global asset allocation" and risk management, and it welcomes "empirical studies that use Asia-Pacific market data". The manuscript uses Vietnamese (HOSE) index data, multiscale/multifractal time-series methods, and portfolio-variance and allocation implications. No criteria binding was supplied (`criteria_binding_unavailable`), so this is a judgement against the pasted scope text only.
+- D27 The cover-letter scope sentence was rewritten to use the journal's own terms (financial engineering, financial time series, portfolio analysis, risk management, Asia-Pacific market data). No manuscript change was made.
+- Residual fit risks (no action; the user's no-new-references rule applies): the manuscript cites no paper from APFM itself, and the DCCA/econophysics framing may send it to a physics-leaning handling editor.
+
 ## Iter 22 — submission package for Asia-Pacific Financial Markets + repository clean-up
 
 - D20 Package `submission/APFM_submission/` modelled on the authors' folder layout (00–08). Title page and cover letter are rebuilt from the authors' uploaded templates for this manuscript and journal (the templates were for a different paper and journal).
