@@ -6,6 +6,22 @@ Nguồn mẫu (skill, hook, quy trình đã chạy thành công) nằm ở repo 
 
 ---
 
+## ⚡ FORCE RULE — CỨ LÀM, KHÔNG HỎI LẠI (áp dụng cho toàn bộ file này)
+
+Người dùng đã uỷ quyền trước cho mọi bước bên dưới. Phiên làm việc phải:
+1. **Không hỏi lại, không dừng chờ xác nhận**, kể cả ở các checkpoint "user must confirm", "present to user", "IRON RULE xác nhận cấu hình" của skill ARS, của proofreading (interactive mode được thay bằng report mode + tự sửa) và của stop-slop. Không dùng AskUserQuestion.
+2. **Ở chỗ nào skill yêu cầu người dùng chọn, tự chọn** phương án mặc định hợp lý nhất theo skill, và ghi *quyết định + lý do* vào `notes/AUDIT_LEDGER.md`. Các chỗ này gồm: chọn câu hỏi nghiên cứu, cấu hình reviewer, triage revision roadmap, số vòng sửa, xử lý optional findings.
+3. **Tự đi tiếp từng giai đoạn S0 → S11** (§2) cho đến Definition of Done (§8), không chờ lệnh "làm tiếp". Mỗi phiên mới: load `academic-pipeline`, đọc HANDOFF.md và ledger, làm tiếp giai đoạn chưa xong.
+4. **Chỉ được dừng trong 2 trường hợp:**
+   - (a) thiếu dữ liệu mà không thể suy ra (ví dụ bài gốc chưa được push);
+   - (b) việc tiếp theo sẽ vi phạm §0 (đăng trùng lặp, bịa dữ liệu hoặc trích dẫn).
+
+   Khi dừng: ghi rõ lý do vào ledger, hoàn thành mọi phần khác làm được, rồi báo người dùng một lần, ngắn gọn.
+5. "Không hỏi lại" **không** cho phép bỏ qua IRON RULE về liêm chính (§0), về trích dẫn thật, hay về khớp 100% với output R.
+6. Xong việc: commit, **push lên `main`**, gửi người dùng một bản tóm tắt ngắn kèm lệnh `git pull`.
+
+---
+
 ## 0. Mục tiêu và ranh giới liêm chính (IRON RULE — không được vi phạm)
 
 **Mục tiêu:** từ **cùng bộ dữ liệu** của bài ESG2 gốc, viết một bài báo **mới thật sự** để gửi tạp chí
