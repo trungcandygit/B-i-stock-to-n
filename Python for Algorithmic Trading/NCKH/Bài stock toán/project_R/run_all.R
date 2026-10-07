@@ -220,7 +220,7 @@ g1 <- ggplot(f1, aes(date, vol)) +
            size = 2.5, family = "sans", lineheight = .85) +
   scale_y_continuous(limits = c(0, ytop * 1.3), expand = c(0, 0)) + scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
   labs(x = "Date", y = "20-day rolling volatility (annualized, %)") + theme_paper
-ggsave(file.path(OUT, "figures", "fig1_volatility_regimes.png"), g1, width = 6.5, height = 3.2, dpi = 600)
+ggsave(file.path(OUT, "figures", "fig1_volatility_regimes.png"), g1, width = 6.5, height = 3.2, dpi = 600, device = png, type = "cairo")
 ggsave(file.path(OUT, "figures", "Fig1.eps"), g1, width = 6.5, height = 3.2, device = cairo_ps)
 # Figure 2: multiscale DCCA curves, four panels
 lab_tf <- c("1D" = "(a) Daily (1D)", "M30" = "(b) 30-minute (M30)", "H1" = "(c) 1-hour (H1)", "H4" = "(d) 4-hour (H4)")
@@ -233,7 +233,7 @@ g2 <- ggplot(f2, aes(s, rho_dcca, linetype = pair, shape = pair)) + geom_line(li
   geom_vline(data = vl, aes(xintercept = s), linetype = "dotted") + scale_x_log10() +
   scale_linetype_discrete(labels = PAIR_LAB) + scale_shape_discrete(labels = PAIR_LAB) +
   facet_wrap(~panel, ncol = 2, scales = "free_x") + labs(x = "Timescale s (bars, log scale)", y = expression(rho[DCCA](s))) + theme_paper
-ggsave(file.path(OUT, "figures", "fig2_dcca_curves.png"), g2, width = 6.5, height = 5, dpi = 600)
+ggsave(file.path(OUT, "figures", "fig2_dcca_curves.png"), g2, width = 6.5, height = 5, dpi = 600, device = png, type = "cairo")
 ggsave(file.path(OUT, "figures", "Fig2.eps"), g2, width = 6.5, height = 5, device = cairo_ps)
 # Figure 3: MF-DCCA spectra and generalized exponents (daily), one shared legend
 sp <- spec[spec$pair %in% PAIR_LEV, ]
@@ -243,9 +243,16 @@ f3$pair <- factor(f3$pair, levels = PAIR_LEV)
 g3 <- ggplot(f3, aes(x, y, linetype = pair, shape = pair)) + geom_line(linewidth = .4) + geom_point(size = 1.2) +
   facet_wrap(~panel, ncol = 2, scales = "free", labeller = label_parsed) + scale_linetype_discrete(labels = PAIR_LAB) + scale_shape_discrete(labels = PAIR_LAB) +
   labs(x = expression(alpha~"(panel a)"~~"or"~~q~"(panel b)"), y = expression(f(alpha)~"(panel a)"~~"or"~~h[xy](q)~"(panel b)")) + theme_paper
-ggsave(file.path(OUT, "figures", "fig3_mfdcca.png"), g3, width = 6.5, height = 3.4, dpi = 600)
+ggsave(file.path(OUT, "figures", "fig3_mfdcca.png"), g3, width = 6.5, height = 3.4, dpi = 600, device = png, type = "cairo")
 ggsave(file.path(OUT, "figures", "Fig3.eps"), g3, width = 6.5, height = 3.4, device = cairo_ps)
 
 saveRDS(res, file.path(OUT, "scalars.rds"))
 sink(file.path(OUT, "scalars.txt")); str(res); sink()
 say("DONE")
+
+# ---------------------------------------------------------------- revision analyses (rounds 1 and 2)
+# Set RUN_ALL_MAIN_ONLY=1 to skip. run_round2.R also redraws Fig. 2 with bootstrap bands and draws Fig. 4.
+if (!nzchar(Sys.getenv("RUN_ALL_MAIN_ONLY"))) {
+  stopifnot(system2("Rscript", "run_revision.R") == 0)
+  stopifnot(system2("Rscript", "run_round2.R") == 0)
+}
