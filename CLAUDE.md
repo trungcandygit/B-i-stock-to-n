@@ -3,8 +3,10 @@
 ## 1. FORCE RULE — Luôn load skill academic-research-skills (ARS)
 
 **Bắt buộc 100%, không ngoại lệ.** Mọi task (kể cả task nhỏ, câu hỏi, sửa 1 dòng) phải làm theo skill ARS phù hợp.
-**Tự động load:** ở task đầu tiên của phiên — hoặc khi cần một skill ARS chưa load trong phiên — gọi `Skill` tool
-để load; skill đã load còn hiệu lực cả phiên, không gọi lại, chỉ tiếp tục tuân thủ 100% SKILL.md của nó.
+**Tự động load mỗi lần:** với MỖI yêu cầu/task mới của người dùng, gọi `Skill` tool load skill ARS phù hợp
+trước khi làm bất cứ việc gì (kể cả khi đã load trước đó trong phiên); trong cùng một task không gọi lại.
+Phản biện / re-review / kiểm tra số liệu phải do **agent độc lập** (Agent tool, ngữ cảnh mới) làm; đi đủ mọi
+bước của skill để ra bản thảo mạnh nhất.
 
 | Loại task | Skill phải gọi |
 |---|---|
