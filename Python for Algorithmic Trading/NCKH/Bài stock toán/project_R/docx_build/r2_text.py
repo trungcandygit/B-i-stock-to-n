@@ -330,12 +330,14 @@ def methodology():
               "is a closed-form identity; no optimization is involved. Intervals come from the within-regime block bootstrap."),
         ('h2', '4.8 Multifractal extension'),
         ('p1a', "To examine whether scaling differs between small and large fluctuations, we use multifractal DCCA (MF-DCCA; Zhou "
-                "2008) with absolute local covariances, which avoids complex-valued moments (Oświęcimka et al. 2014):"),
+                "2008) with absolute local covariances, which avoids complex-valued moments:"),
         ('eq', r'F_q(s)=\left\{\frac{1}{2N_s}\sum_{\nu=1}^{2N_s}\left|f^2_{XY}(s,\nu)\right|^{q/2}\right\}^{1/q},\qquad q\in[-5,5]\setminus\{0\}. \qquad (14)'),
         ('p', "The generalized exponent h_xy(q) is the slope of ln F_q(s) on ln s over 24 log-spaced scales, and the range "
               "Δh = h_xy(−5) − h_xy(5) measures the strength of multifractality. Because fat tails alone widen Δh, each observed "
               "range is compared with 100 surrogates in which the paired returns are jointly shuffled, which preserves the return "
-              "distributions and their contemporaneous correlation but destroys temporal structure."),
+              "distributions and their contemporaneous correlation but destroys temporal structure. Oświęcimka et al. (2014) show that taking absolute values of local covariances can "
+              "create spurious multifractality and propose a sign-preserving alternative; we therefore treat the multifractal "
+              "results as descriptive and base no hypothesis test on them."),
         ('h2', '4.9 Computational details'),
         ('p1a', "All computations use R 4.3.3 with the packages stats (base), sandwich 3.1.0 and ggplot2 3.4.4 on an Intel Xeon "
                 "processor (2.10 GHz, four cores). OLS fits use the QR decomposition, so no iterative optimization, tolerance or "
@@ -428,7 +430,7 @@ def results():
         tab4,
         ('p', f"The nested pairs average {rng(nested_all)} at every frequency in both samples, whereas P_cap–VN30 averages "
               f"{rng(pcap_all)}. The gap of {rng(gap_vals[:4])} in the full sample has bootstrap intervals between {f(gap_lo)} and "
-              f"{f(gap_hi)}, all excluding zero, and Cohen’s q of {rng(qv, 2)} indicates a large effect on the Fisher scale. "
+              f"{f(gap_hi)}, all excluding zero, and Cohen’s q (Cohen 1988) of {rng(qv, 2)} indicates a large effect on the Fisher scale. "
               f"{'H1 is supported.' if H1_ok else 'H1 is not supported at every frequency.'} The purged coefficient remains high, so "
               "the overlap inflates co-movement that is already strong rather than creating it. The two samples differ by at most "
               f"{f(max(abs(float(AVG[('A', t)]['nested_mean']) - float(AVG[('B', t)]['nested_mean'])) for t in TF), 3)} for the nested mean, "
@@ -570,7 +572,7 @@ def discussion():
               "index-level numbers suggest. It rises in crises only as much as the common volatility shock implies, consistent with "
               "the interdependence interpretation of Forbes and Rigobon (2002) rather than with a change in transmission. The small "
               "intraday horizon dependence of broad-market pairs matches the Epps (1979) effect: VNINDEX contains small stocks, "
-              "whose liquidity is thinner than that of large caps (Chen et al. 2021) and whose prices adjust with a lag, and aggregation over longer horizons removes the lag. Our "
+              "whose liquidity is more fragile than that of large caps (Chen et al. 2021) and whose prices adjust with a lag, and aggregation over longer horizons removes the lag. Our "
               "index-level data cannot separate this from gradual information diffusion (Hong and Stein 1999)."),
         ('h2', '6.2 Implications'),
         ('p1a', "For risk management, index-level correlations between nested benchmarks should not be used to measure "
@@ -641,7 +643,7 @@ def appendix():
 
 
 TABLE1 = T('Table 1 Prior studies of multiscale and crisis co-movement and the gap addressed here',
-           ['Study', 'Market and data', 'Method', 'Overlap treated?', 'Main finding', 'Limitation for our question'],
+           ['Study', 'Market and data', 'Method', 'Overlap treated?', 'Volatility conditioning?', 'Main finding'],
            TABLE1_ROWS, TABLE1_NOTE)
 
 

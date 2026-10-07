@@ -65,10 +65,10 @@ Three literatures bear on our question: multiscale dependence measured by detren
 :::
 
 ::: {custom-style="p1a"}
-Detrended cross-correlation analysis (DCCA) extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized the detrended covariance into a bounded coefficient, Podobnik et al. (2011) proposed tests for power-law cross-correlations, and Zhou (2008) generalized the method to multifractal moments (MF-DCCA). Later variants replace polynomial detrending by moving averages (Jiang and Zhou 2011; Kristoufek 2014), compute the coefficient in sliding windows (Guedes et al. 2021) or partial out third variables (Ge and Lin 2021). The methods disagree on one technical point that matters for finance: MF-DCCA must handle negative local covariances, and Oświęcimka et al. (2014) show that common implementations do so inconsistently, which can create spurious multifractality.
+Detrended cross-correlation analysis (DCCA) extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized the detrended covariance into a bounded coefficient, Podobnik et al. (2011) proposed tests for power-law cross-correlations, and Zhou (2008) generalized the method to multifractal moments (MF-DCCA). Later variants replace polynomial detrending by moving averages (Jiang and Zhou 2011; Kristoufek 2014), compute the coefficient in sliding windows (Guedes et al. 2021) or partial out third variables (Ge and Lin 2021). The methods disagree on one technical point that matters for finance: MF-DCCA must handle negative local covariances, and Oświęcimka et al. (2014) show that taking their absolute values, as many implementations do, can create spurious multifractality; they propose a sign-preserving alternative.
 :::
 
-Applied work agrees that financial dependence is scale-dependent. Stock–bond correlations differ across horizons (Al Rababa’a et al. 2021), cross-market correlations between China and the United States vary with scale and fluctuation size (Chen et al. 2024; Ge and Lin 2021), and multifractal cross-correlations carry information about the direction of information flow between markets (Zhou et al. 2025). Two strands then use these coefficients for decisions. One measures crisis transmission: Okorie and Lin (2021) find fractal contagion in the stock markets of 32 economies during COVID-19 that fades at medium and long horizons, and Tilfani et al. (2021) track contagion with the DCCA coefficient in sliding windows. The other builds portfolios: mean-DCCA and multifractal portfolio rules outperform mean-variance rules in several samples (Wang et al. 2021; Kakinaka et al. 2025).
+Applied work agrees that financial dependence is scale-dependent. Stock–bond correlations differ across horizons (Al Rababa’a et al. 2021), cross-market correlations between China and the United States vary with scale and fluctuation size (Ge and Lin 2021; Chen et al. 2024), and combining MF-DCCA with transfer entropy reveals both multifractal cross-correlations and the direction of information flow among individual US stocks (Zhou et al. 2025). Two strands then use these coefficients for decisions. One measures crisis transmission: Okorie and Lin (2021) find fractal contagion in the stock markets of 32 economies during COVID-19 that fades over the medium and long run, and Tilfani et al. (2021) track contagion with the DCCA coefficient in sliding windows. The other builds portfolios: a multifractal mean-MF-X-DMA rule outperforms the mean-variance model (Wang et al. 2021), and mean-DCCA portfolios perform better when the investor’s preferred scale adapts to market conditions (Kakinaka et al. 2025).
 
 These strands share an assumption that is rarely stated. They treat the DCCA coefficient between two series as a measure of economic dependence, which is reasonable for disjoint assets such as stocks and bonds or two national markets. When one series contains the other, the coefficient also contains an arithmetic component that a portfolio optimizer or a contagion test would misread. None of the studies above analyzes nested pairs or separates such a component.
 
@@ -80,19 +80,19 @@ These strands share an assumption that is rarely stated. They treat the DCCA coe
 A separate literature shows that index membership itself changes co-movement. Barberis et al. (2005) find that stocks added to the S&P 500 co-move more with the index afterwards, a result they attribute to trading frictions and investor habitats rather than to fundamentals. Recent work confirms the effect with sharper designs: DeCoste (2025) uses a regression discontinuity around the membership threshold and finds higher co-movement with no change in fundamentals, and Liao et al. (2022) attribute part of it to common demand from index trackers and beta arbitrageurs. The evidence is not uniform, however: Greenwood and Sammon (2025) document that the price effect of S&P 500 additions has almost disappeared, which suggests that membership effects depend on market structure and may weaken as indexing grows.
 :::
 
-This literature concerns behavioral co-movement among stocks, and its effects are small relative to the overlap we study. Our concern is the arithmetic overlap between indices: when VN30 is part of VN100, their correlation is high even if no investor behaves differently because of index membership. Multiscale studies that address redundant exposures do so with statistical tools, such as wavelet partial correlations for clusters of stocks (Michis 2022), or study volume–return rather than index–index dependence (Rodriguez and Alvarez-Ramirez 2021), so the arithmetic overlap has not been isolated.
+This literature concerns behavioral co-movement among stocks. Our concern is the arithmetic overlap between indices: when VN30 is part of VN100, their correlation is high even if no investor behaves differently because of index membership. Multiscale studies that address redundant exposures do so with statistical tools, such as wavelet partial correlations for clusters of stocks (Michis 2022), or study volume–return rather than index–index dependence (Rodriguez and Alvarez-Ramirez 2021), so the arithmetic overlap has not been isolated.
 
-Vietnamese evidence suggests that both mechanisms could matter on the HOSE. Liquidity is concentrated in large firms and fell for small firms after the introduction of market surveillance (Chen et al. 2021), herding appears on the HOSE during stress (Nguyen et al. 2023), sector connectedness exceeds 60% and rose to about 90% during COVID-19 (Bui et al. 2022), price adjustment is delayed under retail-heavy trading (Tran and Tran 2025), and dependence on regional markets is nonlinear (Le et al. 2025). High connectedness and herding raise all correlations, which makes it harder, not easier, to read index-level correlations as evidence about the tiers.
+Vietnamese evidence suggests that both mechanisms could matter on the HOSE. Liquidity fell after the introduction of a market surveillance system, especially for small firms (Chen et al. 2021), herding appears on the HOSE during stress (Nguyen et al. 2023), sector connectedness exceeds 60% and rose to about 90% during COVID-19 (Bui et al. 2022), price adjustment is delayed under retail-heavy trading (Tran and Tran 2025), and dependence on regional markets is nonlinear (Le et al. 2025). High connectedness and herding raise all correlations, which makes it harder, not easier, to read index-level correlations as evidence about the tiers.
 
 ::: {custom-style="heading2"}
 2.3 Volatility, contagion and interdependence
 :::
 
 ::: {custom-style="p1a"}
-Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but Forbes and Rigobon (2002) show that unadjusted correlations rise mechanically with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than contagion. The COVID-19 literature illustrates the resulting disagreement. Studies that do not condition on volatility report contagion: conditional correlations between Chinese and G7 firms rose, especially for financial firms (Akhtaruzzaman et al. 2021), contagion channels multiplied in a network of 19 markets (Guo et al. 2021) and copula dependence intensified across Asian and American indices (Benkraiem et al. 2022). A DCCA-based test that compares coefficients before and during the crisis finds instead that pairs that were already highly interdependent showed no contagion (Santana et al. 2023). Whether a crisis increase is structural thus depends on how volatility is treated, and no study applies the correction to tiers of the same market whose indices overlap.
+Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but Forbes and Rigobon (2002) show that unadjusted correlations rise mechanically with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than contagion. The COVID-19 literature illustrates the resulting disagreement. Studies that do not apply the Forbes–Rigobon correction report contagion: conditional correlations between Chinese and G7 firms rose, especially for financial firms (Akhtaruzzaman et al. 2021), contagion channels multiplied in a network of 19 markets (Guo et al. 2021) and copula dependence intensified across Asian and American indices (Benkraiem et al. 2022). A DCCA-based test on commodities that compares coefficients before and during the crisis finds no contagion between two crude-oil benchmarks that were already highly interdependent, but contagion between crude oil and precious metals (Santana et al. 2023). Whether a crisis increase is structural thus depends on the pair and on how volatility is treated, and no study applies the correction to tiers of the same market whose indices overlap.
 :::
 
-Horizon effects add a further layer. Non-synchronous trading depresses correlations at short horizons (Epps 1979), and the size of this Epps effect depends on how prices are sampled (Chang et al. 2021). Gradual information diffusion (Hong and Stein 1999) can make co-movement build up with the horizon among stocks that adjust at different speeds. In ASEAN markets integration varies over time with trade links and volatility (Karim and Ning 2013; Lean and Teng 2013), so horizon and regime effects can interact.
+Horizon effects add a further layer. Non-synchronous trading depresses correlations at short horizons (Epps 1979), and the size of this Epps effect depends on how prices are sampled (Chang et al. 2021). Gradual information diffusion (Hong and Stein 1999) can make co-movement build up with the horizon among stocks that adjust at different speeds. In ASEAN markets integration varies over time with trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013), so horizon and regime effects can interact.
 
 ::: {custom-style="heading2"}
 2.4 Research gap
@@ -106,17 +106,17 @@ Table 1 compares representative studies on the dimensions relevant to our questi
 **Table 1** Prior studies of multiscale and crisis co-movement and the gap addressed here
 :::
 
-| Study | Market and data | Method | Overlap treated? | Main finding | Limitation for our question |
+| Study | Market and data | Method | Overlap treated? | Volatility conditioning? | Main finding |
 |---|---|---|---|---|---|
 | Podobnik and Stanley (2008); Zebende (2011) | Methodological | DCCA; ρDCCA | No | No | Defines scale-wise detrended covariance and its normalized coefficient |
 | Al Rababa’a et al. (2021) | Stock and bond markets | Multiscale correlation | No (disjoint assets) | No | Stock–bond correlation differs across horizons |
-| Okorie and Lin (2021) | 32 stock markets, COVID-19 | DCCA, DMCA | No | No | Fractal contagion that fades at longer horizons |
+| Okorie and Lin (2021) | 32 stock markets, COVID-19 | DCCA, DMCA | No | No | Fractal contagion that fades over the medium and long run |
 | Tilfani et al. (2021) | Stock market indices | Sliding-window ρDCCA | No | No | Time-varying cross-correlation and contagion |
 | Ge and Lin (2021); Chen et al. (2024) | China and United States | MF-DCCA; partial MF-DCCA | No | No | Scale- and size-dependent cross-correlation |
-| Wang et al. (2021); Kakinaka et al. (2025) | Stock portfolios | Mean-DCCA / MF-X-DMA portfolios | No | No | Scale-aware portfolios improve on mean-variance |
-| Santana et al. (2023) | Crude oil and precious metals, COVID-19 | ΔρDCCA test | No | Partly (pre/post comparison) | No contagion among already interdependent pairs |
+| Wang et al. (2021); Kakinaka et al. (2025) | Stock portfolios | Mean-MF-X-DMA / mean-DCCA portfolios | No | No | Scale-aware rules improve portfolio performance |
+| Santana et al. (2023) | Crude oil and precious metals, COVID-19 | ΔρDCCA test | No | No | No contagion between WTI and Brent; contagion between oil and precious metals |
 | Forbes and Rigobon (2002) | International stock markets | Heteroskedasticity-adjusted correlation | No | Yes | Crisis increases reflect interdependence |
-| Akhtaruzzaman et al. (2021) | China and G7 firms, COVID-19 | Dynamic conditional correlation | No | No | Contagion concentrated in financial firms |
+| Akhtaruzzaman et al. (2021) | China and G7 firms, COVID-19 | Dynamic conditional correlation | No | No Forbes–Rigobon correction | Contagion concentrated in financial firms |
 | Barberis et al. (2005); DeCoste (2025) | S&P 500 additions and membership | Event study; regression discontinuity | Membership, not overlap | No | Index membership raises co-movement |
 | Bui et al. (2022) | 24 Vietnamese sectors, 2012–2021 | Spillover connectedness | No | No | Connectedness 60–90%, highest in COVID-19 |
 | This study | VN30, VN100, VNINDEX; M30 to daily, 2014–2025 | DCCA, MF-DCCA, exact decomposition | Yes (exact, scale-wise) | Yes | Mechanical floor dominates nested correlations |
@@ -339,14 +339,14 @@ evaluated with regime-specific volatilities so that the static and regime cases 
 :::
 
 ::: {custom-style="p1a"}
-To examine whether scaling differs between small and large fluctuations, we use multifractal DCCA (MF-DCCA; Zhou 2008) with absolute local covariances, which avoids complex-valued moments (Oświęcimka et al. 2014):
+To examine whether scaling differs between small and large fluctuations, we use multifractal DCCA (MF-DCCA; Zhou 2008) with absolute local covariances, which avoids complex-valued moments:
 :::
 
 $$
 F_q(s)=\left\{\frac{1}{2N_s}\sum_{\nu=1}^{2N_s}\left|f^2_{XY}(s,\nu)\right|^{q/2}\right\}^{1/q},\qquad q\in[-5,5]\setminus\{0\}. \qquad (14)
 $$
 
-The generalized exponent h~xy~(q) is the slope of ln F~q~(s) on ln s over 24 log-spaced scales, and the range Δh = h~xy~(−5) − h~xy~(5) measures the strength of multifractality. Because fat tails alone widen Δh, each observed range is compared with 100 surrogates in which the paired returns are jointly shuffled, which preserves the return distributions and their contemporaneous correlation but destroys temporal structure.
+The generalized exponent h~xy~(q) is the slope of ln F~q~(s) on ln s over 24 log-spaced scales, and the range Δh = h~xy~(−5) − h~xy~(5) measures the strength of multifractality. Because fat tails alone widen Δh, each observed range is compared with 100 surrogates in which the paired returns are jointly shuffled, which preserves the return distributions and their contemporaneous correlation but destroys temporal structure. Oświęcimka et al. (2014) show that taking absolute values of local covariances can create spurious multifractality and propose a sign-preserving alternative; we therefore treat the multifractal results as descriptive and base no hypothesis test on them.
 
 ::: {custom-style="heading2"}
 4.9 Computational details
@@ -451,7 +451,7 @@ Table 4 compares the average DCCA coefficient of the nested pairs with that of t
 Notes: Averages of ρ(s) over s ≤ s~rel~ (Table 3), m = 1; nested pairs: mean of VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX. Brackets: block-bootstrap 95% intervals. Source: Authors’ calculations.
 :::
 
-The nested pairs average 0.975–0.980 at every frequency in both samples, whereas P~cap~–VN30 averages 0.883–0.892. The gap of 0.086–0.096 in the full sample has bootstrap intervals between 0.060 and 0.126, all excluding zero, and Cohen’s q of 0.78–0.89 indicates a large effect on the Fisher scale. H1 is supported. The purged coefficient remains high, so the overlap inflates co-movement that is already strong rather than creating it. The two samples differ by at most 0.004 for the nested mean, so the result does not depend on the sample window.
+The nested pairs average 0.975–0.980 at every frequency in both samples, whereas P~cap~–VN30 averages 0.883–0.892. The gap of 0.086–0.096 in the full sample has bootstrap intervals between 0.060 and 0.126, all excluding zero, and Cohen’s q (Cohen 1988) of 0.78–0.89 indicates a large effect on the Fisher scale. H1 is supported. The purged coefficient remains high, so the overlap inflates co-movement that is already strong rather than creating it. The two samples differ by at most 0.004 for the nested mean, so the result does not depend on the sample window.
 
 The reason is the structure of the indices rather than market behavior: the VN30 component appears on both sides of each nested pair, so its variance enters the numerator and the denominator of Eq. (5) and pulls the ratio toward one. The statistical proxies confirm that the remaining signal must be extracted with capitalization weights: their average coefficients with VN30 lie between −0.16 and 0.07, and they correlate with each other at 0.980–0.997 but with P~cap~ at only 0.277–0.486, so they behave as amplified residuals rather than as mid-cap returns.
 
@@ -626,7 +626,7 @@ Notes: All tests at the 5% level; details in Tables 4–7 and Section 5.7. Sourc
 The results have one common source. When a parent index contains a child index, the child’s variance appears in both terms of every covariance and in both standard deviations, and Proposition 1 shows that this fixes a floor below which the nested coefficient cannot fall. With VN30 holding 68% of VN100, the floor is near 0.90, so the observed 0.99 contains little information about how mid caps move with large caps. The same structure explains why the VN30–VN100 coefficient is flat across horizons and regimes: it is pinned to its floor, and the floor depends on time and scale only through relative volatility.
 :::
 
-Once the overlap is removed, the remaining dependence behaves like economic co-movement. It is high, because large and mid caps trade on the same exchange and respond to the same domestic shocks, but it is lower than the index-level numbers suggest. It rises in crises only as much as the common volatility shock implies, consistent with the interdependence interpretation of Forbes and Rigobon (2002) rather than with a change in transmission. The small intraday horizon dependence of broad-market pairs matches the Epps (1979) effect: VNINDEX contains small stocks, whose liquidity is thinner than that of large caps (Chen et al. 2021) and whose prices adjust with a lag, and aggregation over longer horizons removes the lag. Our index-level data cannot separate this from gradual information diffusion (Hong and Stein 1999).
+Once the overlap is removed, the remaining dependence behaves like economic co-movement. It is high, because large and mid caps trade on the same exchange and respond to the same domestic shocks, but it is lower than the index-level numbers suggest. It rises in crises only as much as the common volatility shock implies, consistent with the interdependence interpretation of Forbes and Rigobon (2002) rather than with a change in transmission. The small intraday horizon dependence of broad-market pairs matches the Epps (1979) effect: VNINDEX contains small stocks, whose liquidity is more fragile than that of large caps (Chen et al. 2021) and whose prices adjust with a lag, and aggregation over longer horizons removes the lag. Our index-level data cannot separate this from gradual information diffusion (Hong and Stein 1999).
 
 ::: {custom-style="heading2"}
 6.2 Implications
@@ -768,6 +768,10 @@ References
 :::
 
 ::: {custom-style="referenceitem"}
+Abdul Karim, B., & Xin Ning, H. (2013). Driving forces of the ASEAN-5 stock markets integration. Asia-Pacific Journal of Business Administration, 5(3), 186–191. https://doi.org/10.1108/APJBA-07-2012-0053
+:::
+
+::: {custom-style="referenceitem"}
 Akhtaruzzaman, M., Boubaker, S., & Sensoy, A. (2021). Financial contagion during COVID–19 crisis. Finance Research Letters, 38, 101604. https://doi.org/10.1016/j.frl.2020.101604
 :::
 
@@ -804,7 +808,11 @@ Chen, R., Geng, H., Lin, H., & Nguyen, P. T. L. (2021). Liquidity, informed trad
 :::
 
 ::: {custom-style="referenceitem"}
-Chen, Y., Zhang, J., Lu, L., & Xie, Z. (2024). Cross-correlation and multifractality analysis of the Chinese and American stock markets based on the MF-DCCA model. Heliyon, 10(15), e36537. https://doi.org/10.1016/j.heliyon.2024.e36537
+Chen, Y., Zhang, J., Lu, L., & Xie, Z. (2024). Cross-correlation and multifractality analysis of the Chinese and American stock markets based on the MF-DCCA model. Heliyon, 10(17), e36537. https://doi.org/10.1016/j.heliyon.2024.e36537
+:::
+
+::: {custom-style="referenceitem"}
+Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd ed.). Lawrence Erlbaum Associates. https://doi.org/10.4324/9780203771587
 :::
 
 ::: {custom-style="referenceitem"}
@@ -856,15 +864,11 @@ Kantelhardt, J. W., Zschiegner, S. A., Koscielny-Bunde, E., Havlin, S., Bunde, A
 :::
 
 ::: {custom-style="referenceitem"}
-Karim, B. A., & Ning, H. X. (2013). Driving forces of the ASEAN-5 stock markets integration. Asia-Pacific Journal of Business Administration, 5(3), 186–191. https://doi.org/10.1108/APJBA-07-2012-0053
-:::
-
-::: {custom-style="referenceitem"}
 Kristoufek, L. (2014). Detrending moving-average cross-correlation coefficient: Measuring cross-correlations between non-stationary series. Physica A: Statistical Mechanics and its Applications, 406, 169–175. https://doi.org/10.1016/j.physa.2014.03.015
 :::
 
 ::: {custom-style="referenceitem"}
-Le, T. T. V., Dang, T. P. T., & Phan, T. H. N. (2025). The nonlinear dependence of the Vietnam stock market on the Asian stock market: Evidence from a quantile-on-quantile regression. International Journal of Innovative Research and Scientific Studies, 8(4), 7901–7914. https://doi.org/10.53894/ijirss.v8i4.7901
+Le, T. T. V., Dang, T. P. T., & Phan, T. H. N. (2025). The nonlinear dependence of the Vietnam stock market on the Asian stock market: Evidence from a quantile-on-quantile regression. International Journal of Innovative Research and Scientific Studies, 8(4), 535–553. https://doi.org/10.53894/ijirss.v8i4.7901
 :::
 
 ::: {custom-style="referenceitem"}
@@ -904,11 +908,11 @@ Peng, C.-K., Buldyrev, S. V., Havlin, S., Simons, M., Stanley, H. E., & Goldberg
 :::
 
 ::: {custom-style="referenceitem"}
-Podobnik, B., & Stanley, H. E. (2008). Detrended cross-correlation analysis: A new method for analyzing two nonstationary time series. Physical Review Letters, 100(8), 084102. https://doi.org/10.1103/PhysRevLett.100.084102
+Podobnik, B., Jiang, Z.-Q., Zhou, W.-X., & Stanley, H. E. (2011). Statistical tests for power-law cross-correlated processes. Physical Review E, 84(6), 066118. https://doi.org/10.1103/PhysRevE.84.066118
 :::
 
 ::: {custom-style="referenceitem"}
-Podobnik, B., Jiang, Z.-Q., Zhou, W.-X., & Stanley, H. E. (2011). Statistical tests for power-law cross-correlated processes. Physical Review E, 84(6), 066118. https://doi.org/10.1103/PhysRevE.84.066118
+Podobnik, B., & Stanley, H. E. (2008). Detrended cross-correlation analysis: A new method for analyzing two nonstationary time series. Physical Review Letters, 100(8), 084102. https://doi.org/10.1103/PhysRevLett.100.084102
 :::
 
 ::: {custom-style="referenceitem"}
@@ -940,9 +944,9 @@ Zebende, G. F. (2011). DCCA cross-correlation coefficient: Quantifying level of 
 :::
 
 ::: {custom-style="referenceitem"}
-Zhou, W.-X. (2008). Multifractal detrended cross-correlation analysis for two nonstationary signals. Physical Review E, 77(6), 066211. https://doi.org/10.1103/PhysRevE.77.066211
+Zhou, W., Huang, J., & Wang, M. (2025). Multifractal characteristics and information flow analysis of stock markets based on multifractal detrended cross-correlation analysis and transfer entropy. Fractal and Fractional, 9(1), 14. https://doi.org/10.3390/fractalfract9010014
 :::
 
 ::: {custom-style="referenceitem"}
-Zhou, W., Huang, J., & Wang, M. (2025). Multifractal characteristics and information flow analysis of stock markets based on multifractal detrended cross-correlation analysis and transfer entropy. Fractal and Fractional, 9(1), 14. https://doi.org/10.3390/fractalfract9010014
+Zhou, W.-X. (2008). Multifractal detrended cross-correlation analysis for two nonstationary signals. Physical Review E, 77(6), 066211. https://doi.org/10.1103/PhysRevE.77.066211
 :::
