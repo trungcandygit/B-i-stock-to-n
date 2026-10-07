@@ -28,6 +28,8 @@ def slope(t, p, st): return MT[(t, p, st)]
 sig_rel = [(t, p) for (t, p, st), r in MT.items() if st == 'slope_rel' and float(r['ci_lo']) > 0]
 holm_rel = [(t, p) for (t, p, st), r in MT.items() if st == 'slope_rel' and float(r['p_holm']) < 0.05]
 bh_rel = [(t, p) for (t, p, st), r in MT.items() if st == 'slope_rel' and float(r['p_bh']) < 0.05]
+bh_min = min(float(r['p_bh']) for (t, p, st), r in MT.items() if st == 'slope_rel')
+H3_out = 'Partially supported' if bh_rel else 'Not supported after adjustment'
 fam = int(float(next(iter(MT.values()))['family_size']))
 B_REPS = 499
 
@@ -73,7 +75,8 @@ ABSTRACT = (
     f"observed VN30–VN100 coefficient (block-bootstrap 95% intervals within {f(share_lo, 3)}–{f(share_hi, 3)}), and that a change of "
     f"0.10 in the economic correlation moves the nested coefficient by only about {f(0.1 * sum(sens_v) / 4, 3)}. "
     f"Purging the overlap lowers the correlation with large caps by {rng(gap_vals[:4], 3)} (intervals exclude zero at all four "
-    "frequencies). Broad-market pairs show weak horizon dependence at intraday frequencies, while the purged correlation does not. "
+    "frequencies). Broad-market pairs show small positive horizon slopes at intraday frequencies that do not survive multiple-testing "
+    "adjustment, and the purged correlation shows none. "
     "Forbes–Rigobon volatility conditioning gives no evidence of crisis contagion between tiers, and a static correlation misstates "
     f"mid-cap portfolio variance by between {f(min(float(reAh['RE_pct']), float(reBh['RE_pct'])), 1)}% and +{f(float(reBl['RE_pct']), 1)}% "
     "across volatility regimes. The results apply to one market and three indices; the identity itself holds for any nested pair."
@@ -479,20 +482,25 @@ def results():
         tab6,
         ('p', "Three patterns emerge. First, the VN30–VN100 slope is indistinguishable from zero in both ranges, as Proposition 1 "
               "predicts: the coefficient is bounded below by its floor and almost insensitive to the economic correlation, and both depend on scale only through κ(s) and ρ_AM(s). Second, the broad-market "
-              f"pairs VN30–VNINDEX and VN100–VNINDEX have positive reliable-range slopes ({f(slope('M30', 'VN30-VNINDEX', 'slope_rel')['estimate'], 4)} "
+              f"pairs VN30–VNINDEX and VN100–VNINDEX have positive reliable-range slopes whose unadjusted intervals exclude zero ({f(slope('M30', 'VN30-VNINDEX', 'slope_rel')['estimate'], 4)} "
               f"and {f(slope('M30', 'VN100-VNINDEX', 'slope_rel')['estimate'], 4)}), which over the reliable range correspond to a rise "
               "of about 0.01 in the coefficient; over the full range, where long scales rest on few boxes, the intervals include "
               "zero. Third, the purged P_cap–VN30 slope is insignificant in both ranges, and the statistical proxies have larger but "
               "imprecise slopes, consistent with amplified noise."),
-        ('p', f"Across all {fam} reliable-range tests, {len(sig_rel)} intervals exclude zero ("
-              + '; '.join(f"{lab(p)} at {t}" for t, p in sorted(sig_rel)) + "). "
-              f"After Benjamini–Hochberg adjustment {len(bh_rel)} remain significant at 5%, and after Holm adjustment "
-              f"{len(holm_rel)} {'remains' if len(holm_rel) == 1 else 'remain'} ("
-              + ('; '.join(f"{lab(p)} at {t}" for t, p in sorted(holm_rel)) or 'none') + "). "
-              "No slope is significant at the daily or 4-hour frequency. H3 is therefore partially supported: horizon dependence is "
-              "confined to broad-market pairs at intraday frequencies, it is small, and only part of it survives family-wise "
-              "correction. The pattern fits the Epps effect, which operates at intraday horizons and involves the less liquid "
-              "constituents that VNINDEX contains and VN30 does not."),
+        ('p', f"Across all {fam} reliable-range tests, {len(sig_rel)} percentile intervals exclude zero ("
+              + '; '.join(f"{lab(p)} at {t}" for t, p in sorted(sig_rel)) + "), with unadjusted bootstrap p-values of "
+              f"{rng([MT[(t, p, 'slope_rel')]['p_boot'] for t, p in sig_rel])}. After Benjamini–Hochberg adjustment "
+              f"{len(bh_rel)} {'remains' if len(bh_rel) == 1 else 'remain'} significant at 5% (smallest adjusted p = {f(bh_min, 3)}), and "
+              f"after Holm adjustment {len(holm_rel)} {'remains' if len(holm_rel) == 1 else 'remain'}. No slope is significant at the daily "
+              "or 4-hour frequency. "
+              + ("H3 is therefore not supported once multiple testing is accounted for. The unadjusted pattern is nevertheless "
+                 "the one H3 predicts: positive slopes appear only for broad-market pairs at intraday frequencies, never for "
+                 "VN30–VN100, and they are small. This fits the Epps effect, which operates at intraday horizons and involves the "
+                 "less liquid constituents that VNINDEX contains and VN30 does not, but the evidence is weak."
+                 if not bh_rel else
+                 "H3 is therefore partially supported: horizon dependence is confined to broad-market pairs at intraday "
+                 "frequencies and it is small. The pattern fits the Epps effect, which operates at intraday horizons and involves "
+                 "the less liquid constituents that VNINDEX contains and VN30 does not.")),
         ('h2', '5.6 Volatility regimes and contagion (H4)'),
         ('p1a', "Table 7 reports the unadjusted and Forbes–Rigobon conditioned correlations of P_cap and VN30."),
         tab7,
@@ -537,7 +545,7 @@ def results():
                  'q ∈ [−5, 5] \\ {0}; daily data. Source: Authors’ calculations based on HOSE index data (TradingView).')),
         ('h2', '5.9 Robustness'),
         ('p1a', "The Appendix collects five robustness checks. Table A1 extends the slope tests to the other frequencies: "
-                f"VN30–VNINDEX and VN100–VNINDEX rise within the reliable range at H1 ({f(slope('H1', 'VN30-VNINDEX', 'slope_rel')['estimate'], 4)}, "
+                f"VN30–VNINDEX and VN100–VNINDEX have positive reliable-range slopes at H1 with unadjusted intervals excluding zero ({f(slope('H1', 'VN30-VNINDEX', 'slope_rel')['estimate'], 4)}, "
                 f"{ci(slope('H1', 'VN30-VNINDEX', 'slope_rel')['ci_lo'], slope('H1', 'VN30-VNINDEX', 'slope_rel')['ci_hi'], 4)} and "
                 f"{f(slope('H1', 'VN100-VNINDEX', 'slope_rel')['estimate'], 4)}, "
                 f"{ci(slope('H1', 'VN100-VNINDEX', 'slope_rel')['ci_lo'], slope('H1', 'VN100-VNINDEX', 'slope_rel')['ci_hi'], 4)}) but not at "
@@ -557,7 +565,7 @@ def results():
           ['Hypothesis', 'Test', 'Evidence', 'Outcome'],
           [['H1 Overlap inflation', 'Bootstrap CI of gap', f'Gap {rng(gap_vals[:4])}; all CIs > 0', 'Supported' if H1_ok else 'Not supported'],
            ['H2 Mechanical dominance', 'One-sided test, share > 0.5', f'Share {rng(share)}; lower CI ≥ {f(share_lo)}', 'Supported' if H2_ok else 'Not supported'],
-           ['H3 Horizon dependence', 'Slope CIs; Holm and BH', f'{len(bh_rel)} of {fam} BH-significant; {len(holm_rel)} Holm-significant', 'Partially supported'],
+           ['H3 Horizon dependence', 'Slope CIs; Holm and BH', f'{len(sig_rel)} of {fam} unadjusted CIs > 0; {len(bh_rel)} BH- and {len(holm_rel)} Holm-significant', H3_out],
            ['H4 Contagion', 'Forbes–Rigobon, one-sided', f'p = {f(frA["p_one_sided"], 3)} and {f(frB["p_one_sided"], 3)}', 'Supported' if H4_reject else 'Not supported'],
            ['H5 Risk misstatement', 'Bootstrap CI of RE', f'{f(min(float(reAh["RE_pct"]), float(reBh["RE_pct"])), 1)}% to {f(reBl["RE_pct"], 1)}%; CIs exclude 0', 'Supported' if pcap_re_ok else 'Not supported']],
           'All tests at the 5% level; details in Tables 4–7 and Section 5.7. Source: Authors’ calculations.'),
@@ -577,8 +585,8 @@ def discussion():
         ('p', "Once the overlap is removed, the remaining dependence behaves like economic co-movement. It is high, because large "
               "and mid caps trade on the same exchange and respond to the same domestic shocks, but it is lower than the "
               "index-level numbers suggest. It rises in crises only as much as the common volatility shock implies, consistent with "
-              "the interdependence interpretation of Forbes and Rigobon (2002) rather than with a change in transmission. The small "
-              "intraday horizon dependence of broad-market pairs matches the Epps (1979) effect: VNINDEX contains small stocks, "
+              "the interdependence interpretation of Forbes and Rigobon (2002) rather than with a change in transmission. The weak, "
+              "unadjusted intraday horizon dependence of broad-market pairs is consistent with the Epps (1979) effect: VNINDEX contains small stocks, "
               "whose liquidity is more fragile than that of large caps (Chen et al. 2021) and whose prices adjust with a lag, and aggregation over longer horizons removes the lag. Our "
               "index-level data cannot separate this from gradual information diffusion (Hong and Stein 1999)."),
         ('h2', '6.2 Implications'),

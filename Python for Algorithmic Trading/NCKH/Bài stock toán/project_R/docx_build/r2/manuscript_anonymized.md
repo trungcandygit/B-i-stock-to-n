@@ -3,7 +3,7 @@ The Mechanical Floor of Nested Index Correlations: An Exact Multiscale Decomposi
 :::
 
 ::: {custom-style="abstract"}
-**Abstract** Large-cap and broad-market indices are often treated as separate diversification instruments even when one index is a subset of the other. We show that this practice confuses index construction with economic co-movement and quantify the confusion exactly. Because a parent index is a capitalization-weighted sum of its child index and the remaining constituents, the detrended cross-correlation analysis (DCCA) coefficient between them decomposes, at every timescale, into a mechanical floor fixed by index weights and relative volatility, and a term that depends on the economic correlation between the child and the remaining constituents. Applying this identity to the Ho Chi Minh City Stock Exchange (VN30 within VN100 within VNINDEX; 30-minute to daily data, 2014–2025), we find that the floor alone accounts for 0.91–0.91 of the observed VN30–VN100 coefficient (block-bootstrap 95% intervals within 0.90–0.92), and that a change of 0.10 in the economic correlation moves the nested coefficient by only about 0.011–0.011. Purging the overlap lowers the correlation with large caps by 0.086–0.096 (intervals exclude zero at all four frequencies). Broad-market pairs show weak horizon dependence at intraday frequencies, while the purged correlation does not. Forbes–Rigobon volatility conditioning gives no evidence of crisis contagion between tiers, and a static correlation misstates mid-cap portfolio variance by between −2.1% and +9.4% across volatility regimes. The results apply to one market and three indices; the identity itself holds for any nested pair.
+**Abstract** Large-cap and broad-market indices are often treated as separate diversification instruments even when one index is a subset of the other. We show that this practice confuses index construction with economic co-movement and quantify the confusion exactly. Because a parent index is a capitalization-weighted sum of its child index and the remaining constituents, the detrended cross-correlation analysis (DCCA) coefficient between them decomposes, at every timescale, into a mechanical floor fixed by index weights and relative volatility, and a term that depends on the economic correlation between the child and the remaining constituents. Applying this identity to the Ho Chi Minh City Stock Exchange (VN30 within VN100 within VNINDEX; 30-minute to daily data, 2014–2025), we find that the floor alone accounts for 0.905–0.911 of the observed VN30–VN100 coefficient (block-bootstrap 95% intervals within 0.895–0.920), and that a change of 0.10 in the economic correlation moves the nested coefficient by only about 0.011. Purging the overlap lowers the correlation with large caps by 0.086–0.096 (intervals exclude zero at all four frequencies). Broad-market pairs show small positive horizon slopes at intraday frequencies that do not survive multiple-testing adjustment, and the purged correlation shows none. Forbes–Rigobon volatility conditioning gives no evidence of crisis contagion between tiers, and a static correlation misstates mid-cap portfolio variance by between −2.1% and +9.4% across volatility regimes. The results apply to one market and three indices; the identity itself holds for any nested pair.
 :::
 
 ::: {custom-style="keywords"}
@@ -32,7 +32,7 @@ This paper answers it with an exact result. Writing the parent index return as a
 
 We apply the identity, together with a capitalization-weighted mid-cap proxy that removes the overlap, to VN30, VN100 and VNINDEX at 30-minute, 1-hour, 4-hour and daily frequencies from 2014 to 2025. We test five hypotheses, stated in Section 2.5, on overlap inflation, the dominance of the mechanical floor, horizon dependence, crisis contagion and portfolio-variance misstatement. All inference uses stationary block bootstrap intervals, and the horizon-dependence tests are adjusted for multiple comparisons.
 
-The paper makes three contributions. First, it derives an exact, scale-by-scale decomposition of nested index correlations into a mechanical floor and an economic component, with closed forms for the floor and for the sensitivity of the nested coefficient to the economic correlation. In our data the floor accounts for 0.91–0.91 of the VN30–VN100 coefficient, and the nested coefficient responds to the economic correlation with a slope of 0.11–0.11, so index-level correlations carry little information about economic co-movement. Second, it measures the overlap effect with inference: purging the overlap lowers the correlation with large caps by 0.086–0.096 with bootstrap intervals that exclude zero at every frequency, while the purged correlation remains high (about 0.89). Third, it separates volatility from structural change in crises and prices the cost of static correlations: Forbes–Rigobon conditioning gives no evidence of cross-tier contagion, and a static correlation misstates the variance of a mid-cap factor exposure by amounts that switch sign between calm and turbulent regimes.
+The paper makes three contributions. First, it derives an exact, scale-by-scale decomposition of nested index correlations into a mechanical floor and an economic component, with closed forms for the floor and for the sensitivity of the nested coefficient to the economic correlation. In our data the floor accounts for 0.905–0.911 of the VN30–VN100 coefficient, and the nested coefficient responds to the economic correlation with a slope of 0.106–0.112, so index-level correlations carry little information about economic co-movement. Second, it measures the overlap effect with inference: purging the overlap lowers the correlation with large caps by 0.086–0.096 with bootstrap intervals that exclude zero at every frequency, while the purged correlation remains high (about 0.89). Third, it separates volatility from structural change in crises and prices the cost of static correlations: Forbes–Rigobon conditioning gives no evidence of cross-tier contagion, and a static correlation misstates the variance of a mid-cap factor exposure by amounts that switch sign between calm and turbulent regimes.
 
 The remainder of the paper is organized as follows. Section 2 reviews the literature and develops the hypotheses. Section 3 describes the institutional setting and the data. Section 4 presents the methodology, including Proposition 1. Section 5 reports the results, Section 6 discusses mechanisms, implications and limitations, and Section 7 concludes.
 
@@ -248,7 +248,7 @@ $$
 
 which is small when κ is small, that is, when the child index dominates the parent. Third, for ρ~AM~ ≥ 0, ρ²~AB~ − ρ²~AM~ = (1 − ρ²~AM~)(1 + 2κρ~AM~)/(1 + κ² + 2κρ~AM~) ≥ 0, so overlap can only inflate the coefficient, with equality only when ρ~AM~ = 1. The identity uses only linearity and bilinearity: it holds for the Pearson correlation (no detrending, one box), for the detrending moving-average coefficient used in Section 5.9 and for any other dependence measure built from a bilinear covariance of linearly filtered series.
 
-Equation (7) is not an approximation; we verify numerically that it reproduces the directly estimated VN30–VN100 coefficient at every scale and frequency to within 4.4 × 10⁻¹⁶. We estimate κ, the floor, the mechanical share and the sensitivity on each scale of the reliable range (Section 4.4), average them over that range and obtain 95% intervals from the block bootstrap described below.
+Equation (7) is not an approximation; we verify numerically that it reproduces the directly estimated VN30–VN100 coefficient at every scale and frequency to within 4.4 × 10⁻¹⁶. We estimate κ, the floor, the mechanical share and the sensitivity on each scale of the reliable range (Section 4.4), average them over that range and obtain 95% intervals from the block bootstrap described below. Because P~cap~ is constructed from A and B, Eq. (7) is an accounting identity rather than an estimated relation; its content lies in the decomposition it delivers. The floor and the sensitivity depend only on w and the relative amplitude κ, so they can be computed for any nested pair whose child weight and fluctuation functions are known.
 
 For comparison we construct three statistical proxies: the volatility-scaled proxy P~heur,~ which replaces w by the correlation between VN30 and VN100 returns (0.9865–0.9885); the ratio-spread proxy P~ratio~ = B~t~ − A~t~; and the residual P~res~ of an OLS regression of B~t~ on A~t~ (R² of 0.973–0.977, slope 0.968–0.975). For P~heur~ the denominator 1 − w~heur~ is only 0.0115–0.0135, which multiplies the numerator by 74–87; this is a numerically unstable construction, and its daily standard deviation (0.1576) is more than ten times that of P~cap~ (0.0124).
 
@@ -274,7 +274,7 @@ so a fraction of large-cap returns leaks into the proxy in proportion to the wei
 The number of boxes falls as s grows, so the DCCA coefficient becomes noisy at large scales. For each sample size we simulate pairs of Gaussian white noise with correlations of −0.3, 0, 0.3, 0.5, 0.7 and 0.9 (167 replications each, 1,002 per frequency) and compute the mean absolute estimation error on 40 log-spaced scales. The reliability threshold s~rel~ is the largest scale below the first scale at which the worst-case error exceeds 0.05; both the error grid and the 0.05 tolerance are fixed before the empirical analysis. Because returns are heavy-tailed and volatility-clustered, we repeat the calibration with generalized autoregressive conditional heteroskedasticity GARCH(1,1) series driven by Student-t innovations with five degrees of freedom (300 simulations).
 :::
 
-DCCA coefficients at different scales are functionals of the same two series, so treating scales or simulation replicates as independent observations would overstate precision. All inference therefore resamples the data. A stationary block bootstrap (Politis and Romano 1994) with a mean block length of about 20 trading days (499 replications) redraws the joint return series, recomputes every DCCA curve and every derived statistic, and yields percentile 95% intervals and bootstrap p-values. Table A5 shows that the interval for the main gap is stable for mean block lengths from 5 to 60 days. The slope tests in Section 5.5 involve 19 pair-frequency combinations per scale range; we report Holm (1979) family-wise and Benjamini and Hochberg (1995) false-discovery-rate adjusted p-values within each range.
+DCCA coefficients at different scales are functionals of the same two series, so treating scales or simulation replicates as independent observations would overstate precision. All inference therefore resamples the data. A stationary block bootstrap (Politis and Romano 1994) with a mean block length of about 20 trading days (499 replications for DCCA-based statistics and 1,999 for the Pearson-based regime statistics of Sections 4.6 and 4.7) redraws the joint return series, recomputes every DCCA curve and every derived statistic, and yields percentile 95% intervals and two-sided bootstrap p-values computed as 2 min{(k₋ + 1), (k₊ + 1)}/(B + 1), where k₋ and k₊ count replicates at or below and at or above zero. Table A5 shows that the interval for the main gap is stable for mean block lengths from 5 to 60 days. The slope tests in Section 5.5 involve 19 pair-frequency combinations per scale range; we report Holm (1979) family-wise and Benjamini and Hochberg (1995) false-discovery-rate adjusted p-values within each range.
 
 ::: {custom-style="heading2"}
 4.5 Scaling regressions
@@ -337,7 +337,7 @@ The generalized exponent h~xy~(q) is the slope of ln F~q~(s) on ln s over 24 log
 :::
 
 ::: {custom-style="p1a"}
-All computations use R 4.3.3 with the packages stats (base), sandwich 3.1.0 and ggplot2 3.4.4 on an Intel Xeon processor (2.10 GHz, four cores). OLS fits use the QR decomposition, so no iterative optimization, tolerance or convergence criterion is involved. Random seeds are fixed (20260924 for the round-one inference, 20261007 for the decomposition and robustness analyses; the white-noise calibration seeds each simulation by its index). A single script, run\_all.R, reproduces every table and figure; rerunning it yields byte-identical output files. The code and outputs are provided as Online Resource 1.
+All computations use R 4.3.3 with the packages stats (base), sandwich 3.1.0 and ggplot2 3.4.4 on an Intel Xeon processor (2.10 GHz, four cores). OLS fits use the QR decomposition, so no iterative optimization, tolerance or convergence criterion is involved. Random seeds are fixed (20260924 for the round-one inference, 20261007 for the decomposition and robustness analyses; the white-noise calibration seeds each simulation by its index). A single script, run\_all.R, reproduces every table and figure; rerunning it yields byte-identical CSV output files. The code and outputs are provided as Online Resource 1.
 :::
 
 ::: {custom-style="heading1"}
@@ -379,7 +379,7 @@ Table 2 reports descriptive statistics of index and proxy returns at the four fr
 Notes: Kurt. is non-excess kurtosis; P~cap~ is the mid-cap proxy of Eq. (6); \*\*\* p < 0.01. Source: Authors’ calculations based on HOSE index data (TradingView).
 :::
 
-At the daily frequency the standard deviation is highest for P~cap~ (0.0124) and lowest for VNINDEX (0.0115), as expected for the broadest index. All series are negatively skewed and leptokurtic, with kurtosis above 34 at M30, and the Jarque–Bera test rejects normality everywhere. DCCA and the block bootstrap do not require Gaussian returns, which is why we use them.
+At the daily frequency the standard deviation is highest for P~cap~ (0.0124) and lowest for VNINDEX (0.0115), as expected for the broadest index. All series are negatively skewed and leptokurtic, with kurtosis above 33 at M30, and the Jarque–Bera test rejects normality everywhere. DCCA and the block bootstrap do not require Gaussian returns, which is why we use them.
 
 ::: {custom-style="heading2"}
 5.2 Reliability thresholds
@@ -426,16 +426,16 @@ Table 4 compares the average DCCA coefficient of the nested pairs with that of t
 | 1-hour (H1) | 0.979 | 0.891 | 0.089 |  | 9,879 |
 | 4-hour (H4) | 0.980 | 0.892 | 0.089 |  | 3,953 |
 | *Panel B: full sample, 2014–2025* |  |  |  |  |  |
-| Daily (1D) | 0.977 | 0.884 | 0.093 [0.065, 0.124] | 0.83 [0.75, 0.89] | 2,963 |
-| 30-minute (M30) | 0.979 | 0.883 | 0.096 [0.070, 0.126] | 0.89 [0.83, 0.94] | 21,942 |
-| 1-hour (H1) | 0.975 | 0.889 | 0.086 [0.060, 0.116] | 0.78 [0.70, 0.83] | 13,523 |
-| 4-hour (H4) | 0.976 | 0.890 | 0.087 [0.061, 0.114] | 0.79 [0.72, 0.84] | 5,410 |
+| Daily (1D) | 0.977 | 0.884 | 0.093 [0.074, 0.115] | 0.83 [0.75, 0.89] | 2,963 |
+| 30-minute (M30) | 0.979 | 0.883 | 0.096 [0.080, 0.119] | 0.89 [0.83, 0.94] | 21,942 |
+| 1-hour (H1) | 0.975 | 0.889 | 0.086 [0.071, 0.103] | 0.78 [0.70, 0.83] | 13,523 |
+| 4-hour (H4) | 0.976 | 0.890 | 0.087 [0.072, 0.103] | 0.79 [0.72, 0.84] | 5,410 |
 
 ::: {custom-style="Compact"}
-Notes: Averages of ρ(s) over s ≤ s~rel~ (Table 3), m = 1; nested pairs: mean of VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX. Brackets: block-bootstrap 95% intervals. Source: Authors’ calculations.
+Notes: Averages of ρ(s) over s ≤ s~rel~ (Table 3, full-sample thresholds in both panels), m = 1; nested pairs: mean of VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX. Brackets: block-bootstrap 95% intervals. Source: Authors’ calculations.
 :::
 
-The nested pairs average 0.975–0.980 at every frequency in both samples, whereas P~cap~–VN30 averages 0.883–0.892. The gap of 0.086–0.096 in the full sample has bootstrap intervals between 0.060 and 0.126, all excluding zero, and Cohen’s q (Cohen 1988) of 0.78–0.89 indicates a large effect on the Fisher scale. H1 is supported. The purged coefficient remains high, so the overlap inflates co-movement that is already strong rather than creating it. The two samples differ by at most 0.004 for the nested mean, so the result does not depend on the sample window.
+The nested pairs average 0.975–0.980 at every frequency in both samples, whereas P~cap~–VN30 averages 0.883–0.892. The gap of 0.086–0.096 in the full sample has bootstrap intervals between 0.071 and 0.119, all excluding zero, and Cohen’s q (Cohen 1988) of 0.78–0.89 indicates a large effect on the Fisher scale. H1 is supported. The purged coefficient remains high, so the overlap inflates co-movement that is already strong rather than creating it. The two samples differ by at most 0.004 for the nested mean, so the result does not depend on the sample window.
 
 The reason is the structure of the indices rather than market behavior: the VN30 component appears on both sides of each nested pair, so its variance enters the numerator and the denominator of Eq. (5) and pulls the ratio toward one. The statistical proxies confirm that the remaining signal must be extracted with capitalization weights: their average coefficients with VN30 lie between −0.16 and 0.07, and they correlate with each other at 0.980–0.997 but with P~cap~ at only 0.277–0.486, so they behave as amplified residuals rather than as mid-cap returns.
 
@@ -473,7 +473,7 @@ Notes: Quantities of Eqs. (7)–(9) averaged over s ≤ s~rel~; A = VN30, B = VN
 
 The relative amplitude κ is 0.48–0.50: the non-overlapping 32% of VN100 contributes roughly half as much detrended variation as the VN30 component. With κ of this size the floor is 0.893–0.900, so a VN30–VN100 coefficient of about 0.90 would be observed even if mid caps moved independently of large caps. The floor accounts for 0.905–0.911 of the observed coefficient, with bootstrap intervals between 0.895 and 0.920. H2 is supported. The point estimates of the floor also exceed the economic correlation itself, by 0.010–0.016, but the bootstrap intervals include zero at every frequency, so the mechanical floor and the economic correlation are of the same magnitude.
 
-The sensitivity of Eq. (9) is 0.106–0.112. An analyst who reads the nested coefficient as a measure of large-cap and mid-cap co-movement would therefore need a change of about 9–9 times as large in the economic correlation to see a given change in the index-level number. Fig. 3 shows the consequence: as the economic correlation moves from −0.5 to 1, the nested coefficient moves only from about 0.87 to 1. The same identity applied to full-sample Pearson correlations of daily returns gives a floor of 0.903 and a mechanical share of 0.914, so the result is not specific to DCCA.
+The sensitivity of Eq. (9) is 0.106–0.112. An analyst who reads the nested coefficient as a measure of large-cap and mid-cap co-movement would therefore need a change of about 9 times as large in the economic correlation to see a given change in the index-level number. Fig. 3 shows the consequence: as the economic correlation moves from −0.5 to 1, the nested coefficient moves only from about 0.87 to 1. The same identity applied to full-sample Pearson correlations of daily returns gives a floor of 0.903 and a mechanical share of 0.914, so the result is not specific to DCCA.
 
 ![](/home/user/B-i-stock-to-n/Python for Algorithmic Trading/NCKH/Bài stock toán/project_R/docx_build/../outputs/figures/fig4_overlap_decomposition.png){width=6.3in}
 
@@ -498,21 +498,21 @@ Table 6 reports scaling slopes at the 30-minute frequency, where the reliable ra
 
 | Pair | Full range [95% CI] | Reliable range [95% CI] | p | p (Holm) | p (BH) |
 |---|---|---|---|---|---|
-| VN30–VNINDEX | 0.0016 [−0.0025, 0.0034] | 0.0022 [0.0007, 0.0038] | 0.008 | 0.144 | 0.038 |
-| VN100–VNINDEX | 0.0009 [−0.0010, 0.0021] | 0.0022 [0.0011, 0.0032] | < 0.002 | < 0.002 | < 0.002 |
-| VN30–VN100 | 0.0001 [−0.0015, 0.0010] | −0.0001 [−0.0007, 0.0007] | 0.978 | 1.000 | 0.978 |
-| P~cap~–VN30 | 0.0025 [−0.0102, 0.0093] | 0.0017 [−0.0045, 0.0078] | 0.517 | 1.000 | 0.891 |
-| P~heur~–VN30 | 0.0222 [−0.0236, 0.0582] | 0.0289 [−0.0033, 0.0534] | 0.076 | 1.000 | 0.207 |
-| P~ratio~–VN30 | 0.0221 [−0.0226, 0.0589] | 0.0291 [−0.0030, 0.0531] | 0.072 | 1.000 | 0.207 |
-| P~res~–VN30 | 0.0220 [−0.0249, 0.0574] | 0.0283 [−0.0029, 0.0526] | 0.076 | 1.000 | 0.207 |
+| VN30–VNINDEX | 0.0016 [−0.0025, 0.0034] | 0.0022 [0.0007, 0.0038] | 0.012 | 0.216 | 0.057 |
+| VN100–VNINDEX | 0.0009 [−0.0010, 0.0021] | 0.0022 [0.0011, 0.0032] | 0.004 | 0.076 | 0.057 |
+| VN30–VN100 | 0.0001 [−0.0015, 0.0010] | −0.0001 [−0.0007, 0.0007] | 0.980 | 1.000 | 0.980 |
+| P~cap~–VN30 | 0.0025 [−0.0102, 0.0093] | 0.0017 [−0.0045, 0.0078] | 0.520 | 1.000 | 0.894 |
+| P~heur~–VN30 | 0.0222 [−0.0236, 0.0582] | 0.0289 [−0.0033, 0.0534] | 0.080 | 1.000 | 0.217 |
+| P~ratio~–VN30 | 0.0221 [−0.0226, 0.0589] | 0.0291 [−0.0030, 0.0531] | 0.076 | 1.000 | 0.217 |
+| P~res~–VN30 | 0.0220 [−0.0249, 0.0574] | 0.0283 [−0.0029, 0.0526] | 0.080 | 1.000 | 0.217 |
 
 ::: {custom-style="Compact"}
 Notes: Slopes of Eq. (11); full range: 30 scales from 5 to 5,485 bars; reliable range: s ≤ 444. p-values refer to the reliable-range slope; Holm and Benjamini–Hochberg (BH) adjustments are across all 19 reliable-range tests. Source: Authors’ calculations.
 :::
 
-Three patterns emerge. First, the VN30–VN100 slope is indistinguishable from zero in both ranges, as Proposition 1 predicts: the coefficient is held near its floor, which depends on scale only through κ(s). Second, the broad-market pairs VN30–VNINDEX and VN100–VNINDEX have positive reliable-range slopes (0.0022 and 0.0022), which over the reliable range correspond to a rise of about 0.01 in the coefficient; over the full range, where long scales rest on few boxes, the intervals include zero. Third, the purged P~cap~–VN30 slope is insignificant in both ranges, and the statistical proxies have larger but imprecise slopes, consistent with amplified noise.
+Three patterns emerge. First, the VN30–VN100 slope is indistinguishable from zero in both ranges, as Proposition 1 predicts: the coefficient is bounded below by its floor and almost insensitive to the economic correlation, and both depend on scale only through κ(s) and ρ~AM~(s). Second, the broad-market pairs VN30–VNINDEX and VN100–VNINDEX have positive reliable-range slopes whose unadjusted intervals exclude zero (0.0022 and 0.0022), which over the reliable range correspond to a rise of about 0.01 in the coefficient; over the full range, where long scales rest on few boxes, the intervals include zero. Third, the purged P~cap~–VN30 slope is insignificant in both ranges, and the statistical proxies have larger but imprecise slopes, consistent with amplified noise.
 
-Across all 19 reliable-range tests, 4 intervals exclude zero (VN100–VNINDEX at H1; VN30–VNINDEX at H1; VN100–VNINDEX at M30; VN30–VNINDEX at M30). After Benjamini–Hochberg adjustment 4 remain significant at 5%, and after Holm adjustment 1 remains (VN100–VNINDEX at M30). No slope is significant at the daily or 4-hour frequency. H3 is therefore partially supported: horizon dependence is confined to broad-market pairs at intraday frequencies, it is small, and only part of it survives family-wise correction. The pattern fits the Epps effect, which operates at intraday horizons and involves the less liquid constituents that VNINDEX contains and VN30 does not.
+Across all 19 reliable-range tests, 4 percentile intervals exclude zero (VN100–VNINDEX at H1; VN30–VNINDEX at H1; VN100–VNINDEX at M30; VN30–VNINDEX at M30), with unadjusted bootstrap p-values of 0.004–0.012. After Benjamini–Hochberg adjustment 0 remain significant at 5% (smallest adjusted p = 0.057), and after Holm adjustment 0 remain. No slope is significant at the daily or 4-hour frequency. H3 is therefore not supported once multiple testing is accounted for. The unadjusted pattern is nevertheless the one H3 predicts: positive slopes appear only for broad-market pairs at intraday frequencies, never for VN30–VN100, and they are small. This fits the Epps effect, which operates at intraday horizons and involves the less liquid constituents that VNINDEX contains and VN30 does not, but the evidence is weak.
 
 ::: {custom-style="heading2"}
 5.6 Volatility regimes and contagion (H4)
@@ -535,7 +535,7 @@ Table 7 reports the unadjusted and Forbes–Rigobon conditioned correlations of 
 Notes: Pearson correlations of daily returns; δ = relative increase in VN30 return variance; p: one-sided bootstrap p-value for H0: ρ* ≤ ρ~low~; power against an increase of 0.05. Chronological: 1,000 calm and 539 crisis days; quartiles: 739 days per regime. Source: Authors’ calculations.
 :::
 
-Under the chronological definition the raw correlation rises from 0.847 in calm years to 0.924 in crises while the variance of VN30 returns rises by 221%. After conditioning, the crisis correlation is 0.803, and its difference from the calm level is −0.044 (95% interval −0.082 to 0.001; p = 0.985). Under the quartile definition, the variance expansion is larger (δ = 7.06) and the raw correlation rises from 0.727 to 0.928, but the adjusted correlation (0.661) again does not exceed the calm level (p = 0.974). H4 is rejected. The power against an increase of 0.05 is 0.77 and 0.41, so moderate structural increases are unlikely under the first definition, while small ones cannot be excluded under either.
+Under the chronological definition the raw correlation rises from 0.847 in calm years to 0.924 in crises while the variance of VN30 returns rises by 221%. After conditioning, the crisis correlation is 0.803, and its difference from the calm level is −0.044 (95% interval −0.082 to 0.001; p = 0.985). Under the quartile definition, the variance expansion is larger (δ = 7.06) and the raw correlation rises from 0.727 to 0.928, but the adjusted correlation (0.661) again does not exceed the calm level (p = 0.974). H4 is not supported. The power against an increase of 0.05 is 0.77 and 0.41, so moderate structural increases are unlikely under the first definition, while small ones cannot be excluded under either.
 
 The mechanism is the heteroskedasticity bias of Eq. (12): a common volatility shock raises the share of variance explained by the common factor, which lifts the raw correlation without any change in how mid caps respond to large caps. Both regime definitions are ex post, and the quartile regimes are sorted on VNINDEX, which contains the mid caps, so the comparison describes in-sample regimes rather than a real-time signal. For the nested pairs, raw correlations also rise in crises, but the identification condition fails, so we do not test them.
 
@@ -544,7 +544,7 @@ The mechanism is the heteroskedasticity bias of Eq. (12): a common volatility sh
 :::
 
 ::: {custom-style="p1a"}
-Applying Eq. (13) with the regime correlations of Table 7, a static correlation overstates the variance of an equally weighted VN30 and P~cap~ position by 2.23% (95% interval 0.91 to 3.94) in the chronological calm regime and by 9.38% (6.20 to 13.46) in the low-volatility quartile. In turbulent regimes it understates the variance by 1.84% (0.95 to 2.63) and 2.07% (1.25 to 2.84). All four intervals exclude zero, so H5 is supported. For cash portfolios of parent and child indices the misstatement is at most 2.35%, because their correlations are pinned near the mechanical floor in every regime.
+Applying Eq. (13) with the regime correlations of Table 7, a static correlation overstates the variance of an equally weighted VN30 and P~cap~ position by 2.23% (95% interval 0.91 to 3.94) in the chronological calm regime and by 9.38% (6.20 to 13.46) in the low-volatility quartile. In turbulent regimes it understates the variance by 1.84% (0.95 to 2.63) and 2.07% (1.25 to 2.84). All four intervals exclude zero, so H5 is supported. For cash portfolios of parent and child indices the daily misstatement is at most 2.35%, because their correlations are bounded below by the mechanical floor and barely move across regimes.
 :::
 
 The asymmetry has a simple source. The variance error is proportional to the gap between the static and the regime correlation, and the purged correlation varies far more across regimes than the nested ones. The understatement in crises is small in percentage terms, but it occurs when VN30 return variance has already risen by 221% to 706%. Because P~cap~ is not investable, these numbers describe a mid-cap factor exposure, for example one held through a mid-cap index fund, combined with large caps; no trading strategy is implied, so turnover and transaction costs do not arise.
@@ -554,7 +554,7 @@ The asymmetry has a simple source. The variance error is proportional to the gap
 :::
 
 ::: {custom-style="p1a"}
-The generalized Hurst exponent h(2) lies between 0.536 and 0.543, indicating weak persistence. The multifractal range Δh is 0.252–0.431 for the nested pairs and 0.435–0.656 for P~cap~–VN30, but shuffled surrogates show that most of this range reflects fat tails: the P~cap~–VN30 range exceeds the 95th surrogate percentile only at 1D, and the nested pairs exceed it in 2 of 12 cases. Fig. 4 contrasts the daily spectra. The multifractal evidence supports only a modest nonlinear structure and does not change the conclusions above.
+The generalized cross-correlation exponent h~xy~(2) lies between 0.536 and 0.542 for the four pairs, indicating weak persistence. The multifractal range Δh is 0.252–0.431 for the nested pairs and 0.435–0.656 for P~cap~–VN30, but shuffled surrogates show that most of this range reflects fat tails: the P~cap~–VN30 range exceeds the 95th surrogate percentile only at 1D, and the nested pairs exceed it in 2 of 12 cases. Fig. 4 contrasts the daily spectra. The multifractal evidence supports only a modest nonlinear structure and does not change the conclusions above.
 :::
 
 ![](/home/user/B-i-stock-to-n/Python for Algorithmic Trading/NCKH/Bài stock toán/project_R/docx_build/../outputs/figures/fig3_mfdcca.png){width=6.3in}
@@ -571,7 +571,7 @@ Notes: q ∈ [−5, 5] \ {0}; daily data. Source: Authors’ calculations based 
 :::
 
 ::: {custom-style="p1a"}
-The Appendix collects five robustness checks. Table A1 extends the slope tests to the other frequencies: VN30–VNINDEX rises within the reliable range at H1 (0.0024, [0.0006, 0.0041]) but not at 1D or H4, and the P~cap~–VN30 slope is insignificant everywhere. Table A2 varies the capitalization weight from 0.60 to 0.75: a larger weight removes more of the VN30 component and lowers the purged correlation, but the gap to the nested pairs stays at or above 0.052. Table A3 replaces DCCA with the detrending moving-average cross-correlation coefficient (DMCA; Kristoufek 2014): the purged coefficient is 0.882–0.891 and the gap 0.086–0.096, almost identical to Table 4. Table A4 reports lower-tail dependence at the 5% and 10% quantiles: 0.75 for P~cap~–VN30 against 0.90 for VN30–VN100 at 5%, so overlap also inflates joint crash probabilities. Table A5 shows that the bootstrap interval of the daily gap stays within 0.070 to 0.119 for mean block lengths from 5 to 60 days. Finally, the daily VN30–VNINDEX average is 0.9670, 0.9660 and 0.9670 for detrending orders 1, 2 and 3.
+The Appendix collects five robustness checks. Table A1 extends the slope tests to the other frequencies: VN30–VNINDEX and VN100–VNINDEX have positive reliable-range slopes at H1 with unadjusted intervals excluding zero (0.0024, [0.0006, 0.0041] and 0.0019, [0.0007, 0.0032]) but not at 1D or H4, and the P~cap~–VN30 slope is insignificant everywhere. Table A2 varies the capitalization weight from 0.60 to 0.75: a larger weight removes more of the VN30 component and lowers the purged correlation, but the gap to the nested pairs stays at or above 0.052. Table A3 replaces DCCA with the detrending moving-average cross-correlation coefficient (DMCA; Kristoufek 2014): the purged coefficient is 0.882–0.891 and the gap 0.086–0.096, almost identical to Table 4. Table A4 reports lower-tail dependence at the 5% and 10% quantiles: 0.75 for P~cap~–VN30 against 0.90 for VN30–VN100 at 5%, so overlap also inflates joint crash probabilities. Table A5 shows that the bootstrap interval of the daily gap stays within 0.070 to 0.119 for mean block lengths from 5 to 60 days. Finally, the daily VN30–VNINDEX average is 0.9665, 0.9663 and 0.9667 for detrending orders 1, 2 and 3.
 :::
 
 ::: {custom-style="heading2"}
@@ -590,9 +590,9 @@ Table 8 summarizes the outcome of each hypothesis.
 |---|---|---|---|
 | H1 Overlap inflation | Bootstrap CI of gap | Gap 0.086–0.096; all CIs > 0 | Supported |
 | H2 Mechanical dominance | One-sided test, share > 0.5 | Share 0.905–0.911; lower CI ≥ 0.895 | Supported |
-| H3 Horizon dependence | Slope CIs; Holm and BH | 4 of 19 BH-significant; 1 Holm-significant | Partially supported |
+| H3 Horizon dependence | Slope CIs; Holm and BH | 4 of 19 unadjusted CIs > 0; 0 BH- and 0 Holm-significant | Not supported after adjustment |
 | H4 Contagion | Forbes–Rigobon, one-sided | p = 0.985 and 0.974 | Not supported |
-| H5 Risk misstatement | Bootstrap CI of RE | −1.8% to 9.4%; CIs exclude 0 | Supported |
+| H5 Risk misstatement | Bootstrap CI of RE | −2.1% to 9.4%; CIs exclude 0 | Supported |
 
 ::: {custom-style="Compact"}
 Notes: All tests at the 5% level; details in Tables 4–7 and Section 5.7. Source: Authors’ calculations.
@@ -607,10 +607,10 @@ Notes: All tests at the 5% level; details in Tables 4–7 and Section 5.7. Sourc
 :::
 
 ::: {custom-style="p1a"}
-The results have one common source. When a parent index contains a child index, the child’s variance appears in both terms of every covariance and in both standard deviations, and Proposition 1 shows that this fixes a floor below which the nested coefficient cannot fall. With VN30 holding 68% of VN100, the floor is near 0.90, so the observed 0.99 contains little information about how mid caps move with large caps. The same structure explains why the VN30–VN100 coefficient is flat across horizons and regimes: it is pinned to its floor, and the floor depends on time and scale only through relative volatility.
+The results have one common source. When a parent index contains a child index, the child’s variance appears in both terms of every covariance and in both standard deviations, and Proposition 1 shows that this fixes a floor below which the nested coefficient cannot fall. With VN30 holding 68% of VN100, the floor is near 0.90, so the observed 0.99 contains little information about how mid caps move with large caps. The same structure explains why the VN30–VN100 coefficient is flat across horizons and regimes: it cannot fall below its floor and responds weakly to the economic correlation, and the floor depends on time and scale only through relative volatility.
 :::
 
-Once the overlap is removed, the remaining dependence behaves like economic co-movement. It is high, because large and mid caps trade on the same exchange and respond to the same domestic shocks, but it is lower than the index-level numbers suggest. It rises in crises only as much as the common volatility shock implies, consistent with the interdependence interpretation of Forbes and Rigobon (2002) rather than with a change in transmission. The small intraday horizon dependence of broad-market pairs matches the Epps (1979) effect: VNINDEX contains small stocks, whose liquidity is more fragile than that of large caps (Chen et al. 2021) and whose prices adjust with a lag, and aggregation over longer horizons removes the lag. Our index-level data cannot separate this from gradual information diffusion (Hong and Stein 1999).
+Once the overlap is removed, the remaining dependence behaves like economic co-movement. It is high, because large and mid caps trade on the same exchange and respond to the same domestic shocks, but it is lower than the index-level numbers suggest. It rises in crises only as much as the common volatility shock implies, consistent with the interdependence interpretation of Forbes and Rigobon (2002) rather than with a change in transmission. The weak, unadjusted intraday horizon dependence of broad-market pairs is consistent with the Epps (1979) effect: VNINDEX contains small stocks, whose liquidity is more fragile than that of large caps (Chen et al. 2021) and whose prices adjust with a lag, and aggregation over longer horizons removes the lag. Our index-level data cannot separate this from gradual information diffusion (Hong and Stein 1999).
 
 ::: {custom-style="heading2"}
 6.2 Implications
@@ -646,12 +646,15 @@ Appendix A Robustness tables
 
 | Frequency | Pair | Full range [95% CI] | Reliable range [95% CI] | p (BH) |
 |---|---|---|---|---|
-| Daily (1D) | VN30–VNINDEX | 0.0020 [−0.0064, 0.0043] | 0.0010 [−0.0031, 0.0043] | 0.891 |
-| Daily (1D) | P~cap~–VN30 | 0.0014 [−0.0255, 0.0118] | −0.0040 [−0.0157, 0.0085] | 0.891 |
-| 1-hour (H1) | VN30–VNINDEX | 0.0015 [−0.0027, 0.0040] | 0.0024 [0.0006, 0.0041] | 0.038 |
-| 1-hour (H1) | P~cap~–VN30 | −0.0003 [−0.0137, 0.0089] | 0.0020 [−0.0035, 0.0089] | 0.821 |
-| 4-hour (H4) | VN30–VNINDEX | 0.0014 [−0.0056, 0.0039] | 0.0003 [−0.0026, 0.0029] | 0.897 |
-| 4-hour (H4) | P~cap~–VN30 | 0.0001 [−0.0176, 0.0103] | −0.0020 [−0.0124, 0.0067] | 0.891 |
+| Daily (1D) | VN30–VNINDEX | 0.0020 [−0.0064, 0.0043] | 0.0010 [−0.0031, 0.0043] | 0.894 |
+| Daily (1D) | VN100–VNINDEX | 0.0005 [−0.0052, 0.0026] | 0.0008 [−0.0021, 0.0027] | 0.894 |
+| Daily (1D) | P~cap~–VN30 | 0.0014 [−0.0255, 0.0118] | −0.0040 [−0.0157, 0.0085] | 0.894 |
+| 1-hour (H1) | VN30–VNINDEX | 0.0015 [−0.0027, 0.0040] | 0.0024 [0.0006, 0.0041] | 0.057 |
+| 1-hour (H1) | VN100–VNINDEX | 0.0007 [−0.0021, 0.0025] | 0.0019 [0.0007, 0.0032] | 0.057 |
+| 1-hour (H1) | P~cap~–VN30 | −0.0003 [−0.0137, 0.0089] | 0.0020 [−0.0035, 0.0089] | 0.828 |
+| 4-hour (H4) | VN30–VNINDEX | 0.0014 [−0.0056, 0.0039] | 0.0003 [−0.0026, 0.0029] | 0.899 |
+| 4-hour (H4) | VN100–VNINDEX | 0.0005 [−0.0043, 0.0025] | 0.0002 [−0.0018, 0.0021] | 0.894 |
+| 4-hour (H4) | P~cap~–VN30 | 0.0001 [−0.0176, 0.0103] | −0.0020 [−0.0124, 0.0067] | 0.894 |
 
 ::: {custom-style="Compact"}
 Notes: Slopes of Eq. (11); reliable ranges from Table 3; BH: Benjamini–Hochberg adjustment across all 19 reliable-range tests. Source: Authors’ calculations.
