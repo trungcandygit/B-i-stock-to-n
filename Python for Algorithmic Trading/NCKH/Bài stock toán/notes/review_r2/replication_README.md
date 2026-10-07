@@ -58,3 +58,5 @@ All random draws use fixed seeds (inside the Monte Carlo functions of `R/dcca.R`
 | Fig. 4 | `outputs/figures/Fig3.eps` (`fig3_mfdcca.png`) |
 
 Note: the file names of Figs. 3 and 4 are swapped relative to their order in the manuscript; the submission folder `03_Figures/` uses the manuscript numbering.
+
+Superseded diagnostics: `run_all.R` still writes `10_table4_forbes_rigobon.csv` (DCCA-scale regime correlations with nominal-N standard errors), `14_portfolio_relative_error.csv` (DCCA-based regime inputs) and `20_scale_regressions_hac.csv` (HAC-over-scales inference). The manuscript does not use them; they were replaced by the Pearson-consistent bootstrap results `R3`, `R4` and the resampling inference `R2`/`R9`, and they are omitted from `outputs/` in this package.

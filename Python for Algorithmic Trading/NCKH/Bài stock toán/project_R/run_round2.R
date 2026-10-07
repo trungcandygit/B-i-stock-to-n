@@ -115,11 +115,14 @@ wcsv(pear, "R8d_overlap_decomposition_pearson.csv")
 # ---------------------------------------------------------------- R9 multiple-testing adjustment of slope tests
 r2 <- read.csv(file.path(OUT, "R2_bootstrap_dcca.csv"))
 sl <- r2[r2$stat %in% c("slope_full", "slope_rel"), ]
+B_R2 <- 499                                   # replications used in run_revision.R
+# two-sided bootstrap p with the (k + 1) / (B + 1) convention, so that no p-value is reported as exactly zero
+sl$p_boot <- pmin(1, 2 * (round(sl$p_two_sided * B_R2 / 2) + 1) / (B_R2 + 1))
 sl$p_holm <- NA_real_; sl$p_bh <- NA_real_
 for (st in unique(sl$stat)) { m <- sl$stat == st
-  sl$p_holm[m] <- p.adjust(sl$p_two_sided[m], "holm"); sl$p_bh[m] <- p.adjust(sl$p_two_sided[m], "BH") }
+  sl$p_holm[m] <- p.adjust(sl$p_boot[m], "holm"); sl$p_bh[m] <- p.adjust(sl$p_boot[m], "BH") }
 sl$family_size <- ave(sl$p_two_sided, sl$stat, FUN = length)
-wcsv(sl[, c("timeframe", "pair", "stat", "estimate", "ci_lo", "ci_hi", "p_two_sided", "p_holm", "p_bh", "family_size")], "R9_slope_tests_multiplicity.csv")
+wcsv(sl[, c("timeframe", "pair", "stat", "estimate", "ci_lo", "ci_hi", "p_two_sided", "p_boot", "p_holm", "p_bh", "family_size")], "R9_slope_tests_multiplicity.csv")
 
 # ---------------------------------------------------------------- R11 lower-tail dependence (daily)
 d1 <- R[["1D"]]

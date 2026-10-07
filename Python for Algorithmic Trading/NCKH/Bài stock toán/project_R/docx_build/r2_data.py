@@ -67,4 +67,8 @@ def scalars():
 
 
 SC = scalars()
+_dc = rows('06_dcca_curves.csv')
+DETREND = [sum(float(r['rho_dcca']) for r in _dc if r['timeframe'] == '1D' and r['pair'] == 'VN30-VNINDEX' and r['order'] == str(m) and r['reliable'] == 'TRUE')
+           / sum(1 for r in _dc if r['timeframe'] == '1D' and r['pair'] == 'VN30-VNINDEX' and r['order'] == str(m) and r['reliable'] == 'TRUE') for m in (1, 2, 3)]
+HQ = rows('08_mfdcca_hq.csv')
 NESTED = ['VN30-VNINDEX', 'VN30-VN100', 'VN100-VNINDEX']

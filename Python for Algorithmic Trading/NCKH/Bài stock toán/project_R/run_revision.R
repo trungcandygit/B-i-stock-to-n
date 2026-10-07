@@ -73,7 +73,7 @@ for (tf in TF) {
         ci_lo = ci(x)[1], ci_hi = ci(x)[2], boot_se = sd(x), p_two_sided = 2 * min(mean(x <= 0), mean(x >= 0)))
     }
   }
-  nested <- colMeans(bs["avg_rel", 1:3, , drop = FALSE]); gap <- nested - bs["avg_rel", 4, ]
+  nested <- colMeans(bs["avg_rel", 1:3, ]); gap <- nested - bs["avg_rel", 4, ]   # Iter 24 fix: drop = FALSE returned a 3 x B matrix
   boot_rows[[length(boot_rows) + 1]] <- data.frame(timeframe = tf, pair = "nested_mean-minus-Pcap", stat = "gap",
     estimate = mean(point["avg_rel", 1:3]) - point["avg_rel", 4], ci_lo = ci(gap)[1], ci_hi = ci(gap)[2], boot_se = sd(gap),
     p_two_sided = 2 * min(mean(gap <= 0), mean(gap >= 0)))

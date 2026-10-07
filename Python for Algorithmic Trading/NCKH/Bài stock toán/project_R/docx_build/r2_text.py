@@ -51,7 +51,7 @@ dh_nest = [float(SURR[(t, p)]['dh_obs']) for t in TF for p in NESTED]
 dh_pcap = [float(SURR[(t, 'Pcap-VN30')]['dh_obs']) for t in TF]
 surr_nest_exc = sum(SURR[(t, p)]['exceeds_q95'] == 'TRUE' for t in TF for p in NESTED)
 surr_pcap_exc = [t for t in TF if SURR[(t, 'Pcap-VN30')]['exceeds_q95'] == 'TRUE']
-h2 = [float(MFW[(t, 'Pcap-VN30')]['h2_x']) for t in TF] + [float(MFW[(t, 'Pcap-VN30')]['h2_y']) for t in TF]
+h2 = [float(r['lambda_xy']) for r in HQ if r['q'] == '2' and r['pair'] in NESTED + ['Pcap-VN30']]
 cr = CRISIS[:3]
 W30 = 1316288 / 1928303
 
@@ -69,9 +69,9 @@ ABSTRACT = (
     "constituents, the detrended cross-correlation analysis (DCCA) coefficient between them decomposes, at every timescale, "
     "into a mechanical floor fixed by index weights and relative volatility, and a term that depends on the economic correlation "
     "between the child and the remaining constituents. Applying this identity to the Ho Chi Minh City Stock Exchange (VN30 within "
-    f"VN100 within VNINDEX; 30-minute to daily data, 2014–2025), we find that the floor alone accounts for {rng(share, 2)} of the "
-    f"observed VN30–VN100 coefficient (block-bootstrap 95% intervals within {f(share_lo, 2)}–{f(share_hi, 2)}), and that a change of "
-    f"0.10 in the economic correlation moves the nested coefficient by only about {f(0.1 * min(sens_v), 3)}–{f(0.1 * max(sens_v), 3)}. "
+    f"VN100 within VNINDEX; 30-minute to daily data, 2014–2025), we find that the floor alone accounts for {rng(share, 3)} of the "
+    f"observed VN30–VN100 coefficient (block-bootstrap 95% intervals within {f(share_lo, 3)}–{f(share_hi, 3)}), and that a change of "
+    f"0.10 in the economic correlation moves the nested coefficient by only about {f(0.1 * sum(sens_v) / 4, 3)}. "
     f"Purging the overlap lowers the correlation with large caps by {rng(gap_vals[:4], 3)} (intervals exclude zero at all four "
     "frequencies). Broad-market pairs show weak horizon dependence at intraday frequencies, while the purged correlation does not. "
     "Forbes–Rigobon volatility conditioning gives no evidence of crisis contagion between tiers, and a static correlation misstates "
@@ -113,8 +113,8 @@ def introduction():
         ('p', "The paper makes three contributions. First, it derives an exact, scale-by-scale decomposition of nested index "
               "correlations into a mechanical floor and an economic component, with closed forms for the floor and for the "
               "sensitivity of the nested coefficient to the economic correlation. In our data the floor accounts for "
-              f"{rng(share, 2)} of the VN30–VN100 coefficient, and the nested coefficient responds to the economic correlation with "
-              f"a slope of {rng(sens_v, 2)}, so index-level correlations carry little information about economic co-movement. "
+              f"{rng(share, 3)} of the VN30–VN100 coefficient, and the nested coefficient responds to the economic correlation with "
+              f"a slope of {rng(sens_v, 3)}, so index-level correlations carry little information about economic co-movement. "
               "Second, it measures the overlap effect with inference: purging the overlap lowers the correlation with large caps by "
               f"{rng(gap_vals[:4], 3)} with bootstrap intervals that exclude zero at every frequency, while the purged correlation "
               f"remains high (about {f(sum(pcap_all) / len(pcap_all), 2)}). Third, it separates volatility from structural change in crises and "
@@ -272,7 +272,10 @@ def methodology():
         ('p', "Equation (7) is not an approximation; we verify numerically that it reproduces the directly estimated VN30–VN100 "
               f"coefficient at every scale and frequency to within {f(idmax * 1e16, 1)} × 10⁻¹⁶. We estimate κ, the floor, the "
               "mechanical share and the sensitivity on each scale of the reliable range (Section 4.4), average them over that range "
-              "and obtain 95% intervals from the block bootstrap described below."),
+              "and obtain 95% intervals from the block bootstrap described below. Because P_cap is constructed from A and B, Eq. (7) "
+              "is an accounting identity rather than an estimated relation; its content lies in the decomposition it delivers. The "
+              "floor and the sensitivity depend only on w and the relative amplitude κ, so they can be computed for any nested pair "
+              "whose child weight and fluctuation functions are known."),
         ('p', "For comparison we construct three statistical proxies: the volatility-scaled proxy P_heur, which replaces w by the "
               f"correlation between VN30 and VN100 returns ({rng(w_heur, 4)}); the ratio-spread proxy P_ratio = B_t − A_t; and the "
               "residual P_res of an OLS regression of B_t on A_t (R² of "
@@ -298,8 +301,10 @@ def methodology():
         ('p', "DCCA coefficients at different scales are functionals of the same two series, so treating scales or simulation "
               "replicates as independent observations would overstate precision. All inference therefore resamples the data. A "
               "stationary block bootstrap (Politis and Romano 1994) with a mean block length of about 20 trading days "
-              f"({B_REPS} replications) redraws the joint return series, recomputes every DCCA curve and every derived statistic, and "
-              "yields percentile 95% intervals and bootstrap p-values. Table A5 shows that the interval for the main gap is stable "
+              f"({B_REPS} replications for DCCA-based statistics and 1,999 for the Pearson-based regime statistics of Sections 4.6 and "
+              "4.7) redraws the joint return series, recomputes every DCCA curve and every derived statistic, and yields percentile "
+              "95% intervals and two-sided bootstrap p-values computed as 2 min{(k₋ + 1), (k₊ + 1)}/(B + 1), where k₋ and k₊ count "
+              "replicates at or below and at or above zero. Table A5 shows that the interval for the main gap is stable "
               "for mean block lengths from 5 to 60 days. The slope tests in Section 5.5 involve "
               f"{fam} pair-frequency combinations per scale range; we report Holm (1979) family-wise and Benjamini and Hochberg "
               "(1995) false-discovery-rate adjusted p-values within each range."),
@@ -343,7 +348,7 @@ def methodology():
                 "processor (2.10 GHz, four cores). OLS fits use the QR decomposition, so no iterative optimization, tolerance or "
                 "convergence criterion is involved. Random seeds are fixed (20260924 for the round-one inference, 20261007 for the "
                 "decomposition and robustness analyses; the white-noise calibration seeds each simulation by its index). A single "
-                "script, run_all.R, reproduces every table and figure; rerunning it yields byte-identical output files. The code and "
+                "script, run_all.R, reproduces every table and figure; rerunning it yields byte-identical CSV output files. The code and "
                 "outputs are provided as Online Resource 1."),
     ]
 
@@ -373,7 +378,7 @@ def results():
              ['Frequency', 'Nested pairs', 'P_cap–VN30', 'Gap [95% CI]', 'Cohen’s q [95% CI]', 'N'],
              [['*Panel A: synchronized window, 2017–2024*', '', '', '', '', '']] + rowsA +
              [['*Panel B: full sample, 2014–2025*', '', '', '', '', '']] + rowsB,
-             'Averages of ρ(s) over s ≤ s_rel (Table 3), m = 1; nested pairs: mean of VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX. '
+             'Averages of ρ(s) over s ≤ s_rel (Table 3, full-sample thresholds in both panels), m = 1; nested pairs: mean of VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX. '
              'Brackets: block-bootstrap 95% intervals. Source: Authors’ calculations.')
     tab5 = T('Table 5 Exact overlap decomposition of the VN30–VN100 DCCA coefficient (Proposition 1)',
              ['Frequency', 'κ', 'Economic ρ_AM', 'Nested ρ_AB', 'Floor ρ̲', 'Mechanical share', 'Sensitivity', 'Floor − ρ_AM'],
@@ -390,9 +395,9 @@ def results():
     lab = lambda p: p.replace('Pcap', 'P_cap').replace('Pheur', 'P_heur').replace('Pratio', 'P_ratio').replace('Pres', 'P_res').replace('-', '–')
     def prow(p):
         a, b = slope('M30', p, 'slope_full'), slope('M30', p, 'slope_rel')
-        pv = lambda x: '< 0.002' if float(x) == 0 else f(x, 3)
+        pv = lambda x: f(x, 3)
         return [lab(p), f(a['estimate'], 4) + ' ' + ci(a['ci_lo'], a['ci_hi'], 4), f(b['estimate'], 4) + ' ' + ci(b['ci_lo'], b['ci_hi'], 4),
-                pv(b['p_two_sided']), pv(b['p_holm']), pv(b['p_bh'])]
+                pv(b['p_boot']), pv(b['p_holm']), pv(b['p_bh'])]
     tab6 = T('Table 6 Scaling slopes of DCCA coefficients at the 30-minute frequency',
              ['Pair', 'Full range [95% CI]', 'Reliable range [95% CI]', 'p', 'p (Holm)', 'p (BH)'],
              [prow(p) for p in pairs6],
@@ -413,7 +418,7 @@ def results():
         tab2,
         ('p', f"At the daily frequency the standard deviation is highest for P_cap ({f(DESC[('Pcap', '1D')]['sd'], 4)}) and lowest "
               f"for VNINDEX ({f(DESC[('VNINDEX', '1D')]['sd'], 4)}), as expected for the broadest index. All series are negatively "
-              f"skewed and leptokurtic, with kurtosis above {f(min(float(DESC[(v, 'M30')]['kurtosis']) for v in ['VN30', 'VN100', 'VNINDEX', 'Pcap']), 0)} "
+              f"skewed and leptokurtic, with kurtosis above {int(min(float(DESC[(v, 'M30')]['kurtosis']) for v in ['VN30', 'VN100', 'VNINDEX', 'Pcap']))} "
               "at M30, and the Jarque–Bera test rejects normality everywhere. DCCA and the block bootstrap do not require "
               "Gaussian returns, which is why we use them."),
         ('h2', '5.2 Reliability thresholds'),
@@ -460,7 +465,7 @@ def results():
                  f"but the bootstrap intervals include zero at {'every frequency' if not fme_pos else 'some frequencies'}, so the "
                  "mechanical floor and the economic correlation are of the same magnitude.")),
         ('p', f"The sensitivity of Eq. (9) is {rng(sens_v, 3)}. An analyst who reads the nested coefficient as a measure of "
-              f"large-cap and mid-cap co-movement would therefore need a change of about {rng(att, 0)} times as large in the "
+              f"large-cap and mid-cap co-movement would therefore need a change of about {f(sum(att) / 4, 0)} times as large in the "
               "economic correlation to see a given change in the index-level number. Fig. 3 shows the consequence: as the "
               "economic correlation moves from −0.5 to 1, the nested coefficient moves only from about 0.87 to 1. The same "
               f"identity applied to full-sample Pearson correlations of daily returns gives a floor of {f(P1['floor'])} and a mechanical "
@@ -473,7 +478,7 @@ def results():
                 "multiplicity-adjusted p-values; Table A1 reports the other frequencies."),
         tab6,
         ('p', "Three patterns emerge. First, the VN30–VN100 slope is indistinguishable from zero in both ranges, as Proposition 1 "
-              "predicts: the coefficient is held near its floor, which depends on scale only through κ(s). Second, the broad-market "
+              "predicts: the coefficient is bounded below by its floor and almost insensitive to the economic correlation, and both depend on scale only through κ(s) and ρ_AM(s). Second, the broad-market "
               f"pairs VN30–VNINDEX and VN100–VNINDEX have positive reliable-range slopes ({f(slope('M30', 'VN30-VNINDEX', 'slope_rel')['estimate'], 4)} "
               f"and {f(slope('M30', 'VN100-VNINDEX', 'slope_rel')['estimate'], 4)}), which over the reliable range correspond to a rise "
               "of about 0.01 in the coefficient; over the full range, where long scales rest on few boxes, the intervals include "
@@ -497,7 +502,7 @@ def results():
               f"{f(frA['diff'])} (95% interval {f(frA['ci_lo'])} to {f(frA['ci_hi'])}; p = {f(frA['p_one_sided'], 3)}). Under the "
               f"quartile definition, the variance expansion is larger (δ = {f(frB['delta'], 2)}) and the raw correlation rises from "
               f"{f(frB['rho_low'])} to {f(frB['rho_high'])}, but the adjusted correlation ({f(frB['rho_star'])}) again does not exceed "
-              f"the calm level (p = {f(frB['p_one_sided'], 3)}). {'H4 is rejected.' if not H4_reject else 'H4 is supported.'} The "
+              f"the calm level (p = {f(frB['p_one_sided'], 3)}). {'H4 is not supported.' if not H4_reject else 'H4 is supported.'} The "
               f"power against an increase of 0.05 is {f(frA['power_at_0.05'], 2)} and {f(frB['power_at_0.05'], 2)}, so moderate "
               "structural increases are unlikely under the first definition, while small ones cannot be excluded under either."),
         ('p', "The mechanism is the heteroskedasticity bias of Eq. (12): a common volatility shock raises the share of variance "
@@ -513,8 +518,8 @@ def results():
                 f"{f(-float(reAh['RE_pct']), 2)}% ({f(-float(reAh['ci_hi']), 2)} to {f(-float(reAh['ci_lo']), 2)}) and "
                 f"{f(-float(reBh['RE_pct']), 2)}% ({f(-float(reBh['ci_hi']), 2)} to {f(-float(reBh['ci_lo']), 2)}). "
                 f"{'All four intervals exclude zero, so H5 is supported.' if pcap_re_ok else 'Not all intervals exclude zero.'} "
-                "For cash portfolios of parent and child indices the misstatement is at most "
-                f"{f(max(nested_re), 2)}%, because their correlations are pinned near the mechanical floor in every regime."),
+                "For cash portfolios of parent and child indices the daily misstatement is at most "
+                f"{f(max(nested_re), 2)}%, because their correlations are bounded below by the mechanical floor and barely move across regimes."),
         ('p', "The asymmetry has a simple source. The variance error is proportional to the gap between the static and the regime "
               "correlation, and the purged correlation varies far more across regimes than the nested ones. The understatement in "
               "crises is small in percentage terms, but it occurs when VN30 return variance has already risen by "
@@ -522,7 +527,7 @@ def results():
               "describe a mid-cap factor exposure, for example one held through a mid-cap index fund, combined with large caps; no "
               "trading strategy is implied, so turnover and transaction costs do not arise."),
         ('h2', '5.8 Multifractal structure'),
-        ('p1a', f"The generalized Hurst exponent h(2) lies between {f(min(h2), 3)} and {f(max(h2), 3)}, indicating weak persistence. "
+        ('p1a', f"The generalized cross-correlation exponent h_xy(2) lies between {f(min(h2), 3)} and {f(max(h2), 3)} for the four pairs, indicating weak persistence. "
                 f"The multifractal range Δh is {rng(dh_nest, 3)} for the nested pairs and {rng(dh_pcap, 3)} for P_cap–VN30, but shuffled "
                 "surrogates show that most of this range reflects fat tails: the P_cap–VN30 range exceeds the 95th surrogate "
                 f"percentile only at {', '.join(surr_pcap_exc) or 'no frequency'}, and the nested pairs exceed it in {surr_nest_exc} of 12 "
@@ -532,8 +537,10 @@ def results():
                  'q ∈ [−5, 5] \\ {0}; daily data. Source: Authors’ calculations based on HOSE index data (TradingView).')),
         ('h2', '5.9 Robustness'),
         ('p1a', "The Appendix collects five robustness checks. Table A1 extends the slope tests to the other frequencies: "
-                f"VN30–VNINDEX rises within the reliable range at H1 ({f(slope('H1', 'VN30-VNINDEX', 'slope_rel')['estimate'], 4)}, "
-                f"{ci(slope('H1', 'VN30-VNINDEX', 'slope_rel')['ci_lo'], slope('H1', 'VN30-VNINDEX', 'slope_rel')['ci_hi'], 4)}) but not at "
+                f"VN30–VNINDEX and VN100–VNINDEX rise within the reliable range at H1 ({f(slope('H1', 'VN30-VNINDEX', 'slope_rel')['estimate'], 4)}, "
+                f"{ci(slope('H1', 'VN30-VNINDEX', 'slope_rel')['ci_lo'], slope('H1', 'VN30-VNINDEX', 'slope_rel')['ci_hi'], 4)} and "
+                f"{f(slope('H1', 'VN100-VNINDEX', 'slope_rel')['estimate'], 4)}, "
+                f"{ci(slope('H1', 'VN100-VNINDEX', 'slope_rel')['ci_lo'], slope('H1', 'VN100-VNINDEX', 'slope_rel')['ci_hi'], 4)}) but not at "
                 "1D or H4, and the P_cap–VN30 slope is insignificant everywhere. Table A2 varies the capitalization weight from "
                 "0.60 to 0.75: a larger weight removes more of the VN30 component and lowers the purged correlation, but the gap to "
                 f"the nested pairs stays at or above {f(w_min_gap, 3)}. Table A3 replaces DCCA with the detrending moving-average "
@@ -542,8 +549,8 @@ def results():
                 f"{f(tl('Pcap-VN30', '0.05')['lambda_L'], 2)} for P_cap–VN30 against {f(tl('VN30-VN100', '0.05')['lambda_L'], 2)} for "
                 f"VN30–VN100 at 5%, so overlap also inflates joint crash probabilities. Table A5 shows that the bootstrap interval of "
                 f"the daily gap stays within {f(blk_lo)} to {f(blk_hi)} for mean block lengths from 5 to 60 days. Finally, the "
-                f"daily VN30–VNINDEX average is {f(SC['detrend_order_rho'][0], 4)}, {f(SC['detrend_order_rho'][1], 4)} and "
-                f"{f(SC['detrend_order_rho'][2], 4)} for detrending orders 1, 2 and 3."),
+                f"daily VN30–VNINDEX average is {f(DETREND[0], 4)}, {f(DETREND[1], 4)} and "
+                f"{f(DETREND[2], 4)} for detrending orders 1, 2 and 3."),
         ('h2', '5.10 Summary of hypothesis tests'),
         ('p1a', "Table 8 summarizes the outcome of each hypothesis."),
         T('Table 8 Summary of hypothesis tests',
@@ -552,7 +559,7 @@ def results():
            ['H2 Mechanical dominance', 'One-sided test, share > 0.5', f'Share {rng(share)}; lower CI ≥ {f(share_lo)}', 'Supported' if H2_ok else 'Not supported'],
            ['H3 Horizon dependence', 'Slope CIs; Holm and BH', f'{len(bh_rel)} of {fam} BH-significant; {len(holm_rel)} Holm-significant', 'Partially supported'],
            ['H4 Contagion', 'Forbes–Rigobon, one-sided', f'p = {f(frA["p_one_sided"], 3)} and {f(frB["p_one_sided"], 3)}', 'Supported' if H4_reject else 'Not supported'],
-           ['H5 Risk misstatement', 'Bootstrap CI of RE', f'{f(reAh["RE_pct"], 1)}% to {f(reBl["RE_pct"], 1)}%; CIs exclude 0', 'Supported' if pcap_re_ok else 'Not supported']],
+           ['H5 Risk misstatement', 'Bootstrap CI of RE', f'{f(min(float(reAh["RE_pct"]), float(reBh["RE_pct"])), 1)}% to {f(reBl["RE_pct"], 1)}%; CIs exclude 0', 'Supported' if pcap_re_ok else 'Not supported']],
           'All tests at the 5% level; details in Tables 4–7 and Section 5.7. Source: Authors’ calculations.'),
     ]
 
@@ -565,8 +572,8 @@ def discussion():
                 "both terms of every covariance and in both standard deviations, and Proposition 1 shows that this fixes a floor "
                 f"below which the nested coefficient cannot fall. With VN30 holding {f(100 * W30, 0)}% of VN100, the floor is near 0.90, "
                 "so the observed 0.99 contains little information about how mid caps move with large caps. The same structure "
-                "explains why the VN30–VN100 coefficient is flat across horizons and regimes: it is pinned to its floor, and the "
-                "floor depends on time and scale only through relative volatility."),
+                "explains why the VN30–VN100 coefficient is flat across horizons and regimes: it cannot fall below its floor and "
+                "responds weakly to the economic correlation, and the floor depends on time and scale only through relative volatility."),
         ('p', "Once the overlap is removed, the remaining dependence behaves like economic co-movement. It is high, because large "
               "and mid caps trade on the same exchange and respond to the same domestic shocks, but it is lower than the "
               "index-level numbers suggest. It rises in crises only as much as the common volatility shock implies, consistent with "
@@ -610,7 +617,7 @@ def appendix():
     lab = lambda p: p.replace('Pcap', 'P_cap').replace('-', '–')
     a1 = []
     for t in ['1D', 'H1', 'H4']:
-        for p in ['VN30-VNINDEX', 'Pcap-VN30']:
+        for p in ['VN30-VNINDEX', 'VN100-VNINDEX', 'Pcap-VN30']:
             a, b = slope(t, p, 'slope_full'), slope(t, p, 'slope_rel')
             a1.append([TFNAME[t], lab(p), f(a['estimate'], 4) + ' ' + ci(a['ci_lo'], a['ci_hi'], 4),
                        f(b['estimate'], 4) + ' ' + ci(b['ci_lo'], b['ci_hi'], 4), f(b['p_bh'], 3)])

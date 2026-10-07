@@ -154,7 +154,8 @@ def replication():
         s = open(os.path.join(PR, f), encoding='utf-8').read().replace('../project/data/', 'data/')
         open(os.path.join(d, f), 'w', encoding='utf-8').write(s)
     shutil.copy(os.path.join(PR, 'R', 'dcca.R'), os.path.join(d, 'R', 'dcca.R'))
-    shutil.copytree(os.path.join(PR, 'outputs'), os.path.join(d, 'outputs'))
+    shutil.copytree(os.path.join(PR, 'outputs'), os.path.join(d, 'outputs'),
+                    ignore=shutil.ignore_patterns('10_table4_forbes_rigobon.csv', '14_portfolio_relative_error.csv', '20_scale_regressions_hac.csv'))
     shutil.copy(os.path.join(B, 'notes', 'review_r2', 'replication_README.md'), os.path.join(d, 'README.md'))
     open(os.path.join(d, 'data', 'PLACE_DATA_HERE.txt'), 'w').write('Place vn_indices_merged_filled.csv and vn_indices_merged_raw.csv here (see README).\n')
     z = os.path.join(OUT, '05_Replication_Package.zip')
