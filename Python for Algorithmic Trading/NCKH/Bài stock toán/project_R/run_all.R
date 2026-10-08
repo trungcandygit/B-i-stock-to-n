@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # Full replication of every number, table and figure in the manuscript
-# "Nested Equity Index Correlations Overstate True Co-Movement: Evidence from Vietnam".
+# "The Mechanical Floor of Nested Index Correlations: An Exact Multiscale Decomposition with Evidence from Vietnam".
 # Run from project_R/:   Rscript run_all.R
 # Packages: sandwich, ggplot2 (R >= 4.3).
 suppressPackageStartupMessages({ library(sandwich); library(ggplot2) })

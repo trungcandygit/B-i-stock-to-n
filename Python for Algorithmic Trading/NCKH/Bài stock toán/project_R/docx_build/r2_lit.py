@@ -27,7 +27,7 @@ def LIT_SECTIONS(table1):
               "fluctuation size (Ge and Lin 2021; Chen et al. 2024), and combining MF-DCCA with transfer entropy reveals both "
               "multifractal cross-correlations and the direction of information flow among individual US stocks (Zhou et al. 2025). Two strands then use these coefficients for "
               "decisions. One measures crisis transmission: Okorie and Lin (2021) find fractal contagion in the stock markets of 32 "
-              "economies during COVID-19 that fades over the medium and long run, and Tilfani et al. (2021) track contagion with the "
+              "economies during COVID-19 that diminishes over time, in the medium and long run, and Tilfani et al. (2021) track contagion with the "
               "DCCA coefficient in sliding windows. The other builds portfolios: a multifractal mean-MF-X-DMA rule outperforms "
               "the mean-variance model (Wang et al. 2021), and mean-DCCA portfolios perform better when the investor’s preferred "
               "scale adapts to market conditions (Kakinaka et al. 2025)."),
@@ -89,7 +89,7 @@ def LIT_SECTIONS(table1):
 TABLE1_ROWS = [
     ['Podobnik and Stanley (2008); Zebende (2011)', 'Methodological', 'DCCA; ρDCCA', 'No', 'No', 'Defines scale-wise detrended covariance and its normalized coefficient'],
     ['Al Rababa’a et al. (2021)', 'Stock and bond markets', 'Multiscale correlation', 'No (disjoint assets)', 'No', 'Stock–bond correlation differs across horizons'],
-    ['Okorie and Lin (2021)', '32 stock markets, COVID-19', 'DCCA, DMCA', 'No', 'No', 'Fractal contagion that fades over the medium and long run'],
+    ['Okorie and Lin (2021)', '32 stock markets, COVID-19', 'DCCA, DMCA', 'No', 'No', 'Fractal contagion that diminishes over time'],
     ['Tilfani et al. (2021)', 'Stock market indices', 'Sliding-window ρDCCA', 'No', 'No', 'Time-varying cross-correlation and contagion'],
     ['Ge and Lin (2021); Chen et al. (2024)', 'China and United States', 'MF-DCCA; partial MF-DCCA', 'No', 'No', 'Scale- and size-dependent cross-correlation'],
     ['Wang et al. (2021); Kakinaka et al. (2025)', 'Stock portfolios', 'Mean-MF-X-DMA / mean-DCCA portfolios', 'No', 'No', 'Scale-aware rules improve portfolio performance'],

@@ -68,7 +68,7 @@ Three literatures bear on our question: multiscale dependence measured by detren
 Detrended cross-correlation analysis (DCCA) extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized the detrended covariance into a bounded coefficient, Podobnik et al. (2011) proposed tests for power-law cross-correlations, and Zhou (2008) generalized the method to multifractal moments (MF-DCCA). Later variants replace polynomial detrending by moving averages (Jiang and Zhou 2011; Kristoufek 2014), compute the coefficient in sliding windows (Guedes et al. 2021) or partial out third variables (Ge and Lin 2021). The methods disagree on one technical point that matters for finance: MF-DCCA must handle negative local covariances, and Oświęcimka et al. (2014) show that taking their absolute values, as many implementations do, can create spurious multifractality; they propose a sign-preserving alternative.
 :::
 
-Applied work agrees that financial dependence is scale-dependent. Stock–bond correlations differ across horizons (Al Rababa’a et al. 2021), cross-market correlations between China and the United States vary with scale and fluctuation size (Ge and Lin 2021; Chen et al. 2024), and combining MF-DCCA with transfer entropy reveals both multifractal cross-correlations and the direction of information flow among individual US stocks (Zhou et al. 2025). Two strands then use these coefficients for decisions. One measures crisis transmission: Okorie and Lin (2021) find fractal contagion in the stock markets of 32 economies during COVID-19 that fades over the medium and long run, and Tilfani et al. (2021) track contagion with the DCCA coefficient in sliding windows. The other builds portfolios: a multifractal mean-MF-X-DMA rule outperforms the mean-variance model (Wang et al. 2021), and mean-DCCA portfolios perform better when the investor’s preferred scale adapts to market conditions (Kakinaka et al. 2025).
+Applied work agrees that financial dependence is scale-dependent. Stock–bond correlations differ across horizons (Al Rababa’a et al. 2021), cross-market correlations between China and the United States vary with scale and fluctuation size (Ge and Lin 2021; Chen et al. 2024), and combining MF-DCCA with transfer entropy reveals both multifractal cross-correlations and the direction of information flow among individual US stocks (Zhou et al. 2025). Two strands then use these coefficients for decisions. One measures crisis transmission: Okorie and Lin (2021) find fractal contagion in the stock markets of 32 economies during COVID-19 that diminishes over time, in the medium and long run, and Tilfani et al. (2021) track contagion with the DCCA coefficient in sliding windows. The other builds portfolios: a multifractal mean-MF-X-DMA rule outperforms the mean-variance model (Wang et al. 2021), and mean-DCCA portfolios perform better when the investor’s preferred scale adapts to market conditions (Kakinaka et al. 2025).
 
 These strands share an assumption that is rarely stated. They treat the DCCA coefficient between two series as a measure of economic dependence, which is reasonable for disjoint assets such as stocks and bonds or two national markets. When one series contains the other, the coefficient also contains an arithmetic component that a portfolio optimizer or a contagion test would misread. None of the studies above analyzes nested pairs or separates such a component.
 
@@ -110,7 +110,7 @@ Table 1 compares representative studies on the dimensions relevant to our questi
 |---|---|---|---|---|---|
 | Podobnik and Stanley (2008); Zebende (2011) | Methodological | DCCA; ρDCCA | No | No | Defines scale-wise detrended covariance and its normalized coefficient |
 | Al Rababa’a et al. (2021) | Stock and bond markets | Multiscale correlation | No (disjoint assets) | No | Stock–bond correlation differs across horizons |
-| Okorie and Lin (2021) | 32 stock markets, COVID-19 | DCCA, DMCA | No | No | Fractal contagion that fades over the medium and long run |
+| Okorie and Lin (2021) | 32 stock markets, COVID-19 | DCCA, DMCA | No | No | Fractal contagion that diminishes over time |
 | Tilfani et al. (2021) | Stock market indices | Sliding-window ρDCCA | No | No | Time-varying cross-correlation and contagion |
 | Ge and Lin (2021); Chen et al. (2024) | China and United States | MF-DCCA; partial MF-DCCA | No | No | Scale- and size-dependent cross-correlation |
 | Wang et al. (2021); Kakinaka et al. (2025) | Stock portfolios | Mean-MF-X-DMA / mean-DCCA portfolios | No | No | Scale-aware rules improve portfolio performance |
@@ -497,7 +497,7 @@ The sensitivity of Eq. (9) is 0.106–0.112. An analyst who reads the nested coe
 **Fig. 3** Nested VN30–VN100 coefficient implied by Proposition 1 as a function of the economic correlation
 :::
 ::: {custom-style="Compact"}
-Notes: Lines: Eq. (7) evaluated at the average κ of each frequency (Table 5); markers: observed values; dashed horizontal line: daily floor; dotted line: 45-degree line. Source: Authors’ calculations.
+Notes: Lines: Eq. (7) evaluated at the average κ of each frequency (Table 5); markers: observed values; dashed horizontal line: daily floor; dotted line: 45-degree line; vertical line: zero economic correlation. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="heading2"}
@@ -689,7 +689,7 @@ Notes: Slopes of Eq. (11); reliable ranges from Table 3; BH: Benjamini–Hochber
 | 0.7500 | 0.824 | 0.153 | 0.0043 | 0.775 | 0.881 |
 
 ::: {custom-style="Compact"}
-Notes: ρ~low~ and ρ~high~ are Pearson correlations in the chronological regimes (Table 7). Source: Authors’ calculations.
+Notes: Slope (M30): full-range slope of Eq. (11); ρ~low~ and ρ~high~ are Pearson correlations in the chronological regimes (Table 7). Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -735,7 +735,7 @@ Notes: Empirical λ~L~(u) = P(X ≤ q~X~(u), Y ≤ q~Y~(u))/u; block-bootstrap i
 | 60 | 0.093 | [0.070, 0.119] |
 
 ::: {custom-style="Compact"}
-Notes: Gap between the nested-pair mean and P~cap~–VN30 (Table 4, Panel B, 1D). Source: Authors’ calculations.
+Notes: Gap between the nested-pair mean and P~cap~–VN30 (Table 4, Panel B, 1D); bootstrap draws are separate from Table 4, so the intervals differ by Monte Carlo error. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="p1a"}

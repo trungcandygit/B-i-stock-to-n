@@ -475,7 +475,7 @@ def results():
               f"share of {f(P1['mech_share'])}, so the result is not specific to DCCA."),
         ('fig', ('fig4', 'Fig. 3 Nested VN30–VN100 coefficient implied by Proposition 1 as a function of the economic correlation',
                  'Lines: Eq. (7) evaluated at the average κ of each frequency (Table 5); markers: observed values; dashed horizontal '
-                 'line: daily floor; dotted line: 45-degree line. Source: Authors’ calculations.')),
+                 'line: daily floor; dotted line: 45-degree line; vertical line: zero economic correlation. Source: Authors’ calculations.')),
         ('h2', '5.5 Horizon dependence (H3)'),
         ('p1a', "Table 6 reports scaling slopes at the 30-minute frequency, where the reliable range is widest, with intervals and "
                 "multiplicity-adjusted p-values; Table A1 reports the other frequencies."),
@@ -643,7 +643,7 @@ def appendix():
           'Source: Authors’ calculations.'),
         T('Table A2 Sensitivity of the purged correlation to the capitalization weight w',
           ['w', 'Mean ρ (1D)', 'Gap to nested', 'Slope (M30)', 'Calm ρ_low', 'Crisis ρ_high'], a2,
-          'ρ_low and ρ_high are Pearson correlations in the chronological regimes (Table 7). Source: Authors’ calculations.'),
+          'Slope (M30): full-range slope of Eq. (11); ρ_low and ρ_high are Pearson correlations in the chronological regimes (Table 7). Source: Authors’ calculations.'),
         T('Table A3 Average DMCA coefficients over the reliable range',
           ['Frequency', 'VN30–VNINDEX', 'VN30–VN100', 'VN100–VNINDEX', 'P_cap–VN30', 'Gap'], a3,
           'Centered moving-average detrending with odd windows matched to the DCCA scales s ≤ s_rel; gap: mean of the nested pairs '
@@ -653,7 +653,7 @@ def appendix():
           'Empirical λ_L(u) = P(X ≤ q_X(u), Y ≤ q_Y(u))/u; block-bootstrap intervals. Source: Authors’ calculations.'),
         T('Table A5 Sensitivity of the daily gap interval to the bootstrap block length',
           ['Mean block length (days)', 'Gap', '95% CI'], a5,
-          'Gap between the nested-pair mean and P_cap–VN30 (Table 4, Panel B, 1D). Source: Authors’ calculations.'),
+          'Gap between the nested-pair mean and P_cap–VN30 (Table 4, Panel B, 1D); bootstrap draws are separate from Table 4, so the intervals differ by Monte Carlo error. Source: Authors’ calculations.'),
     ]
 
 
