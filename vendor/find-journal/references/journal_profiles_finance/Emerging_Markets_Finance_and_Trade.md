@@ -17,7 +17,7 @@ emerging markets, empirical finance, financial markets, contagion, volatility, p
 - Original research article — other types UNVERIFIED
 
 ## Classification
-- **Tier:** Q2 in Finance — SCImago SJR 2025 = 0.747; Finance Q2; best quartile Q1 in Economics, Econometrics and Finance (misc.) (scimagojr.com source id 27748 and Finance ranking page)
+- **Tier:** Q2 in Finance — SCImago SJR 2025 = 0.747; Finance Q2; best quartile Q1 in Economics, Econometrics and Finance (misc.) (scimagojr.com source id 27748 and Finance ranking page)  **Correction (2026-10-10):** SCImago shows SJR 2025 Q1 in Economics, Econometrics and Finance (miscellaneous); best quartile is therefore Q1, above APFM (Q2) and outside the author's Q2–Q3 band.
 - **Open Access:** Hybrid (subscription route, no mandatory APC); OA price UNVERIFIED
 - **Field:** Emerging-market finance / Economics
 

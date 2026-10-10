@@ -368,3 +368,7 @@ Recommended verification sources:
 - Journal Citation Reports (JCR) via institutional access: for Impact Factor
 - Journal homepage -> Author Guidelines: for current APC and formatting requirements
 - Clarivate Master Journal List: for indexing status
+
+## Correction (orchestrator, 2026-10-10)
+
+EMFT's best SJR 2025 quartile is **Q1** (Economics, Econometrics and Finance, miscellaneous), not Q2. That places it above APFM (Q2), which desk-rejected the paper on importance. Under Post-Rejection Mode (route one or two tiers below the rejecting journal) EMFT's acceptance feasibility is revised from Medium-High to **Medium**; its 33 % acceptance rate is a journal-wide figure across all submissions and does not offset a higher bar on novelty. Revised feasibility-adjusted order inside the author's Q2–Q3 band: Journal of Economics and Finance → Journal of Emerging Market Finance → (Q1, optional) EMFT. IAJ dropped by the author (USD 50 submission fee).
