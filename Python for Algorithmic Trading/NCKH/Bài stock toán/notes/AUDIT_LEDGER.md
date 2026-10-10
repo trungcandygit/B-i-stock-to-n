@@ -563,3 +563,10 @@ against the DB independently), the new Section 6 sentence's placement and accura
 passive-voice sweep to confirm zero genuine hits remain. Also decide whether the still-open M-15
 (sentence-length compression, mean 30.6 words vs ~21 target) and remaining MINOR items block a "ready
 for submission" call, or are acceptable residual polish per S31's judgment call on closure.
+
+## D75 — JEMF (Sage) package, no text cuts (2026-10-10)
+- Target: Journal of Emerging Market Finance (Sage). User override: no word cuts (limit counts references); tables kept in
+  main text (a trial move of Table 1/Table 9 to the supplement was reverted; sources equal *_pre_jemf.py).
+- New: `docx_build/build_jemf.py` (title page with Sage Statements and Declarations, anonymized manuscript without
+  declarations, supplement, 600-dpi figure files) and `jemf_count.py` (total words incl. tables and references: 9,591).
+- Open for authors: abstract 211 words vs ~100 requested; AI-use wording vs Sage policy; no-preprint confirmation; ORCID.
