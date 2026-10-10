@@ -36,17 +36,16 @@ def LIT_SECTIONS(table1):
                 "weights co-move more with other index stocks (Greenwood 2008), and regression-discontinuity and tracking-demand "
                 "designs support the effect (Liao et al. 2022; DeCoste 2025). The evidence is contested: much of the "
                 "post-inclusion rise also appears in matched stocks that were not added (Chen et al. 2016), and the S&P 500 index "
-                "effect has almost disappeared (Greenwood and Sammon 2025). Index-level co-movement is thus easy to misread even "
-                "where indices do not overlap. Our concern is the arithmetic overlap, which raises correlations even if no investor "
+                "effect has almost disappeared (Greenwood and Sammon 2025). Membership-based co-movement is therefore a weak guide "
+                "even where indices do not overlap. Our concern is the arithmetic overlap, which raises correlations even if no investor "
                 "trades differently."),
         ('h2', '2.4 Size, lead–lag and horizon effects'),
         ('p1a', "Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Hou (2007) traces to slow diffusion "
                 "of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), with a size "
                 "that depends on sampling (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) lets co-movement build "
                 "with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al. 2021), and price adjustment is "
-                "delayed under retail-heavy trading (Tran and Tran 2025). Herding in stress (Nguyen et al. 2023), sector "
-                "connectedness above 60%, rising to near 90% during COVID-19 (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025) raise all "
-                "correlations at once."),
+                "delayed under retail-heavy trading (Tran and Tran 2025). Three forces raise all correlations at once: herding in stress (Nguyen et al. 2023), sector "
+                "connectedness above 60% that rose to near 90% during COVID-19 (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025)."),
         ('h2', '2.5 Volatility, contagion and interdependence'),
         ('p1a', "Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically "
                 "with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than "
@@ -83,7 +82,7 @@ TABLE1_ROWS = [
     ['Forbes and Rigobon (2002); Corsetti et al. (2005)', 'International stock markets', 'Adjusted correlation; factor model', 'No', 'No', 'Yes', 'Interdependence versus contagion; bias from restricted idiosyncratic variance'],
     ['Lo and MacKinlay (1990); Hou (2007)', 'US size portfolios', 'Cross-autocorrelation', 'No', 'No', 'No', 'Large caps lead small caps'],
     ['Bui et al. (2022); Tran and Tran (2025)', 'Vietnamese sectors; intraday HOSE', 'Spillover connectedness; high-frequency', 'No', 'No', 'No', 'High connectedness; delayed adjustment'],
-    ['This study', 'VN30, VN100, VNINDEX; M30 to daily, 2014–2025', 'Scale-wise part–whole identity; DCCA', 'Yes (scale-wise, with weight uncertainty)', 'Yes', 'Yes', 'Purged correlation is invisible in the nested one'],
+    ['This study', 'VN30, VN100, VNINDEX; M30 to daily, 2014–2025', 'Scale-wise part–whole identity; DCCA', 'Yes (scale-wise, with weight uncertainty)', 'Yes', 'Yes', 'Purged coefficient is largely masked in the nested one'],
 ]
 TABLE1_HEADER = ['Study', 'Market and data', 'Method', 'Overlap treated?', 'Scale-wise?', 'Volatility-robust test?', 'Main finding']
 TABLE1_NOTE = ('Overlap treated: whether the study separates dependence created by shared constituents; scale-wise: whether '
