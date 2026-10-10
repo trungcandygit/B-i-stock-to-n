@@ -257,4 +257,5 @@ if (!nzchar(Sys.getenv("RUN_ALL_MAIN_ONLY"))) {
   stopifnot(system2("Rscript", "run_round2.R") == 0)
   stopifnot(system2("Rscript", "run_round3.R") == 0)
   stopifnot(system2("Rscript", "run_round3b.R") == 0)
+  stopifnot(system2("Rscript", "run_round3c.R") == 0)
 }
