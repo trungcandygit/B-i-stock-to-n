@@ -41,7 +41,7 @@ Notes: Slopes of Eq. (13) over 30 scales from 5 bars to one quarter of the sampl
 **Table S2** Decomposition of the VN30–VN100 coefficient on a grid of weights
 :::
 
-| w | Freq. | κ | ρ~AM~ | ρ̲ | Benchmark-first share | Sensitivity | Shapley overlap share | Pearson ρ̲ (1D) |
+| w | Freq. | κ | ρ~AM~ | ρ̲ | Benchmark-first share | Sensitivity | Shapley overlap share | Pearson ρ̲ |
 |---|---|---|---|---|---|---|---|---|
 | 0.6000 | 1D | 0.675 | 0.924 | 0.829 | 0.839 | 0.164 | 0.452 | 0.833 |
 | 0.6500 | 1D | 0.553 | 0.903 | 0.875 | 0.886 | 0.127 | 0.486 | 0.879 |
@@ -174,7 +174,7 @@ Notes: Bootstrap draws are separate from Table 4, so intervals differ by Monte C
 | 4-hour (H4) | All bars | 5,410 | VN100–VNINDEX minus VN30–VN100 | 0.0005 [−0.0011, 0.0018] | 0.504 |
 
 ::: {custom-style="Compact"}
-Notes: First bar: overnight return and opening auction; last bar: closing auction; 199 block-bootstrap replicates; differences are computed within the same replicates. Source: Authors’ calculations.
+Notes: First bar: overnight return and opening auction; last bar: closing auction; 199 block-bootstrap replicates, drawn separately from Table 6, with differences computed within the same replicates and the full-sample thresholds of Table 3. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}
