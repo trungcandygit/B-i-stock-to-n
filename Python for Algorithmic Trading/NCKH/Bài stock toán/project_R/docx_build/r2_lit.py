@@ -41,8 +41,8 @@ def LIT_SECTIONS(table1):
                 "trades differently."),
         ('h2', '2.4 Size, lead–lag and horizon effects'),
         ('p1a', "Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Hou (2007) traces to slow diffusion "
-                "of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), with a size "
-                "that depends on sampling (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) lets co-movement build "
+                "of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), an effect whose "
+                "size depends on the sampling scheme (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) lets co-movement build "
                 "with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al. 2021), and price adjustment is "
                 "delayed under retail-heavy trading (Tran and Tran 2025). Three forces raise all correlations at once: herding in stress (Nguyen et al. 2023), sector "
                 "connectedness above 60% that rose to near 90% during COVID-19 (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025)."),
@@ -87,7 +87,7 @@ TABLE1_ROWS = [
 TABLE1_HEADER = ['Study', 'Market and data', 'Method', 'Overlap treated?', 'Scale-wise?', 'Volatility-robust test?', 'Main finding']
 TABLE1_NOTE = ('Overlap treated: whether the study separates dependence created by shared constituents; scale-wise: whether '
                'dependence is measured by timescale; volatility-robust test: whether crisis comparisons correct for '
-               'heteroskedasticity or common shocks; DMCA: detrending moving-average cross-correlation analysis; ρDCCA: DCCA coefficient. Source: Authors’ compilation.')
+               'heteroskedasticity or common shocks; DCCA: detrended cross-correlation analysis; MF-DCCA: multifractal DCCA; DMCA: detrending moving-average cross-correlation analysis; ρDCCA: DCCA coefficient. Source: Authors’ compilation.')
 
 REFERENCES = [
     "Abdul Karim, B., & Xin Ning, H. (2013). Driving forces of the ASEAN-5 stock markets integration. Asia-Pacific Journal of Business Administration, 5(3), 186–191. https://doi.org/10.1108/APJBA-07-2012-0053",

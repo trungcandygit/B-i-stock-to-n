@@ -55,7 +55,7 @@ Notes: Slopes of Eq. (13) over 30 scales from 5 bars to one quarter of the sampl
 | 0.7500 | M30 | 0.381 | 0.825 | 0.935 | 0.947 | 0.074 | 0.555 | 0.938 |
 
 ::: {custom-style="Compact"}
-Notes: DCCA quantities averaged over s ≤ s~rel~ at each weight. Source: Authors’ calculations.
+Notes: DCCA (detrended cross-correlation analysis) quantities averaged over s ≤ s~rel~ at each weight. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -86,7 +86,7 @@ Notes: ρ~low~ and ρ~high~: Pearson correlations of P~cap~ and VN30 in the chro
 | 4-hour (H4) | 0.966 | 0.988 | 0.975 | 0.891 | 0.086 |
 
 ::: {custom-style="Compact"}
-Notes: Centered moving-average detrending with odd windows matched to the DCCA scales s ≤ s~rel~. Source: Authors’ calculations.
+Notes: DMCA: detrending moving-average cross-correlation analysis; centered moving-average detrending with odd windows matched to the DCCA scales s ≤ s~rel~. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -324,5 +324,5 @@ Notes: Reliable-range slopes of Eq. (13); 199 replicates per block length. Sourc
 **Fig. S1** MF-DCCA at the daily frequency: (a) singularity spectra f(α); (b) generalized exponents h~xy~(q)
 :::
 ::: {custom-style="Compact"}
-Notes: q ∈ [−5, 5] \ {0}; f(α) can be negative where absolute local covariances are used. Source: Authors’ calculations.
+Notes: MF-DCCA: multifractal detrended cross-correlation analysis; q ∈ [−5, 5] \ {0}; f(α) can be negative where absolute local covariances are used. Source: Authors’ calculations.
 :::

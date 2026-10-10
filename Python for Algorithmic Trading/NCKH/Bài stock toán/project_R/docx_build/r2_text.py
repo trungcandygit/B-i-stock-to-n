@@ -167,7 +167,7 @@ def introduction():
               "(2014–2025), with a block bootstrap that also draws the index weight. We then use the purged series to test hypotheses "
               "on horizon dependence, contagion and the value of regime-conditioned correlations."),
         ('p', f"We report three main findings. The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of {rng(sens_v, 3)}, "
-              f"and the like-for-like gap between nested and purged coefficients is {rng(gapL_v, 3)}; because κ hardly varies with the "
+              f"and the like-for-like gap between nested and purged coefficients is {rng(gapL_v, 3)}. Because κ hardly varies with the "
               f"timescale ({f(min(kap_scales), 2)}–{f(max(kap_scales), 2)}), the Pearson version gives the same answer. On the purged "
               "series, horizon dependence is confined to intraday broad-market pairs and comes from the auction bars. Crisis "
               "evidence depends on whether contagion is measured by an adjusted correlation or a factor loading, and "
@@ -188,8 +188,8 @@ def hypotheses():
                 "sampling error. A share above one half is not a finding: it holds whenever κ < √3 and the purged coefficient is "
                 "non-negative."),
         ('p', "*H1 (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical "
-              "question. Rule: the lower 95% bound of the like-for-like gap (VN30–VN100 minus P_cap–VN30; P_cap is the overlap-purged mid-cap series) exceeds 0.05, the "
-              "estimation tolerance of Section 4.4, at every frequency."),
+              "question. Rule: at every frequency, the lower 95% bound of the like-for-like gap exceeds 0.05, the estimation tolerance of "
+              "Section 4.4; the gap is VN30–VN100 minus P_cap–VN30 (P_cap is the overlap-purged mid-cap series)."),
         ('p', "*H2 (horizon dependence).* Large caps lead small caps (Lo and MacKinlay 1990; Hou 2007), non-synchronous trading "
               "depresses short-horizon correlations (Epps 1979) and information diffuses gradually (Hong and Stein 1999). "
               "Broad-market coefficients should therefore rise with the timescale, whereas the identity predicts a damped VN30–VN100 slope. "
@@ -326,7 +326,8 @@ def methodology():
            ['5. Purged coefficient', 'ρ_AM = (ρ_AB σ_B − wσ_A)/[(1 − w)σ_M]', f"ρ_AM = {f(REC['rho_AM'], 3)}"],
            ['6. Sensitivity', 'Eq. (10)', f"{f(REC['sensitivity'], 3)} (inverse {f(REC['inverse_sensitivity'], 1)})"]],
           'Pearson moments of daily log returns, February 2014 to December 2025. Steps 2 and 5 reproduce the volatility and the '
-          'correlation of the directly constructed P_cap series exactly. Source: Authors’ calculations.'),
+          'correlation of the directly constructed overlap-purged series P_cap exactly; subscripts A, B and M: child, parent and '
+          'remaining constituents. Source: Authors’ calculations.'),
         ('h2', '4.3 Weight uncertainty'),
         ('p1a', "Capitalizations drift between semi-annual reviews. If the true weight w_t differs from w, the purged series becomes"),
         ('eq', r'\hat{M}_t=\frac{1-w_t}{1-w}M_t+\frac{w_t-w}{1-w}A_t, \qquad (12)'),
@@ -346,7 +347,8 @@ def methodology():
               "hedge-effectiveness and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for "
               "the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag and materiality "
               "statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights and with 2021 added. The remaining "
-              "Forbes–Rigobon and relative-error statistics use 1,999 replicates. Intervals are percentile 95% intervals, capped at ±1 for "
+              "Forbes–Rigobon and relative-error statistics use 1,999 replicates."),
+        ('p', "Intervals are percentile 95% intervals, capped at ±1 for "
               "correlations. With B = 499 replicates, percentile p-values cannot fall below 0.004 (reported as p < 0.005): "
               "p = 2 min{k₋ + 1, k₊ + 1}/(B + 1), where k₋ and k₊ count replicates at or below and at or above zero. With 19 tests, the smallest "
               "attainable Holm-adjusted value is 0.076. One-sided Forbes–Rigobon p-values use the re-centered bootstrap distribution, and p-values for Δβ and the residual-variance "
@@ -375,7 +377,7 @@ def methodology():
               "conditioning index."),
         ('h2', '4.7 Portfolio variance: in-sample misstatement and out-of-sample evaluation'),
         ('p1a', "For an equally weighted two-asset position, replacing the regime correlation ρ_r by the static correlation ρ_st "
-                "changes the variance by"),
+                "changes the portfolio variance by the relative error (RE)"),
         ('eq', r'\mathrm{RE}=\frac{\rho_{\mathrm{st}}-\rho_{r}}{\tfrac{1}{2}\left(\sigma_1/\sigma_2+\sigma_2/\sigma_1\right)+\rho_{r}}, \qquad (16)'),
         ('p', "with regime volatilities σ₁ and σ₂, so only the correlation differs. We obtain intervals by resampling the full sample jointly "
               "and re-estimating ρ_st, and compare |RE| with the bootstrap relative standard error of the regime variance. Because "
@@ -402,19 +404,19 @@ def results():
     tab3 = T('Table 3 Finite-sample reliability thresholds of the DCCA coefficient',
              ['Frequency', 'N', 'Gaussian s_rel', 'Heavy-tailed s_rel'],
              [[TFNAME[t], nint(REL[t]['n']), REL[t]['s_rel'], GARCH[t]['s_rel_garch_t']] for t in TF],
-             's_rel: largest scale (bars) at which the worst-case mean absolute error stays below 0.05; Gaussian: 1,002 white-noise '
-             'simulations; heavy-tailed: 300 GARCH(1,1)-t(5) simulations. Source: Authors’ calculations.')
+             'DCCA: detrended cross-correlation analysis; s_rel: largest scale (bars) at which the worst-case mean absolute error stays below 0.05; Gaussian: 1,002 white-noise '
+             'simulations; heavy-tailed: 300 GARCH(1,1)-t(5) simulations (generalized autoregressive conditional heteroskedasticity). Source: Authors’ calculations.')
     rowsA = [[TFNAME[t], f(AVG[('A', t)]['nested_mean']), f(AVG[('A', t)]['VN30-VN100']), f(AVG[('A', t)]['Pcap-VN30']),
               f(AVG[('A', t)]['gap']), '', '', nint(AVG[('A', t)]['n'])] for t in TF]
     rowsB = [[TFNAME[t], f(AVG[('B', t)]['nested_mean']), f(AVG[('B', t)]['VN30-VN100']), f(AVG[('B', t)]['Pcap-VN30']),
               est_ci(gapB[t]), est_ci(gapL[t]), f(Q[t]['cohen_q'], 2) + ' ' + ci(Q[t]['ci_lo'], Q[t]['ci_hi'], 2),
               nint(AVG[('B', t)]['n'])] for t in TF]
-    tab4 = T('Table 4 Average DCCA coefficients of nested and overlap-purged pairs',
+    tab4 = T('Table 4 Average DCCA coefficients of the nested pairs and the overlap-purged pair',
              ['Frequency', 'Nested mean', 'VN30–VN100', 'P_cap–VN30', 'Three-pair gap [95% CI]', 'Like-for-like gap [95% CI]', 'Cohen’s q [95% CI]', 'N'],
              [['*Panel A: synchronized window, 2017–2024*', '', '', '', '', '', '', '']] + rowsA +
              [['*Panel B: full sample, 2014–2025*', '', '', '', '', '', '', '']] + rowsB,
              'Averages of ρ(s) over s ≤ s_rel (Table 3) with m = 1; nested mean: VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX; '
-             'three-pair gap: nested mean minus P_cap–VN30; like-for-like gap: VN30–VN100 minus P_cap–VN30. Brackets: '
+             'P_cap: overlap-purged mid-cap series; three-pair gap: nested mean minus P_cap–VN30; like-for-like gap: VN30–VN100 minus P_cap–VN30. Brackets: '
              'block-bootstrap 95% intervals at the factsheet weight. Source: Authors’ calculations.')
 
     def r5(t):
@@ -430,7 +432,7 @@ def results():
              [['*Panel A: sampling uncertainty, w fixed at the factsheet value*', '', '', '', '', '', '', '', '']] + [r5(t) for t in TF] +
              [['*Panel B: sampling and weight uncertainty, w ~ U(0.60, 0.75) in each replicate*', '', '', '', '', '', '', '', '']] +
              [r5w(t) for t in ('1D', 'M30')],
-             'Quantities of Eqs. (7)–(11) averaged over s ≤ s_rel; A = VN30, B = VN100, M = P_cap. Brackets: block-bootstrap '
+             'Quantities of Eqs. (7)–(11) averaged over s ≤ s_rel; A = VN30, B = VN100, M = P_cap (overlap-purged mid-cap series). Brackets: block-bootstrap '
              '95% intervals; Panel B covers the daily and 30-minute frequencies. Source: Authors’ calculations.')
 
     def r6(t, p):
@@ -441,7 +443,7 @@ def results():
     tab6 = T('Table 6 Reliable-range scaling slopes of DCCA coefficients',
              ['Frequency', 'Pair', 'Slope [95% CI]', 'p (bootstrap)', 'p (studentized)', 'Holm, 19 tests', 'Holm, H2 family', 'TOST p'],
              [r6(t, p) for t in TF for p in PAIRS4],
-             f'Slopes β of Eq. (13) over s ≤ s_rel. Holm, 19 tests: studentized p adjusted over the original {fam} tests, which '
+             f'Slopes β of Eq. (13) over s ≤ s_rel; P_cap: overlap-purged mid-cap series. Holm, 19 tests: studentized p adjusted over the original {fam} tests, which '
              'include three statistical proxies at M30 (Table S8); H2 family: the eight broad-market tests; TOST: equivalence '
              'to zero with a margin of 0.001. Source: Authors’ calculations.')
 
@@ -452,7 +454,7 @@ def results():
     tab7 = T('Table 7 Crisis dependence between P_cap and VN30: adjusted correlation and factor-model tests',
              ['Regime definition', 'ρ_low', 'ρ_high', 'ρ* − ρ_low [95% CI]', 'p (FR)', 'β_low', 'β_high', 'Δβ [95% CI]', 'Residual variance ratio [95% CI]'],
              [r7('Chronological episodes', frA, facA), r7('VNINDEX volatility quartiles', frB, facB), r7('VN30 volatility quartiles', fr30, facC)],
-             f'Daily returns; ρ* from Eq. (15); p (FR): one-sided Forbes–Rigobon bootstrap p-value for H0: ρ* ≤ ρ_low; β: OLS slope of P_cap on '
+             f'Daily returns; ρ* from Eq. (15); p (FR): one-sided Forbes–Rigobon bootstrap p-value for H0: ρ* ≤ ρ_low; β: ordinary least squares slope of P_cap (overlap-purged mid-cap series) on '
              f'VN30; residual variance ratio: crisis over calm. Chronological: {nint(frA["n_low"])} calm and {nint(frA["n_high"])} '
              f'crisis days; quartiles: {nint(frB["n_low"])} days per regime. Source: Authors’ calculations.')
 
@@ -472,8 +474,8 @@ def results():
              ['Regime or pair', 'Pair or static QLIKE', 'RE, % [95% CI] or EWMA QLIKE', 'Relative SE, % or regime QLIKE', 'RE/SE or DM, static vs EWMA', 'DM, static vs regime'],
              [['*Panel A: in-sample misstatement (E3)*', '', '', '', '', '']] + [r[:1] + r[1:] + [''] for r in tab8a] +
              [['*Panel B: out-of-sample, 2023–2025 (H4)*', '', '', '', '', '']] + [r8b(p) for p in ('Pcap-VN30', 'VN30-VN100', 'VN30-VNINDEX', 'VN100-VNINDEX')],
-             f'Panel A: RE of Eq. (16) for an equally weighted position; relative SE: bootstrap standard error of the regime portfolio '
-             f'variance. Panel B: mean QLIKE over {nint(OOSD["n_eval"])} evaluation days; DM: Diebold–Mariano t-statistic (p) on '
+             f'Panel A: RE: relative error of Eq. (16) for an equally weighted position; P_cap: overlap-purged mid-cap series; relative SE: bootstrap standard error of the regime portfolio '
+             f'variance. Panel B: QLIKE: quasi-likelihood loss; EWMA: exponentially weighted moving average; mean QLIKE over {nint(OOSD["n_eval"])} evaluation days; DM: Diebold–Mariano t-statistic (p) on '
              'the QLIKE difference, negative when the static correlation has the lower loss. Source: Authors’ calculations.')
 
     h2s = lambda t, p: h2row(t, p)
@@ -497,8 +499,8 @@ def results():
         ('p', f"The nested pairs average {rng(nested_all)} at every frequency in both samples, and P_cap–VN30 averages {rng(pcap_all)}. "
               f"Corollary 3 fixes the sign of the like-for-like gap, but not its size: the gap is {rng(gapL_v)} with interval lower "
               f"bounds of at least {f(gapL_lo)}, above the 0.05 tolerance at every frequency, so "
-              f"{'H1 is supported' if H1_ok else 'H1 is not supported at every frequency'}. The three-pair gap, which also uses the "
-              f"broad-market pairs that cannot be purged by weight, is {rng(gap3)}, with Cohen’s q (Cohen 1988) of {rng(qv, 2)}. "
+              f"{'H1 is supported' if H1_ok else 'H1 is not supported at every frequency'}. The three-pair gap is {rng(gap3)}, with "
+              f"Cohen’s q (Cohen 1988) of {rng(qv, 2)}; it also uses the broad-market pairs, which cannot be purged by weight. "
               "We report q descriptively because both coefficients come from the same sample. Overlap thus inflates co-movement that "
               "is already strong."),
         ('p', f"The gap depends on the weight: over w = 0.60–0.75 the daily like-for-like gap is {f(min(like_w))}–{f(max(like_w))} "
@@ -507,7 +509,7 @@ def results():
               "0.05, so H1 holds under weight uncertainty. The size of the gap, however, is known only to within a factor of about "
               "two."),
         ('fig', ('fig2', 'Fig. 2 DCCA coefficients of the nested pairs and P_cap–VN30 by timescale: (a) 1D, (b) M30, (c) H1, (d) H4',
-                 'Line and marker types identify the pairs; grey bands: pointwise block-bootstrap 95% intervals; vertical dotted '
+                 'Line and marker types identify the pairs; P_cap: overlap-purged mid-cap series; grey bands: pointwise block-bootstrap 95% intervals; vertical dotted '
                  'lines: s_rel (Table 3). Source: Authors’ calculations based on HOSE index data (TradingView).')),
         ('h2', '5.3 The part–whole decomposition (E1, E2)'),
         ('p1a', "Table 5 applies Lemma 1 to VN30–VN100, and Fig. 3 plots Eq. (7) against the purged coefficient."),
@@ -556,7 +558,7 @@ def results():
               + (' and '.join(tost_eq) if tost_eq else 'no frequency') +
               f" (TOST p = {', '.join(pfmt(h2s(t, 'VN30-VN100')['tost_p']) for t in tost_eq)}), and the test is inconclusive elsewhere. The "
               "P_cap–VN30 slope is not significant at any frequency."),
-        ('p', f"Eq. (14) explains the flat nested slope: the damping factor is {rng(damp, 3)}, at M30 and H1 the κ channel partly offsets the "
+        ('p', f"Eq. (14) explains the flat nested slope: the damping factor (the sensitivity) is {rng(damp, 3)}, at M30 and H1 the κ channel partly offsets the "
               f"ρ_AM channel, and the implied slope differs from the observed one by at most {f(slc_err * 1e5, 1)} × 10⁻⁵ "
               "(Table S13). A flat nested coefficient therefore says little about the tiers: a purged slope of 0.01 per unit of ln s, "
               "five times the broad-market slopes, would move the nested slope by about 0.001, the TOST margin."),
@@ -580,7 +582,7 @@ def results():
                  "constituents catch up." if (H2_out == 'Supported' and not H2_robust) else
                  f"H2 is {'robust' if H2_robust else 'not robust'} to removal of the opening bar.")),
         ('h2', '5.5 Crisis dependence (H3)'),
-        ('p1a', "Table 7 presents the Forbes–Rigobon and single-factor tests under three regime definitions."),
+        ('p1a', "Table 7 presents the Forbes–Rigobon and factor-model tests under three regime definitions."),
         tab7,
         ('p', f"The raw correlation rises under every regime definition, from {f(frA['rho_low'])} to {f(frA['rho_high'])} chronologically and "
               f"from {f(fr30['rho_low'])} to {f(fr30['rho_high'])} under VN30 quartiles. The adjusted crisis correlation, however, never "
@@ -593,8 +595,8 @@ def results():
               f"({f(facB['idio_var_ratio'], 2)} under VNINDEX quartiles), which violates the assumption behind Eq. (15) and pushes ρ* "
               f"down (Corsetti et al. 2005). The loading rises from {f(facC['beta_low'])} to {f(facC['beta_high'])} under VN30 "
               f"quartiles (Δβ = {f(facC['d_beta'])}, {ci(facC['d_beta_ci_lo'], facC['d_beta_ci_hi'])}, p {pfmt(facC['p_d_beta'])}) but not between chronological "
-              f"episodes (Δβ = {f(facA['d_beta'])}, {ci(facA['d_beta_ci_lo'], facA['d_beta_ci_hi'])}), and adding 2021 as a crisis "
-              f"({nint(C21[1]['n_crisis'])} days) changes neither result (Forbes–Rigobon p = {f(C21[1]['fr_p_one_sided'], 3)}; Δβ = "
+              f"episodes (Δβ = {f(facA['d_beta'])}, {ci(facA['d_beta_ci_lo'], facA['d_beta_ci_hi'])}). Neither result changes when 2021 "
+              f"is added as a crisis ({nint(C21[1]['n_crisis'])} days; Forbes–Rigobon p = {f(C21[1]['fr_p_one_sided'], 3)}; Δβ = "
               f"{f(C21[1]['d_beta'])}, {ci(C21[1]['d_beta_ci_lo'], C21[1]['d_beta_ci_hi'])}). Under its decision rule, H3 is "
               f"{H3_out.lower()}: on high-VN30-volatility days, mid caps respond more strongly to large caps and also carry more "
               "mid-cap-specific risk. Because the lower-tail dependence of P_cap–VN30 "
@@ -633,7 +635,8 @@ def results():
            ['H2 Horizon dependence', 'Studentized slopes; Holm (H2 family); TOST', f'{len(holm_h2)} of 8 broad-market slopes significant, all at {" or ".join(sorted({t for t, p in holm_h2}, key=["M30", "H1", "H4", "1D"].index))}; VN30–VN100 equivalent to zero at {", ".join(tost_eq) or "none"}', H2_out, 'Not robust: vanishes without the auction bars' if not H2_robust else 'Robust to removing the opening bar'],
            ['H3 Contagion', 'Forbes–Rigobon adjustment and Δβ, VN30 regimes', f'Forbes–Rigobon p = {f(fr30["p_one_sided"], 3)}; Δβ = {f(facC["d_beta"])}, p {pfmt(facC["p_d_beta"])}', H3_out, 'Loading rises on high-volatility days; residual variance rises too'],
            ['H4 Value of regime conditioning', 'QLIKE; Diebold–Mariano', f'Static lowest for all pairs; p {f(min(dm_p), 2)}–{f(max(dm_p), 2)}', 'Supported' if H4_ok else 'Not supported', 'Static correlation has the lowest loss']],
-          'Decision rules for H1–H4 in Section 2.7; all tests at the 5% level. Source: Authors’ calculations.'),
+          'Decision rules for H1–H4 in Section 2.7; all tests at the 5% level; RE: relative error of portfolio variance; SE: standard '
+          'error; TOST: two one-sided tests; QLIKE: quasi-likelihood loss; CI: confidence interval. Source: Authors’ calculations.'),
     ]
 
 
@@ -664,8 +667,8 @@ def discussion():
                 "For hedging, a minimum-variance VN30 hedge removes a share ρ² of mid-cap variance (Ederington 1979), "
                 f"{f(HE['full']['hedge_effectiveness'], 2)} {ci(HE['full']['ci_lo'], HE['full']['ci_hi'], 2)} over the full sample but "
                 f"{f(HE['B_low']['hedge_effectiveness'], 2)} {ci(HE['B_low']['ci_lo'], HE['B_low']['ci_hi'], 2)} in the low-volatility "
-                f"quartile and {f(HE['B_high']['hedge_effectiveness'], 2)} in the high-volatility quartile (Table S11). A holder of the VNMIDCAP "
-                "exchange-traded fund who hedges with VN30 futures keeps about a fifth of the variance on average and about half in calm markets. A "
+                f"quartile and {f(HE['B_high']['hedge_effectiveness'], 2)} in the high-volatility quartile (Table S11). Hedging the VNMIDCAP "
+                "exchange-traded fund with VN30 futures leaves about a fifth of the variance on average and about half in calm markets. A "
                 "mid-cap derivative would remove this basis risk; we do not study whether such a contract would be viable. The case for regime-conditioned tier "
                 "correlations is not supported: their in-sample gain is mostly within sampling error and vanishes out of sample. For users of index-level data, the "
                 "error that matters is reading a nested correlation as evidence of diversification."),
@@ -747,13 +750,13 @@ def supplement():
           'Slopes of Eq. (13) over 30 scales from 5 bars to one quarter of the sample. Source: Authors’ calculations.'),
         S('Table S2 Decomposition of the VN30–VN100 coefficient on a grid of weights',
           ['w', 'Freq.', 'κ', 'ρ_AM', 'ρ̲', 'Benchmark-first share', 'Sensitivity', 'Shapley overlap share', 'Pearson ρ̲'], s2,
-          'DCCA quantities averaged over s ≤ s_rel at each weight. Source: Authors’ calculations.'),
+          'DCCA (detrended cross-correlation analysis) quantities averaged over s ≤ s_rel at each weight. Source: Authors’ calculations.'),
         S('Table S3 Purged coefficient, gap and regime correlations on a grid of weights',
           ['w', 'Mean ρ_AM (1D)', 'Three-pair gap (1D)', 'Full-range slope (M30)', 'Calm ρ_low', 'Crisis ρ_high'], s3,
           'ρ_low and ρ_high: Pearson correlations of P_cap and VN30 in the chronological regimes. Source: Authors’ calculations.'),
         S('Table S4 Average DMCA coefficients over the reliable range',
           ['Frequency', 'VN30–VNINDEX', 'VN30–VN100', 'VN100–VNINDEX', 'P_cap–VN30', 'Three-pair gap'], s4,
-          'Centered moving-average detrending with odd windows matched to the DCCA scales s ≤ s_rel. Source: Authors’ calculations.'),
+          'DMCA: detrending moving-average cross-correlation analysis; centered moving-average detrending with odd windows matched to the DCCA scales s ≤ s_rel. Source: Authors’ calculations.'),
         S('Table S5 Lower-tail dependence of daily returns and the Gaussian-copula benchmark',
           ['Pair', 'u', 'Empirical λ_L(u) [95% CI]', 'Pearson ρ', 'Gaussian-copula λ_L(u)', 'Excess'], s5,
           'λ_L(u) = P(X ≤ q_X(u), Y ≤ q_Y(u))/u; Gaussian-copula value at the pair’s own Pearson correlation. Source: Authors’ calculations.'),
@@ -793,7 +796,7 @@ def supplement():
               f"in {sum(SURR[(t, p)]['exceeds_q95'] == 'TRUE' for t in TF for p in NESTED)} of 12 cases. Because absolute local "
               "covariances can create spurious multifractality (Oświęcimka et al. 2014), we treat these results as descriptive."),
         ('fig', ('fig3', 'Fig. S1 MF-DCCA at the daily frequency: (a) singularity spectra f(α); (b) generalized exponents h_xy(q)',
-                 'q ∈ [−5, 5] \\ {0}; f(α) can be negative where absolute local covariances are used. Source: Authors’ calculations.')),
+                 'MF-DCCA: multifractal detrended cross-correlation analysis; q ∈ [−5, 5] \\ {0}; f(α) can be negative where absolute local covariances are used. Source: Authors’ calculations.')),
     ]
 
 
