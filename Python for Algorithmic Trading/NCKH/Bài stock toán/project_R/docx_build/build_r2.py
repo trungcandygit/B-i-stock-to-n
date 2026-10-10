@@ -131,6 +131,58 @@ def post(docx_path):
         if st is None:
             st = etree.SubElement(tp, W + 'tblStyle')
         st.set(W + 'val', 'TableGrid')
+        # panel label rows (text in the first cell only) span the full table width
+        for tr in tbl.findall(W + 'tr'):
+            tcs = tr.findall(W + 'tc')
+            if len(tcs) > 1 and text_has_words(tcs[0]) and not any(text_has_words(c) for c in tcs[1:]):
+                for c in tcs[1:]:
+                    tr.remove(c)
+                tcp = tcs[0].find(W + 'tcPr')
+                if tcp is None:
+                    tcp = etree.Element(W + 'tcPr'); tcs[0].insert(0, tcp)
+                for e in tcp.findall(W + 'tcW'):
+                    tcp.remove(e)
+                gs = etree.SubElement(tcp, W + 'gridSpan'); gs.set(W + 'val', str(len(tcs)))
+        # column widths from content: never narrower than the longest word, extra width shared by text length
+        grid = tbl.find(W + 'tblGrid'); cols = grid.findall(W + 'gridCol') if grid is not None else []
+        nc = len(cols)
+        if nc > 1:
+            CH, PAD, TOT = 104, 230, 9360
+            lw, lt = [0] * nc, [0] * nc
+            for tr in tbl.findall(W + 'tr'):
+                tcs = tr.findall(W + 'tc')
+                if len(tcs) != nc:
+                    continue
+                for j, c in enumerate(tcs):
+                    s = ''.join(x.text or '' for x in c.iter(W + 't'))
+                    lw[j] = max([lw[j]] + [len(w) for w in re.split(r'[\s\-–/]+', s) if w])
+                    lt[j] = max(lt[j], len(s))
+            if sum(l * CH + PAD for l in lw) > TOT:      # wide table: 9 pt text so that no word is split
+                CH = int(CH * 0.98)
+                for e in tbl.iter(W + 'sz', W + 'szCs'):
+                    e.set(W + 'val', '18')
+            mn = [l * CH + PAD for l in lw]; mx = [max(a, l * CH + PAD) for a, l in zip(mn, lt)]
+            if sum(mx) <= TOT:
+                wd = [m * TOT / sum(mx) for m in mx]
+            elif sum(mn) >= TOT:
+                wd = [m * TOT / sum(mn) for m in mn]
+            else:
+                ex = [b - a for a, b in zip(mn, mx)]
+                wd = [a + e * (TOT - sum(mn)) / sum(ex) for a, e in zip(mn, ex)]
+            wd = [int(round(x)) for x in wd]
+            for col, x in zip(cols, wd):
+                col.set(W + 'w', str(x))
+            for tr in tbl.findall(W + 'tr'):
+                j = 0
+                for c in tr.findall(W + 'tc'):
+                    tcp = c.find(W + 'tcPr')
+                    if tcp is None:
+                        tcp = etree.Element(W + 'tcPr'); c.insert(0, tcp)
+                    g = tcp.find(W + 'gridSpan'); span = int(g.get(W + 'val')) if g is not None else 1
+                    for e in tcp.findall(W + 'tcW'):
+                        tcp.remove(e)
+                    cw = etree.Element(W + 'tcW'); cw.set(W + 'w', str(sum(wd[j:j + span]))); cw.set(W + 'type', 'dxa')
+                    tcp.insert(0, cw); j += span
         for p in tbl.iter(W + 'p'):
             pp = p.find(W + 'pPr')
             if pp is None:
