@@ -570,3 +570,8 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
 - New: `docx_build/build_jemf.py` (title page with Sage Statements and Declarations, anonymized manuscript without
   declarations, supplement, 600-dpi figure files) and `jemf_count.py` (total words incl. tables and references: 9,591).
 - Open for authors: abstract 211 words vs ~100 requested; AI-use wording vs Sage policy; no-preprint confirmation; ORCID.
+
+## D76 — Submitted to JEMF (2026-10-10)
+- User reports the manuscript was submitted to the Journal of Emerging Market Finance (files as built at commit 116bf76).
+- Not applied before submission (stopped by the user): APA in-text citation style ("Author, year" with "&"), abstract
+  reduction to ~100 words, JEMF cover letter. Fix these first if the editorial office returns the files.
