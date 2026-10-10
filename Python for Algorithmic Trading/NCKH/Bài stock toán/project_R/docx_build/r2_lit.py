@@ -3,7 +3,7 @@ New items come from notes/review_r2/newrefs_verified.md and the round-2 review s
 independent Stage 4.5 citation audit before submission."""
 
 LIT_INTRO = [
-    ('p1a', "Five literatures bear on the question: part–whole correlation, detrended cross-correlation, index membership, "
+    ('p1a', "Five literatures bear on nested index correlations: part–whole correlation, detrended cross-correlation, index membership, "
             "size-based lead–lag effects and contagion. We review what each establishes and leaves open, then state the gap, "
             "estimands and hypotheses."),
 ]
@@ -27,9 +27,9 @@ def LIT_SECTIONS(table1):
                 "detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021) or partial correlations (Ge "
                 "and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious "
                 "multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. "
-                "2021; Ge and Lin 2021; Chen et al. 2024), uses the coefficient to track contagion (Okorie and Lin 2021; Tilfani et "
-                "al. 2021) or information flow (Zhou et al. 2025), and builds scale-aware portfolios (Wang et al. 2021; Kakinaka et "
-                "al. 2025). This work treats the coefficient as a measure of economic dependence between disjoint assets. None of it "
+                "2021; Ge and Lin 2021; Chen et al. 2024). Other studies use the coefficient to track contagion (Okorie and Lin 2021; Tilfani et "
+                "al. 2021) or information flow (Zhou et al. 2025) and build scale-aware portfolios (Wang et al. 2021; Kakinaka et "
+                "al. 2025). These studies treat the coefficient as a measure of economic dependence between disjoint assets. None of them "
                 "analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale."),
         ('h2', '2.3 Index membership and co-movement'),
         ('p1a', "Stocks added to the S&P 500 co-move more with the index (Barberis et al. 2005), Nikkei 225 stocks with larger "
@@ -53,18 +53,18 @@ def LIT_SECTIONS(table1):
                 "contagion (Forbes and Rigobon 2002). The correction can itself be biased toward no contagion because it restricts "
                 "the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading "
                 "instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the "
-                "correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022), a DCCA "
+                "correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022). A DCCA "
                 "test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with "
                 "trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013). No study applies volatility-robust "
                 "tests to tiers of one market whose indices overlap."),
         ('h2', '2.6 Research gap'),
         ('p1a', "Table 1 compares representative studies on the dimensions that matter here."),
         table1,
-        ('p', "Three gaps follow. The part–whole identity is known for static Pearson correlations but has not been carried to "
-              "scale-wise detrended coefficients, given inference under weight uncertainty, or turned into a diagnostic computable "
+        ('p', "Three gaps follow. The part–whole identity is known for static Pearson correlations but has not been extended to "
+              "scale-wise detrended coefficients, equipped with inference under weight uncertainty, or turned into a diagnostic computable "
               "from published series. Multiscale studies of crises rarely use volatility-robust tests, and volatility-conditioned "
               "studies use one horizon and disjoint markets. To our knowledge, no study covers the Vietnamese index system at "
-              "intraday and daily frequencies. We searched Google Scholar and publisher databases for 2021–2026, plus the classical "
+              "intraday and daily frequencies. For this review, we searched Google Scholar and publisher databases for 2021–2026, plus the classical "
               "sources these works cite. Search strings combined “detrended cross-correlation” with “index”, “overlap”, “nested” or "
               "“constituent”, together with “part–whole” and “item–total correlation”, “contagion” with “Forbes–Rigobon” or "
               "“heteroskedasticity”, and “Vietnam” with “co-movement” or “stock index”."),

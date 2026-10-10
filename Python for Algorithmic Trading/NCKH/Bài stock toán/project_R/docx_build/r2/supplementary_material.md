@@ -7,7 +7,7 @@ Supplementary Material (Online Resource 2)
 :::
 
 ::: {custom-style="p1a"}
-This document accompanies the article and reports robustness checks referred to in the main text. All numbers come from the R outputs listed in the replication package (Online Resource 1).
+This document accompanies the article and reports the robustness checks cited in the main text. All numbers come from the R outputs listed in the replication package (Online Resource 1).
 :::
 
 ::: {custom-style="tablecaption"}
@@ -109,7 +109,7 @@ Notes: λ~L~(u) = P(X ≤ q~X~(u), Y ≤ q~Y~(u))/u; Gaussian-copula value at th
 :::
 
 ::: {custom-style="tablecaption"}
-**Table S6** Sensitivity of the gap interval to the bootstrap block length
+**Table S6** Sensitivity of the three-pair gap interval to the bootstrap block length
 :::
 
 | Frequency | Mean block length (days) | Three-pair gap | 95% CI |
@@ -188,7 +188,7 @@ Notes: First bar: overnight return and opening auction; last bar: closing auctio
 | P~res~–VN30 | 0.0283 [−0.0029, 0.0526] | 0.080 |
 
 ::: {custom-style="Compact"}
-Notes: P~heur~ replaces w by the VN30–VN100 correlation (0.9865–0.9885); P~ratio~ = B − A; P~res~ is the residual of B on A. Source: Authors’ calculations.
+Notes: P~heur~: w replaced by the VN30–VN100 correlation (0.9865–0.9885); P~ratio~ = B − A; P~res~: residual of B on A. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}
