@@ -185,20 +185,20 @@ def hypotheses():
                 "VN30–VN100 coefficient and its share under three attribution conventions, E2 the sensitivity of the nested to the "
                 "purged coefficient, and E3 the in-sample misstatement of portfolio variance by a static correlation, judged against "
                 "sampling error."),
-        ('p', "*H~1~ (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical "
+        ('p', "*H1 (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical "
               "question. Rule: at every frequency, the lower 95% bound of the like-for-like gap exceeds 0.05, the estimation tolerance of "
               "Section 4.4; the gap is VN30–VN100 minus P_cap–VN30 (P_cap is the overlap-purged mid-cap series)."),
-        ('p', "*H~2~ (horizon dependence).* Large caps lead small caps (Lo and MacKinlay 1990; Hou 2007), non-synchronous trading "
+        ('p', "*H2 (horizon dependence).* Large caps lead small caps (Lo and MacKinlay 1990; Hou 2007), non-synchronous trading "
               "depresses short-horizon correlations (Epps 1979) and information diffuses gradually (Hong and Stein 1999). "
               "Broad-market coefficients should therefore rise with the timescale, whereas the identity predicts a damped VN30–VN100 slope. "
               "Rule: among eight broad-market slope tests, at least one pair at each of M30 and H1 has a positive slope with a "
               "Holm-adjusted studentized p-value below 0.05. We also report robustness to removing the opening bar and an "
               "equivalence test for VN30–VN100."),
-        ('p', "*H~3~ (contagion).* Raw crisis correlations rise with volatility alone (Forbes and Rigobon 2002), and the volatility "
+        ('p', "*H3 (contagion).* Raw crisis correlations rise with volatility alone (Forbes and Rigobon 2002), and the volatility "
               "correction is biased toward no contagion when idiosyncratic variance rises (Corsetti et al. 2005). Rule: under VN30 "
               "volatility regimes, the adjusted correlation of P_cap and VN30 exceeds its calm level (one-sided p < 0.05) and the "
               "loading of P_cap on VN30 rises (two-sided p < 0.05)."),
-        ('p', "*H~4~ (value of regime conditioning).* Rule: an exponentially weighted moving average (EWMA) or real-time regime correlation has a lower quasi-likelihood (QLIKE) loss than the "
+        ('p', "*H4 (value of regime conditioning).* Rule: an exponentially weighted moving average (EWMA) or real-time regime correlation has a lower quasi-likelihood (QLIKE) loss than the "
               "static correlation over 2023–2025, with a Diebold–Mariano p-value below 0.05. We fixed these rules, the eight-test family and "
               "the factor-loading test at revision, after the first-round results were known. We also report the "
               "original specifications."),
@@ -351,7 +351,7 @@ def methodology():
               "attainable Holm-adjusted value is 0.076. One-sided Forbes–Rigobon p-values use the re-centered bootstrap distribution, and p-values for Δβ and the residual-variance "
               "ratio are studentized. Because of the resolution limit, slope tests also use studentized p-values, "
               "2Φ(−|β̂|/se_boot), adjusted by the Holm (1979) and Benjamini and Hochberg (1995) procedures in two families: the "
-              "original 19 reliable-range tests and the eight broad-market tests of H~2~. We test equivalence of the VN30–VN100 slope to zero "
+              "original 19 reliable-range tests and the eight broad-market tests of H2. We test equivalence of the VN30–VN100 slope to zero "
               "with two one-sided tests (TOST; Schuirmann 1987) and a margin of 0.001 per unit of ln s. Over the 4.5 units "
               "of the M30 reliable range, such a slope moves the coefficient by less than a tenth of the 0.05 tolerance."),
         ('h2', '4.5 Scaling regressions and slope channels'),
@@ -438,10 +438,10 @@ def results():
                 (pfmt(r['p_stud_holm_h3']) if r['h3_family'] == 'TRUE' else '–'),
                 (pfmt(r['tost_p']) if p == 'VN30-VN100' else '–')]
     tab6 = T('Table 6 Reliable-range scaling slopes of DCCA coefficients',
-             ['Frequency', 'Pair', 'Slope [95% CI]', 'p (bootstrap)', 'p (studentized)', 'Holm, 19 tests', 'Holm, H~2~ family', 'TOST p'],
+             ['Frequency', 'Pair', 'Slope [95% CI]', 'p (bootstrap)', 'p (studentized)', 'Holm, 19 tests', 'Holm, H2 family', 'TOST p'],
              [r6(t, p) for t in TF for p in PAIRS4],
              f'Slopes β of Eq. (13) over s ≤ s_rel; P_cap: overlap-purged mid-cap series. Holm, 19 tests: studentized p adjusted over the original {fam} tests, which '
-             'include three statistical proxies at M30 (Table S8); H~2~ family: the eight broad-market tests; TOST: equivalence '
+             'include three statistical proxies at M30 (Table S8); H2 family: the eight broad-market tests; TOST: equivalence '
              'to zero with a margin of 0.001. Source: Authors’ calculations.')
 
     def r7(name, fr, fac):
@@ -470,7 +470,7 @@ def results():
     tab8 = T('Table 8 Portfolio variance: in-sample misstatement and out-of-sample forecast comparison',
              ['Regime or pair', 'Pair or static QLIKE', 'RE, % [95% CI] or EWMA QLIKE', 'Relative SE, % or regime QLIKE', 'RE/SE or DM, static vs EWMA', 'DM, static vs regime'],
              [['*Panel A: in-sample misstatement (E3)*', '', '', '', '', '']] + [r[:1] + r[1:] + [''] for r in tab8a] +
-             [['*Panel B: out-of-sample, 2023–2025 (H~4~)*', '', '', '', '', '']] + [r8b(p) for p in ('Pcap-VN30', 'VN30-VN100', 'VN30-VNINDEX', 'VN100-VNINDEX')],
+             [['*Panel B: out-of-sample, 2023–2025 (H4)*', '', '', '', '', '']] + [r8b(p) for p in ('Pcap-VN30', 'VN30-VN100', 'VN30-VNINDEX', 'VN100-VNINDEX')],
              f'Panel A: RE: relative error of Eq. (16) for an equally weighted position; P_cap: overlap-purged mid-cap series; relative SE: bootstrap standard error of the regime portfolio '
              f'variance. Panel B: QLIKE: quasi-likelihood loss; EWMA: exponentially weighted moving average; mean QLIKE over {nint(OOSD["n_eval"])} evaluation days; DM: Diebold–Mariano t-statistic (p) on '
              'the QLIKE difference, negative when the static correlation has the lower loss. Source: Authors’ calculations.')
@@ -489,19 +489,19 @@ def results():
               "tails cut them by about two-thirds. Averages below use the Gaussian thresholds. Over the heavy-tailed ranges, the "
               f"nested averages become {rng([GARCH[t]['nested_avg_conservative'] for t in TF])} and the purged average "
               f"{rng([GARCH[t]['pcap_avg_conservative'] for t in TF])}, so no conclusion depends on the choice."),
-        ('h2', '5.2 The overlap gap (H~1~)'),
+        ('h2', '5.2 The overlap gap (H1)'),
         ('p1a', "Table 4 compares nested and purged coefficients; Fig. 2 shows the curves with bootstrap bands."),
         tab4,
         ('p', f"The nested pairs average {rng(nested_all)} at every frequency in both samples, and P_cap–VN30 averages {rng(pcap_all)}. "
               f"Corollary 3 fixes the sign of the like-for-like gap, but not its size: the gap is {rng(gapL_v)} with interval lower "
               f"bounds of at least {f(gapL_lo)}, above the 0.05 tolerance at every frequency, so "
-              f"{'H~1~ is supported' if H1_ok else 'H~1~ is not supported at every frequency'}. The three-pair gap is {rng(gap3)}, with "
+              f"{'H1 is supported' if H1_ok else 'H1 is not supported at every frequency'}. The three-pair gap is {rng(gap3)}, with "
               f"Cohen’s q (Cohen 1988) of {rng(qv, 2)}. "
               "We report q descriptively because both coefficients come from the same sample."),
         ('p', f"The gap depends on the weight: over w = 0.60–0.75 the daily like-for-like gap is {f(min(like_w))}–{f(max(like_w))} "
               f"and the three-pair gap {f(min(ws_gap))}–{f(max(ws_gap))} (Tables S2 and S3). With w drawn in each replicate, the "
               f"like-for-like intervals have lower bounds of {rng([GWU[t]['ci_lo'] for t in TF], 3)} and every replicate exceeds "
-              "0.05, so H~1~ holds under weight uncertainty. The size of the gap is known only to within a factor of about "
+              "0.05, so H1 holds under weight uncertainty. The size of the gap is known only to within a factor of about "
               "two."),
         ('fig', ('fig2', 'Fig. 2 DCCA coefficients of the nested pairs and P_cap–VN30 by timescale: (a) 1D, (b) M30, (c) H1, (d) H4',
                  'Line and marker types identify the pairs; P_cap: overlap-purged mid-cap series; grey bands: pointwise block-bootstrap 95% intervals; vertical dotted '
@@ -536,14 +536,14 @@ def results():
         ('fig', ('fig5', 'Fig. 4 Zero-correlation benchmark ρ̲ as a function of the child weight w and the relative volatility σ_M/σ_A',
                  'Contours of Eq. (8) with κ = (1 − w)σ_M/(wσ_A); triangle: VN30 in VN100, daily Pearson moments. Source: Authors’ '
                  'calculations.')),
-        ('h2', '5.4 Horizon dependence (H~2~)'),
+        ('h2', '5.4 Horizon dependence (H2)'),
         ('p1a', "Table 6 lists reliable-range slopes for the four main pairs."),
         tab6,
-        ('p', "Positive slopes appear only for broad-market pairs at M30 and H1. In the H~2~ family, "
+        ('p', "Positive slopes appear only for broad-market pairs at M30 and H1. In the H2 family, "
               f"{NUMW.get(len(holm_h2), len(holm_h2))} slopes survive Holm adjustment"
               + ('' if len(holm_h2) == 4 else ' (' + '; '.join(f"{lab(p)} at {t}" for t, p in sorted(holm_h2)) + ')') +
               f", with estimates of {rng([h2s(t, p)['estimate'] for t, p in holm_h2], 4)}, a rise of about 0.01 across the reliable "
-              f"range. None is significant at 1D or H4; {'with significant positive slopes at both frequencies the rule requires' if intraday_ok else 'without significant positive slopes at both frequencies the rule requires'}, H~2~ is {H2_out.lower()} on the full data. Over the original {fam} tests, "
+              f"range. None is significant at 1D or H4; {'with significant positive slopes at both frequencies the rule requires' if intraday_ok else 'without significant positive slopes at both frequencies the rule requires'}, H2 is {H2_out.lower()} on the full data. Over the original {fam} tests, "
               f"Holm keeps {NUMW.get(len(holm_all), len(holm_all))} studentized slope{'s' if len(holm_all) != 1 else ''} and "
               f"Benjamini–Hochberg {NUMW.get(len(bh_all), len(bh_all))}, and with percentile p-values none survives (smallest "
               f"Benjamini–Hochberg-adjusted p = {f(pboot_bh_min, 3)}). The VN30–VN100 slope is equivalent to zero at "
@@ -570,8 +570,8 @@ def results():
               "across block lengths (Table S15). "
               + ("Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of "
                  "continuous trading." if (H2_out == 'Supported' and not H2_robust) else
-                 f"H~2~ is {'robust' if H2_robust else 'not robust'} to removal of the opening bar.")),
-        ('h2', '5.5 Crisis dependence (H~3~)'),
+                 f"H2 is {'robust' if H2_robust else 'not robust'} to removal of the opening bar.")),
+        ('h2', '5.5 Crisis dependence (H3)'),
         ('p1a', "Table 7 presents the Forbes–Rigobon and factor-model tests."),
         tab7,
         ('p', f"The raw correlation rises under every regime definition, from {f(frA['rho_low'])} to {f(frA['rho_high'])} chronologically and "
@@ -587,13 +587,13 @@ def results():
               f"quartiles (Δβ = {f(facC['d_beta'])}, {ci(facC['d_beta_ci_lo'], facC['d_beta_ci_hi'])}, p {pfmt(facC['p_d_beta'])}) but not between chronological "
               f"episodes (Δβ = {f(facA['d_beta'])}, {ci(facA['d_beta_ci_lo'], facA['d_beta_ci_hi'])}). Neither result changes when 2021 "
               f"is added as a crisis ({nint(C21[1]['n_crisis'])} days; Forbes–Rigobon p = {f(C21[1]['fr_p_one_sided'], 3)}; Δβ = "
-              f"{f(C21[1]['d_beta'])}, {ci(C21[1]['d_beta_ci_lo'], C21[1]['d_beta_ci_hi'])}). Under its decision rule, H~3~ is "
+              f"{f(C21[1]['d_beta'])}, {ci(C21[1]['d_beta_ci_lo'], C21[1]['d_beta_ci_hi'])}). Under its decision rule, H3 is "
               f"{H3_out.lower()}: on high-VN30-volatility days, mid caps respond more strongly to large caps and also carry more "
               "mid-cap-specific risk. Because the lower-tail dependence of P_cap–VN30 "
               f"({f(tg('Pcap-VN30', '0.05')['lambda_L_empirical'], 2)} at the 5% quantile) exceeds its Gaussian-copula value "
               f"({f(tg('Pcap-VN30', '0.05')['lambda_L_gaussian_copula'], 2)}; Table S5), we cannot tell a structural shift from a "
               "stable nonlinear relation."),
-        ('h2', '5.6 Portfolio variance (E3, H~4~)'),
+        ('h2', '5.6 Portfolio variance (E3, H4)'),
         ('p1a', "Table 8 reports the in-sample misstatement and the out-of-sample forecast comparison."),
         tab8,
         ('p', f"In sample, a static correlation overstates the variance of an equally weighted VN30 and P_cap position by "
@@ -604,7 +604,7 @@ def results():
               f"{f(max(nested_re), 2)}% (Table S14). Relative to sampling error, the magnitudes are small: |RE| is {rng(ratio_pcap, 2)} "
               f"standard errors of the regime variance for P_cap–VN30 and at most {f(max(ratio_nest), 2)} for nested pairs. Out of "
               "sample, the static correlation has the lowest mean QLIKE for every pair, and all Diebold–Mariano statistics are "
-              f"negative (p = {f(min(dm_p), 3)}–{f(max(dm_p), 3)}). {'H~4~ is supported' if H4_ok else 'H~4~ is not supported'}: regime "
+              f"negative (p = {f(min(dm_p), 3)}–{f(max(dm_p), 3)}). {'H4 is supported' if H4_ok else 'H4 is not supported'}: regime "
               "variation in correlations is real in sample but too small or too poorly timed to exploit."),
         ('h2', '5.7 Further robustness'),
         ('p1a', "None of the further checks changes the conclusions. DMCA (Kristoufek 2014) satisfies the same identity, so it "
@@ -621,11 +621,11 @@ def results():
           [['E1 Benchmark and attribution', 'ρ̲; Shapley overlap share', f'ρ̲ {rng(bench_v)}; Shapley {rng(shap_v)}', 'Estimated (not a test)', 'Attribution depends mainly on the weight'],
            ['E2 Sensitivity', 'Eq. (10)', f'{rng(sens_v)}; with weight uncertainty {f(wu_rng("sensitivity")[0], 2)}–{f(wu_rng("sensitivity")[1], 2)}', 'Estimated (not a test)', 'Purged changes damped about tenfold'],
            ['E3 In-sample misstatement', 'RE, Eq. (16)', f'P_cap–VN30 {f(min(F(re_(a, g, "Pcap-VN30")["RE_pct"]) for a in "AB" for g in ("low", "high")), 1)}% to {f(max(F(re_(a, g, "Pcap-VN30")["RE_pct"]) for a in "AB" for g in ("low", "high")), 1)}%; mostly below one SE', 'Estimated (not a test)', 'Sign pattern expected from pooling'],
-           ['H~1~ Material overlap gap', 'Like-for-like gap; lower CI > 0.05', f'Gap {rng(gapL_v)}; lower CI ≥ {f(gapL_lo)}', 'Supported' if H1_ok else 'Not supported', 'Holds under weight uncertainty'],
-           ['H~2~ Horizon dependence', 'Studentized slopes; Holm (H~2~ family); TOST', f'{len(holm_h2)} of 8 broad-market slopes significant, all at {" or ".join(sorted({t for t, p in holm_h2}, key=["M30", "H1", "H4", "1D"].index))}; VN30–VN100 equivalent to zero at {", ".join(tost_eq) or "none"}', H2_out, 'Not robust: vanishes without the auction bars' if not H2_robust else 'Robust to removing the opening bar'],
-           ['H~3~ Contagion', 'Forbes–Rigobon adjustment and Δβ, VN30 regimes', f'Forbes–Rigobon p = {f(fr30["p_one_sided"], 3)}; Δβ = {f(facC["d_beta"])}, p {pfmt(facC["p_d_beta"])}', H3_out, 'Loading rises on high-volatility days; residual variance rises too'],
-           ['H~4~ Value of regime conditioning', 'QLIKE; Diebold–Mariano', f'Static lowest for all pairs; p {f(min(dm_p), 2)}–{f(max(dm_p), 2)}', 'Supported' if H4_ok else 'Not supported', 'Static correlation has the lowest loss']],
-          'Decision rules for H~1~–H~4~ in Section 2.7; all tests at the 5% level; RE: relative error of portfolio variance; SE: standard '
+           ['H1 Material overlap gap', 'Like-for-like gap; lower CI > 0.05', f'Gap {rng(gapL_v)}; lower CI ≥ {f(gapL_lo)}', 'Supported' if H1_ok else 'Not supported', 'Holds under weight uncertainty'],
+           ['H2 Horizon dependence', 'Studentized slopes; Holm (H2 family); TOST', f'{len(holm_h2)} of 8 broad-market slopes significant, all at {" or ".join(sorted({t for t, p in holm_h2}, key=["M30", "H1", "H4", "1D"].index))}; VN30–VN100 equivalent to zero at {", ".join(tost_eq) or "none"}', H2_out, 'Not robust: vanishes without the auction bars' if not H2_robust else 'Robust to removing the opening bar'],
+           ['H3 Contagion', 'Forbes–Rigobon adjustment and Δβ, VN30 regimes', f'Forbes–Rigobon p = {f(fr30["p_one_sided"], 3)}; Δβ = {f(facC["d_beta"])}, p {pfmt(facC["p_d_beta"])}', H3_out, 'Loading rises on high-volatility days; residual variance rises too'],
+           ['H4 Value of regime conditioning', 'QLIKE; Diebold–Mariano', f'Static lowest for all pairs; p {f(min(dm_p), 2)}–{f(max(dm_p), 2)}', 'Supported' if H4_ok else 'Not supported', 'Static correlation has the lowest loss']],
+          'Decision rules for H1–H4 in Section 2.7; all tests at the 5% level; RE: relative error of portfolio variance; SE: standard '
           'error; TOST: two one-sided tests; QLIKE: quasi-likelihood loss; CI: confidence interval. Source: Authors’ calculations.'),
     ]
 

@@ -123,13 +123,13 @@ Three gaps follow. The part–whole identity is known for static Pearson correla
 Lemma 1 (Section 4.2) fixes some quantities once the weight and relative amplitude are known; we report these as estimands and test only what the identity does not determine. E1 is the zero-correlation benchmark ρ̲ of the VN30–VN100 coefficient and its share under three attribution conventions, E2 the sensitivity of the nested to the purged coefficient, and E3 the in-sample misstatement of portfolio variance by a static correlation, judged against sampling error.
 :::
 
-*H1 (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical question. Rule: at every frequency, the lower 95% bound of the like-for-like gap exceeds 0.05, the estimation tolerance of Section 4.4; the gap is VN30–VN100 minus P~cap~–VN30 (P~cap~ is the overlap-purged mid-cap series).
+*H~1~ (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical question. Rule: at every frequency, the lower 95% bound of the like-for-like gap exceeds 0.05, the estimation tolerance of Section 4.4; the gap is VN30–VN100 minus P~cap~–VN30 (P~cap~ is the overlap-purged mid-cap series).
 
-*H2 (horizon dependence).* Large caps lead small caps (Lo and MacKinlay 1990; Hou 2007), non-synchronous trading depresses short-horizon correlations (Epps 1979) and information diffuses gradually (Hong and Stein 1999). Broad-market coefficients should therefore rise with the timescale, whereas the identity predicts a damped VN30–VN100 slope. Rule: among eight broad-market slope tests, at least one pair at each of M30 and H1 has a positive slope with a Holm-adjusted studentized p-value below 0.05. We also report robustness to removing the opening bar and an equivalence test for VN30–VN100.
+*H~2~ (horizon dependence).* Large caps lead small caps (Lo and MacKinlay 1990; Hou 2007), non-synchronous trading depresses short-horizon correlations (Epps 1979) and information diffuses gradually (Hong and Stein 1999). Broad-market coefficients should therefore rise with the timescale, whereas the identity predicts a damped VN30–VN100 slope. Rule: among eight broad-market slope tests, at least one pair at each of M30 and H1 has a positive slope with a Holm-adjusted studentized p-value below 0.05. We also report robustness to removing the opening bar and an equivalence test for VN30–VN100.
 
-*H3 (contagion).* Raw crisis correlations rise with volatility alone (Forbes and Rigobon 2002), and the volatility correction is biased toward no contagion when idiosyncratic variance rises (Corsetti et al. 2005). Rule: under VN30 volatility regimes, the adjusted correlation of P~cap~ and VN30 exceeds its calm level (one-sided p < 0.05) and the loading of P~cap~ on VN30 rises (two-sided p < 0.05).
+*H~3~ (contagion).* Raw crisis correlations rise with volatility alone (Forbes and Rigobon 2002), and the volatility correction is biased toward no contagion when idiosyncratic variance rises (Corsetti et al. 2005). Rule: under VN30 volatility regimes, the adjusted correlation of P~cap~ and VN30 exceeds its calm level (one-sided p < 0.05) and the loading of P~cap~ on VN30 rises (two-sided p < 0.05).
 
-*H4 (value of regime conditioning).* Rule: an exponentially weighted moving average (EWMA) or real-time regime correlation has a lower quasi-likelihood (QLIKE) loss than the static correlation over 2023–2025, with a Diebold–Mariano p-value below 0.05. We fixed these rules, the eight-test family and the factor-loading test at revision, after the first-round results were known. We also report the original specifications.
+*H~4~ (value of regime conditioning).* Rule: an exponentially weighted moving average (EWMA) or real-time regime correlation has a lower quasi-likelihood (QLIKE) loss than the static correlation over 2023–2025, with a Diebold–Mariano p-value below 0.05. We fixed these rules, the eight-test family and the factor-loading test at revision, after the first-round results were known. We also report the original specifications.
 
 ::: {custom-style="heading1"}
 3 Institutional background and data
@@ -289,7 +289,7 @@ The DCCA coefficient becomes noisy at large scales, where boxes are few. For eac
 
 Because coefficients at different scales come from the same series, all inference uses the stationary block bootstrap (Politis and Romano 1994) with mean blocks of about 20 trading days, recomputing every curve and statistic in each replicate. We use 499 replicates for the DCCA statistics of Tables 4–6 and for the decomposition, hedge-effectiveness and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag and materiality (Table S14) statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights and with 2021 added. The remaining Forbes–Rigobon and relative-error statistics use 1,999 replicates.
 
-Intervals are percentile 95% intervals, capped at ±1 for correlations. With B = 499 replicates, percentile p-values cannot fall below 0.004 (reported as p < 0.005): p = 2 min{k₋ + 1, k₊ + 1}/(B + 1), where k₋ and k₊ count replicates at or below and at or above zero. With 19 tests, the smallest attainable Holm-adjusted value is 0.076. One-sided Forbes–Rigobon p-values use the re-centered bootstrap distribution, and p-values for Δβ and the residual-variance ratio are studentized. Because of the resolution limit, slope tests also use studentized p-values, 2Φ(−\|β̂\|/se~boot~), adjusted by the Holm (1979) and Benjamini and Hochberg (1995) procedures in two families: the original 19 reliable-range tests and the eight broad-market tests of H2. We test equivalence of the VN30–VN100 slope to zero with two one-sided tests (TOST; Schuirmann 1987) and a margin of 0.001 per unit of ln s. Over the 4.5 units of the M30 reliable range, such a slope moves the coefficient by less than a tenth of the 0.05 tolerance.
+Intervals are percentile 95% intervals, capped at ±1 for correlations. With B = 499 replicates, percentile p-values cannot fall below 0.004 (reported as p < 0.005): p = 2 min{k₋ + 1, k₊ + 1}/(B + 1), where k₋ and k₊ count replicates at or below and at or above zero. With 19 tests, the smallest attainable Holm-adjusted value is 0.076. One-sided Forbes–Rigobon p-values use the re-centered bootstrap distribution, and p-values for Δβ and the residual-variance ratio are studentized. Because of the resolution limit, slope tests also use studentized p-values, 2Φ(−\|β̂\|/se~boot~), adjusted by the Holm (1979) and Benjamini and Hochberg (1995) procedures in two families: the original 19 reliable-range tests and the eight broad-market tests of H~2~. We test equivalence of the VN30–VN100 slope to zero with two one-sided tests (TOST; Schuirmann 1987) and a margin of 0.001 per unit of ln s. Over the 4.5 units of the M30 reliable range, such a slope moves the coefficient by less than a tenth of the 0.05 tolerance.
 
 ::: {custom-style="heading2"}
 4.5 Scaling regressions and slope channels
@@ -398,7 +398,7 @@ Notes: DCCA: detrended cross-correlation analysis; s~rel~: largest scale (bars) 
 Gaussian thresholds range from 50 days at 1D to 444 bars at M30, and heavy tails cut them by about two-thirds. Averages below use the Gaussian thresholds. Over the heavy-tailed ranges, the nested averages become 0.975–0.979 and the purged average 0.882–0.890, so no conclusion depends on the choice.
 
 ::: {custom-style="heading2"}
-5.2 The overlap gap (H1)
+5.2 The overlap gap (H~1~)
 :::
 
 ::: {custom-style="p1a"}
@@ -426,9 +426,9 @@ Table 4 compares nested and purged coefficients; Fig. 2 shows the curves with bo
 Notes: Averages of ρ(s) over s ≤ s~rel~ (Table 3) with m = 1; nested mean: VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX; P~cap~: overlap-purged mid-cap series; three-pair gap: nested mean minus P~cap~–VN30; like-for-like gap: VN30–VN100 minus P~cap~–VN30. Brackets: block-bootstrap 95% intervals at the factsheet weight. Source: Authors’ calculations.
 :::
 
-The nested pairs average 0.975–0.980 at every frequency in both samples, and P~cap~–VN30 averages 0.883–0.892. Corollary 3 fixes the sign of the like-for-like gap, but not its size: the gap is 0.099–0.104 with interval lower bounds of at least 0.084, above the 0.05 tolerance at every frequency, so H1 is supported. The three-pair gap is 0.086–0.096, with Cohen’s q (Cohen 1988) of 0.78–0.89. We report q descriptively because both coefficients come from the same sample.
+The nested pairs average 0.975–0.980 at every frequency in both samples, and P~cap~–VN30 averages 0.883–0.892. Corollary 3 fixes the sign of the like-for-like gap, but not its size: the gap is 0.099–0.104 with interval lower bounds of at least 0.084, above the 0.05 tolerance at every frequency, so H~1~ is supported. The three-pair gap is 0.086–0.096, with Cohen’s q (Cohen 1988) of 0.78–0.89. We report q descriptively because both coefficients come from the same sample.
 
-The gap depends on the weight: over w = 0.60–0.75 the daily like-for-like gap is 0.063–0.164 and the three-pair gap 0.052–0.153 (Tables S2 and S3). With w drawn in each replicate, the like-for-like intervals have lower bounds of 0.057–0.061 and every replicate exceeds 0.05, so H1 holds under weight uncertainty. The size of the gap is known only to within a factor of about two.
+The gap depends on the weight: over w = 0.60–0.75 the daily like-for-like gap is 0.063–0.164 and the three-pair gap 0.052–0.153 (Tables S2 and S3). With w drawn in each replicate, the like-for-like intervals have lower bounds of 0.057–0.061 and every replicate exceeds 0.05, so H~1~ holds under weight uncertainty. The size of the gap is known only to within a factor of about two.
 
 ![](/home/user/B-i-stock-to-n/Python for Algorithmic Trading/NCKH/Bài stock toán/project_R/docx_build/../outputs/figures/fig2_dcca_curves.png){width=6.3in}
 
@@ -493,7 +493,7 @@ Notes: Contours of Eq. (8) with κ = (1 − w)σ~M~/(wσ~A~); triangle: VN30 in 
 :::
 
 ::: {custom-style="heading2"}
-5.4 Horizon dependence (H2)
+5.4 Horizon dependence (H~2~)
 :::
 
 ::: {custom-style="p1a"}
@@ -504,7 +504,7 @@ Table 6 lists reliable-range slopes for the four main pairs.
 **Table 6** Reliable-range scaling slopes of DCCA coefficients
 :::
 
-| Frequency | Pair | Slope [95% CI] | p (bootstrap) | p (studentized) | Holm, 19 tests | Holm, H2 family | TOST p |
+| Frequency | Pair | Slope [95% CI] | p (bootstrap) | p (studentized) | Holm, 19 tests | Holm, H~2~ family | TOST p |
 |---|---|---|---|---|---|---|---|
 | Daily (1D) | VN30–VNINDEX | 0.0010 [−0.0031, 0.0043] | 0.700 | 0.602 | 1.000 | 1.000 | – |
 | Daily (1D) | VN100–VNINDEX | 0.0008 [−0.0021, 0.0027] | 0.736 | 0.530 | 1.000 | 1.000 | – |
@@ -524,17 +524,17 @@ Table 6 lists reliable-range slopes for the four main pairs.
 | 4-hour (H4) | P~cap~–VN30 | −0.0020 [−0.0124, 0.0067] | 0.760 | 0.667 | 1.000 | – | – |
 
 ::: {custom-style="Compact"}
-Notes: Slopes β of Eq. (13) over s ≤ s~rel~; P~cap~: overlap-purged mid-cap series. Holm, 19 tests: studentized p adjusted over the original 19 tests, which include three statistical proxies at M30 (Table S8); H2 family: the eight broad-market tests; TOST: equivalence to zero with a margin of 0.001. Source: Authors’ calculations.
+Notes: Slopes β of Eq. (13) over s ≤ s~rel~; P~cap~: overlap-purged mid-cap series. Holm, 19 tests: studentized p adjusted over the original 19 tests, which include three statistical proxies at M30 (Table S8); H~2~ family: the eight broad-market tests; TOST: equivalence to zero with a margin of 0.001. Source: Authors’ calculations.
 :::
 
-Positive slopes appear only for broad-market pairs at M30 and H1. In the H2 family, four slopes survive Holm adjustment, with estimates of 0.0019–0.0024, a rise of about 0.01 across the reliable range. None is significant at 1D or H4; with significant positive slopes at both frequencies the rule requires, H2 is supported on the full data. Over the original 19 tests, Holm keeps one studentized slope and Benjamini–Hochberg four, and with percentile p-values none survives (smallest Benjamini–Hochberg-adjusted p = 0.057). The VN30–VN100 slope is equivalent to zero at M30 and H1 (TOST p = 0.007, 0.012), and the test is inconclusive elsewhere. The P~cap~–VN30 slope is not significant at any frequency.
+Positive slopes appear only for broad-market pairs at M30 and H1. In the H~2~ family, four slopes survive Holm adjustment, with estimates of 0.0019–0.0024, a rise of about 0.01 across the reliable range. None is significant at 1D or H4; with significant positive slopes at both frequencies the rule requires, H~2~ is supported on the full data. Over the original 19 tests, Holm keeps one studentized slope and Benjamini–Hochberg four, and with percentile p-values none survives (smallest Benjamini–Hochberg-adjusted p = 0.057). The VN30–VN100 slope is equivalent to zero at M30 and H1 (TOST p = 0.007, 0.012), and the test is inconclusive elsewhere. The P~cap~–VN30 slope is not significant at any frequency.
 
 Eq. (14) explains the flat nested slope: the damping factor (the sensitivity) is 0.106–0.112, at M30 and H1 the κ channel partly offsets the ρ~AM~ channel, and the implied slope differs from the observed one by at most 0.8 × 10⁻⁵ (Table S13). A flat nested coefficient therefore says little about the tiers.
 
 The auction bars drive the intraday result. The opening bar, where intraday volatility peaks (Andersen and Bollerslev 1997), accounts for 10% of M30 bars but carries 37% of squared VN30 returns. The last bar holds the closing auction (Table S7). Without the opening bar, the H1 broad-market slopes fall to 0.0003 and −0.0005, and at M30 only VN30–VNINDEX stays significant (0.0020, p = 0.031). Without both auction bars, the M30 slopes are −0.00002 and −0.0002. Within the same replicates, the broad-market slopes exceed the VN30–VN100 slope at M30 and H1 (differences 0.0018–0.0024, p ≤ 0.003), but the differences vanish without the auction bars. The three-pair gap does not change (0.107 [0.094, 0.127] at M30 without the opening bar), and the slope intervals are stable across block lengths (Table S15). Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of continuous trading.
 
 ::: {custom-style="heading2"}
-5.5 Crisis dependence (H3)
+5.5 Crisis dependence (H~3~)
 :::
 
 ::: {custom-style="p1a"}
@@ -557,10 +557,10 @@ Notes: Daily returns; ρ* from Eq. (15); p (FR): one-sided Forbes–Rigobon boot
 
 The raw correlation rises under every regime definition, from 0.847 to 0.924 chronologically and from 0.744 to 0.932 under VN30 quartiles. The adjusted crisis correlation never exceeds its calm level (one-sided p = 0.974–0.998, and above 0.93 across weights; Table S10), and under VN30 quartiles it is significantly lower (−0.087, [−0.144, −0.018]).
 
-The factor model explains why. The residual variance of P~cap~ rises by a factor of 2.70 [1.92, 3.68] under VN30 quartiles (2.57 under VNINDEX quartiles), which violates the assumption behind Eq. (15) and pushes ρ* down (Corsetti et al. 2005). The loading rises from 0.737 to 0.948 under VN30 quartiles (Δβ = 0.210, [0.119, 0.306], p < 0.001) but not between chronological episodes (Δβ = 0.008, [−0.128, 0.140]). Neither result changes when 2021 is added as a crisis (789 days; Forbes–Rigobon p = 0.987; Δβ = −0.005, [−0.122, 0.124]). Under its decision rule, H3 is not supported: on high-VN30-volatility days, mid caps respond more strongly to large caps and also carry more mid-cap-specific risk. Because the lower-tail dependence of P~cap~–VN30 (0.75 at the 5% quantile) exceeds its Gaussian-copula value (0.62; Table S5), we cannot tell a structural shift from a stable nonlinear relation.
+The factor model explains why. The residual variance of P~cap~ rises by a factor of 2.70 [1.92, 3.68] under VN30 quartiles (2.57 under VNINDEX quartiles), which violates the assumption behind Eq. (15) and pushes ρ* down (Corsetti et al. 2005). The loading rises from 0.737 to 0.948 under VN30 quartiles (Δβ = 0.210, [0.119, 0.306], p < 0.001) but not between chronological episodes (Δβ = 0.008, [−0.128, 0.140]). Neither result changes when 2021 is added as a crisis (789 days; Forbes–Rigobon p = 0.987; Δβ = −0.005, [−0.122, 0.124]). Under its decision rule, H~3~ is not supported: on high-VN30-volatility days, mid caps respond more strongly to large caps and also carry more mid-cap-specific risk. Because the lower-tail dependence of P~cap~–VN30 (0.75 at the 5% quantile) exceeds its Gaussian-copula value (0.62; Table S5), we cannot tell a structural shift from a stable nonlinear relation.
 
 ::: {custom-style="heading2"}
-5.6 Portfolio variance (E3, H4)
+5.6 Portfolio variance (E3, H~4~)
 :::
 
 ::: {custom-style="p1a"}
@@ -582,7 +582,7 @@ Table 8 reports the in-sample misstatement and the out-of-sample forecast compar
 | VNINDEX quartiles, calm | VN30–VN100 | 0.77 [0.49, 1.14] | 5.3 | 0.14 |  |
 | VNINDEX quartiles, crisis | P~cap~–VN30 | −2.07 [−2.88, −1.40] | 8.8 | 0.23 |  |
 | VNINDEX quartiles, crisis | VN30–VN100 | −0.20 [−0.30, −0.13] | 8.9 | 0.02 |  |
-| *Panel B: out-of-sample, 2023–2025 (H4)* |  |  |  |  |  |
+| *Panel B: out-of-sample, 2023–2025 (H~4~)* |  |  |  |  |  |
 | P~cap~–VN30 | −7.7771 | −7.7434 | −7.7644 | −1.69 (0.091) | −1.34 (0.179) |
 | VN30–VN100 | −7.8357 | −7.8315 | −7.8346 | −1.74 (0.081) | −1.45 (0.146) |
 | VN30–VNINDEX | −7.9298 | −7.9258 | −7.9252 | −1.82 (0.069) | −1.44 (0.150) |
@@ -592,7 +592,7 @@ Table 8 reports the in-sample misstatement and the out-of-sample forecast compar
 Notes: Panel A: RE: relative error of Eq. (16) for an equally weighted position; P~cap~: overlap-purged mid-cap series; relative SE: bootstrap standard error of the regime portfolio variance. Panel B: QLIKE: quasi-likelihood loss; EWMA: exponentially weighted moving average; mean QLIKE over 735 evaluation days; DM: Diebold–Mariano t-statistic (p) on the QLIKE difference, negative when the static correlation has the lower loss. Source: Authors’ calculations.
 :::
 
-In sample, a static correlation overstates the variance of an equally weighted VN30 and P~cap~ position by 2.23% in chronological calm periods and 9.38% in the low-volatility quartile, and understates it by 1.84% and 2.07% in crisis regimes. For nested pairs, the misstatement is at most 2.35% (Table S14). Relative to sampling error, the magnitudes are small: \|RE\| is 0.13–1.50 standard errors of the regime variance for P~cap~–VN30 and at most 0.43 for nested pairs. Out of sample, the static correlation has the lowest mean QLIKE for every pair, and all Diebold–Mariano statistics are negative (p = 0.069–0.179). H4 is not supported: regime variation in correlations is real in sample but too small or too poorly timed to exploit.
+In sample, a static correlation overstates the variance of an equally weighted VN30 and P~cap~ position by 2.23% in chronological calm periods and 9.38% in the low-volatility quartile, and understates it by 1.84% and 2.07% in crisis regimes. For nested pairs, the misstatement is at most 2.35% (Table S14). Relative to sampling error, the magnitudes are small: \|RE\| is 0.13–1.50 standard errors of the regime variance for P~cap~–VN30 and at most 0.43 for nested pairs. Out of sample, the static correlation has the lowest mean QLIKE for every pair, and all Diebold–Mariano statistics are negative (p = 0.069–0.179). H~4~ is not supported: regime variation in correlations is real in sample but too small or too poorly timed to exploit.
 
 ::: {custom-style="heading2"}
 5.7 Further robustness
@@ -619,13 +619,13 @@ Table 9 summarizes the estimands and hypotheses.
 | E1 Benchmark and attribution | ρ̲; Shapley overlap share | ρ̲ 0.893–0.900; Shapley 0.505–0.508 | Estimated (not a test) | Attribution depends mainly on the weight |
 | E2 Sensitivity | Eq. (10) | 0.106–0.112; with weight uncertainty 0.07–0.17 | Estimated (not a test) | Purged changes damped about tenfold |
 | E3 In-sample misstatement | RE, Eq. (16) | P~cap~–VN30 −2.1% to 9.4%; mostly below one SE | Estimated (not a test) | Sign pattern expected from pooling |
-| H1 Material overlap gap | Like-for-like gap; lower CI > 0.05 | Gap 0.099–0.104; lower CI ≥ 0.084 | Supported | Holds under weight uncertainty |
-| H2 Horizon dependence | Studentized slopes; Holm (H2 family); TOST | 4 of 8 broad-market slopes significant, all at M30 or H1; VN30–VN100 equivalent to zero at M30, H1 | Supported | Not robust: vanishes without the auction bars |
-| H3 Contagion | Forbes–Rigobon adjustment and Δβ, VN30 regimes | Forbes–Rigobon p = 0.998; Δβ = 0.210, p < 0.001 | Not supported | Loading rises on high-volatility days; residual variance rises too |
-| H4 Value of regime conditioning | QLIKE; Diebold–Mariano | Static lowest for all pairs; p 0.07–0.18 | Not supported | Static correlation has the lowest loss |
+| H~1~ Material overlap gap | Like-for-like gap; lower CI > 0.05 | Gap 0.099–0.104; lower CI ≥ 0.084 | Supported | Holds under weight uncertainty |
+| H~2~ Horizon dependence | Studentized slopes; Holm (H~2~ family); TOST | 4 of 8 broad-market slopes significant, all at M30 or H1; VN30–VN100 equivalent to zero at M30, H1 | Supported | Not robust: vanishes without the auction bars |
+| H~3~ Contagion | Forbes–Rigobon adjustment and Δβ, VN30 regimes | Forbes–Rigobon p = 0.998; Δβ = 0.210, p < 0.001 | Not supported | Loading rises on high-volatility days; residual variance rises too |
+| H~4~ Value of regime conditioning | QLIKE; Diebold–Mariano | Static lowest for all pairs; p 0.07–0.18 | Not supported | Static correlation has the lowest loss |
 
 ::: {custom-style="Compact"}
-Notes: Decision rules for H1–H4 in Section 2.7; all tests at the 5% level; RE: relative error of portfolio variance; SE: standard error; TOST: two one-sided tests; QLIKE: quasi-likelihood loss; CI: confidence interval. Source: Authors’ calculations.
+Notes: Decision rules for H~1~–H~4~ in Section 2.7; all tests at the 5% level; RE: relative error of portfolio variance; SE: standard error; TOST: two one-sided tests; QLIKE: quasi-likelihood loss; CI: confidence interval. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="heading1"}
