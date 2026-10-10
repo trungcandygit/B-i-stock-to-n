@@ -24,6 +24,9 @@ bước của skill để ra bản thảo mạnh nhất.
 - Vòng ngôn ngữ (sau tối đa 2 vòng revision của ARS): dùng skill `proofreading` (vendor/proofreading,
   upstream JakobThumm/proofreading) + `stop-slop` (vendor/stop-slop, upstream hardikpandya/stop-slop),
   mỗi vòng phải qua cổng kiểm tra của `academic-paper` (số liệu khớp R, trích dẫn, giới hạn từ, quy định tạp chí).
+- Vòng biên tập câu chữ cuối: **bắt buộc** chạy skill `sciwrite` (vendor/sciwrite, upstream labarba/sciwrite —
+  5 pass: clutter, active voice/động từ, cấu trúc câu, nhất quán thuật ngữ, nhất quán số liệu/trích dẫn) trên bản final,
+  rồi qua lại cổng kiểm tra số liệu (`numgate.py`) và `checks_v3.py`. Quy ước của bài (không em dash) được ưu tiên hơn gợi ý dùng dash của sciwrite.
 - Skill nội bộ `Python for Algorithmic Trading/NCKH/Bài stock toán/skill gộp/` (quy tắc biên tập,
   checklist 120 điểm, playbook từng section) dùng **bổ sung** khi sửa bài báo.
 
