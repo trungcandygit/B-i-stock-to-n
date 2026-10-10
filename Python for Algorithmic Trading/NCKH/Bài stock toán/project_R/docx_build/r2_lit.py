@@ -4,8 +4,7 @@ independent Stage 4.5 citation audit before submission."""
 
 LIT_INTRO = [
     ('p1a', "Five literatures bear on nested index correlations: part–whole correlation, detrended cross-correlation, index membership, "
-            "size-based lead–lag effects and contagion. We review what each establishes and leaves open, then state the gap, "
-            "estimands and hypotheses."),
+            "size-based lead–lag effects and contagion."),
 ]
 
 
@@ -13,9 +12,9 @@ def LIT_SECTIONS(table1):
     return [
         ('h2', '2.1 Part–whole correlation and holdings overlap'),
         ('p1a', "Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In "
-                "psychometrics the same arithmetic inflates the correlation of an item with the total score that contains it, and "
-                "Cureton (1966) gave a standard correction. Both results are static Pearson identities; neither measures the "
-                "component at different timescales or attaches sampling uncertainty to it. Finance handles overlap through "
+                "psychometrics the same arithmetic inflates item–total correlations, and "
+                "Cureton (1966) gave a standard correction. "
+                "Finance handles overlap through "
                 "holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto 2009), "
                 "holdings-based risk models estimate exposures from constituents, and membership studies build comparison "
                 "portfolios from stocks outside the index (Barberis et al. 2005). Users who observe only index levels lack a return-based "
@@ -27,9 +26,9 @@ def LIT_SECTIONS(table1):
                 "detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021) or partial correlations (Ge "
                 "and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious "
                 "multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. "
-                "2021; Ge and Lin 2021; Chen et al. 2024). Other studies use the coefficient to track contagion (Okorie and Lin 2021; Tilfani et "
+                "2021; Ge and Lin 2021; Chen et al. 2024). Others track contagion (Okorie and Lin 2021; Tilfani et "
                 "al. 2021) or information flow (Zhou et al. 2025) and build scale-aware portfolios (Wang et al. 2021; Kakinaka et "
-                "al. 2025). These studies treat the coefficient as a measure of economic dependence between disjoint assets. None of them "
+                "al. 2025). These studies treat the coefficient as economic dependence between disjoint assets; none "
                 "analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale."),
         ('h2', '2.3 Index membership and co-movement'),
         ('p1a', "Stocks added to the S&P 500 co-move more with the index (Barberis et al. 2005), Nikkei 225 stocks with larger "
@@ -54,8 +53,7 @@ def LIT_SECTIONS(table1):
                 "instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the "
                 "correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022). A DCCA "
                 "test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with "
-                "trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013). No study applies volatility-robust "
-                "tests to tiers of one market whose indices overlap."),
+                "trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013)."),
         ('h2', '2.6 Research gap'),
         ('p1a', "Table 1 compares representative studies on the dimensions that matter here."),
         table1,

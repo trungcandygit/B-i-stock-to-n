@@ -148,16 +148,16 @@ def introduction():
     return [
         ('h1', '1 Introduction'),
         ('p1a', "Correlations between published equity indices are a convenient measure of how much one market segment "
-                "diversifies another (Markowitz 1952). In nested index systems, these correlations have a problem unrelated to estimation error: "
+                "diversifies another (Markowitz 1952). Nested index systems add a problem unrelated to estimation error: "
                 "the parent contains the child, so part of their correlation is fixed by construction. On the Ho Chi Minh City "
                 "Stock Exchange (HOSE),"),
         ('eq', r'\mathrm{VN30} \subset \mathrm{VN100} \subset \mathrm{VNINDEX}. \qquad (1)'),
         ('p', "The 30 largest firms hold about two-thirds of the free-float capitalization of VN100, and the daily VN30–VN100 "
-              f"correlation is {f(AVG[('B', '1D')]['VN30-VN100'])}. Read as a measure of how mid caps move with large caps, this "
-              "number mixes economic linkage with the double counting of VN30 stocks on both sides. Holdings-based risk models "
-              "avoid the problem; users of index-level data cannot. Index-level co-movement is easy to misread even "
-              "without overlap (Chen et al. 2016). The arithmetic is old (Pearson 1897; Cureton 1966), but no version exists for "
-              "the detrended, scale-dependent coefficients of the detrended cross-correlation analysis (DCCA) literature. That literature "
+              f"correlation is {f(AVG[('B', '1D')]['VN30-VN100'])}. As a measure of how mid caps move with large caps, this "
+              "number mixes economic linkage with double counting of VN30 stocks on both sides. Holdings-based risk models "
+              "avoid the problem; users of index-level data cannot. "
+              "The arithmetic is old (Pearson 1897; Cureton 1966), but no version exists for "
+              "the detrended, scale-dependent coefficients of the detrended cross-correlation analysis (DCCA) literature, which "
               "studies only pairs without shared constituents (Section 2)."),
         ('p', "Our contribution is to build that version. Lemma 1 shows that, at every timescale, the DCCA coefficient of a nested pair is a known "
               "function of the child’s weight, the relative amplitude κ(s) of the remaining constituents and the overlap-purged "
@@ -166,14 +166,13 @@ def introduction():
               "from index-level data (Section 4.2). We apply it to VN30, VN100 and VNINDEX at 30-minute to daily frequencies "
               "(2014–2025), with a block bootstrap that also draws the index weight. We then use the purged series to test hypotheses "
               "on horizon dependence, contagion and the value of regime-conditioned correlations."),
-        ('p', f"We report three main findings. The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of {rng(sens_v, 3)}, "
+        ('p', f"The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of {rng(sens_v, 3)}, "
               f"and the like-for-like gap between nested and purged coefficients is {rng(gapL_v, 3)}. Because κ hardly varies with the "
               f"timescale ({f(min(kap_scales), 2)}–{f(max(kap_scales), 2)}), the Pearson version gives the same answer. Horizon "
-              "dependence is confined to intraday broad-market pairs and comes from the auction bars. Crisis "
+              "dependence is confined to the auction bars of intraday broad-market pairs. Crisis "
               "evidence depends on whether contagion is measured by an adjusted correlation or a factor loading, and "
               "regime-conditioned correlations do not outperform a static one out of sample."),
-        ('p', "Section 2 reviews the literature and states "
-              "the hypotheses. Sections 3–5 present the data, methods and results, Section 6 discusses them and Section 7 concludes. "
+        ('p', "Sections 3–5 present the data, methods and results, Section 6 discusses them and Section 7 concludes. "
               "Further checks are in Online Resource 2."),
     ]
 

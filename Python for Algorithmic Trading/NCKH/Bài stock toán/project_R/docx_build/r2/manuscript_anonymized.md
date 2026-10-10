@@ -19,27 +19,27 @@ How Much of a Nested Index Correlation Is Construction? A Scale-Wise Part–Whol
 :::
 
 ::: {custom-style="p1a"}
-Correlations between published equity indices are a convenient measure of how much one market segment diversifies another (Markowitz 1952). In nested index systems, these correlations have a problem unrelated to estimation error: the parent contains the child, so part of their correlation is fixed by construction. On the Ho Chi Minh City Stock Exchange (HOSE),
+Correlations between published equity indices are a convenient measure of how much one market segment diversifies another (Markowitz 1952). Nested index systems add a problem unrelated to estimation error: the parent contains the child, so part of their correlation is fixed by construction. On the Ho Chi Minh City Stock Exchange (HOSE),
 :::
 
 $$
 \mathrm{VN30} \subset \mathrm{VN100} \subset \mathrm{VNINDEX}. \qquad (1)
 $$
 
-The 30 largest firms hold about two-thirds of the free-float capitalization of VN100, and the daily VN30–VN100 correlation is 0.988. Read as a measure of how mid caps move with large caps, this number mixes economic linkage with the double counting of VN30 stocks on both sides. Holdings-based risk models avoid the problem; users of index-level data cannot. Index-level co-movement is easy to misread even without overlap (Chen et al. 2016). The arithmetic is old (Pearson 1897; Cureton 1966), but no version exists for the detrended, scale-dependent coefficients of the detrended cross-correlation analysis (DCCA) literature. That literature studies only pairs without shared constituents (Section 2).
+The 30 largest firms hold about two-thirds of the free-float capitalization of VN100, and the daily VN30–VN100 correlation is 0.988. As a measure of how mid caps move with large caps, this number mixes economic linkage with double counting of VN30 stocks on both sides. Holdings-based risk models avoid the problem; users of index-level data cannot. The arithmetic is old (Pearson 1897; Cureton 1966), but no version exists for the detrended, scale-dependent coefficients of the detrended cross-correlation analysis (DCCA) literature, which studies only pairs without shared constituents (Section 2).
 
 Our contribution is to build that version. Lemma 1 shows that, at every timescale, the DCCA coefficient of a nested pair is a known function of the child’s weight, the relative amplitude κ(s) of the remaining constituents and the overlap-purged coefficient between the child and those constituents. It yields a zero-correlation benchmark, an exact lower bound, the sensitivity of the nested coefficient to the purged one and an order-free attribution, all computable from index-level data (Section 4.2). We apply it to VN30, VN100 and VNINDEX at 30-minute to daily frequencies (2014–2025), with a block bootstrap that also draws the index weight. We then use the purged series to test hypotheses on horizon dependence, contagion and the value of regime-conditioned correlations.
 
-We report three main findings. The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of 0.106–0.112, and the like-for-like gap between nested and purged coefficients is 0.099–0.104. Because κ hardly varies with the timescale (0.47–0.52), the Pearson version gives the same answer. Horizon dependence is confined to intraday broad-market pairs and comes from the auction bars. Crisis evidence depends on whether contagion is measured by an adjusted correlation or a factor loading, and regime-conditioned correlations do not outperform a static one out of sample.
+The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of 0.106–0.112, and the like-for-like gap between nested and purged coefficients is 0.099–0.104. Because κ hardly varies with the timescale (0.47–0.52), the Pearson version gives the same answer. Horizon dependence is confined to the auction bars of intraday broad-market pairs. Crisis evidence depends on whether contagion is measured by an adjusted correlation or a factor loading, and regime-conditioned correlations do not outperform a static one out of sample.
 
-Section 2 reviews the literature and states the hypotheses. Sections 3–5 present the data, methods and results, Section 6 discusses them and Section 7 concludes. Further checks are in Online Resource 2.
+Sections 3–5 present the data, methods and results, Section 6 discusses them and Section 7 concludes. Further checks are in Online Resource 2.
 
 ::: {custom-style="heading1"}
 2 Literature review and hypothesis development
 :::
 
 ::: {custom-style="p1a"}
-Five literatures bear on nested index correlations: part–whole correlation, detrended cross-correlation, index membership, size-based lead–lag effects and contagion. We review what each establishes and leaves open, then state the gap, estimands and hypotheses.
+Five literatures bear on nested index correlations: part–whole correlation, detrended cross-correlation, index membership, size-based lead–lag effects and contagion.
 :::
 
 ::: {custom-style="heading2"}
@@ -47,7 +47,7 @@ Five literatures bear on nested index correlations: part–whole correlation, de
 :::
 
 ::: {custom-style="p1a"}
-Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In psychometrics the same arithmetic inflates the correlation of an item with the total score that contains it, and Cureton (1966) gave a standard correction. Both results are static Pearson identities; neither measures the component at different timescales or attaches sampling uncertainty to it. Finance handles overlap through holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto 2009), holdings-based risk models estimate exposures from constituents, and membership studies build comparison portfolios from stocks outside the index (Barberis et al. 2005). Users who observe only index levels lack a return-based counterpart.
+Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In psychometrics the same arithmetic inflates item–total correlations, and Cureton (1966) gave a standard correction. Finance handles overlap through holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto 2009), holdings-based risk models estimate exposures from constituents, and membership studies build comparison portfolios from stocks outside the index (Barberis et al. 2005). Users who observe only index levels lack a return-based counterpart.
 :::
 
 ::: {custom-style="heading2"}
@@ -55,7 +55,7 @@ Pearson (1897) showed that ratios sharing a denominator correlate even when thei
 :::
 
 ::: {custom-style="p1a"}
-DCCA extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) proposed tests and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021) or partial correlations (Ge and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. 2021; Ge and Lin 2021; Chen et al. 2024). Other studies use the coefficient to track contagion (Okorie and Lin 2021; Tilfani et al. 2021) or information flow (Zhou et al. 2025) and build scale-aware portfolios (Wang et al. 2021; Kakinaka et al. 2025). These studies treat the coefficient as a measure of economic dependence between disjoint assets. None of them analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale.
+DCCA extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) proposed tests and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021) or partial correlations (Ge and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. 2021; Ge and Lin 2021; Chen et al. 2024). Others track contagion (Okorie and Lin 2021; Tilfani et al. 2021) or information flow (Zhou et al. 2025) and build scale-aware portfolios (Wang et al. 2021; Kakinaka et al. 2025). These studies treat the coefficient as economic dependence between disjoint assets; none analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale.
 :::
 
 ::: {custom-style="heading2"}
@@ -79,7 +79,7 @@ Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Ho
 :::
 
 ::: {custom-style="p1a"}
-Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than contagion (Forbes and Rigobon 2002). The correction can itself be biased toward no contagion because it restricts the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022). A DCCA test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013). No study applies volatility-robust tests to tiers of one market whose indices overlap.
+Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than contagion (Forbes and Rigobon 2002). The correction can itself be biased toward no contagion because it restricts the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022). A DCCA test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013).
 :::
 
 ::: {custom-style="heading2"}
