@@ -168,8 +168,8 @@ def introduction():
               "on horizon dependence, contagion and the value of regime-conditioned correlations."),
         ('p', f"We report three main findings. The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of {rng(sens_v, 3)}, "
               f"and the like-for-like gap between nested and purged coefficients is {rng(gapL_v, 3)}. Because κ hardly varies with the "
-              f"timescale ({f(min(kap_scales), 2)}–{f(max(kap_scales), 2)}), the Pearson version gives the same answer. On the purged "
-              "series, horizon dependence is confined to intraday broad-market pairs and comes from the auction bars. Crisis "
+              f"timescale ({f(min(kap_scales), 2)}–{f(max(kap_scales), 2)}), the Pearson version gives the same answer. Horizon "
+              "dependence is confined to intraday broad-market pairs and comes from the auction bars. Crisis "
               "evidence depends on whether contagion is measured by an adjusted correlation or a factor loading, and "
               "regime-conditioned correlations do not outperform a static one out of sample."),
         ('p', "Section 2 reviews the literature and states "
@@ -345,7 +345,7 @@ def methodology():
               "block bootstrap (Politis and Romano 1994) with mean blocks of about 20 trading days and recompute every curve and "
               "statistic in each replicate. We use 499 replicates for the DCCA statistics of Tables 4–6 and for the decomposition, "
               "hedge-effectiveness and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for "
-              "the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag and materiality "
+              "the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag and materiality (Table S14) "
               "statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights and with 2021 added. The remaining "
               "Forbes–Rigobon and relative-error statistics use 1,999 replicates."),
         ('p', "Intervals are percentile 95% intervals, capped at ±1 for "
@@ -693,9 +693,9 @@ def discussion():
                 "identity to scale-wise detrended coefficients yields a benchmark, a lower bound, a sensitivity and an order-free "
                 "attribution, all computable from index-level inputs. On the HOSE, the VN30–VN100 coefficient moves by only about "
                 f"{f(sum(sens_v) / 4, 2)} per unit change in the purged coefficient, and removing the overlap lowers the correlation "
-                f"with large caps by about {f(sum(gapL_v) / 4, 2)}. The purged series shows a large-to-small lead, horizon effects "
-                "confined to the auction bars, a higher mid-cap loading together with more mid-cap-specific risk on volatile days, "
-                "and no out-of-sample gain from regime-conditioned correlations. Users of index-level data should decompose nested "
+                f"with large caps by about {f(sum(gapL_v) / 4, 2)}. The purged series shows a large-to-small lead and a higher "
+                "mid-cap loading together with more mid-cap-specific risk on volatile days; horizon effects in broad-market pairs are "
+                "confined to the auction bars; and regime-conditioned correlations bring no out-of-sample gain. Users of index-level data should decompose nested "
                 "correlations before reading them as evidence about diversification between tiers."),
     ]
 
