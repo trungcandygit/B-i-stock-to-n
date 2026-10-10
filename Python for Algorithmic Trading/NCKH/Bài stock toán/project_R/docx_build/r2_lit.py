@@ -55,16 +55,14 @@ def LIT_SECTIONS(table1):
                 "test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with "
                 "trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013)."),
         ('h2', '2.6 Research gap'),
-        ('p1a', "Table 1 compares representative studies on the dimensions that matter here."),
+        ('p1a', "Table 1 compares representative studies."),
         table1,
         ('p', "Three gaps follow. The part–whole identity is known for static Pearson correlations but has not been extended to "
               "scale-wise detrended coefficients, equipped with inference under weight uncertainty, or turned into a diagnostic computable "
               "from published series. Multiscale studies of crises rarely use volatility-robust tests, and volatility-conditioned "
               "studies use one horizon and disjoint markets. To our knowledge, no study covers the Vietnamese index system at "
-              "intraday and daily frequencies. For this review, we searched Google Scholar and publisher databases for 2021–2026, plus the classical "
-              "sources these works cite. Search strings combined “detrended cross-correlation” with “index”, “overlap”, “nested” or "
-              "“constituent”, together with “part–whole” and “item–total correlation”, “contagion” with “Forbes–Rigobon” or "
-              "“heteroskedasticity”, and “Vietnam” with “co-movement” or “stock index”."),
+              "intraday and daily frequencies. We searched Google Scholar and publisher databases for 2021–2026, plus the classical "
+              "sources these works cite."),
     ]
 
 

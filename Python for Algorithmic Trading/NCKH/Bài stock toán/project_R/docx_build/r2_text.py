@@ -184,8 +184,7 @@ def hypotheses():
                 "estimands and test only what the identity does not determine. E1 is the zero-correlation benchmark ρ̲ of the "
                 "VN30–VN100 coefficient and its share under three attribution conventions, E2 the sensitivity of the nested to the "
                 "purged coefficient, and E3 the in-sample misstatement of portfolio variance by a static correlation, judged against "
-                "sampling error. A share above one half is not a finding: it holds whenever κ < √3 and the purged coefficient is "
-                "non-negative."),
+                "sampling error."),
         ('p', "*H1 (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical "
               "question. Rule: at every frequency, the lower 95% bound of the like-for-like gap exceeds 0.05, the estimation tolerance of "
               "Section 4.4; the gap is VN30–VN100 minus P_cap–VN30 (P_cap is the overlap-purged mid-cap series)."),
@@ -211,16 +210,16 @@ def institutions_data():
     return [
         ('h1', '3 Institutional background and data'),
         ('h2', '3.1 Institutional background'),
-        ('p1a', "Six features of the HOSE matter here. Prices move within a ±7% daily band, which truncates tails and synchronizes "
+        ('p1a', "Prices move within a ±7% daily band, which truncates tails and synchronizes "
                 "limit hits. Settlement moved from T+3 to T+2 on 1 January 2016 (Vietnam Securities Depository 2015), limiting "
                 "intraday arbitrage. Each day has an opening call auction (09:00–09:15), continuous trading to 11:30, a break to "
-                "13:00, a second continuous session and a closing call auction (14:30–14:45). Short selling is restricted. Circular "
+                "13:00, a second continuous session and a closing call auction (14:30–14:45). Circular "
                 "120/2020/TT-BTC (Ministry of Finance of Vietnam 2020) provides a framework for covered short sales that, to our "
                 "knowledge, had not been implemented, and naked short selling is prohibited. The implementing Decree "
                 "155/2020/ND-CP (Government of Vietnam 2020) was amended by Decree 245/2025/ND-CP (Government of Vietnam 2025). VN30 "
                 "futures trade on the Hanoi Stock Exchange, but no mid-cap future exists. A VNMIDCAP exchange-traded fund "
                 "(FUEDCMID) has been listed since 29 September 2022 (Ho Chi Minh City Stock Exchange 2022), so mid caps can be held "
-                "long but cannot be shorted or hedged with a dedicated derivative. Finally, foreign "
+                "long but not shorted. Foreign "
                 "ownership limits (30% for banks, for example) concentrate foreign flows in large caps with room under their "
                 "limits. Vietnam is to be reclassified to Secondary Emerging status from 21 September 2026 (FTSE Russell 2025), "
                 "after the end of our sample."),
@@ -283,8 +282,7 @@ def methodology():
               "1,928,303 billion, respectively), so that B_t = wA_t + (1 − w)M_t at every observation. On log returns, P_cap differs from the "
               f"arithmetic mid-cap return by a Jensen term of {f(SC['jensen_delta'][0] * 1e6, 1)} × 10⁻⁶ per day. P_cap is a synthetic shadow "
               "series: replicating it requires about 315% long VN100 and 215% short VN30. We call ρ_AM, the coefficient of VN30 and "
-              "P_cap, overlap-purged rather than economic, because we cannot validate P_cap against the published VNMIDCAP series "
-              "(Section 6.3)."),
+              "P_cap, overlap-purged rather than economic (Section 6.3)."),
         ('p', "**Lemma 1 (scale-wise part–whole identity).** Let B_t = wA_t + (1 − w)M_t for all t, with 0 < w < 1 and "
               "F_A(s), F_M(s) > 0, and define the relative amplitude κ(s) = (1 − w)F_M(s)/[wF_A(s)]. Then, for every s and m,"),
         ('eq', r'\rho_{AB}(s)=\frac{1+\kappa(s)\,\rho_{AM}(s)}{\sqrt{1+\kappa(s)^2+2\kappa(s)\,\rho_{AM}(s)}}. \qquad (7)'),
@@ -332,7 +330,7 @@ def methodology():
         ('eq', r'\hat{M}_t=\frac{1-w_t}{1-w}M_t+\frac{w_t-w}{1-w}A_t, \qquad (12)'),
         ('p', "so large-cap returns leak into P_cap in proportion to the weight error w_t − w, and P_cap and VN30 are disjoint only at the exact "
               "weight. With a single factsheet snapshot we cannot rebuild the weight path, so each bootstrap replicate draws w from "
-              "U(0.60, 0.75), an interval around the factsheet weight that allows drift in either direction, and recomputes P_cap and every "
+              "U(0.60, 0.75), allowing drift in either direction, and recomputes P_cap and every "
               "statistic. Table S2 evaluates each quantity on a weight grid. The benchmark and sensitivity depend on the data only "
               "through κ and are less exposed to weight error than ρ_AM."),
         ('h2', '4.4 Reliability thresholds and inference'),
@@ -340,8 +338,8 @@ def methodology():
                 "white-noise pairs with correlations of −0.3, 0, 0.3, 0.5, 0.7 and 0.9 (1,002 per frequency) and set s_rel to the "
                 "largest scale before the worst-case mean absolute error on 40 log-spaced scales first exceeds 0.05. We fixed the grid and "
                 "tolerance in advance. A GARCH(1,1)-t(5) calibration (generalized autoregressive conditional heteroskedasticity with Student-t errors; 300 simulations) checks heavy tails."),
-        ('p', "Coefficients at different scales come from the same series, so for all inference we resample the data with the stationary "
-              "block bootstrap (Politis and Romano 1994) with mean blocks of about 20 trading days and recompute every curve and "
+        ('p', "Because coefficients at different scales come from the same series, all inference uses the stationary "
+              "block bootstrap (Politis and Romano 1994) with mean blocks of about 20 trading days, recomputing every curve and "
               "statistic in each replicate. We use 499 replicates for the DCCA statistics of Tables 4–6 and for the decomposition, "
               "hedge-effectiveness and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for "
               "the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag and materiality (Table S14) "
@@ -369,7 +367,7 @@ def methodology():
         ('eq', r'\rho^{*}=\frac{\rho_{\mathrm{high}}}{\sqrt{1+\delta\,(1-\rho_{\mathrm{high}}^2)}},\qquad \delta=\frac{\sigma^2_{x,\mathrm{high}}-\sigma^2_{x,\mathrm{low}}}{\sigma^2_{x,\mathrm{low}}}, \qquad (15)'),
         ('p', "with y = P_cap and x = VN30. The adjustment assumes constant β and σ²_ε; if crises raise idiosyncratic variance, ρ* "
               "is biased toward no contagion (Corsetti et al. 2005). We therefore also test, regime by regime, for changes in the "
-              "residual variance and in the loading β; a change in β is contagion in the sense of Corsetti et al. (2005), and β is the structural parameter of "
+              "residual variance and in the loading β; a change in β is contagion in their sense, and β is the structural parameter of "
               "Rigobon (2003). Regimes are chronological episodes, VNINDEX volatility quartiles or VN30 volatility quartiles; the "
               "last sorts on the conditioning variable rather than on a series containing P_cap. Statistics are Pearson moments of "
               "daily returns, bootstrapped within regimes. We do not test nested pairs, because the parent contains the "
@@ -483,8 +481,7 @@ def results():
         ('h2', '5.1 Summary statistics and reliability'),
         ('p1a', "Table 2 reports descriptive statistics and Table 3 the reliability thresholds."),
         tab2,
-        ('p', f"P_cap has the highest daily standard deviation ({f(DESC[('Pcap', '1D')]['sd'], 4)}) and VNINDEX the lowest "
-              f"({f(DESC[('VNINDEX', '1D')]['sd'], 4)}). All series are negatively skewed and leptokurtic (kurtosis above "
+        ('p', f"All series are negatively skewed and leptokurtic (kurtosis above "
               f"{int(min(F(DESC[(v, 'M30')]['kurtosis']) for v in ['VN30', 'VN100', 'VNINDEX', 'Pcap']))} at M30), and the "
               "Jarque–Bera test rejects normality for every series. Neither DCCA nor the block bootstrap requires Gaussian returns."),
         tab3,
@@ -499,13 +496,12 @@ def results():
               f"Corollary 3 fixes the sign of the like-for-like gap, but not its size: the gap is {rng(gapL_v)} with interval lower "
               f"bounds of at least {f(gapL_lo)}, above the 0.05 tolerance at every frequency, so "
               f"{'H1 is supported' if H1_ok else 'H1 is not supported at every frequency'}. The three-pair gap is {rng(gap3)}, with "
-              f"Cohen’s q (Cohen 1988) of {rng(qv, 2)}; it also uses the broad-market pairs, which cannot be purged by weight. "
-              "We report q descriptively because both coefficients come from the same sample. Overlap thus inflates co-movement that "
-              "is already strong."),
+              f"Cohen’s q (Cohen 1988) of {rng(qv, 2)}. "
+              "We report q descriptively because both coefficients come from the same sample."),
         ('p', f"The gap depends on the weight: over w = 0.60–0.75 the daily like-for-like gap is {f(min(like_w))}–{f(max(like_w))} "
               f"and the three-pair gap {f(min(ws_gap))}–{f(max(ws_gap))} (Tables S2 and S3). With w drawn in each replicate, the "
               f"like-for-like intervals have lower bounds of {rng([GWU[t]['ci_lo'] for t in TF], 3)} and every replicate exceeds "
-              "0.05, so H1 holds under weight uncertainty. The size of the gap, however, is known only to within a factor of about "
+              "0.05, so H1 holds under weight uncertainty. The size of the gap is known only to within a factor of about "
               "two."),
         ('fig', ('fig2', 'Fig. 2 DCCA coefficients of the nested pairs and P_cap–VN30 by timescale: (a) 1D, (b) M30, (c) H1, (d) H4',
                  'Line and marker types identify the pairs; P_cap: overlap-purged mid-cap series; grey bands: pointwise block-bootstrap 95% intervals; vertical dotted '
@@ -517,8 +513,7 @@ def results():
               f"by about {f(sum(inv_sens) / 4 * 0.01, 2)}. Under weight uncertainty, the sensitivity interval is "
               f"{f(wu_rng('sensitivity')[0], 2)}–{f(wu_rng('sensitivity')[1], 2)}. With κ of {rng(kap_v, 2)}, the remaining 32% of "
               f"VN100 contributes about half as much detrended variation as VN30, which puts the benchmark at {rng(bench_v, 3)} and the lower "
-              f"bound of Eq. (9) at {rng(tmin_v, 3)}. No purged coefficient in [−1, 1] could push the VN30–VN100 coefficient below "
-              "about 0.86."),
+              f"bound of Eq. (9) at {rng(tmin_v, 3)}."),
         ('p', f"The part of the observed {rng(nest_v, 3)} attributable to overlap depends on the attribution convention. The benchmark-first share is "
               f"{rng(share_v, 3)} and the dependence-first share {rng(econsh_v, 3)}, because either factor alone produces a "
               f"coefficient near 0.9. The Shapley split attributes {rng(shap_v, 3)} to overlap (intervals within "
@@ -536,20 +531,18 @@ def results():
         ('fig', ('fig4', 'Fig. 3 Nested VN30–VN100 coefficient implied by Lemma 1 as a function of the overlap-purged coefficient',
                  'Lines: Eq. (7) at the average κ of each frequency (Table 5); markers: observed values; dashed line: daily '
                  'zero-correlation benchmark; dotted line: daily lower bound of Eq. (9). Source: Authors’ calculations.')),
-        ('p', "Fig. 4 places the HOSE among possible nested systems: the contours show the Pearson benchmark by child weight and "
-              f"relative volatility of the remaining constituents, and the triangle marks VN30 in VN100 (w = {f(HOSEPT['w'], 3)}, σ_M/σ_A = "
-              f"{f(HOSEPT['amplitude_ratio_daily_sd'], 2)}, benchmark {f(HOSEPT['floor'], 3)}). Even a child weight of 0.5 with equal "
-              "volatilities gives a benchmark of about 0.7."),
+        ('p', f"Fig. 4 places the HOSE among possible nested systems; the triangle marks VN30 in VN100 (w = {f(HOSEPT['w'], 3)}, σ_M/σ_A = "
+              f"{f(HOSEPT['amplitude_ratio_daily_sd'], 2)}, benchmark {f(HOSEPT['floor'], 3)})."),
         ('fig', ('fig5', 'Fig. 4 Zero-correlation benchmark ρ̲ as a function of the child weight w and the relative volatility σ_M/σ_A',
                  'Contours of Eq. (8) with κ = (1 − w)σ_M/(wσ_A); triangle: VN30 in VN100, daily Pearson moments. Source: Authors’ '
                  'calculations.')),
         ('h2', '5.4 Horizon dependence (H2)'),
-        ('p1a', "Table 6 lists reliable-range slopes for the four main pairs with bootstrap, studentized and adjusted p-values."),
+        ('p1a', "Table 6 lists reliable-range slopes for the four main pairs."),
         tab6,
-        ('p', "Positive slopes appear only for broad-market pairs at the M30 and H1 frequencies. In the H2 family, "
-              f"{NUMW.get(len(holm_h2), len(holm_h2))} slopes survive Holm adjustment ("
-              + '; '.join(f"{lab(p)} at {t}" for t, p in sorted(holm_h2)) +
-              f"), with estimates of {rng([h2s(t, p)['estimate'] for t, p in holm_h2], 4)}, a rise of about 0.01 across the reliable "
+        ('p', "Positive slopes appear only for broad-market pairs at M30 and H1. In the H2 family, "
+              f"{NUMW.get(len(holm_h2), len(holm_h2))} slopes survive Holm adjustment"
+              + ('' if len(holm_h2) == 4 else ' (' + '; '.join(f"{lab(p)} at {t}" for t, p in sorted(holm_h2)) + ')') +
+              f", with estimates of {rng([h2s(t, p)['estimate'] for t, p in holm_h2], 4)}, a rise of about 0.01 across the reliable "
               f"range. None is significant at 1D or H4; {'with significant positive slopes at both frequencies the rule requires' if intraday_ok else 'without significant positive slopes at both frequencies the rule requires'}, H2 is {H2_out.lower()} on the full data. Over the original {fam} tests, "
               f"Holm keeps {NUMW.get(len(holm_all), len(holm_all))} studentized slope{'s' if len(holm_all) != 1 else ''} and "
               f"Benjamini–Hochberg {NUMW.get(len(bh_all), len(bh_all))}, and with percentile p-values none survives (smallest "
@@ -559,10 +552,9 @@ def results():
               "P_cap–VN30 slope is not significant at any frequency."),
         ('p', f"Eq. (14) explains the flat nested slope: the damping factor (the sensitivity) is {rng(damp, 3)}, at M30 and H1 the κ channel partly offsets the "
               f"ρ_AM channel, and the implied slope differs from the observed one by at most {f(slc_err * 1e5, 1)} × 10⁻⁵ "
-              "(Table S13). A flat nested coefficient therefore says little about the tiers: a purged slope of 0.01 per unit of ln s, "
-              "five times the broad-market slopes, would move the nested slope by about 0.001, the TOST margin."),
-        ('p', "The auction bars drive the intraday result. The first bar of each day holds the overnight return and the opening "
-              "auction, where intraday volatility peaks (Andersen and Bollerslev 1997). It accounts for "
+              "(Table S13). A flat nested coefficient therefore says little about the tiers."),
+        ('p', "The auction bars drive the intraday result. The opening bar, where intraday volatility peaks (Andersen and Bollerslev "
+              "1997), accounts for "
               f"{f(100 * F(FB['M30']['share_of_bars_dropped']), 0)}% of M30 bars but carries "
               f"{f(100 * F(FB['M30']['share_of_VN30_sq_return_in_first_bar']), 0)}% of squared VN30 returns. The last bar holds "
               "the closing auction (Table S7). Without the opening bar, the H1 broad-market slopes fall to "
@@ -577,14 +569,13 @@ def results():
               f"({f(FB['M30']['gap'])} {ci(FB['M30']['gap_ci_lo'], FB['M30']['gap_ci_hi'])} at M30 without the opening bar), and the slope intervals are stable "
               "across block lengths (Table S15). "
               + ("Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of "
-                 "continuous trading. It is consistent with the Epps (1979) mechanism if the auctions are where prices of less liquid "
-                 "constituents catch up." if (H2_out == 'Supported' and not H2_robust) else
+                 "continuous trading." if (H2_out == 'Supported' and not H2_robust) else
                  f"H2 is {'robust' if H2_robust else 'not robust'} to removal of the opening bar.")),
         ('h2', '5.5 Crisis dependence (H3)'),
-        ('p1a', "Table 7 presents the Forbes–Rigobon and factor-model tests under three regime definitions."),
+        ('p1a', "Table 7 presents the Forbes–Rigobon and factor-model tests."),
         tab7,
         ('p', f"The raw correlation rises under every regime definition, from {f(frA['rho_low'])} to {f(frA['rho_high'])} chronologically and "
-              f"from {f(fr30['rho_low'])} to {f(fr30['rho_high'])} under VN30 quartiles. The adjusted crisis correlation, however, never "
+              f"from {f(fr30['rho_low'])} to {f(fr30['rho_high'])} under VN30 quartiles. The adjusted crisis correlation never "
               f"exceeds its calm level (one-sided p = {f(min(F(frA['p_one_sided']), F(frB['p_one_sided']), F(fr30['p_one_sided'])), 3)}–"
               f"{f(max(F(frA['p_one_sided']), F(frB['p_one_sided']), F(fr30['p_one_sided'])), 3)}, and above {f(min(frw_p) - 0.005, 2)} across "
               f"weights; Table S10), and under VN30 quartiles it is significantly lower ({f(fr30['diff'])}, "
@@ -603,13 +594,13 @@ def results():
               f"({f(tg('Pcap-VN30', '0.05')['lambda_L_gaussian_copula'], 2)}; Table S5), we cannot tell a structural shift from a "
               "stable nonlinear relation."),
         ('h2', '5.6 Portfolio variance (E3, H4)'),
-        ('p1a', "Table 8 reports the in-sample misstatement from a static correlation and the out-of-sample forecast comparison."),
+        ('p1a', "Table 8 reports the in-sample misstatement and the out-of-sample forecast comparison."),
         tab8,
         ('p', f"In sample, a static correlation overstates the variance of an equally weighted VN30 and P_cap position by "
               f"{f(re_('A', 'low', 'Pcap-VN30')['RE_pct'], 2)}% in chronological calm periods and "
               f"{f(re_('B', 'low', 'Pcap-VN30')['RE_pct'], 2)}% in the low-volatility quartile, and understates it by "
               f"{f(-F(re_('A', 'high', 'Pcap-VN30')['RE_pct']), 2)}% and {f(-F(re_('B', 'high', 'Pcap-VN30')['RE_pct']), 2)}% in "
-              "crisis regimes. Any pooled correlation produces this sign pattern. For nested pairs, the misstatement is at most "
+              "crisis regimes. For nested pairs, the misstatement is at most "
               f"{f(max(nested_re), 2)}% (Table S14). Relative to sampling error, the magnitudes are small: |RE| is {rng(ratio_pcap, 2)} "
               f"standard errors of the regime variance for P_cap–VN30 and at most {f(max(ratio_nest), 2)} for nested pairs. Out of "
               "sample, the static correlation has the lowest mean QLIKE for every pair, and all Diebold–Mariano statistics are "
