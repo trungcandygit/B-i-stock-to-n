@@ -3,108 +3,71 @@ New items come from notes/review_r2/newrefs_verified.md and the round-2 review s
 independent Stage 4.5 citation audit before submission."""
 
 LIT_INTRO = [
-    ('p1a', "Five literatures bear on our question: the statistics of correlations between a whole and its parts, multiscale "
-            "dependence measured by detrended cross-correlation, the effect of index membership on co-movement, lead–lag "
-            "effects between size tiers, and the separation of contagion from volatility-driven interdependence. We review "
-            "each for what it establishes, where studies disagree and what it leaves open, and then state the gap, the "
-            "estimands and the hypotheses."),
+    ('p1a', "Five literatures bear on the question: part–whole correlation, detrended cross-correlation, index membership, "
+            "size-based lead–lag effects and contagion. We review what each establishes and leaves open, then state the gap, "
+            "estimands and hypotheses."),
 ]
 
 
 def LIT_SECTIONS(table1):
     return [
         ('h2', '2.1 Part–whole correlation and holdings overlap'),
-        ('p1a', "The problem of correlating a whole with one of its parts is old. Pearson (1897) showed that two ratios sharing a "
-                "common denominator are correlated even when their numerators are independent, and called the result a spurious "
-                "correlation. In psychometrics the same arithmetic appears as the item–total correlation: an item is part of the "
-                "total score, so its correlation with the total overstates its correlation with the other items, and Cureton "
-                "(1966) gave a standard correction that removes the item from the total. Both results are static and use Pearson "
-                "moments. They imply that the correlation of a parent index with a child index it contains has a component "
-                "fixed by construction, but neither literature measures that component at different timescales or attaches "
-                "sampling uncertainty to it."),
-        ('p', "Finance deals with overlap mainly through holdings. Active Share measures the fraction of a fund’s portfolio that "
-              "differs from its benchmark holdings (Cremers and Petajisto 2009), and holdings-based factor risk models estimate "
-              "exposures from constituents, so neither depends on index-level return correlations. Studies of index membership "
-              "control for overlap by constructing comparison portfolios from stocks outside the index (Barberis et al. 2005). "
-              "What is missing is the return-based counterpart for users who observe only index levels: a way to tell, from the "
-              "published series and the index weights, how much of a nested correlation reflects shared constituents."),
+        ('p1a', "Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In "
+                "psychometrics the same arithmetic inflates the correlation of an item with the total score that contains it, and "
+                "Cureton (1966) gave a standard correction. Both results are static Pearson identities; neither measures the "
+                "component at different timescales or attaches sampling uncertainty to it. Finance handles overlap through "
+                "holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto 2009), "
+                "holdings-based risk models estimate exposures from constituents, and membership studies build comparison "
+                "portfolios from stocks outside the index (Barberis et al. 2005). What is missing is a return-based counterpart for "
+                "users who observe only index levels."),
         ('h2', '2.2 Multiscale dependence and detrended cross-correlation'),
-        ('p1a', "Detrended cross-correlation analysis (DCCA) extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt "
-                "et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized the "
-                "detrended covariance into a bounded coefficient, Podobnik et al. (2011) proposed tests for power-law "
-                "cross-correlations, and Zhou (2008) generalized the method to multifractal moments (MF-DCCA). Later variants "
-                "replace polynomial detrending by moving averages (Jiang and Zhou 2011; Kristoufek 2014), compute the coefficient in "
-                "sliding windows (Guedes et al. 2021) or partial out third variables (Ge and Lin 2021). The variants disagree on one "
-                "technical point: MF-DCCA must handle negative local covariances, and Oświęcimka et al. (2014) show that taking "
-                "their absolute values can create spurious multifractality."),
-        ('p', "Applied work agrees that financial dependence can vary with the horizon. Stock–bond correlations differ across "
-              "horizons (Al Rababa’a et al. 2021), and cross-market correlations between China and the United States vary with "
-              "scale and fluctuation size (Ge and Lin 2021; Chen et al. 2024). Two strands use the coefficient for decisions. One "
-              "measures crisis transmission: Okorie and Lin (2021) find fractal contagion among 32 stock markets during COVID-19 "
-              "that fades in the medium and long run, and Tilfani et al. (2021) track contagion with the coefficient in sliding "
-              "windows. The other builds portfolios: a mean-MF-X-DMA rule outperforms the mean-variance model (Wang et al. 2021), "
-              "and mean-DCCA portfolios perform better when the investor’s preferred scale adapts to market conditions (Kakinaka "
-              "et al. 2025). Combining MF-DCCA with transfer entropy adds the direction of information flow (Zhou et al. 2025)."),
-        ('p', "These strands read the DCCA coefficient as a measure of economic dependence. That reading is reasonable for disjoint "
-              "assets such as stocks and bonds or two national markets. It is not reasonable when one series contains the other, "
-              "because the detrended covariance then inherits the part–whole arithmetic of Section 2.1 at every scale. None of "
-              "the studies above analyzes nested pairs."),
+        ('p1a', "DCCA extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary "
+                "series (Podobnik and Stanley 2008); Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) "
+                "proposed tests and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average "
+                "detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021) or partial correlations (Ge "
+                "and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious "
+                "multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. "
+                "2021; Ge and Lin 2021; Chen et al. 2024), uses the coefficient to track contagion (Okorie and Lin 2021; Tilfani et "
+                "al. 2021) or information flow (Zhou et al. 2025), and builds scale-aware portfolios (Wang et al. 2021; Kakinaka et "
+                "al. 2025). All of it treats the coefficient as a measure of economic dependence between disjoint assets; none "
+                "analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale."),
         ('h2', '2.3 Index membership and co-movement'),
-        ('p1a', "A separate literature asks whether index membership changes how stocks co-move. Barberis et al. (2005) find that "
-                "stocks added to the S&P 500 co-move more with the index afterwards and attribute the change to trading frictions "
-                "and investor habitats. Greenwood (2008) uses the price weighting of the Nikkei 225 to show that stocks with larger "
-                "index weights co-move more with other index stocks, which points to index-linked demand. Later designs sharpen "
-                "the evidence: DeCoste (2025) uses a regression discontinuity around the S&P 500 membership threshold and finds "
-                "higher co-movement with no change in fundamentals, and Liao et al. (2022) attribute part of it to index trackers "
-                "and beta arbitrageurs."),
-        ('p', "The evidence is contested. Chen et al. (2016) show that much of the post-inclusion rise in co-movement also appears "
-              "in matched stocks that were not added, so it need not reflect membership, and Greenwood and Sammon (2025) document "
-              "that the price effect of S&P 500 additions has almost disappeared. The lesson for our purpose is that co-movement "
-              "measured at the index level is easy to misread. This literature concerns behavior; our concern is the arithmetic "
-              "overlap between indices, which raises their correlation even if no investor trades differently because of "
-              "membership."),
+        ('p1a', "Stocks added to the S&P 500 co-move more with the index (Barberis et al. 2005), Nikkei 225 stocks with larger "
+                "weights co-move more with other index stocks (Greenwood 2008), and regression-discontinuity and tracking-demand "
+                "designs support the effect (Liao et al. 2022; DeCoste 2025). The evidence is contested: much of the "
+                "post-inclusion rise also appears in matched stocks that were not added (Chen et al. 2016), and the S&P 500 index "
+                "effect has almost disappeared (Greenwood and Sammon 2025). Index-level co-movement is thus easy to misread even "
+                "where indices do not overlap; our concern is the arithmetic overlap, which raises correlations even if no investor "
+                "trades differently."),
         ('h2', '2.4 Size, lead–lag and horizon effects'),
-        ('p1a', "Returns on large stocks lead returns on small stocks: Lo and MacKinlay (1990) show that the cross-autocorrelation "
-                "from large to small firms is much stronger than the reverse, and Hou (2007) traces the effect to slow diffusion "
-                "of industry information to small firms. Non-synchronous trading also depresses correlations at short horizons "
-                "(Epps 1979), and the size of this Epps effect depends on how prices are sampled (Chang et al. 2021). Gradual "
-                "information diffusion (Hong and Stein 1999) can make co-movement build up with the horizon. Together these "
-                "mechanisms predict that correlations between pairs whose constituents adjust at different speeds rise with the "
-                "horizon, and that the large-cap tier leads."),
-        ('p', "Vietnamese evidence suggests that these frictions are present on the Ho Chi Minh City Stock Exchange (HOSE). Liquidity "
-              "fell after the introduction of a market surveillance system, especially for small firms (Chen et al. 2021), and "
-              "price adjustment is delayed under retail-heavy trading (Tran and Tran 2025). The same market shows herding during "
-              "stress (Nguyen et al. 2023), sector connectedness above 60% that rose to about 90% during COVID-19 (Bui et al. "
-              "2022) and nonlinear dependence on regional markets (Le et al. 2025). High connectedness and herding raise all "
-              "correlations at once, which makes index-level numbers harder to interpret as evidence about the tiers."),
+        ('p1a', "Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Hou (2007) traces to slow diffusion "
+                "of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), with a size "
+                "that depends on sampling (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) lets co-movement build "
+                "with the horizon. On the HOSE, liquidity of small firms is fragile (Chen et al. 2021) and price adjustment is "
+                "delayed under retail-heavy trading (Tran and Tran 2025), while herding in stress (Nguyen et al. 2023), sector "
+                "connectedness of 60–90% (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025) raise all "
+                "correlations at once."),
         ('h2', '2.5 Volatility, contagion and interdependence'),
-        ('p1a', "Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002). Forbes and Rigobon (2002) show "
-                "that unadjusted correlations rise mechanically with the variance of the conditioning market, so a crisis "
-                "increase may reflect interdependence rather than contagion. Their correction has known limits. Corsetti et al. "
-                "(2005) show that it can be biased toward finding no contagion, because it places unrealistic restrictions on "
-                "the variance of country-specific shocks, and they propose testing for a change in the factor loading within a "
-                "common-factor model instead. Rigobon (2003) uses the change in variance across regimes to identify the transmission "
-                "coefficient, which requires the structural parameters to stay constant."),
-        ('p', "The COVID-19 literature shows how much the conclusion depends on these choices. Studies without the correction "
-              "report contagion: conditional correlations between Chinese and G7 firms rose, especially for financial firms "
-              "(Akhtaruzzaman et al. 2021), contagion channels multiplied in a network of 19 markets (Guo et al. 2021) and copula "
-              "dependence intensified across Asian and American indices (Benkraiem et al. 2022). A DCCA-based test finds no "
-              "contagion between two crude-oil benchmarks that were already highly interdependent, but contagion between crude "
-              "oil and precious metals (Santana et al. 2023). In ASEAN markets integration varies with trade links and volatility "
-              "(Abdul Karim and Xin Ning 2013; Lean and Teng 2013). No study applies volatility-robust tests to tiers of one "
-              "market whose indices overlap."),
+        ('p1a', "Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically "
+                "with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than "
+                "contagion (Forbes and Rigobon 2002). The correction can itself be biased toward no contagion because it restricts "
+                "the variance of idiosyncratic shocks; Corsetti et al. (2005) propose testing for a change in the factor loading "
+                "instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the "
+                "correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022), a DCCA "
+                "test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with "
+                "trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013). No study applies volatility-robust "
+                "tests to tiers of one market whose indices overlap."),
         ('h2', '2.6 Research gap'),
         ('p1a', "Table 1 compares representative studies on the dimensions that matter here."),
         table1,
-        ('p', "Three gaps follow. First, the part–whole identity is known for static Pearson correlations, but it has not been "
-              "carried to detrended, scale-by-scale coefficients, given inference that accounts for uncertainty in the index "
-              "weight, or turned into a diagnostic that index users can compute from published series. Second, multiscale "
-              "studies of crisis transmission rarely apply volatility-robust tests, while volatility-conditioned studies use one "
-              "horizon and disjoint markets. Third, to our knowledge no study covers the Vietnamese index system at intraday "
-              "and daily frequencies. Our search covered Google Scholar and publisher databases for 2021–2026, plus the classical "
-              "sources these works cite, with the strings “detrended cross-correlation” combined with “index”, “overlap”, "
-              "“nested” or “constituent”; “part–whole correlation” and “item–total correlation”; “contagion” with "
-              "“Forbes–Rigobon” or “heteroskedasticity”; and “Vietnam” with “co-movement” or “stock index”."),
+        ('p', "Three gaps follow. The part–whole identity is known for static Pearson correlations but has not been carried to "
+              "scale-wise detrended coefficients, given inference under weight uncertainty, or turned into a diagnostic computable "
+              "from published series. Multiscale studies of crises rarely use volatility-robust tests, and volatility-conditioned "
+              "studies use one horizon and disjoint markets. To our knowledge, no study covers the Vietnamese index system at "
+              "intraday and daily frequencies. We searched Google Scholar and publisher databases for 2021–2026, plus the classical "
+              "sources these works cite, combining “detrended cross-correlation” with “index”, “overlap”, “nested” or "
+              "“constituent”, together with “part–whole” and “item–total correlation”, “contagion” with “Forbes–Rigobon” or "
+              "“heteroskedasticity”, and “Vietnam” with “co-movement” or “stock index”."),
     ]
 
 
