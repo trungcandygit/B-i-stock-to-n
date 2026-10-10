@@ -316,7 +316,7 @@ Notes: Equally weighted positions; intervals from joint resampling of the full s
 Notes: Reliable-range slopes of Eq. (13); 199 replicates per block length. Source: Authors’ calculations.
 :::
 
-*Multifractal structure.* The generalized cross-correlation exponent h~xy~(2) lies between 0.526 and 0.542. The multifractal range Δh is 0.252–0.431 for the nested pairs and 0.435–0.656 for P~cap~–VN30. Against 100 jointly shuffled surrogates, the P~cap~–VN30 range exceeds the 95th surrogate percentile only at 1D, and the nested pairs in 2 of 12 cases. Because absolute local covariances can create spurious multifractality (Oświęcimka et al. 2014), these results are descriptive.
+*Multifractal structure.* The generalized cross-correlation exponent h~xy~(2) lies between 0.526 and 0.542. The multifractal range Δh is 0.252–0.431 for the nested pairs and 0.435–0.656 for P~cap~–VN30. Against 100 jointly shuffled surrogates, the P~cap~–VN30 range exceeds the 95th surrogate percentile only at 1D, and the nested-pair ranges do so in 2 of 12 cases. Because absolute local covariances can create spurious multifractality (Oświęcimka et al. 2014), we treat these results as descriptive.
 
 ![](/home/user/B-i-stock-to-n/Python for Algorithmic Trading/NCKH/Bài stock toán/project_R/docx_build/../outputs/figures/fig3_mfdcca.png){width=6.3in}
 

@@ -18,18 +18,18 @@ def LIT_SECTIONS(table1):
                 "component at different timescales or attaches sampling uncertainty to it. Finance handles overlap through "
                 "holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto 2009), "
                 "holdings-based risk models estimate exposures from constituents, and membership studies build comparison "
-                "portfolios from stocks outside the index (Barberis et al. 2005). What is missing is a return-based counterpart for "
-                "users who observe only index levels."),
+                "portfolios from stocks outside the index (Barberis et al. 2005). Users who observe only index levels lack a return-based "
+                "counterpart."),
         ('h2', '2.2 Multiscale dependence and detrended cross-correlation'),
         ('p1a', "DCCA extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary "
-                "series (Podobnik and Stanley 2008); Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) "
+                "series (Podobnik and Stanley 2008). Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) "
                 "proposed tests and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average "
                 "detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021) or partial correlations (Ge "
                 "and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious "
                 "multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. "
                 "2021; Ge and Lin 2021; Chen et al. 2024), uses the coefficient to track contagion (Okorie and Lin 2021; Tilfani et "
                 "al. 2021) or information flow (Zhou et al. 2025), and builds scale-aware portfolios (Wang et al. 2021; Kakinaka et "
-                "al. 2025). All of it treats the coefficient as a measure of economic dependence between disjoint assets; none "
+                "al. 2025). This work treats the coefficient as a measure of economic dependence between disjoint assets. None of it "
                 "analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale."),
         ('h2', '2.3 Index membership and co-movement'),
         ('p1a', "Stocks added to the S&P 500 co-move more with the index (Barberis et al. 2005), Nikkei 225 stocks with larger "
@@ -37,21 +37,21 @@ def LIT_SECTIONS(table1):
                 "designs support the effect (Liao et al. 2022; DeCoste 2025). The evidence is contested: much of the "
                 "post-inclusion rise also appears in matched stocks that were not added (Chen et al. 2016), and the S&P 500 index "
                 "effect has almost disappeared (Greenwood and Sammon 2025). Index-level co-movement is thus easy to misread even "
-                "where indices do not overlap; our concern is the arithmetic overlap, which raises correlations even if no investor "
+                "where indices do not overlap. Our concern is the arithmetic overlap, which raises correlations even if no investor "
                 "trades differently."),
         ('h2', '2.4 Size, lead–lag and horizon effects'),
         ('p1a', "Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Hou (2007) traces to slow diffusion "
                 "of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), with a size "
                 "that depends on sampling (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) lets co-movement build "
-                "with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al. 2021) and price adjustment is "
-                "delayed under retail-heavy trading (Tran and Tran 2025), while herding in stress (Nguyen et al. 2023), sector "
-                "connectedness above 60%, near 90% during COVID-19 (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025) raise all "
+                "with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al. 2021), and price adjustment is "
+                "delayed under retail-heavy trading (Tran and Tran 2025). Herding in stress (Nguyen et al. 2023), sector "
+                "connectedness above 60%, rising to near 90% during COVID-19 (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025) raise all "
                 "correlations at once."),
         ('h2', '2.5 Volatility, contagion and interdependence'),
         ('p1a', "Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically "
                 "with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than "
                 "contagion (Forbes and Rigobon 2002). The correction can itself be biased toward no contagion because it restricts "
-                "the variance of idiosyncratic shocks; Corsetti et al. (2005) propose testing for a change in the factor loading "
+                "the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading "
                 "instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the "
                 "correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022), a DCCA "
                 "test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with "
@@ -65,7 +65,7 @@ def LIT_SECTIONS(table1):
               "from published series. Multiscale studies of crises rarely use volatility-robust tests, and volatility-conditioned "
               "studies use one horizon and disjoint markets. To our knowledge, no study covers the Vietnamese index system at "
               "intraday and daily frequencies. We searched Google Scholar and publisher databases for 2021–2026, plus the classical "
-              "sources these works cite, combining “detrended cross-correlation” with “index”, “overlap”, “nested” or "
+              "sources these works cite. Search strings combined “detrended cross-correlation” with “index”, “overlap”, “nested” or "
               "“constituent”, together with “part–whole” and “item–total correlation”, “contagion” with “Forbes–Rigobon” or "
               "“heteroskedasticity”, and “Vietnam” with “co-movement” or “stock index”."),
     ]
@@ -88,7 +88,7 @@ TABLE1_ROWS = [
 TABLE1_HEADER = ['Study', 'Market and data', 'Method', 'Overlap treated?', 'Scale-wise?', 'Volatility-robust test?', 'Main finding']
 TABLE1_NOTE = ('Overlap treated: whether the study separates dependence created by shared constituents; scale-wise: whether '
                'dependence is measured by timescale; volatility-robust test: whether crisis comparisons correct for '
-               'heteroskedasticity or common shocks. Source: Authors’ compilation.')
+               'heteroskedasticity or common shocks; DMCA: detrending moving-average cross-correlation analysis; ρDCCA: DCCA coefficient. Source: Authors’ compilation.')
 
 REFERENCES = [
     "Abdul Karim, B., & Xin Ning, H. (2013). Driving forces of the ASEAN-5 stock markets integration. Asia-Pacific Journal of Business Administration, 5(3), 186–191. https://doi.org/10.1108/APJBA-07-2012-0053",
