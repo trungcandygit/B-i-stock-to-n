@@ -384,11 +384,6 @@ def methodology():
               "static, EWMA with the same λ, or a regime correlation chosen in real time from lagged rolling volatility with "
               "thresholds fixed in the estimation window. Losses are QLIKE (Patton 2011) and squared error, compared by the "
               "Diebold and Mariano (1995) test with a Newey and West (1987) variance (five lags)."),
-        ('h2', '4.8 Computational details'),
-        ('p1a', "All computations use R 4.3.3 (stats, sandwich 3.1.0, ggplot2 3.4.4) on an Intel Xeon processor (2.10 GHz, four "
-                "cores). OLS uses the QR decomposition, so no iterative optimization or convergence criterion is involved. Each "
-                "script fixes its seeds (20260924 to 20261014; the reliability simulations use fixed seeds starting at 42), and run_all.R reproduces every table and figure with byte-identical "
-                "CSV outputs. Code, outputs and a map from each number to its output file form Online Resource 1."),
     ]
 
 

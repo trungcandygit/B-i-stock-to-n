@@ -29,10 +29,10 @@ The index prices (VN30, VN100 and VNINDEX, exchange HOSE, 30-minute, 1-hour, 4-h
 
 ## How to run
 
-Requirements: R ≥ 4.3 with `ggplot2` and `sandwich`; base `stats`, `parallel` and `grDevices` (cairo). Tested with R 4.3.3 (see `outputs/R_session_info.txt`).
+Requirements: R ≥ 4.3 with `ggplot2` and `sandwich`; base `stats`, `parallel` and `grDevices` (cairo). Tested with R 4.3.3 (stats, sandwich 3.1.0, ggplot2 3.4.4) on an Intel Xeon processor (2.10 GHz, four cores); see `outputs/R_session_info.txt`. OLS uses the QR decomposition, so no iterative optimization is involved; the reliability simulations use fixed seeds starting at 42.
 
 ```
-Rscript run_all.R                       # main script, then the six follow-up scripts in order
+Rscript run_all.R                       # main script, then the seven follow-up scripts in order
 RUN_ALL_MAIN_ONLY=1 Rscript run_all.R   # main script only
 ```
 

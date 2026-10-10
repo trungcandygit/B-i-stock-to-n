@@ -353,14 +353,6 @@ $$
 
 with regime volatilities σ₁ and σ₂, so only the correlation differs. Intervals resample the full sample jointly, re-estimating ρ~st~, and we compare \|RE\| with the bootstrap relative standard error of the regime variance. Because these regimes are ex post, we also estimate correlations on 2014–2022 and evaluate forecasts on 2023–2025. Forecasts share one-step-ahead RiskMetrics variances (λ = 0.94; J.P. Morgan/Reuters 1996) and differ only in the correlation: static, EWMA with the same λ, or a regime correlation chosen in real time from lagged rolling volatility with thresholds fixed in the estimation window. Losses are QLIKE (Patton 2011) and squared error, compared by the Diebold and Mariano (1995) test with a Newey and West (1987) variance (five lags).
 
-::: {custom-style="heading2"}
-4.8 Computational details
-:::
-
-::: {custom-style="p1a"}
-All computations use R 4.3.3 (stats, sandwich 3.1.0, ggplot2 3.4.4) on an Intel Xeon processor (2.10 GHz, four cores). OLS uses the QR decomposition, so no iterative optimization or convergence criterion is involved. Each script fixes its seeds (20260924 to 20261014; the reliability simulations use fixed seeds starting at 42), and run\_all.R reproduces every table and figure with byte-identical CSV outputs. Code, outputs and a map from each number to its output file form Online Resource 1.
-:::
-
 ::: {custom-style="heading1"}
 5 Results
 :::
