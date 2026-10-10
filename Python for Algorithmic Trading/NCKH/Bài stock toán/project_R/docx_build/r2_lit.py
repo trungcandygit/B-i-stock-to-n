@@ -18,7 +18,7 @@ def LIT_SECTIONS(table1):
                 "common denominator are correlated even when their numerators are independent, and called the result a spurious "
                 "correlation. In psychometrics the same arithmetic appears as the item–total correlation: an item is part of the "
                 "total score, so its correlation with the total overstates its correlation with the other items, and Cureton "
-                "(1966) gave the correction that removes the item from the total. Both results are static and use Pearson "
+                "(1966) gave a standard correction that removes the item from the total. Both results are static and use Pearson "
                 "moments. They imply that the correlation of a parent index with a child index it contains has a component "
                 "fixed by construction, but neither literature measures that component at different timescales or attaches "
                 "sampling uncertainty to it."),
@@ -81,9 +81,9 @@ def LIT_SECTIONS(table1):
         ('p1a', "Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002). Forbes and Rigobon (2002) show "
                 "that unadjusted correlations rise mechanically with the variance of the conditioning market, so a crisis "
                 "increase may reflect interdependence rather than contagion. Their correction has known limits. Corsetti et al. "
-                "(2005) show that it is biased toward finding no contagion when crises bring common shocks, because the "
-                "correction assumes that idiosyncratic variance does not change, and they propose testing for a change in the "
-                "factor loading instead. Rigobon (2003) uses the change in variance across regimes to identify the transmission "
+                "(2005) show that it can be biased toward finding no contagion, because it places unrealistic restrictions on "
+                "the variance of country-specific shocks, and they propose testing for a change in the factor loading within a "
+                "common-factor model instead. Rigobon (2003) uses the change in variance across regimes to identify the transmission "
                 "coefficient, which requires the structural parameters to stay constant."),
         ('p', "The COVID-19 literature shows how much the conclusion depends on these choices. Studies without the correction "
               "report contagion: conditional correlations between Chinese and G7 firms rose, especially for financial firms "
@@ -117,7 +117,7 @@ TABLE1_ROWS = [
     ['Ge and Lin (2021); Chen et al. (2024)', 'China and United States', 'MF-DCCA; partial MF-DCCA', 'No', 'Yes', 'No', 'Scale- and size-dependent cross-correlation'],
     ['Wang et al. (2021); Kakinaka et al. (2025)', 'Stock portfolios', 'Mean-MF-X-DMA; mean-DCCA', 'No', 'Yes', 'No', 'Scale-aware rules improve portfolio performance'],
     ['Santana et al. (2023)', 'Crude oil and precious metals', 'ΔρDCCA test', 'No', 'Yes', 'No', 'Contagion depends on the pair'],
-    ['Forbes and Rigobon (2002); Corsetti et al. (2005)', 'International stock markets', 'Adjusted correlation; factor model', 'No', 'No', 'Yes', 'Interdependence versus contagion; common-shock bias'],
+    ['Forbes and Rigobon (2002); Corsetti et al. (2005)', 'International stock markets', 'Adjusted correlation; factor model', 'No', 'No', 'Yes', 'Interdependence versus contagion; bias from restricted idiosyncratic variance'],
     ['Lo and MacKinlay (1990); Hou (2007)', 'US size portfolios', 'Cross-autocorrelation', 'No', 'No', 'No', 'Large caps lead small caps'],
     ['Bui et al. (2022); Tran and Tran (2025)', 'Vietnamese sectors; intraday HOSE', 'Spillover connectedness; high-frequency', 'No', 'No', 'No', 'High connectedness; delayed adjustment'],
     ['This study', 'VN30, VN100, VNINDEX; M30 to daily, 2014–2025', 'Scale-wise part–whole identity; DCCA', 'Yes (scale-wise, with weight uncertainty)', 'Yes', 'Yes', 'Purged correlation is invisible in the nested one'],
@@ -150,7 +150,7 @@ REFERENCES = [
     "Ederington, L. H. (1979). The hedging performance of the new futures markets. The Journal of Finance, 34(1), 157–170. https://doi.org/10.1111/j.1540-6261.1979.tb02077.x",
     "Epps, T. W. (1979). Comovements in stock prices in the very short run. Journal of the American Statistical Association, 74(366), 291–298. https://doi.org/10.1080/01621459.1979.10482508",
     "Forbes, K. J., & Rigobon, R. (2002). No contagion, only interdependence: Measuring stock market comovements. The Journal of Finance, 57(5), 2223–2261. https://doi.org/10.1111/0022-1082.00494",
-    "FTSE Russell. (2025). FTSE Equity Country Classification: September 2025 interim announcement. London Stock Exchange Group.",
+    "FTSE Russell. (2025, October 7). FTSE Russell announces results of September 2025 semi-annual country classification review [Press release]. London Stock Exchange Group.",
     "Ge, X., & Lin, A. (2021). Multiscale multifractal detrended partial cross-correlation analysis of Chinese and American stock markets. Chaos, Solitons & Fractals, 145, 110731. https://doi.org/10.1016/j.chaos.2021.110731",
     "Government of Vietnam. (2020). Decree No. 155/2020/ND-CP of 31 December 2020 detailing and guiding the implementation of a number of articles of the Law on Securities. Hanoi.",
     "Government of Vietnam. (2025). Decree No. 245/2025/ND-CP of 11 September 2025 amending and supplementing a number of articles of Decree No. 155/2020/ND-CP. Hanoi.",
@@ -172,7 +172,7 @@ REFERENCES = [
     "Lo, A. W., & MacKinlay, A. C. (1990). When are contrarian profits due to stock market overreaction? The Review of Financial Studies, 3(2), 175–205. https://doi.org/10.1093/rfs/3.2.175",
     "Longin, F., & Solnik, B. (2001). Extreme correlation of international equity markets. The Journal of Finance, 56(2), 649–676. https://doi.org/10.1111/0022-1082.00340",
     "Markowitz, H. (1952). Portfolio selection. The Journal of Finance, 7(1), 77–91. https://doi.org/10.1111/j.1540-6261.1952.tb01525.x",
-    "Ministry of Finance of Vietnam. (2020). Circular No. 120/2020/TT-BTC of 31 December 2020 on trading of listed securities, registered securities, fund certificates, corporate bonds and covered warrants. Hanoi.",
+    "Ministry of Finance of Vietnam. (2020). Circular No. 120/2020/TT-BTC of 31 December 2020 on trading of listed and registered shares, fund certificates, corporate bonds and covered warrants listed on the securities trading system. Hanoi.",
     "Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. Econometrica, 55(3), 703–708. https://doi.org/10.2307/1913610",
     "Nguyen, H. M., Bakry, W., & Vuong, T. H. G. (2023). COVID-19 pandemic and herd behavior: Evidence from a frontier market. Journal of Behavioral and Experimental Finance, 38, 100807. https://doi.org/10.1016/j.jbef.2023.100807",
     "Okorie, D. I., & Lin, B. (2021). Stock markets and the COVID-19 fractal contagion effects. Finance Research Letters, 38, 101640. https://doi.org/10.1016/j.frl.2020.101640",

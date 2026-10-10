@@ -245,8 +245,8 @@ def institutions_data():
               "2022, so the mid-cap tier can be held long but not shorted or hedged with a dedicated derivative."),
         ('p', "Fifth, foreign ownership limits cap the share of many listed firms that foreign investors may hold, for example 30% "
               "for commercial banks, so foreign flows concentrate in the large caps that have room under their limits. FTSE "
-              "Russell announced in October 2025 that Vietnam will be reclassified from Frontier to Secondary Emerging status from "
-              "21 September 2026 (FTSE Russell 2025). The reclassification falls after our sample but may change the weight and "
+              "Russell announced in October 2025 that Vietnam would be reclassified from Frontier to Secondary Emerging status, "
+              "effective 21 September 2026 (FTSE Russell 2025). The reclassification falls after our sample but may change the weight and "
               "relative volatility of the tiers, and therefore the decomposition."),
         ('h2', '3.2 Data and sample construction'),
         ('p1a', "We use index levels of VN30, VN100 and VNINDEX exported from TradingView (exchange code HOSE). VN30 contains the 30 "
@@ -474,7 +474,7 @@ def results():
              ['Frequency', 'Nested mean', 'VN30–VN100', 'P_cap–VN30', 'Three-pair gap [95% CI]', 'Like-for-like gap [95% CI]', 'Cohen’s q [95% CI]', 'N'],
              [['*Panel A: synchronized window, 2017–2024*', '', '', '', '', '', '', '']] + rowsA +
              [['*Panel B: full sample, 2014–2025*', '', '', '', '', '', '', '']] + rowsB,
-             'Averages of ρ(s) over s ≤ s_rel (Table 3), m = 1. Nested mean: VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX; '
+             'Averages of ρ(s) over s ≤ s_rel (Table 3) with m = 1; nested mean: VN30–VNINDEX, VN30–VN100 and VN100–VNINDEX; '
              'three-pair gap: nested mean minus P_cap–VN30; like-for-like gap: VN30–VN100 minus P_cap–VN30. Brackets: '
              'block-bootstrap 95% intervals at the factsheet weight. Source: Authors’ calculations.')
 
@@ -563,10 +563,10 @@ def results():
               f"{rng(gapL_v)} with interval lower bounds of at least {f(gapL_lo)}, above the 0.05 margin at every frequency, so "
               f"{'H1 is supported' if H1_ok else 'H1 is not supported at every frequency'}. The three-pair gap, which also uses the "
               f"broad-market pairs for which no weight-based purge is available, is {rng(gap3)}, and Cohen’s q (Cohen 1988) of "
-              f"{rng(qv, 2)} indicates a large effect on the Fisher scale. The purged coefficient remains high: overlap inflates "
+              f"{rng(qv, 2)} indicates a large effect on the Fisher scale; we use it descriptively, since both coefficients come from the same sample. The purged coefficient remains high: overlap inflates "
               "co-movement that is already strong rather than creating it."),
         ('p', "The gap depends on the weight. Over the grid from 0.60 to 0.75, the like-for-like daily gap ranges from "
-              f"{f(min(like_w))} to {f(max(like_w))} and the three-pair gap from {f(min(ws_gap))} to {f(max(ws_gap))} (Table S2), so "
+              f"{f(min(like_w))} to {f(max(like_w))} and the three-pair gap from {f(min(ws_gap))} to {f(max(ws_gap))} (Tables S2 and S3), so "
               "the gap stays above the margin at every weight in the grid, but its size is known only to within about a factor "
               "of two. A larger weight removes more of the VN30 component and lowers the purged coefficient."),
         ('fig', ('fig2', 'Fig. 2 DCCA coefficients of the nested pairs and P_cap–VN30 by timescale: (a) 1D, (b) M30, (c) H1, (d) H4',
