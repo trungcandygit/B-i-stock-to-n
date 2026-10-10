@@ -18,7 +18,7 @@ investments, portfolio management, asset pricing, financial markets
 
 ## Classification
 - **Tier:** Q3 — SCImago SJR 2025 = 0.428; Finance Q3; Economics and Econometrics Q3 (scimagojr.com source id 19500157310)
-- **Open Access:** Hybrid; no mandatory APC
+- **Open Access:** Hybrid; no mandatory APC. Submission fee USD 50 per paper, non-refundable (Instructions for Authors, updated 8 Oct 2026, pasted by author)
 - **Field:** Investments
 
 ## Special Notes
