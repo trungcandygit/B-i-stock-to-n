@@ -17,6 +17,11 @@ def est_ci(r, d=3, e='estimate'):
     return f(r[e], d) + ' ' + ci(r['ci_lo'], r['ci_hi'], d)
 
 
+def pbfmt(p, d=3):
+    """Percentile-bootstrap p-value with B = 499: the smallest attainable value 0.004 is reported as < 0.005."""
+    return '< 0.005' if F(p) <= 0.0041 else f(p, d)
+
+
 def pfmt(p, d=3):
     p = F(p)
     return '< 0.001' if p < 0.001 else f(p, d)
@@ -73,7 +78,17 @@ pboot_holm_n = sum(F(r['p_holm']) < 0.05 for (t, p, st), r in MT.items() if st =
 pboot_bh_min = min(F(r['p_bh']) for (t, p, st), r in MT.items() if st == 'slope_rel')
 tost_eq = [t for t in TF if h2row(t, 'VN30-VN100')['tost_equivalent'] == 'TRUE']
 intraday_ok = all(any((t, p) in holm_h2 for p in BROAD) for t in ('M30', 'H1'))
-H2_out = 'Partially supported' if (intraday_ok and len(holm_h2) < 8) else ('Supported' if len(holm_h2) == 8 else 'Not supported')
+H2_out = 'Supported' if intraday_ok else 'Not supported'
+TS = {(r['timeframe'], r['variant'], r['stat'], r['pair']): r for r in TRIM}
+def _holm(ps):
+    o = sorted(range(len(ps)), key=lambda i: ps[i]); m = len(ps); adj = [0] * m; run = 0
+    for k, i in enumerate(o):
+        run = max(run, min(1, (m - k) * ps[i])); adj[i] = run
+    return adj
+trim_keys = [(t, p) for t in ('M30', 'H1') for p in BROAD]
+trim_holm = dict(zip(trim_keys, _holm([F(TS[(t, 'drop_first', 'slope', p)]['p_studentized']) for t, p in trim_keys])))
+trim_ok = {t: any(trim_holm[(t, p)] < 0.05 and F(TS[(t, 'drop_first', 'slope', p)]['estimate']) > 0 for p in BROAD) for t in ('M30', 'H1')}
+H2_robust = all(trim_ok.values())
 damp = [F(SLC[t]['damping_factor']) for t in TF]
 slc_err = max(abs(F(SLC[t]['slope_implied_linear']) - F(SLC[t]['slope_rho_nested_obs'])) for t in TF)
 NUMW = {0: 'none', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight'}
@@ -85,7 +100,7 @@ frw_p = [F(r['p_one_sided']) for r in FRW]
 facA, facB, facC = FAC['A'], FAC['B'], FAC['C']
 H3_fr = F(fr30['p_one_sided']) < 0.05
 H3_fac = F(facC['p_d_beta']) < 0.05 and F(facC['d_beta']) > 0
-H3_out = 'Supported' if (H3_fr and H3_fac) else ('Mixed' if (H3_fr or H3_fac) else 'Not supported')
+H3_out = 'Supported' if (H3_fr and H3_fac) else 'Not supported'
 
 # ---------------------------------------------------------------- portfolio risk (E4, H4)
 re_ = lambda pan, g, p: MAT[(pan, g, p)]
@@ -202,8 +217,9 @@ def hypotheses():
               "and Stein 1999). These mechanisms predict DCCA coefficients that rise with the timescale for broad-market pairs, "
               "whose parent contains small and less liquid stocks. For VN30–VN100 the identity predicts a slope damped by the "
               "sensitivity of Eq. (10). Decision rule: in the family of eight broad-market slope tests (two pairs, four "
-              "frequencies), at least one pair at each intraday frequency has a positive slope with a Holm-adjusted studentized "
-              "p-value below 0.05; the VN30–VN100 prediction is assessed by an equivalence test."),
+              "frequencies), at least one pair at each of M30 and H1, the frequencies with several bars per session, has a "
+              "positive slope with a Holm-adjusted studentized p-value below 0.05. We also report whether the result survives "
+              "removal of the opening bar, and assess the VN30–VN100 prediction by an equivalence test."),
         ('p', "*H3 (contagion).* A rise in the raw crisis correlation between P_cap and VN30 can come from higher volatility "
               "alone (Forbes and Rigobon 2002), and the volatility correction is itself biased toward no contagion when crises "
               "raise idiosyncratic variance (Corsetti et al. 2005). We predict contagion in the strict sense. Decision rule: under "
@@ -227,7 +243,7 @@ def institutions_data():
         ('p1a', "The HOSE is supervised by the State Securities Commission of Vietnam. Five features of its microstructure matter "
                 "for cross-tier dependence. First, prices move within a daily band of ±7% around the reference price; in sharp "
                 "corrections heavily sold stocks reach the lower limit, where trading dries up, which truncates return tails and "
-                "can synchronize limit hits across constituents. Second, settlement moved from T+3 to T+2 on 1 January 2016, so "
+                "can synchronize limit hits across constituents. Second, settlement moved from T+3 to T+2 on 1 January 2016 (Vietnam Securities Depository 2015), so "
                 "shares bought cannot be resold for about two business days, which limits intraday arbitrage between constituents "
                 "and index baskets."),
         ('p', "Third, each trading day has a morning session with an opening call auction (09:00–09:15) and continuous matching to "
@@ -242,7 +258,7 @@ def institutions_data():
               "2020), the main implementing decree of the Law on Securities, was amended by Decree 245/2025/ND-CP of 11 September "
               "2025 (Government of Vietnam 2025). VN30 index futures trade on the Hanoi Stock Exchange; there is no mid-cap "
               "future. A mid-cap exchange-traded fund tracking VNMIDCAP (FUEDCMID) has been listed on the HOSE since 29 September "
-              "2022, so the mid-cap tier can be held long but not shorted or hedged with a dedicated derivative."),
+              "2022 (Ho Chi Minh City Stock Exchange 2022), so the mid-cap tier can be held long but not shorted or hedged with a dedicated derivative."),
         ('p', "Fifth, foreign ownership limits cap the share of many listed firms that foreign investors may hold, for example 30% "
               "for commercial banks, so foreign flows concentrate in the large caps that have room under their limits. FTSE "
               "Russell announced in October 2025 that Vietnam would be reclassified from Frontier to Secondary Emerging status, "
@@ -496,7 +512,7 @@ def results():
 
     def r6(t, p):
         r = h2row(t, p)
-        return [TFNAME[t], lab(p), est_ci(r, 4), pfmt(r['p_boot']), pfmt(r['p_studentized']), pfmt(r['p_stud_holm_all']),
+        return [TFNAME[t], lab(p), est_ci(r, 4), pbfmt(r['p_boot']), pfmt(r['p_studentized']), pfmt(r['p_stud_holm_all']),
                 (pfmt(r['p_stud_holm_h3']) if r['h3_family'] == 'TRUE' else '–'),
                 (pfmt(r['tost_p']) if p == 'VN30-VN100' else '–')]
     tab6 = T('Table 6 Reliable-range scaling slopes of DCCA coefficients',
@@ -592,8 +608,9 @@ def results():
               "Weight error, not sampling error, is the main source of uncertainty about the attribution."),
         ('p', "The decomposition hardly varies with the horizon. Across all reliable scales and frequencies κ lies between "
               f"{f(min(kap_scales), 2)} and {f(max(kap_scales), 2)}, the benchmark varies by {rng(bench_rng, 3)} within each "
-              f"frequency, and its slope on ln s is not significant (bootstrap p = {rng(bslope_p, 3)}; Holm-adjusted "
-              f"{rng(bslope_holm, 3)}). Applied to full-sample Pearson correlations, the identity gives a benchmark of "
+              f"frequency, and its slope on ln s is not significant at 5% (bootstrap p = {rng(bslope_p, 3)}; Holm-adjusted "
+              f"{rng(bslope_holm, 3)}), although at M30 the percentile interval just excludes zero; a slope of that size "
+              "(about 0.002 per unit of ln s) is negligible. Applied to full-sample Pearson correlations, the identity gives a benchmark of "
               f"{rng(pear_bench, 3)} and a benchmark-first share of {rng(pear_share, 3)} across frequencies, within 0.01 of the DCCA "
               "values. In these data the multiscale layer therefore adds a check of scale invariance rather than a different "
               "answer, and Box 1 is sufficient for practice. The DCCA version remains necessary where the tiers have different "
@@ -758,7 +775,7 @@ def discussion():
         ('h2', '6.3 Transferability'),
         ('p1a', "Lemma 1 holds for any nested pair whose child is contained in the parent with a known weight under one weighting "
                 "scheme. Fig. 4 shows that the benchmark exceeds 0.7 whenever the child holds half of the parent and the remainder "
-                "is not much more volatile, so large mechanical components should be common in nested families such as SET50 "
+                "is no more volatile, so large mechanical components should be common in nested families such as SET50 "
                 "within SET100 or IDX30 within LQ45. Their size must be computed from each family’s weights and volatilities; we "
                 "did not do this because we could not verify the weights. When indices overlap only partly, Eq. (7) does not "
                 "apply directly; the shared constituents then form a third component and the benchmark depends on the overlap "
@@ -777,7 +794,8 @@ def discussion():
                 "overlap-purged rather than economic. Index-level prices cannot separate microstructure frictions from "
                 "information diffusion, the crisis evidence depends on how regimes are defined, and the out-of-sample period "
                 "covers three years. The FTSE Russell reclassification from September 2026 offers a natural experiment: if foreign "
-                "inflows raise the weight or lower the relative volatility of large caps, Eq. (8) predicts a higher benchmark."),
+                "inflows raise the weight of large caps or lower the volatility of the remaining constituents relative to large "
+                "caps, Eq. (8) predicts a higher benchmark."),
         ('h1', '7 Conclusion'),
         ('p1a', "Correlations between nested equity indices contain a component fixed by construction. We carry the part–whole "
                 "identity to scale-wise detrended coefficients, derive a benchmark, a lower bound, a sensitivity and an order-free "
@@ -798,7 +816,7 @@ def supplement():
     for t in TF:
         for p in PAIRS4:
             a = MT[(t, p, 'slope_full')]
-            s1.append([TFNAME[t], lab(p), est_ci(a, 4), pfmt(a['p_boot'])])
+            s1.append([TFNAME[t], lab(p), est_ci(a, 4), pbfmt(a['p_boot'])])
     s2 = [[f(r['w'], 4) + (' (factsheet)' if abs(F(r['w']) - W30) < 1e-6 else ''), r['timeframe'], f(r['kappa']), f(r['rho_econ']),
            f(r['floor']), f(r['mech_share']), f(r['sensitivity']), f(r['shapley_overlap_share']), f(r['pearson_floor'])] for r in WSD]
     s3 = [[f(r['w'], 4) + (' (factsheet)' if abs(F(r['w']) - W30) < 1e-6 else ''), f(r['rho_mean_1D']), f(r['gap_vs_nested']),
@@ -813,7 +831,7 @@ def supplement():
     s7 = [[TFNAME[t], nint(FB[t]['n_kept']), f(100 * F(FB[t]['share_of_bars_dropped']), 1), f(100 * F(FB[t]['share_of_VN30_sq_return_in_first_bar']), 1),
            f(FB[t]['gap']) + ' ' + ci(FB[t]['gap_ci_lo'], FB[t]['gap_ci_hi']), f(FB[t]['slope_VN30_VNINDEX'], 4), f(FB[t]['slope_VN100_VNINDEX'], 4),
            f(FB[t]['slope_VN30_VN100'], 4), f(FB[t]['slope_Pcap_VN30'], 4)] for t in ('M30', 'H1')]
-    s8 = [[lab(p), est_ci(MT[('M30', p, 'slope_rel')], 4), pfmt(MT[('M30', p, 'slope_rel')]['p_boot'])] for p in ['Pheur-VN30', 'Pratio-VN30', 'Pres-VN30']]
+    s8 = [[lab(p), est_ci(MT[('M30', p, 'slope_rel')], 4), pbfmt(MT[('M30', p, 'slope_rel')]['p_boot'])] for p in ['Pheur-VN30', 'Pratio-VN30', 'Pres-VN30']]
     s9 = [[TFNAME[t], nint(LL[t]['n_pairs']), f(LL[t]['lead_VN30_on_Pcap']) + ' ' + ci(LL[t]['ci_lo_1'], LL[t]['ci_hi_1']),
            f(LL[t]['lead_Pcap_on_VN30']) + ' ' + ci(LL[t]['ci_lo_2'], LL[t]['ci_hi_2']),
            f(LL[t]['asymmetry']) + ' ' + ci(LL[t]['asym_ci_lo'], LL[t]['asym_ci_hi'])] for t in ('1D', 'M30', 'H1')]
@@ -859,7 +877,7 @@ def supplement():
           'Lagged pairs are formed within the same trading day at intraday frequencies and resampled in blocks. Source: Authors’ calculations.'),
         S('Table S10 Forbes–Rigobon test across weights and regime definitions',
           ['w', 'Regimes', 'ρ_low', 'ρ_high', 'ρ*', 'ρ* − ρ_low [95% CI]', 'p (one-sided)'], s10,
-          'Daily Pearson correlations of P_cap(w) and VN30. Source: Authors’ calculations.'),
+          'Daily Pearson correlations of P_cap(w) and VN30; bootstrap draws are separate from Table 7, so intervals at the factsheet weight differ by Monte Carlo error. Source: Authors’ calculations.'),
         S('Table S11 Effectiveness of a minimum-variance VN30 hedge of the mid-cap segment', ['Sample', 'N', 'ρ² [95% CI]'], s11,
           'Share of P_cap variance removed by the minimum-variance hedge with VN30. Source: Authors’ calculations.'),
         S('Table S12 Volatility episodes not classified as crises', ['Period', 'Trading days', 'Maximum drawdown, %', 'Days in top volatility quartile, %', 'Peak volatility, % p.a.', 'Date of peak'], s12,

@@ -36,7 +36,7 @@ def inline(s):
     s = s.replace('run_all.R', 'RUNALLR').replace('|', '\\|').replace('***', '\\*\\*\\*')
     s = re.sub(r'\^\{([^}\s]+)\}', r'^\1^', s)
     s = re.sub(r'(?<=[A-Za-zρσεκλα²F\)])_\{([^}]+)\}', lambda m: '~' + m.group(1).replace(' ', '\\ ') + '~', s)
-    s = re.sub(r'(?<=[A-Za-zρσεκλα²])_([A-Za-z0-9,α-ω]+)', r'~\1~', s)
+    s = re.sub(r'(?<=[A-Za-zρσεκλα²])_([A-Za-z0-9α-ω]+(?:,[A-Za-z0-9α-ω]+)*)', r'~\1~', s)
     return s.replace('RUNALLR', 'run\\_all.R')
 
 

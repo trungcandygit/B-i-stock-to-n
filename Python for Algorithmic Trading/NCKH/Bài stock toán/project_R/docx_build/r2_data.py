@@ -96,3 +96,8 @@ SLC = {r['timeframe']: r for r in rows('R30_slope_channels.csv')}
 MAT = {(r['panel'], r['regime'], r['pair']): r for r in rows('R31_materiality_joint_resampling.csv')}
 BARS = {r['timeframe']: r for r in rows('R32_intraday_bar_schedule.csv')}
 REC = rows('R33_practitioner_recipe.csv')[0]
+# ---------------------------------------------------------------- round-3e outputs (Iter 25, Stage 4')
+TRIM = rows('R34_trimmed_slopes_and_differences.csv')
+SBLK = rows('R35_slope_block_length_M30.csv')
+GWU = {r['timeframe']: r for r in rows('R36_like_for_like_gap_weight_uncertainty.csv')}
+C21 = rows('R37_crisis_definition_with_2021.csv')
