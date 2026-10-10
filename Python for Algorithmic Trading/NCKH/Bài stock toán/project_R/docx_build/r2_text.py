@@ -635,33 +635,28 @@ def discussion():
     return [
         ('h1', '6 Discussion'),
         ('h2', '6.1 Mechanisms'),
-        ('p1a', "One mechanism drives the nested results. A child’s variation enters every covariance and both standard deviations of a "
-                f"nested pair, and Lemma 1 pins the coefficient near a benchmark set by weight and relative amplitude. With VN30 at "
+        ('p1a', "Because a child’s variation enters every covariance and both standard deviations of a "
+                f"nested pair, Lemma 1 pins the coefficient near a benchmark set by weight and relative amplitude. With VN30 at "
                 f"{f(100 * W30, 0)}% of VN100, the benchmark is near 0.90 and the bound near 0.87, so the observed 0.99 says little about "
-                "how mid caps move with large caps. Changes in the purged coefficient reach it damped about tenfold."),
+                "how mid caps move with large caps."),
         ('p', "The purged series has the features the size literature predicts. Daily VN30 returns lead P_cap returns "
               f"(cross-autocorrelation {f(ll['lead_VN30_on_Pcap'])}, {ci(ll['ci_lo_1'], ll['ci_hi_1'])}) while the reverse is "
-              f"negligible ({f(ll['lead_Pcap_on_VN30'])}), an asymmetry of {f(ll['asymmetry'])} {ci(ll['asym_ci_lo'], ll['asym_ci_hi'])} "
-              "in line with Lo and MacKinlay (1990) and Hou (2007); at intraday frequencies the lead is symmetric (Table S9). The auction-bar "
+              f"negligible ({f(ll['lead_Pcap_on_VN30'])}), an asymmetry of {f(ll['asymmetry'])} {ci(ll['asym_ci_lo'], ll['asym_ci_hi'])}"
+              "; at intraday frequencies the lead is symmetric (Table S9). The auction-bar "
               "horizon dependence of broad-market pairs fits the Epps (1979) effect for small, less liquid stocks (Chen et al. "
-              "2021; Tran and Tran 2025), which index-level data cannot separate from gradual diffusion (Hong and Stein 1999). The "
+              "2021; Tran and Tran 2025). The "
               "higher loading on high-volatility days has several candidate sources that our data cannot rank: herding (Nguyen et "
-              "al. 2023) and sector connectedness (Bui et al. 2022), limit hits under the ±7% band, margin calls and foreign flows "
-              "concentrated in large caps with room under ownership limits. The rise in residual variance shows that crises also "
-              "bring mid-cap-specific shocks, which the Forbes–Rigobon correction misreads as lower dependence."),
+              "al. 2023) and sector connectedness (Bui et al. 2022), limit hits under the ±7% band, margin calls and foreign flows into large caps."),
         ('h2', '6.2 Implications'),
-        ('p1a', "Users who judge diversification between tiers from nested index correlations should first decompose them. Box 1 does this "
-                "from published series and the index weight. Its key outputs are the purged coefficient and the sensitivity, whose "
-                f"inverse of about {f(REC['inverse_sensitivity'], 0)} shows how ill-conditioned the index-level number is: an error of "
-                "0.001 in the nested coefficient becomes about 0.01 in the purged one. Holdings-based risk models are not affected. "
+        ('p1a', "Box 1 decomposes nested correlations from published series and the index weight. Its key outputs are the purged coefficient and the sensitivity, whose "
+                f"inverse of about {f(REC['inverse_sensitivity'], 0)} shows how ill-conditioned the index-level number is. "
                 "For hedging, a minimum-variance VN30 hedge removes a share ρ² of mid-cap variance (Ederington 1979), "
                 f"{f(HE['full']['hedge_effectiveness'], 2)} {ci(HE['full']['ci_lo'], HE['full']['ci_hi'], 2)} over the full sample but "
                 f"{f(HE['B_low']['hedge_effectiveness'], 2)} {ci(HE['B_low']['ci_lo'], HE['B_low']['ci_hi'], 2)} in the low-volatility "
                 f"quartile and {f(HE['B_high']['hedge_effectiveness'], 2)} in the high-volatility quartile (Table S11). Hedging the VNMIDCAP "
-                "exchange-traded fund with VN30 futures leaves about a fifth of the variance on average and about half in calm markets. A "
-                "mid-cap derivative would remove this basis risk; we do not study whether such a contract would be viable. The case for regime-conditioned tier "
-                "correlations is not supported: their in-sample gain is mostly within sampling error and vanishes out of sample. For users of index-level data, the "
-                "error that matters is reading a nested correlation as evidence of diversification."),
+                "exchange-traded fund with VN30 futures leaves about a fifth of the variance on average and about half in calm markets. "
+                "The case for regime-conditioned tier "
+                "correlations is not supported: their in-sample gain is mostly within sampling error and vanishes out of sample."),
         ('h2', '6.3 Transferability and limitations'),
         ('p1a', "Lemma 1 applies to any child contained in its parent with a known weight under one weighting scheme. Fig. 4 shows "
                 "benchmarks above 0.7 whenever the child holds half of the parent and the remaining constituents are no more volatile, so large "
@@ -681,7 +676,7 @@ def discussion():
         ('h1', '7 Conclusion'),
         ('p1a', "Correlations between nested equity indices contain a component fixed by construction. Extending the part–whole "
                 "identity to scale-wise detrended coefficients yields a benchmark, a lower bound, a sensitivity and an order-free "
-                "attribution, all computable from index-level inputs. On the HOSE, the VN30–VN100 coefficient moves by only about "
+                "attribution from index-level inputs. On the HOSE, the VN30–VN100 coefficient moves by only about "
                 f"{f(sum(sens_v) / 4, 2)} per unit change in the purged coefficient, and removing the overlap lowers the correlation "
                 f"with large caps by about {f(sum(gapL_v) / 4, 2)}. The purged series shows a large-to-small lead and a higher "
                 "mid-cap loading together with more mid-cap-specific risk on volatile days; horizon effects in broad-market pairs are "
