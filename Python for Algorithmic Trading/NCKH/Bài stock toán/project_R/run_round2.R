@@ -179,21 +179,21 @@ g2 <- ggplot(bands, aes(s, rho, linetype = pair, shape = pair)) +
 ggsave(file.path(OUT, "figures", "fig2_dcca_curves.png"), g2, width = 6.5, height = 5, dpi = 600, device = png, type = "cairo")
 ggsave(file.path(OUT, "figures", "Fig2.eps"), g2, width = 6.5, height = 5, device = cairo_ps)
 
-# Fig. 4: implied nested correlation as a function of the economic correlation (Proposition 1)
+# Fig. 4: implied nested correlation as a function of the overlap-purged correlation (Lemma 1)
 dec <- do.call(rbind, dec_rows)
 kap <- setNames(dec$estimate[dec$stat == "kappa"], TF)
-grid <- do.call(rbind, lapply(TF, function(tf) { r <- seq(-0.5, 1, by = 0.01); k <- kap[[tf]]
+grid <- do.call(rbind, lapply(TF, function(tf) { r <- seq(-1, 1, by = 0.005); k <- kap[[tf]]
   data.frame(timeframe = tf, rho_econ = r, rho_nested = (1 + k * r) / sqrt(1 + k^2 + 2 * k * r)) }))
 obs <- data.frame(timeframe = TF, rho_econ = dec$estimate[dec$stat == "rho_econ"], rho_nested = dec$estimate[dec$stat == "rho_nested"])
 grid$timeframe <- factor(grid$timeframe, levels = TF); obs$timeframe <- factor(obs$timeframe, levels = TF)
 fl <- data.frame(y = dec$estimate[dec$stat == "floor" & dec$timeframe == "1D"])
 g4 <- ggplot(grid, aes(rho_econ, rho_nested, linetype = timeframe)) + geom_line() +
-  geom_abline(slope = 1, intercept = 0, colour = "grey50", linetype = "dotted") +
   geom_hline(data = fl, aes(yintercept = y), colour = "grey40", linetype = "longdash", linewidth = .3) +
+  geom_hline(data = data.frame(y = sqrt(1 - kap[["1D"]]^2)), aes(yintercept = y), colour = "grey40", linetype = "dotted", linewidth = .3) +
   geom_vline(xintercept = 0, colour = "grey40", linewidth = .3) +
   geom_point(data = obs, aes(shape = timeframe), size = 2) +
-  coord_cartesian(xlim = c(-0.5, 1), ylim = c(-0.5, 1)) +
-  labs(x = expression("Economic correlation " * rho[DCCA](P[cap] * "," ~ VN30)),
+  coord_cartesian(xlim = c(-1, 1), ylim = c(0.80, 1)) +
+  labs(x = expression("Overlap-purged correlation " * rho[DCCA](P[cap] * "," ~ VN30)),
        y = expression("Nested correlation " * rho[DCCA](VN30 * "," ~ VN100)), linetype = NULL, shape = NULL) + th
 ggsave(file.path(OUT, "figures", "fig4_overlap_decomposition.png"), g4, width = 5, height = 4, dpi = 600, device = png, type = "cairo")
 ggsave(file.path(OUT, "figures", "Fig4.eps"), g4, width = 5, height = 4, device = cairo_ps)

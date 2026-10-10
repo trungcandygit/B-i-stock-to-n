@@ -12,9 +12,10 @@ B = os.path.abspath(os.path.join(S, '..', '..'))
 PR = os.path.join(B, 'project_R')
 OUT = os.path.join(B, 'submission', 'Revised_submission')
 REF = os.path.join(S, 'r2', 'reference.docx')
-DATE = '7 October 2026'
+DATE = '10 October 2026'
 FIGS = [('Fig1', 'fig1_volatility_regimes', 'Fig1'), ('Fig2', 'fig2_dcca_curves', 'Fig2'),
-        ('Fig3', 'fig4_overlap_decomposition', 'Fig4'), ('Fig4', 'fig3_mfdcca', 'Fig3')]   # manuscript no., png stem, eps stem
+        ('Fig3', 'fig4_overlap_decomposition', 'Fig4'), ('Fig4', 'fig5_floor_contour', 'Fig5'),
+        ('FigS1', 'fig3_mfdcca', 'Fig3')]   # manuscript no., png stem, eps stem
 
 
 def md2docx(md, out, postprocess=True):
@@ -65,7 +66,7 @@ Declarations
 :::
 
 ::: {{custom-style="p1a"}}
-**Acknowledgements** None. **Funding** This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors. **Conflict of interest** The authors declare that they have no conflict of interest. **Author contributions (CRediT)** {CREDIT} **Data availability** The index price data were obtained from TradingView (exchange: HOSE) and are subject to the vendor’s terms of use; the merged dataset is available from the corresponding author upon reasonable request. **Code availability** The R code that reproduces every table and figure is provided as Online Resource 1 and will be deposited in a public repository upon acceptance. **Companion work** This manuscript is a substantially revised version of a manuscript previously declined by Asia-Pacific Financial Markets; it is not under consideration elsewhere.
+**Acknowledgements** None. **Funding** This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors. **Conflict of interest** The authors declare that they have no conflict of interest. **Author contributions (CRediT)** {CREDIT} **Data availability** The index price data were obtained from TradingView (exchange: HOSE) and are subject to the vendor’s terms of use; the merged dataset is available from the corresponding author upon reasonable request. **Code availability** The R code that reproduces every table and figure is provided as Online Resource 1 and will be deposited in a public repository upon acceptance; supplementary tables and figures are Online Resource 2. **Companion work** This manuscript is a substantially revised version of a manuscript previously declined by Asia-Pacific Financial Markets; it is not under consideration elsewhere.
 :::
 """
     md2docx(md, os.path.join(OUT, '01_Title_Page.docx'))
@@ -88,13 +89,13 @@ Authors: Nguyen Thanh Binh, Nguyen Van Trung (corresponding author), Ha Hong Han
 
 
 def cover_letter():
-    sh = [float(TX.D(t, 'mech_share')['estimate']) for t in TX.TF]
+    sens = [float(TX.D(t, 'sensitivity')['estimate']) for t in TX.TF]
     md = f"""::: {{custom-style="p1a"}}
 {DATE}
 
 The Editor-in-Chief
 
-[JOURNAL NAME — to be completed by the authors]
+[JOURNAL NAME: to be completed by the authors]
 
 **Submission of manuscript: “{TX.TITLE}”**
 
@@ -102,11 +103,11 @@ Dear Editor,
 
 We submit the enclosed manuscript for consideration as an original research article in [JOURNAL NAME].
 
-Correlations between nested equity indices, such as a large-cap index and the broader index that contains it, are routinely used to measure diversification between size tiers. We prove that such correlations contain a mechanical floor fixed by index weights and relative volatility, and we derive an exact, scale-by-scale decomposition of the detrended cross-correlation coefficient into this floor and an economic component. Applied to the Vietnamese VN30, VN100 and VNINDEX indices at 30-minute to daily frequencies, the floor accounts for {TX.rng(sh, 2)} of the VN30–VN100 coefficient, so the index-level number is almost insensitive to the economic co-movement between large and mid caps.
+When one equity index contains another, part of their correlation is fixed by construction. The manuscript carries the classical part–whole correlation identity (Pearson 1897; Cureton 1966) over to detrended cross-correlation analysis and derives, at every timescale, a zero-correlation benchmark, an exact lower bound, the sensitivity of the nested coefficient to the overlap-purged coefficient and an order-free Shapley attribution. All of these can be computed from index-level inputs, and we provide a six-step recipe and a contour chart for other nested index families.
 
-The paper tests five pre-stated hypotheses with block-bootstrap inference and multiple-testing adjustment: overlap inflation, dominance of the mechanical floor, horizon dependence, crisis contagion after Forbes–Rigobon conditioning, and the cost of static correlations for portfolio variance. The R code that reproduces every number is provided as Online Resource 1.
+Applied to VN30, VN100 and VNINDEX on the Ho Chi Minh City Stock Exchange at 30-minute to daily frequencies, the VN30–VN100 coefficient responds to the purged coefficient with a slope of only {TX.rng(sens, 2)}. We then test four hypotheses with decision rules stated in advance of the reported tests: a material overlap gap (supported), intraday horizon dependence between tiers (partially supported), crisis contagion under Forbes–Rigobon and factor-model tests (mixed) and the out-of-sample value of regime-conditioned correlations (not supported). Inference uses a block bootstrap that also propagates uncertainty in the index weight, with multiplicity adjustment and equivalence tests. The R code that reproduces every number is provided as Online Resource 1, and further robustness checks are in Online Resource 2.
 
-This manuscript is a substantially revised version of a manuscript declined by Asia-Pacific Financial Markets, whose editor found the earlier version to be mainly a statistical report. The revision adds the analytical result (Proposition 1), hypotheses, an analytical literature review with recent references, multiplicity-adjusted inference, effect sizes and additional robustness checks. The manuscript is not under consideration by another journal, and all authors approve its submission. The authors’ use of generative AI tools is described in the declaration placed before the references.
+This manuscript is a substantially revised version of a manuscript declined by Asia-Pacific Financial Markets, whose editor found the earlier version to be mainly a statistical report. The revision positions the result against the part–whole literature, adds the analytical corollaries, hypotheses with explicit decision rules, volatility-robust contagion tests, an out-of-sample evaluation and a practitioner recipe. A response to the earlier comments is enclosed. The manuscript is not under consideration by another journal, and all authors approve its submission. The authors’ use of generative AI tools is described in the declaration placed before the references.
 
 Sincerely,
 
@@ -119,14 +120,13 @@ Email: 15233582\\@st.neu.edu.vn; Tel: +84 355 347 831
 
 
 def highlights():
-    sh = [float(TX.D(t, 'mech_share')['estimate']) for t in TX.TF]
     sens = [float(TX.D(t, 'sensitivity')['estimate']) for t in TX.TF]
     items = [
-        'Nested index correlations contain a mechanical floor set by index weights',
-        'An exact scale-wise identity splits the DCCA coefficient into floor and economics',
-        f'The floor is {TX.rng(sh, 2)} of the VN30–VN100 coefficient in Vietnam',
-        f'Nested coefficients respond to economic correlation with slope {TX.rng(sens, 2)} only',
-        'No crisis contagion between size tiers after Forbes–Rigobon conditioning',
+        'Nested index correlations contain a component fixed by construction',
+        'A scale-wise part–whole identity decomposes the DCCA coefficient exactly',
+        f'VN30–VN100 moves only {TX.rng(sens, 2)} per unit change in the purged correlation',
+        'Benchmark, bound and sensitivity need only index-level inputs',
+        'Contagion evidence between tiers depends on the test used',
     ]
     md = '::: {custom-style="heading1"}\nHighlights\n:::\n\n' + '\n\n'.join(f'::: {{custom-style="p1a"}}\n• {i}\n:::' for i in items)
     for i in items:
@@ -150,7 +150,7 @@ def figures():
 def replication():
     d = os.path.join(OUT, '05_Replication_Package'); shutil.rmtree(d, ignore_errors=True)
     os.makedirs(os.path.join(d, 'data')); os.makedirs(os.path.join(d, 'R'))
-    for f in ('run_all.R', 'run_revision.R', 'run_round2.R'):
+    for f in ('run_all.R', 'run_revision.R', 'run_round2.R', 'run_round3.R', 'run_round3b.R', 'run_round3c.R', 'run_round3d.R'):
         s = open(os.path.join(PR, f), encoding='utf-8').read().replace('../project/data/', 'data/')
         open(os.path.join(d, f), 'w', encoding='utf-8').write(s)
     shutil.copy(os.path.join(PR, 'R', 'dcca.R'), os.path.join(d, 'R', 'dcca.R'))
@@ -170,6 +170,7 @@ def replication():
 def manuscripts():
     shutil.copy(os.path.join(S, 'r2', 'manuscript_anonymized.docx'), os.path.join(OUT, '02_Manuscript_Anonymized.docx'))
     shutil.copy(os.path.join(S, 'r2', 'manuscript_with_authors.docx'), os.path.join(OUT, '07_Manuscript_with_Author_Details.docx'))
+    shutil.copy(os.path.join(S, 'r2', 'supplementary_material.docx'), os.path.join(OUT, '10_Online_Resource_2_Supplementary_Material.docx'))
     # anonymize metadata of the blinded manuscript
     z = os.path.join(OUT, '02_Manuscript_Anonymized.docx'); tmp = z + '.d'
     shutil.rmtree(tmp, ignore_errors=True); os.makedirs(tmp)
@@ -181,8 +182,9 @@ def manuscripts():
         for tag in ('dc:creator', 'cp:lastModifiedBy', 'dc:title'):
             s = re.sub(rf'<{tag}>[^<]*</{tag}>', f'<{tag}></{tag}>', s)
         open(core, 'w', encoding='utf-8').write(s)
-    for f in ('people.xml', 'comments.xml'):
-        assert not os.path.exists(os.path.join(tmp, 'word', f)), f
+    assert not os.path.exists(os.path.join(tmp, 'word', 'people.xml'))
+    cm = os.path.join(tmp, 'word', 'comments.xml')      # pandoc writes an empty comments part; it must hold no comment
+    assert not os.path.exists(cm) or '<w:comment ' not in open(cm, encoding='utf-8').read()
     os.remove(z); subprocess.run(['bash', os.path.join(S, 'pack.sh'), tmp, z], check=True); shutil.rmtree(tmp)
     # assert blinding
     with zipfile.ZipFile(z) as zf:

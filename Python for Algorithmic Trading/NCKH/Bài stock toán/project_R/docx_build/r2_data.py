@@ -72,3 +72,27 @@ DETREND = [sum(float(r['rho_dcca']) for r in _dc if r['timeframe'] == '1D' and r
            / sum(1 for r in _dc if r['timeframe'] == '1D' and r['pair'] == 'VN30-VNINDEX' and r['order'] == str(m) and r['reliable'] == 'TRUE') for m in (1, 2, 3)]
 HQ = rows('08_mfdcca_hq.csv')
 NESTED = ['VN30-VNINDEX', 'VN30-VN100', 'VN100-VNINDEX']
+
+# ---------------------------------------------------------------- round-3 outputs (Iter 24, Stage 4)
+WSD = rows('R14_weight_sensitivity_decomposition.csv')
+ATT = {(r['timeframe'], r['stat']): r for r in rows('R15_attribution_and_scale_invariance.csv')}
+TMIN = {r['timeframe']: r for r in rows('R16_true_lower_bound.csv')}
+HOSEPT = rows('R17_floor_contour_hose_point.csv')[0]
+OOS = {(r['pair'], r['method']): r for r in rows('R18_out_of_sample_portfolio_variance.csv')}
+OOSD = rows('R18b_oos_design.csv')[0]
+FRR = {(r['panel'], r['regime']): r for r in rows('R19_forbes_rigobon_regressions.csv')}
+HE = {r['sample']: r for r in rows('R20_hedge_effectiveness.csv')}
+WU = {(r['timeframe'], r['stat']): r for r in rows('R21_weight_uncertainty_bootstrap.csv')}
+H2T = {(r['timeframe'], r['pair']): r for r in rows('R22_h3_family_studentized_tost.csv')}
+FB = {r['timeframe']: r for r in rows('R23_intraday_first_bar_removed.csv')}
+BLK30 = rows('R24_block_length_sensitivity_M30.csv')
+FRW = rows('R25_forbes_rigobon_vn30_regimes_weight_grid.csv')
+TG = {(r['pair'], r['u']): r for r in rows('R26_tail_dependence_gaussian_benchmark.csv')}
+EPI = rows('R27_unshaded_episodes.csv')
+LL = {r['timeframe']: r for r in rows('R28_lead_lag_tiers.csv')}
+# ---------------------------------------------------------------- round-3d outputs (Iter 25, Stage 4)
+FAC = {r['panel']: r for r in rows('R29_factor_model_contagion_test.csv')}
+SLC = {r['timeframe']: r for r in rows('R30_slope_channels.csv')}
+MAT = {(r['panel'], r['regime'], r['pair']): r for r in rows('R31_materiality_joint_resampling.csv')}
+BARS = {r['timeframe']: r for r in rows('R32_intraday_bar_schedule.csv')}
+REC = rows('R33_practitioner_recipe.csv')[0]

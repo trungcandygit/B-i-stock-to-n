@@ -13,7 +13,7 @@ from r2_lit import REFERENCES
 REF_DOC = os.path.join(S, 'r2', 'reference.docx')     # copy of the authors' uploaded 02_Manuscript_Anonymized.docx
 FIG = os.path.join(os.environ.get('R2_OUT') or os.path.join(S, '..', 'outputs'), 'figures')
 FIGMAP = {'fig1': 'fig1_volatility_regimes.png', 'fig2': 'fig2_dcca_curves.png',
-          'fig4': 'fig4_overlap_decomposition.png', 'fig3': 'fig3_mfdcca.png'}
+          'fig4': 'fig4_overlap_decomposition.png', 'fig3': 'fig3_mfdcca.png', 'fig5': 'fig5_floor_contour.png'}
 OUTD = os.path.join(S, 'r2')
 
 AUTHORS = 'Nguyen Thanh Binh^a^, Nguyen Van Trung^a,\\*^, Ha Hong Hanh^b^, Nguyen Bach Diep^a^'
@@ -92,14 +92,14 @@ def manuscript(anonymized):
     md.append(para('keywords', '**Keywords** ' + TX.KEYWORDS))
     md.append(para('keywords', '**JEL Classification** ' + TX.JEL))
     md.append(render(TX.body()))
-    md.append(render(TX.appendix()))
     decl = [('Ethical standards', 'This study uses only publicly available historical index price data from the Ho Chi Minh City '
              'Stock Exchange; it involves no human participants or personal data, therefore required no ethical approval, and '
              'complies with the current laws of Vietnam.'),
             ('Data availability', 'The index price data were obtained from TradingView (exchange: HOSE) and are subject to the '
              'vendor’s terms of use; the merged dataset is available from the corresponding author upon reasonable request.'),
-            ('Code availability', 'The R code that reproduces every table and figure is provided as Online Resource 1 and will be '
-             'deposited in a public repository upon acceptance.'),
+            ('Code availability', 'The R code that reproduces every table and figure, with a map from each reported number to its '
+             'output file, is provided as Online Resource 1 and will be deposited in a public repository upon acceptance. '
+             'Supplementary tables and figures are provided as Online Resource 2.'),
             ('Funding', 'Funding information is provided on the separate title page in accordance with the journal’s double-blind '
              'review policy.' if anonymized else 'This research did not receive any specific grant from funding agencies in the '
              'public, commercial, or not-for-profit sectors.'),
@@ -226,8 +226,19 @@ def post(docx_path):
     shutil.rmtree(tmp)
 
 
+def supplement_md():
+    md = [para('Title', 'Supplementary Material (Online Resource 2): ' + TX.TITLE)]
+    md.append(render(TX.supplement()))
+    return '\n'.join(md)
+
+
 def build():
     os.makedirs(OUTD, exist_ok=True)
+    mdp = os.path.join(OUTD, 'supplementary_material.md'); open(mdp, 'w', encoding='utf-8').write(supplement_md())
+    out = os.path.join(OUTD, 'supplementary_material.docx')
+    subprocess.run(['pandoc', mdp, '-f', 'markdown+subscript+superscript+tex_math_dollars+pipe_tables+fenced_divs+link_attributes',
+                    '-t', 'docx', '--reference-doc', REF_DOC, '-o', out], check=True)
+    post(out); print('built', out)
     for anon, name in ((True, 'manuscript_anonymized'), (False, 'manuscript_with_authors')):
         md = manuscript(anon)
         mdp = os.path.join(OUTD, name + '.md')
