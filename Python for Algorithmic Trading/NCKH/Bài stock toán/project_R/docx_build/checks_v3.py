@@ -66,7 +66,7 @@ for lab in sorted(set(re.findall(r'\*\*((?:Table|Fig\.) S\d+)\*\*', sup))):
 # in-text citations vs reference list (author-year)
 cited = set(re.findall(r'([A-Z][A-Za-zÀ-ž’\'-]+)(?: et al\.| and [A-Z][A-Za-zÀ-ž’\'-]+)? \(?(\d{4})\)?', main + sup))
 reflist = refs
-missing = [f'{a} {y}' for a, y in cited if y.isdigit() and 1890 < int(y) < 2030 and a not in ('Table', 'Fig', 'Eq', 'Section', 'September', 'October', 'January', 'December', 'February', 'March', 'April', 'May', 'June', 'Decree', 'Circular', 'VND', 'From', 'Since', 'In', 'The', 'Vietnam', 'Frontier')
+missing = [f'{a} {y}' for a, y in cited if y.isdigit() and 1890 < int(y) < 2030 and a not in ('Table', 'Fig', 'Eq', 'Section', 'September', 'October', 'January', 'December', 'February', 'March', 'April', 'May', 'June', 'Decree', 'Circular', 'VND', 'From', 'Since', 'In', 'The', 'Vietnam', 'Frontier', 'Adding')
            and not re.search(re.escape(a) + r'[^\n]*\(' + y, reflist)]
 check(not missing, f'in-text citations found in reference list {missing[:10]}')
 

@@ -9,13 +9,14 @@ This package contains the R code that reproduces every table, figure and in-text
 | Path | Content |
 |---|---|
 | `R/dcca.R` | DCCA, MF-DCCA, multifractal spectrum, Monte Carlo reliability threshold, scale regression |
-| `run_all.R` | Descriptive statistics, reliability thresholds, average DCCA coefficients, weight sensitivity, MF-DCCA, Fig. 1 and Fig. S1; then calls the six scripts below (outputs `01`–`20`) |
+| `run_all.R` | Descriptive statistics, reliability thresholds, average DCCA coefficients, weight sensitivity, MF-DCCA, Fig. 1 and Fig. S1; then calls the seven scripts below (outputs `01`–`20`) |
 | `run_revision.R` | Block-bootstrap inference for averages, gaps and slopes; Forbes–Rigobon with Pearson regimes; portfolio variance errors; GARCH-t reliability thresholds; shuffled-surrogate MF-DCCA (`R1`–`R7`) |
 | `run_round2.R` | Lemma 1 decomposition with bootstrap (`R8*`), Holm and Benjamini–Hochberg adjustment (`R9`), Cohen's q (`R10`), lower-tail dependence (`R11`), DMCA (`R12`), daily block-length sensitivity (`R13`), Figs. 2 and 3, session information |
 | `run_round3.R` | Weight grid of the decomposition (`R14`), Shapley attribution and scale invariance (`R15`), lower bound (`R16`), contour chart Fig. 4 (`R17`), out-of-sample forecasts (`R18`), factor regressions by regime (`R19`), hedge effectiveness (`R20`) |
 | `run_round3b.R` | Weight drawn inside the bootstrap (`R21`), studentized p-values, H2 family and TOST (`R22`), first bar removed (`R23`), M30 block lengths (`R24`), Forbes–Rigobon with VN30 regimes and weight grid (`R25`), Gaussian-copula tail benchmark (`R26`) |
 | `run_round3c.R` | Unshaded volatility episodes (`R27`), lead–lag cross-autocorrelations (`R28`) |
 | `run_round3d.R` | Factor-loading contagion test (`R29`), slope channels (`R30`), materiality and joint resampling (`R31`), intraday bar schedule (`R32`), Box 1 recipe (`R33`) |
+| `run_round3e.R` | Slopes with and without auction bars and broad-minus-nested slope differences (`R34`), slope block lengths at M30 (`R35`), like-for-like gap with weight uncertainty (`R36`), 2021 counted as a crisis (`R37`) |
 | `outputs/` | CSV outputs, `scalars.txt`, `R_session_info.txt` and figures (EPS and 600-dpi PNG) exactly as used in the manuscript |
 | `data/` | Empty; place the two input files here (see Data below) |
 
@@ -35,7 +36,7 @@ Rscript run_all.R                       # main script, then the six follow-up sc
 RUN_ALL_MAIN_ONLY=1 Rscript run_all.R   # main script only
 ```
 
-Every script fixes its seed with `set.seed()` (20260924 to 20261013), so repeated runs give byte-identical CSV files.
+Every script fixes its seed with `set.seed()` (20260924 to 20261014), so repeated runs give byte-identical CSV files.
 
 ## Mapping to the manuscript
 
@@ -59,7 +60,9 @@ Every script fixes its seed with `set.seed()` (20260924 to 20261013), so repeate
 | Tables S2, S3 | `R14_weight_sensitivity_decomposition.csv`; `R5_table7_with_pearson_regimes.csv` |
 | Tables S4, S5 | `R12_dmca_robustness.csv`; `R11_lower_tail_dependence.csv`, `R26_tail_dependence_gaussian_benchmark.csv` |
 | Table S6 | `R13_block_length_sensitivity.csv`, `R24_block_length_sensitivity_M30.csv` |
-| Tables S7, S8 | `R23_intraday_first_bar_removed.csv`; `R9_…` (proxies), `04_proxy_regression.csv` |
+| Tables S7, S8 | `R34_trimmed_slopes_and_differences.csv` (gap without first bar: `R23_intraday_first_bar_removed.csv`); `R9_…` (proxies), `04_proxy_regression.csv` |
+| Tables S14, S15 | `R31_materiality_joint_resampling.csv`; `R35_slope_block_length_M30.csv` |
+| Section 5.2 (H1 under weight uncertainty); 5.4 (slope differences); 5.5 (2021) | `R36_like_for_like_gap_weight_uncertainty.csv`; `R34_…`; `R37_crisis_definition_with_2021.csv` |
 | Tables S9, S10, S11, S12, S13 | `R28_…`; `R25_…`; `R20_…`; `R27_…`; `R30_slope_channels.csv` |
 | Fig. S1 and its text | `outputs/figures/Fig3.eps`; `08_mfdcca_hq.csv`, `R7_mfdcca_shuffle_surrogate.csv` |
 | Fig. 1, 2, 3, 4 | `Fig1.eps`, `Fig2.eps` (bands from `R8c_dcca_bootstrap_bands.csv`), `Fig4.eps`, `Fig5.eps` |

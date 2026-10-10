@@ -127,16 +127,54 @@ Notes: Bootstrap draws are separate from Table 4, so intervals differ by Monte C
 :::
 
 ::: {custom-style="tablecaption"}
-**Table S7** Intraday results without the first bar of each day
+**Table S7** Reliable-range slopes with and without the auction bars, and broad-minus-nested slope differences
 :::
 
-| Frequency | Bars kept | Bars dropped, % | Share of squared VN30 returns in first bar, % | Three-pair gap [95% CI] | Slope VN30–VNINDEX | Slope VN100–VNINDEX | Slope VN30–VN100 | Slope P~cap~–VN30 |
-|---|---|---|---|---|---|---|---|---|
-| 30-minute (M30) | 19,709 | 10.2 | 36.8 | 0.107 [0.094, 0.127] | 0.0020 | 0.0010 | 0.0001 | 0.0011 |
-| 1-hour (H1) | 10,818 | 20.0 | 38.2 | 0.096 [0.082, 0.112] | 0.0003 | −0.0005 | −0.0004 | −0.0053 |
+| Frequency | Sample | N | Pair | Slope [95% CI] | p (studentized) |
+|---|---|---|---|---|---|
+| 30-minute (M30) | All bars | 21,942 | VN30–VNINDEX | 0.0022 [0.0007, 0.0039] | 0.006 |
+| 30-minute (M30) | All bars | 21,942 | VN100–VNINDEX | 0.0022 [0.0009, 0.0033] | < 0.001 |
+| 30-minute (M30) | All bars | 21,942 | VN30–VN100 | −0.0001 [−0.0006, 0.0006] | 0.834 |
+| 30-minute (M30) | All bars | 21,942 | P~cap~–VN30 | 0.0017 [−0.0038, 0.0065] | 0.535 |
+| 30-minute (M30) | Without first bar | 19,709 | VN30–VNINDEX | 0.0020 [−0.0006, 0.0033] | 0.031 |
+| 30-minute (M30) | Without first bar | 19,709 | VN100–VNINDEX | 0.0010 [−0.0007, 0.0020] | 0.156 |
+| 30-minute (M30) | Without first bar | 19,709 | VN30–VN100 | 0.0001 [−0.0007, 0.0008] | 0.719 |
+| 30-minute (M30) | Without first bar | 19,709 | P~cap~–VN30 | 0.0011 [−0.0053, 0.0072] | 0.737 |
+| 30-minute (M30) | Without first and last bar | 17,475 | VN30–VNINDEX | −0.0000 [−0.0025, 0.0016] | 0.987 |
+| 30-minute (M30) | Without first and last bar | 17,475 | VN100–VNINDEX | −0.0002 [−0.0017, 0.0010] | 0.764 |
+| 30-minute (M30) | Without first and last bar | 17,475 | VN30–VN100 | −0.0002 [−0.0011, 0.0006] | 0.693 |
+| 30-minute (M30) | Without first and last bar | 17,475 | P~cap~–VN30 | −0.0021 [−0.0103, 0.0047] | 0.586 |
+| 1-hour (H1) | All bars | 13,523 | VN30–VNINDEX | 0.0024 [0.0006, 0.0040] | 0.009 |
+| 1-hour (H1) | All bars | 13,523 | VN100–VNINDEX | 0.0019 [0.0007, 0.0030] | 0.003 |
+| 1-hour (H1) | All bars | 13,523 | VN30–VN100 | 0.0001 [−0.0008, 0.0008] | 0.882 |
+| 1-hour (H1) | All bars | 13,523 | P~cap~–VN30 | 0.0020 [−0.0045, 0.0078] | 0.551 |
+| 1-hour (H1) | Without first bar | 10,818 | VN30–VNINDEX | 0.0003 [−0.0038, 0.0016] | 0.799 |
+| 1-hour (H1) | Without first bar | 10,818 | VN100–VNINDEX | −0.0005 [−0.0039, 0.0005] | 0.660 |
+| 1-hour (H1) | Without first bar | 10,818 | VN30–VN100 | −0.0004 [−0.0016, 0.0003] | 0.470 |
+| 1-hour (H1) | Without first bar | 10,818 | P~cap~–VN30 | −0.0053 [−0.0142, 0.0007] | 0.192 |
+| 1-hour (H1) | Without first and last bar | 8,112 | VN30–VNINDEX | −0.0020 [−0.0058, 0.0015] | 0.268 |
+| 1-hour (H1) | Without first and last bar | 8,112 | VN100–VNINDEX | −0.0022 [−0.0047, 0.0006] | 0.121 |
+| 1-hour (H1) | Without first and last bar | 8,112 | VN30–VN100 | −0.0006 [−0.0016, 0.0001] | 0.223 |
+| 1-hour (H1) | Without first and last bar | 8,112 | P~cap~–VN30 | −0.0067 [−0.0175, 0.0009] | 0.141 |
+| Daily (1D) | All bars | 2,963 | VN30–VNINDEX minus VN30–VN100 | 0.0018 [−0.0014, 0.0042] | 0.271 |
+| Daily (1D) | All bars | 2,963 | VN100–VNINDEX minus VN30–VN100 | 0.0016 [−0.0010, 0.0033] | 0.147 |
+| 30-minute (M30) | All bars | 21,942 | VN30–VNINDEX minus VN30–VN100 | 0.0022 [0.0009, 0.0037] | 0.001 |
+| 30-minute (M30) | All bars | 21,942 | VN100–VNINDEX minus VN30–VN100 | 0.0022 [0.0010, 0.0032] | < 0.001 |
+| 30-minute (M30) | Without first bar | 19,709 | VN30–VNINDEX minus VN30–VN100 | 0.0019 [−0.0000, 0.0028] | 0.012 |
+| 30-minute (M30) | Without first bar | 19,709 | VN100–VNINDEX minus VN30–VN100 | 0.0009 [−0.0006, 0.0019] | 0.178 |
+| 30-minute (M30) | Without first and last bar | 17,475 | VN30–VNINDEX minus VN30–VN100 | 0.0002 [−0.0021, 0.0014] | 0.871 |
+| 30-minute (M30) | Without first and last bar | 17,475 | VN100–VNINDEX minus VN30–VN100 | −0.0000 [−0.0012, 0.0010] | 0.955 |
+| 1-hour (H1) | All bars | 13,523 | VN30–VNINDEX minus VN30–VN100 | 0.0024 [0.0006, 0.0035] | 0.002 |
+| 1-hour (H1) | All bars | 13,523 | VN100–VNINDEX minus VN30–VN100 | 0.0018 [0.0006, 0.0028] | 0.003 |
+| 1-hour (H1) | Without first bar | 10,818 | VN30–VNINDEX minus VN30–VN100 | 0.0007 [−0.0027, 0.0018] | 0.522 |
+| 1-hour (H1) | Without first bar | 10,818 | VN100–VNINDEX minus VN30–VN100 | −0.0001 [−0.0030, 0.0009] | 0.892 |
+| 1-hour (H1) | Without first and last bar | 8,112 | VN30–VNINDEX minus VN30–VN100 | −0.0015 [−0.0044, 0.0018] | 0.361 |
+| 1-hour (H1) | Without first and last bar | 8,112 | VN100–VNINDEX minus VN30–VN100 | −0.0016 [−0.0034, 0.0011] | 0.192 |
+| 4-hour (H4) | All bars | 5,410 | VN30–VNINDEX minus VN30–VN100 | 0.0007 [−0.0020, 0.0024] | 0.508 |
+| 4-hour (H4) | All bars | 5,410 | VN100–VNINDEX minus VN30–VN100 | 0.0005 [−0.0011, 0.0018] | 0.504 |
 
 ::: {custom-style="Compact"}
-Notes: Reliable-range slopes of Eq. (13) after dropping the opening bar, which contains the overnight return and the opening auction. Source: Authors’ calculations.
+Notes: First bar: overnight return and opening auction; last bar: closing auction; 199 block-bootstrap replicates; differences are computed within the same replicates. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -185,7 +223,7 @@ Notes: Lagged pairs are formed within the same trading day at intraday frequenci
 | 0.7500 | VN30 quartiles | 0.621 | 0.893 | 0.560 | −0.061 [−0.135, 0.032] | 0.935 |
 
 ::: {custom-style="Compact"}
-Notes: Daily Pearson correlations of P~cap~(w) and VN30. Source: Authors’ calculations.
+Notes: Daily Pearson correlations of P~cap~(w) and VN30; bootstrap draws are separate from Table 7, so intervals at the factsheet weight differ by Monte Carlo error. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -230,6 +268,52 @@ Notes: Both episodes fail the drawdown and volatility-share criteria of Section 
 
 ::: {custom-style="Compact"}
 Notes: Partial derivatives averaged over s ≤ s~rel~. Source: Authors’ calculations.
+:::
+
+::: {custom-style="tablecaption"}
+**Table S14** In-sample misstatement of portfolio variance for all pairs
+:::
+
+| Regime | Pair | RE, % [95% CI] | Relative SE of regime variance, % | RE/SE |
+|---|---|---|---|---|
+| Chronological, calm | VN30–VNINDEX | 0.40 [−0.07, 1.10] | 12.7 | 0.03 |
+| Chronological, calm | VN30–VN100 | 0.28 [0.11, 0.45] | 13.3 | 0.02 |
+| Chronological, calm | VN100–VNINDEX | 0.52 [0.03, 1.23] | 13.7 | 0.04 |
+| Chronological, calm | P~cap~–VN30 | 2.23 [0.71, 3.98] | 15.6 | 0.14 |
+| Chronological, crisis | VN30–VNINDEX | −0.56 [−0.92, −0.28] | 15.0 | 0.04 |
+| Chronological, crisis | VN30–VN100 | −0.19 [−0.33, −0.08] | 14.8 | 0.01 |
+| Chronological, crisis | VN100–VNINDEX | −0.46 [−0.74, −0.22] | 14.4 | 0.03 |
+| Chronological, crisis | P~cap~–VN30 | −1.84 [−3.01, −0.82] | 14.3 | 0.13 |
+| VNINDEX quartiles, calm | VN30–VNINDEX | 2.35 [1.64, 3.25] | 5.5 | 0.43 |
+| VNINDEX quartiles, calm | VN30–VN100 | 0.77 [0.49, 1.14] | 5.3 | 0.14 |
+| VNINDEX quartiles, calm | VN100–VNINDEX | 2.14 [1.40, 3.00] | 5.7 | 0.37 |
+| VNINDEX quartiles, calm | P~cap~–VN30 | 9.38 [6.28, 13.27] | 6.3 | 1.50 |
+| VNINDEX quartiles, crisis | VN30–VNINDEX | −0.71 [−0.98, −0.50] | 8.7 | 0.08 |
+| VNINDEX quartiles, crisis | VN30–VN100 | −0.20 [−0.30, −0.13] | 8.9 | 0.02 |
+| VNINDEX quartiles, crisis | VN100–VNINDEX | −0.55 [−0.74, −0.40] | 8.9 | 0.06 |
+| VNINDEX quartiles, crisis | P~cap~–VN30 | −2.07 [−2.88, −1.40] | 8.8 | 0.23 |
+
+::: {custom-style="Compact"}
+Notes: Equally weighted positions; intervals from joint resampling of the full sample. Source: Authors’ calculations.
+:::
+
+::: {custom-style="tablecaption"}
+**Table S15** Sensitivity of the M30 slope intervals to the bootstrap block length
+:::
+
+| Mean block length (days) | Pair | Slope [95% CI] | p (studentized) |
+|---|---|---|---|
+| 5 | VN30–VNINDEX | 0.0022 [0.0007, 0.0037] | 0.007 |
+| 5 | VN100–VNINDEX | 0.0022 [0.0010, 0.0030] | < 0.001 |
+| 5 | VN30–VN100 | −0.0001 [−0.0007, 0.0006] | 0.843 |
+| 5 | P~cap~–VN30 | 0.0017 [−0.0030, 0.0072] | 0.530 |
+| 40 | VN30–VNINDEX | 0.0022 [0.0007, 0.0043] | 0.011 |
+| 40 | VN100–VNINDEX | 0.0022 [0.0012, 0.0034] | < 0.001 |
+| 40 | VN30–VN100 | −0.0001 [−0.0006, 0.0007] | 0.843 |
+| 40 | P~cap~–VN30 | 0.0017 [−0.0028, 0.0087] | 0.550 |
+
+::: {custom-style="Compact"}
+Notes: Reliable-range slopes of Eq. (13); 199 replicates per block length. Source: Authors’ calculations.
 :::
 
 *Multifractal structure.* The generalized cross-correlation exponent h~xy~(2) lies between 0.526 and 0.542. The multifractal range Δh is 0.252–0.431 for the nested pairs and 0.435–0.656 for P~cap~–VN30. Against 100 jointly shuffled surrogates, the P~cap~–VN30 range exceeds the 95th surrogate percentile only at 1D, and the nested pairs in 2 of 12 cases. Because absolute local covariances can create spurious multifractality (Oświęcimka et al. 2014), these results are descriptive.

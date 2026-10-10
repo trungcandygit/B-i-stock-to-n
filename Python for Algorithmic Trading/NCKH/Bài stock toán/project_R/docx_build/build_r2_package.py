@@ -150,7 +150,7 @@ def figures():
 def replication():
     d = os.path.join(OUT, '05_Replication_Package'); shutil.rmtree(d, ignore_errors=True)
     os.makedirs(os.path.join(d, 'data')); os.makedirs(os.path.join(d, 'R'))
-    for f in ('run_all.R', 'run_revision.R', 'run_round2.R', 'run_round3.R', 'run_round3b.R', 'run_round3c.R', 'run_round3d.R'):
+    for f in ('run_all.R', 'run_revision.R', 'run_round2.R', 'run_round3.R', 'run_round3b.R', 'run_round3c.R', 'run_round3d.R', 'run_round3e.R'):
         s = open(os.path.join(PR, f), encoding='utf-8').read().replace('../project/data/', 'data/')
         open(os.path.join(d, f), 'w', encoding='utf-8').write(s)
     shutil.copy(os.path.join(PR, 'R', 'dcca.R'), os.path.join(d, 'R', 'dcca.R'))

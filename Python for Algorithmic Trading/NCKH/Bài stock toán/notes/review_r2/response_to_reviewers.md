@@ -127,3 +127,23 @@ The table follows the order of the revision roadmap. "Output" names the R file t
 - the DCCA-based regime test (RR-16 f).
 
 The reasons are given in the table above and in Sections 6.3–6.4.
+
+---
+
+## Addendum: second internal round (verification review, decision: minor revision)
+
+An independent verification review checked all 30 items against their acceptance criteria and recomputed 50 numbers. All of them match the R outputs. It found 17 items resolved, 12 partially resolved and none unresolved. The second-round changes are listed below.
+
+| Residual issue | Change made | Output |
+|---|---|---|
+| H2 and H3 outcomes did not follow their own decision rules | The H2 rule now names M30 and H1. The H3 outcome follows its two-part rule mechanically (not supported). Table 9 has a comment column for the qualifications. | `R22`, `R29`, `R25` |
+| Removing the opening bar was reported selectively, with no inference | Table S7 reports slopes with confidence intervals and studentized p-values for all bars, without the first bar and without the first and last bars, at M30 and H1. Section 5.4 states that horizon dependence disappears without the auction bars and qualifies H2 in the abstract, Section 5.4, Section 6.1 and Table 9. | `R34` |
+| RR-14(d): slope difference within the same replicates | The broad-market minus VN30–VN100 slope differences are reported for every frequency and sample. They are significant at M30 and H1 on the full data and disappear without the auction bars. | `R34` |
+| Block length for slopes | The M30 slope intervals are reported for 5- and 40-day blocks (Table S15). | `R35` |
+| H1 not tested under weight uncertainty | The like-for-like gap with w drawn in each replicate has lower bounds of 0.057–0.061, and every replicate exceeds 0.05 (Section 5.2). The U(0.60, 0.75) range is explained in Section 4.3. A daily validation against VNMIDCAP closes would need a series that our vendor export does not include; this is stated in Section 6.4. | `R36` |
+| Sign error in Section 6.4 | Corrected: a larger large-cap weight, or lower volatility of the remainder relative to large caps, raises the benchmark. | – |
+| Sources for FUEDCMID, T+2 and the FTSE reference | These are now cited to the HOSE (2022) press release, VSD Decision 211/QĐ-VSD (2015) and the 7 October 2025 FTSE Russell press release. | – |
+| Formatting and wording | Stray subscript commas were removed. Percentile p-values at the resolution floor are printed as "< 0.005". The M30 benchmark-slope wording is qualified. Section 6.3 now reads "no more volatile". | – |
+| Untabulated numbers | Table S14 now reports the misstatement for all pairs. Table S10 notes that its draws are separate from those of Table 7. | `R31` |
+| 2021 as a crisis | Adding 2021 to the chronological episodes leaves the Forbes–Rigobon and loading results unchanged (Section 5.5). | `R37` |
+| DMCA intervals (RR-20) | Not added. DMCA satisfies the same identity, so it is reported as a check on detrending, not as an independent test. | – |
