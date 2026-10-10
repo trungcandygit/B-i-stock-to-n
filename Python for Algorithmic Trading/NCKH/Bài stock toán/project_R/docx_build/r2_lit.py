@@ -43,9 +43,9 @@ def LIT_SECTIONS(table1):
         ('p1a', "Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Hou (2007) traces to slow diffusion "
                 "of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), with a size "
                 "that depends on sampling (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) lets co-movement build "
-                "with the horizon. On the HOSE, liquidity of small firms is fragile (Chen et al. 2021) and price adjustment is "
+                "with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al. 2021) and price adjustment is "
                 "delayed under retail-heavy trading (Tran and Tran 2025), while herding in stress (Nguyen et al. 2023), sector "
-                "connectedness of 60–90% (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025) raise all "
+                "connectedness above 60%, near 90% during COVID-19 (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025) raise all "
                 "correlations at once."),
         ('h2', '2.5 Volatility, contagion and interdependence'),
         ('p1a', "Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically "

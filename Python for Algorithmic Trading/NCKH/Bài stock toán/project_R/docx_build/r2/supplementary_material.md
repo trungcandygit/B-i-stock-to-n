@@ -123,7 +123,7 @@ Notes: λ~L~(u) = P(X ≤ q~X~(u), Y ≤ q~Y~(u))/u; Gaussian-copula value at th
 | 30-minute | 40 | 0.096 | [0.076, 0.119] |
 
 ::: {custom-style="Compact"}
-Notes: Bootstrap draws are separate from Table 4, so intervals differ by Monte Carlo error. Source: Authors’ calculations.
+Notes: Daily rows: 499 replicates; 30-minute rows: 199 replicates; draws are separate from Table 4, so intervals differ by Monte Carlo error. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="tablecaption"}

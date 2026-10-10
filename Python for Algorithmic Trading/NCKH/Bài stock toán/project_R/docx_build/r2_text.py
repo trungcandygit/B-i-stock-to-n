@@ -219,7 +219,8 @@ def institutions_data():
                 "knowledge had not been put into operation, naked short selling is prohibited, and the implementing Decree "
                 "155/2020/ND-CP (Government of Vietnam 2020) was amended by Decree 245/2025/ND-CP (Government of Vietnam 2025). VN30 "
                 "futures trade on the Hanoi Stock Exchange but there is no mid-cap future; a VNMIDCAP exchange-traded fund "
-                "(FUEDCMID) has been listed since 29 September 2022 (Ho Chi Minh City Stock Exchange 2022). Finally, foreign "
+                "(FUEDCMID) has been listed since 29 September 2022 (Ho Chi Minh City Stock Exchange 2022), so mid caps can be held "
+                "long but cannot be shorted or hedged with a dedicated derivative. Finally, foreign "
                 "ownership limits (30% for banks, for example) concentrate foreign flows in large caps with room under their "
                 "limits, and Vietnam is to be reclassified to Secondary Emerging status from 21 September 2026 (FTSE Russell 2025), "
                 "after our sample."),
@@ -336,13 +337,13 @@ def methodology():
         ('h2', '4.4 Reliability thresholds and inference'),
         ('p1a', "The DCCA coefficient becomes noisy at large scales, where boxes are few. For each sample size we simulate Gaussian "
                 "white-noise pairs with correlations of −0.3, 0, 0.3, 0.5, 0.7 and 0.9 (1,002 per frequency) and set s_rel to the "
-                "largest scale before the worst-case mean absolute error on 40 log-spaced scales first exceeds 0.05, a tolerance "
-                "fixed in advance; a GARCH(1,1)-t(5) calibration (300 simulations) checks heavy tails."),
+                "largest scale before the worst-case mean absolute error on 40 log-spaced scales first exceeds 0.05; the grid and "
+                "tolerance were fixed in advance; a GARCH(1,1)-t(5) calibration (300 simulations) checks heavy tails."),
         ('p', "Coefficients at different scales come from the same series, so all inference resamples the data with the stationary "
               "block bootstrap (Politis and Romano 1994), with mean blocks of about 20 trading days, recomputing every curve and "
               "statistic per replicate. We use 499 replications for the DCCA statistics of Tables 4–6 and for the decomposition, "
               "hedge-effectiveness and tail-dependence statistics, 399 for the like-for-like gap under weight uncertainty, 199 for "
-              "the trimmed-bar and block-length checks of Tables S7 and S15, 999 for the factor-model, lead–lag and materiality "
+              "the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6, 999 for the factor-model, lead–lag and materiality "
               "statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights and with 2021 added, and 1,999 for "
               "the remaining Forbes–Rigobon and relative-error statistics. Intervals are percentile 95% intervals, capped at ±1 for "
               "correlations. Percentile p-values, p = 2 min{k₋ + 1, k₊ + 1}/(B + 1), where k₋ and k₊ count replicates at or below and "
@@ -531,7 +532,7 @@ def results():
         ('p', f"The decomposition barely varies with the horizon. Across reliable scales and frequencies κ lies in "
               f"{f(min(kap_scales), 2)}–{f(max(kap_scales), 2)}, the benchmark varies by {rng(bench_rng, 3)} within a frequency, and "
               f"its slope on ln s is not significant at 5% (p = {rng(bslope_p, 3)}; Holm {rng(bslope_holm, 3)}), although at M30 the "
-              "percentile interval just excludes a negligible slope of about −0.002. On full-sample Pearson moments the benchmark is "
+              "percentile interval just excludes zero; the slope, about −0.002 per unit of ln s, is negligible. On full-sample Pearson moments the benchmark is "
               f"{rng(pear_bench, 3)} and the benchmark-first share {rng(pear_share, 3)}, within 0.01 of the DCCA values. Here the "
               "multiscale layer is a check of scale invariance, and Box 1 suffices in practice; the DCCA version matters where "
               "tiers scale differently, which Eq. (7) reveals as variation in κ(s)."),
@@ -576,7 +577,7 @@ def results():
               f"exceed the VN30–VN100 slope at M30 and H1 (differences {rng([tsd(t, 'full', p)['estimate'] for t in ('M30', 'H1') for p in BROAD], 4)}, "
               f"p ≤ {pfmt(max(F(tsd(t, 'full', p)['p_studentized']) for t in ('M30', 'H1') for p in BROAD))}), but the differences "
               "vanish without the auction bars, while the overlap gap does not change "
-              f"({f(FB['M30']['gap'])} {ci(FB['M30']['gap_ci_lo'], FB['M30']['gap_ci_hi'])} at M30) and the slope intervals are stable "
+              f"({f(FB['M30']['gap'])} {ci(FB['M30']['gap_ci_lo'], FB['M30']['gap_ci_hi'])} at M30 without the opening bar) and the slope intervals are stable "
               "across block lengths (Table S15). "
               + ("Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of "
                  "continuous trading; it is consistent with the Epps (1979) mechanism if the auctions are where prices of less liquid "
@@ -597,7 +598,8 @@ def results():
               f"down (Corsetti et al. 2005). The loading rises from {f(facC['beta_low'])} to {f(facC['beta_high'])} under VN30 "
               f"quartiles (Δβ = {f(facC['d_beta'])}, {ci(facC['d_beta_ci_lo'], facC['d_beta_ci_hi'])}) but not between chronological "
               f"episodes (Δβ = {f(facA['d_beta'])}, {ci(facA['d_beta_ci_lo'], facA['d_beta_ci_hi'])}), and adding 2021 as a crisis "
-              f"changes neither result (FR p = {f(C21[1]['fr_p_one_sided'], 3)}; Δβ = {f(C21[1]['d_beta'])}). Under its rule H3 is "
+              f"({nint(C21[1]['n_crisis'])} days) changes neither result (FR p = {f(C21[1]['fr_p_one_sided'], 3)}; Δβ = "
+              f"{f(C21[1]['d_beta'])}, {ci(C21[1]['d_beta_ci_lo'], C21[1]['d_beta_ci_hi'])}). Under its rule H3 is "
               f"{H3_out.lower()}: high-VN30-volatility days bring both a stronger response of mid caps to large caps and more "
               "mid-cap-specific risk. Because the lower-tail dependence of P_cap–VN30 "
               f"({f(tg('Pcap-VN30', '0.05')['lambda_L_empirical'], 2)} at the 5% quantile) exceeds its Gaussian-copula value "
@@ -652,7 +654,7 @@ def discussion():
               f"(cross-autocorrelation {f(ll['lead_VN30_on_Pcap'])}, {ci(ll['ci_lo_1'], ll['ci_hi_1'])}) while the reverse is "
               f"negligible ({f(ll['lead_Pcap_on_VN30'])}), an asymmetry of {f(ll['asymmetry'])} {ci(ll['asym_ci_lo'], ll['asym_ci_hi'])} "
               "in line with Lo and MacKinlay (1990) and Hou (2007); intraday the lead is symmetric (Table S9). The auction-bar "
-              "horizon dependence of broad-market pairs fits the Epps (1979) effect for small, fragile-liquidity stocks (Chen et al. "
+              "horizon dependence of broad-market pairs fits the Epps (1979) effect for small, less liquid stocks (Chen et al. "
               "2021; Tran and Tran 2025), which index-level data cannot separate from gradual diffusion (Hong and Stein 1999). The "
               "higher loading on high-volatility days has several candidate sources that our data cannot rank: herding (Nguyen et "
               "al. 2023) and sector connectedness (Bui et al. 2022), limit hits under the ±7% band, margin calls and foreign flows "
@@ -678,8 +680,9 @@ def discussion():
                 "compute them because we could not verify their weights. With partial overlap the shared constituents form a third "
                 "component and Eq. (7) does not apply directly. We did not decompose the broad-market pairs: VNINDEX uses full and "
                 "VN100 free-float capitalization, so VN100 is not a fixed-weight component of VNINDEX, and the mismatch term of "
-                "Eq. (12) cannot be bounded without constituent data."),
-        ('p', "The evidence comes from one exchange and three indices. The purged series rests on one factsheet weight; a weight "
+                "Eq. (12) cannot be bounded without constituent data, so the three-pair gap is descriptive for these pairs."),
+        ('p', "The evidence comes from one exchange and three indices, so the magnitudes should not be generalized beyond the "
+              "HOSE. The purged series rests on one factsheet weight; a weight "
               "path from semi-annual reviews would narrow the attribution intervals, which weight error dominates. We could not "
               "validate P_cap against the published VNMIDCAP index or the FUEDCMID net asset value, so we call ρ_AM overlap-purged "
               "rather than economic. Index-level prices cannot separate microstructure from diffusion, crisis evidence depends on "
@@ -760,7 +763,7 @@ def supplement():
           'λ_L(u) = P(X ≤ q_X(u), Y ≤ q_Y(u))/u; Gaussian-copula value at the pair’s own Pearson correlation. Source: Authors’ calculations.'),
         S('Table S6 Sensitivity of the gap interval to the bootstrap block length',
           ['Frequency', 'Mean block length (days)', 'Three-pair gap', '95% CI'], s6,
-          'Bootstrap draws are separate from Table 4, so intervals differ by Monte Carlo error. Source: Authors’ calculations.'),
+          'Daily rows: 499 replicates; 30-minute rows: 199 replicates; draws are separate from Table 4, so intervals differ by Monte Carlo error. Source: Authors’ calculations.'),
         S('Table S7 Reliable-range slopes with and without the auction bars, and broad-minus-nested slope differences',
           ['Frequency', 'Sample', 'N', 'Pair', 'Slope [95% CI]', 'p (studentized)'], s7,
           'First bar: overnight return and opening auction; last bar: closing auction; 199 block-bootstrap replicates, drawn separately from Table 6, with differences computed within the same replicates and the full-sample thresholds of Table 3. Source: Authors’ calculations.'),
