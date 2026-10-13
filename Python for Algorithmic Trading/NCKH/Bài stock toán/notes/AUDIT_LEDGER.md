@@ -597,3 +597,12 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
   outcome changed. checks_v3: FAILED 0 (now validates JEMF_submission). Rebuilt r2/* and JEMF_submission/*.
 - Old versions deleted from the tree at the author's request: submission/APFM_submission, submission/Revised_submission,
   submission/Co_movement_final_paper. Hạnh edited 24.9.docx (kept in git history).
+
+## D78 — Journal shortlist, Q2–Q4, APC < USD 1,000 (2026-10-13)
+- Skills: find-journal (vendor; profile set is medical, so Phase 3 profile matching was not applicable and live search
+  replaced it) and journal-recommender (github.com/zero565656/journal-recommender, workflow and rubric read from raw
+  files). The user pre-authorised defaults ("không hỏi lại"), so the preference checkpoint was skipped: Q2–Q4, APC < USD
+  1,000, speed first.
+- 64 candidates were checked by 4 independent agents using WebSearch (WebFetch, SCImago, LetPub and OpenAlex are blocked by
+  the network policy). Output: notes/journal_shortlist_2026-10-13.md (50 ranked) + evidence file with source URLs.
+- Constraint recorded: manuscript is under review at JEMF; no parallel submission.
