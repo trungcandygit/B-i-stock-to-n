@@ -3,19 +3,15 @@ How Much of a Nested Index Correlation Is Constructed? A Scale-Wise Part–Whole
 :::
 
 ::: {custom-style="p1a"}
-Nguyen Thanh Binh^a^, Nguyen Van Trung^a,\*^, Ha Hong Hanh^b^, Nguyen Bach Diep^a^
+Nguyen Van Trung
 :::
 
 ::: {custom-style="Compact"}
-^a^ Academy of Policy and Development, Nam An Khanh Urban Area, Hoai Duc District, Hanoi, Vietnam
+National Economics University, Hanoi, Vietnam
 :::
 
 ::: {custom-style="Compact"}
-^b^ School of Accounting and Auditing, National Economics University, Hanoi, Vietnam
-:::
-
-::: {custom-style="Compact"}
-\* Corresponding author: Nguyen Van Trung, Academy of Policy and Development, Hanoi, Vietnam. Email: 15233582\@st.neu.edu.vn. Tel: +84 355 347 831.
+Email: kontrungcany\@gmail.com
 :::
 
 ::: {custom-style="abstract"}
@@ -701,15 +697,15 @@ Correlations between nested equity indices contain a component fixed by construc
 :::
 
 ::: {custom-style="p1a"}
-**Conflict of interest** The authors declare that they have no conflict of interest.
+**Conflict of interest** The author declares no conflict of interest.
 :::
 
 ::: {custom-style="p1a"}
-**Author contributions** Nguyen Thanh Binh: Conceptualization, Supervision, Validation, Writing – review & editing. Nguyen Van Trung: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Visualization, Writing – original draft, Writing – review & editing. Ha Hong Hanh: Validation, Writing – review & editing. Nguyen Bach Diep: Methodology, Formal analysis, Writing – original draft.
+**Author contributions** Nguyen Van Trung: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Visualization, Writing – original draft, Writing – review & editing.
 :::
 
 ::: {custom-style="p1a"}
-**Declaration of generative AI use** During the preparation of this work the authors used Claude (Anthropic) for language editing, reference searching and verification, translation of the analysis code into R and drafting of revisions, and Gemini (Google) to improve the language and readability of the manuscript. After using these tools, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
+**Declaration of generative AI use** During the preparation of this work the author used Claude (Anthropic) for language editing, reference searching and verification, translation of the analysis code into R and drafting of revisions, and Gemini (Google) to improve the language and readability of the manuscript. After using these tools, the author reviewed and edited the content as needed and takes full responsibility for the content of the publication.
 :::
 
 ::: {custom-style="heading1"}

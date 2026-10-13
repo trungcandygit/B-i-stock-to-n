@@ -625,8 +625,10 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
   "Online Resource 2" -> "the Supplementary Material"; blinded manuscript checked for author names, e-mail, affiliation.
   LibreOffice page count: 25 A4 pages (<= 30).
 - Author change at the user's explicit request: single author Nguyen Van Trung, National Economics University, Hanoi,
-  Vietnam (e-mail kontrungcany@gmail.com, at the user's request, to match the submission account). Former co-authors (Binh, Hanh, Diep) are not listed; the user is responsible
-  for their agreement (SAEB checklist: all contributing authors must agree).
+  Vietnam (e-mail kontrungcany@gmail.com, at the user's request, to match the submission account). The user states this is a new, single-author paper.
 - AI statement moved into Acknowledgments as SAEB requires; model versions left as "[add model version]" placeholders
   because they are not known here.
 - Title corrected in r2_text.py from the author's edits: "Is Construction?" -> "Is Constructed?" (r2 and JEMF rebuilt).
+
+- D80 addendum: at the user's request all builds (r2, JEMF title page, SAEB) now list the single author Nguyen Van Trung,
+  National Economics University, kontrungcany@gmail.com; CRediT and declarations switched to the singular.

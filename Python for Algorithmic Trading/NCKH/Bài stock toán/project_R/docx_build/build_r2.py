@@ -16,19 +16,15 @@ FIGMAP = {'fig1': 'fig1_volatility_regimes.png', 'fig2': 'fig2_dcca_curves.png',
           'fig4': 'fig4_overlap_decomposition.png', 'fig3': 'fig3_mfdcca.png', 'fig5': 'fig5_floor_contour.png'}
 OUTD = os.path.join(S, 'r2')
 
-AUTHORS = 'Nguyen Thanh Binh^a^, Nguyen Van Trung^a,\\*^, Ha Hong Hanh^b^, Nguyen Bach Diep^a^'
-AFFIL = ['^a^ Academy of Policy and Development, Nam An Khanh Urban Area, Hoai Duc District, Hanoi, Vietnam',
-         '^b^ School of Accounting and Auditing, National Economics University, Hanoi, Vietnam',
-         '\\* Corresponding author: Nguyen Van Trung, Academy of Policy and Development, Hanoi, Vietnam. '
-         'Email: 15233582\\@st.neu.edu.vn. Tel: +84 355 347 831.']
-CREDIT = ('Nguyen Thanh Binh: Conceptualization, Supervision, Validation, Writing – review & editing. Nguyen Van Trung: '
-          'Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Visualization, Writing – '
-          'original draft, Writing – review & editing. Ha Hong Hanh: Validation, Writing – review & editing. Nguyen Bach Diep: '
-          'Methodology, Formal analysis, Writing – original draft.')
-AI_USE = ('During the preparation of this work the authors used Claude (Anthropic) for language editing, reference searching '
+AUTHORS = 'Nguyen Van Trung'
+AFFIL = ['National Economics University, Hanoi, Vietnam',
+         'Email: kontrungcany\\@gmail.com']
+CREDIT = ('Nguyen Van Trung: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, '
+          'Visualization, Writing – original draft, Writing – review & editing.')
+AI_USE = ('During the preparation of this work the author used Claude (Anthropic) for language editing, reference searching '
           'and verification, translation of the analysis code into R and drafting of revisions, and Gemini (Google) to improve '
-          'the language and readability of the manuscript. After using these tools, the authors reviewed and edited the content '
-          'as needed and take full responsibility for the content of the publication.')
+          'the language and readability of the manuscript. After using these tools, the author reviewed and edited the content '
+          'as needed and takes full responsibility for the content of the publication.')
 
 
 def inline(s):
@@ -103,7 +99,7 @@ def manuscript(anonymized):
             ('Funding', 'Funding information is provided on the separate title page in accordance with the journal’s double-blind '
              'review policy.' if anonymized else 'This research did not receive any specific grant from funding agencies in the '
              'public, commercial, or not-for-profit sectors.'),
-            ('Conflict of interest', 'The authors declare that they have no conflict of interest.')]
+            ('Conflict of interest', 'The author declares no conflict of interest.')]
     if not anonymized:
         decl.append(('Author contributions', CREDIT))
     decl.append(('Declaration of generative AI use', AI_USE))

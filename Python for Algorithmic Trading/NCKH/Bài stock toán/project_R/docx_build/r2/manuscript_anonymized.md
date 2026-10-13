@@ -685,11 +685,11 @@ Correlations between nested equity indices contain a component fixed by construc
 :::
 
 ::: {custom-style="p1a"}
-**Conflict of interest** The authors declare that they have no conflict of interest.
+**Conflict of interest** The author declares no conflict of interest.
 :::
 
 ::: {custom-style="p1a"}
-**Declaration of generative AI use** During the preparation of this work the authors used Claude (Anthropic) for language editing, reference searching and verification, translation of the analysis code into R and drafting of revisions, and Gemini (Google) to improve the language and readability of the manuscript. After using these tools, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
+**Declaration of generative AI use** During the preparation of this work the author used Claude (Anthropic) for language editing, reference searching and verification, translation of the analysis code into R and drafting of revisions, and Gemini (Google) to improve the language and readability of the manuscript. After using these tools, the author reviewed and edited the content as needed and takes full responsibility for the content of the publication.
 :::
 
 ::: {custom-style="heading1"}
