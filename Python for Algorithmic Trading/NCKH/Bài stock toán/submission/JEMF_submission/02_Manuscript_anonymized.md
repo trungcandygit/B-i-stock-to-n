@@ -1,5 +1,5 @@
 ::: {custom-style="Title"}
-How Much of a Nested Index Correlation Is Construction? A Scale-Wise Part–Whole Decomposition with Evidence from Vietnam
+How Much of a Nested Index Correlation Is Constructed? A Scale-Wise Part–Whole Decomposition with Evidence from Vietnam
 :::
 
 ::: {custom-style="abstract"}

@@ -52,6 +52,7 @@ bước của skill để ra bản thảo mạnh nhất.
 
 - Bản đang làm việc: nguồn chữ `project_R/docx_build/r2_text.py` + `r2_lit.py` + `build_r2.py`; dựng bằng
   `python3 build_r2.py` (ra `project_R/docx_build/r2/manuscript_with_authors.docx`, bản ẩn danh, supplement) và
-  `python3 build_jemf.py` (bộ hồ sơ JEMF tại `submission/JEMF_submission/`). Thứ tự tác giả: Binh, Trung*, Hanh, Diep.
+  `python3 build_jemf.py` (bộ hồ sơ JEMF tại `submission/JEMF_submission/`, đã bị desk reject) và `python3 build_saeb.py` (bộ hồ sơ SAEB tại
+  `submission/SAEB_submission/`, một tác giả: Nguyen Van Trung, National Economics University). Bản r2/JEMF: Binh, Trung*, Hanh, Diep.
 - Các bộ cũ (APFM_submission, Revised_submission, bản Hạnh 24.9) đã xoá khỏi cây thư mục; còn trong lịch sử git.
 - Nhật ký chỉnh sửa: `notes/AUDIT_LEDGER.md` — ghi lại mỗi vòng sửa.

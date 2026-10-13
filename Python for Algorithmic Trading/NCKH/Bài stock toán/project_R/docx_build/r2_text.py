@@ -122,7 +122,7 @@ blk_lo = min(F(r['ci_lo']) for r in BLK); blk_hi = max(F(r['ci_hi']) for r in BL
 w_heur = [F(OLS[t]['w_heur']) for t in TF]
 cr = CRISIS[:3]
 
-TITLE = ('How Much of a Nested Index Correlation Is Construction? A Scale-Wise Part–Whole Decomposition with '
+TITLE = ('How Much of a Nested Index Correlation Is Constructed? A Scale-Wise Part–Whole Decomposition with '
          'Evidence from Vietnam')
 
 ABSTRACT = (

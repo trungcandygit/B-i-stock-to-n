@@ -614,3 +614,19 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
   from the best-fit tolerant venues (APFM, RPBFMP) with a presubmission inquiry; the ease ranking in the shortlist stands.
 - D79 addendum: RPBFMP charges a USD 250 submission fee by mailed check (from the submission form); shortlist corrected.
 - D79 addendum 2: easy-only regional/commercial list (34 checked, 15 kept) appended to the shortlist.
+
+## D80 — SAEB package, single author (2026-10-13)
+- Target: Scientific Annals of Economics and Business (Romania; Scopus Q3; no submission or publication fee). Built by
+  project_R/docx_build/build_saeb.py into submission/SAEB_submission/: 01_Title_page.docx, 02_Manuscript_blinded.docx
+  (+ .md), 03_Supplementary_material.docx.
+- SAEB rules applied: A4, Times New Roman 10 pt, justified, single spacing, 0.75 cm first-line indent; abstract 211 words
+  (<= 250); 5 keywords ("portfolio risk" dropped); "JEL classification: C14, C58, G11, G15"; no footnotes; parenthetical
+  citations converted to "(Author, year)" (narrative "Author (year)" unchanged; reference list already APA);
+  "Online Resource 2" -> "the Supplementary Material"; blinded manuscript checked for author names, e-mail, affiliation.
+  LibreOffice page count: 25 A4 pages (<= 30).
+- Author change at the user's explicit request: single author Nguyen Van Trung, National Economics University, Hanoi,
+  Vietnam (e-mail 15233582@st.neu.edu.vn). Former co-authors (Binh, Hanh, Diep) are not listed; the user is responsible
+  for their agreement (SAEB checklist: all contributing authors must agree).
+- AI statement moved into Acknowledgments as SAEB requires; model versions left as "[add model version]" placeholders
+  because they are not known here.
+- Title corrected in r2_text.py from the author's edits: "Is Construction?" -> "Is Constructed?" (r2 and JEMF rebuilt).
