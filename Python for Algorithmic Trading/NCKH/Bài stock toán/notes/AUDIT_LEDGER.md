@@ -632,3 +632,11 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
 
 - D80 addendum: at the user's request all builds (r2, JEMF title page, SAEB) now list the single author Nguyen Van Trung,
   National Economics University, kontrungcany@gmail.com; CRediT and declarations switched to the singular.
+
+## D81 — APA 7 reference and citation formatting (2026-10-13)
+- r2_lit.apa_md(): italic journal name and volume (issue roman); italic titles for books, reports, legal documents and
+  press releases; italic book title for the chapter (Shapley 1953). Used by build_r2, build_jemf and build_saeb.
+- r2/reference.docx style "referenceitem": numbering removed (APA lists are unnumbered), hanging indent 0.75 cm, left
+  aligned, single spacing.
+- SAEB build: "&" between author names inside parentheses, e.g. "(Andersen & Bollerslev, 1997)"; narrative citations keep
+  "and". 16 distinct parenthetical citations converted; checks_v3 FAILED 0; 25 A4 pages.

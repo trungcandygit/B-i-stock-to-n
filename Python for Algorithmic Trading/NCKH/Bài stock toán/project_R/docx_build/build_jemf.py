@@ -7,7 +7,7 @@ import os, shutil, subprocess, sys
 S = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, S)
 import build_r2 as B
 import r2_text as TX
-from r2_lit import REFERENCES
+from r2_lit import REFERENCES, apa_md
 
 OUT = os.path.join(S, '..', '..', 'submission', 'JEMF_submission')
 FMT = 'markdown+subscript+superscript+tex_math_dollars+pipe_tables+fenced_divs+link_attributes'
@@ -32,7 +32,7 @@ def manuscript_md():
     md = [P('Title', TX.TITLE), P('abstract', '**Abstract** ' + B.inline(TX.ABSTRACT)),
           P('keywords', '**Keywords** ' + TX.KEYWORDS), P('keywords', '**JEL Classification** ' + TX.JEL),
           B.render(TX.body()), P('heading1', 'References')]
-    md += [P('referenceitem', r.replace('*', '\\*')) for r in REFERENCES]
+    md += [P('referenceitem', apa_md(r)) for r in REFERENCES]
     return '\n'.join(md)
 
 

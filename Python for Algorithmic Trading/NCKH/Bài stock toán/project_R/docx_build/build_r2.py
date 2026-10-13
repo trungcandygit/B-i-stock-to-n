@@ -8,7 +8,7 @@ from lxml import etree
 S = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, S)
 from lib_docx import W, M
 import r2_text as TX
-from r2_lit import REFERENCES
+from r2_lit import REFERENCES, apa_md
 
 REF_DOC = os.path.join(S, 'r2', 'reference.docx')     # copy of the authors' uploaded 02_Manuscript_Anonymized.docx
 FIG = os.path.join(os.environ.get('R2_OUT') or os.path.join(S, '..', 'outputs'), 'figures')
@@ -105,7 +105,7 @@ def manuscript(anonymized):
     decl.append(('Declaration of generative AI use', AI_USE))
     md += [para('p1a', f'**{k}** {v}') for k, v in decl]
     md.append(para('heading1', 'References'))
-    md += [para('referenceitem', r.replace('*', '\\*')) for r in REFERENCES]
+    md += [para('referenceitem', apa_md(r)) for r in REFERENCES]
     return '\n'.join(md)
 
 

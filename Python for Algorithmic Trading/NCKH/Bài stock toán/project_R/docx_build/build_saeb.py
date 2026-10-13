@@ -13,7 +13,7 @@ from lxml import etree
 S = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, S)
 import build_r2 as B
 import r2_text as TX
-from r2_lit import REFERENCES
+from r2_lit import REFERENCES, apa_md
 from lib_docx import W
 
 OUT = os.path.join(S, '..', '..', 'submission', 'SAEB_submission')
@@ -48,7 +48,9 @@ CIT = re.compile(r'(?<![\w])((?:[A-Z][A-Za-zÀ-ž’\'\-]*|al\.)) ((?:1[89]|20)\
 def apa_intext(md):
     def fix(m):
         return m.group(0) if re.fullmatch(MONTHS, m.group(1)) else f'{m.group(1)}, {m.group(2)}'
-    return CIT.sub(fix, md)
+    md = CIT.sub(fix, md)
+    # APA 7: "&" between author names inside parentheses ("Name and Name, 1997" occurs only in parenthetical form)
+    return re.sub(r"(?<=[A-Za-zÀ-ž’'.]) and (?=[A-Z][A-Za-zÀ-ž’'\- ]*?, (?:1[89]|20)\d\d)", ' & ', md)
 
 
 def manuscript_md():
@@ -57,7 +59,7 @@ def manuscript_md():
     md = [P('Title', TX.TITLE), P('abstract', '**Abstract** ' + B.inline(TX.ABSTRACT)),
           P('keywords', '**Keywords:** ' + KEYWORDS), P('keywords', '**JEL classification:** ' + JEL),
           apa_intext(body), P('heading1', 'References')]
-    md += [P('referenceitem', r.replace('*', '\\*')) for r in REFERENCES]
+    md += [P('referenceitem', apa_md(r)) for r in REFERENCES]
     return '\n'.join(md)
 
 
@@ -76,7 +78,7 @@ def supplement_md():
     return '\n'.join([P('Title', 'Supplementary Material: ' + TX.TITLE), apa_intext(B.render(blocks))])
 
 
-BODY_STYLES = {'Normal', 'BodyText', 'FirstParagraph', 'p', 'p1a', 'Compact', 'abstract0', 'keywords', 'referenceitem'}
+BODY_STYLES = {'Normal', 'BodyText', 'FirstParagraph', 'p', 'p1a', 'Compact', 'abstract0', 'keywords'}
 INDENT = {'p', 'p1a', 'BodyText', 'FirstParagraph'}
 
 

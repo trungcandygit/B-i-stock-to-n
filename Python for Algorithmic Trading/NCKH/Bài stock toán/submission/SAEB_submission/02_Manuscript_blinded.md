@@ -47,7 +47,7 @@ Five literatures bear on nested index correlations: part–whole correlation, de
 :::
 
 ::: {custom-style="p1a"}
-Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In psychometrics, the same arithmetic inflates item–total correlations, and Cureton (1966) gave a standard correction. Finance handles overlap through holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto, 2009), holdings-based risk models estimate exposures from constituents, and membership studies build comparison portfolios from stocks outside the index (Barberis et al., 2005). Users who observe only index levels lack a return-based counterpart.
+Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In psychometrics, the same arithmetic inflates item–total correlations, and Cureton (1966) gave a standard correction. Finance handles overlap through holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers & Petajisto, 2009), holdings-based risk models estimate exposures from constituents, and membership studies build comparison portfolios from stocks outside the index (Barberis et al., 2005). Users who observe only index levels lack a return-based counterpart.
 :::
 
 ::: {custom-style="heading2"}
@@ -55,7 +55,7 @@ Pearson (1897) showed that ratios sharing a denominator correlate even when thei
 :::
 
 ::: {custom-style="p1a"}
-DCCA extends detrended fluctuation analysis (Peng et al., 1994; Kantelhardt et al., 2002) to pairs of nonstationary series (Podobnik and Stanley, 2008). Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) proposed tests, and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average detrending (Jiang and Zhou, 2011; Kristoufek, 2014), sliding windows (Guedes et al., 2021), or partial correlations (Ge and Lin, 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al., 2021; Ge and Lin, 2021; Chen et al., 2024). Others track contagion (Okorie and Lin, 2021; Tilfani et al., 2021) or information flow (Zhou et al., 2025) and build scale-aware portfolios (Wang et al., 2021; Kakinaka et al., 2025). These studies treat the coefficient as economic dependence between disjoint assets; none analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale.
+DCCA extends detrended fluctuation analysis (Peng et al., 1994; Kantelhardt et al., 2002) to pairs of nonstationary series (Podobnik & Stanley, 2008). Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) proposed tests, and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average detrending (Jiang & Zhou, 2011; Kristoufek, 2014), sliding windows (Guedes et al., 2021), or partial correlations (Ge & Lin, 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al., 2021; Ge & Lin, 2021; Chen et al., 2024). Others track contagion (Okorie & Lin, 2021; Tilfani et al., 2021) or information flow (Zhou et al., 2025) and build scale-aware portfolios (Wang et al., 2021; Kakinaka et al., 2025). These studies treat the coefficient as economic dependence between disjoint assets; none analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale.
 :::
 
 ::: {custom-style="heading2"}
@@ -63,7 +63,7 @@ DCCA extends detrended fluctuation analysis (Peng et al., 1994; Kantelhardt et a
 :::
 
 ::: {custom-style="p1a"}
-Stocks added to the S&P 500 co-move more with the index (Barberis et al., 2005), Nikkei 225 stocks with larger weights co-move more with other index stocks (Greenwood, 2008), and regression-discontinuity and tracking-demand designs support the effect (Liao et al., 2022; DeCoste, 2025). This evidence is contested: much of the post-inclusion rise also appears in matched stocks that were not added (Chen et al., 2016), and the S&P 500 index effect has almost disappeared (Greenwood and Sammon, 2025). Membership-based co-movement is therefore a weak guide, even where the indices do not overlap. Our concern is the arithmetic overlap, which raises correlations even if investors do not trade differently.
+Stocks added to the S&P 500 co-move more with the index (Barberis et al., 2005), Nikkei 225 stocks with larger weights co-move more with other index stocks (Greenwood, 2008), and regression-discontinuity and tracking-demand designs support the effect (Liao et al., 2022; DeCoste, 2025). This evidence is contested: much of the post-inclusion rise also appears in matched stocks that were not added (Chen et al., 2016), and the S&P 500 index effect has almost disappeared (Greenwood & Sammon, 2025). Membership-based co-movement is therefore a weak guide, even where the indices do not overlap. Our concern is the arithmetic overlap, which raises correlations even if investors do not trade differently.
 :::
 
 ::: {custom-style="heading2"}
@@ -71,7 +71,7 @@ Stocks added to the S&P 500 co-move more with the index (Barberis et al., 2005),
 :::
 
 ::: {custom-style="p1a"}
-Large-firm returns lead small-firm returns (Lo and MacKinlay, 1990), a pattern Hou (2007) traces to the slow diffusion of industry information. Non-synchronous trading depresses short-horizon correlations (Epps, 1979), an effect whose size depends on the sampling scheme (Chang et al., 2021), and gradual diffusion (Hong and Stein, 1999) allows co-movement to build with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al., 2021), and price adjustment is delayed under retail-heavy trading (Tran and Tran, 2025). Three forces raise all correlations at once: herding in stress (Nguyen et al., 2023), sector connectedness above 60% that rose to near 90% during COVID-19 (Bui et al., 2022), and nonlinear regional dependence (Le et al., 2025).
+Large-firm returns lead small-firm returns (Lo & MacKinlay, 1990), a pattern Hou (2007) traces to the slow diffusion of industry information. Non-synchronous trading depresses short-horizon correlations (Epps, 1979), an effect whose size depends on the sampling scheme (Chang et al., 2021), and gradual diffusion (Hong & Stein, 1999) allows co-movement to build with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al., 2021), and price adjustment is delayed under retail-heavy trading (Tran & Tran, 2025). Three forces raise all correlations at once: herding in stress (Nguyen et al., 2023), sector connectedness above 60% that rose to near 90% during COVID-19 (Bui et al., 2022), and nonlinear regional dependence (Le et al., 2025).
 :::
 
 ::: {custom-style="heading2"}
@@ -79,7 +79,7 @@ Large-firm returns lead small-firm returns (Lo and MacKinlay, 1990), a pattern H
 :::
 
 ::: {custom-style="p1a"}
-Equity correlations rise in downturns (Longin and Solnik, 2001; Ang and Chen, 2002), but they also rise mechanically with the variance of the conditioning market; thus, a crisis increase may reflect interdependence rather than contagion (Forbes and Rigobon, 2002). The correction can itself be biased toward no contagion because it restricts the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the correction report COVID-19 contagion (Akhtaruzzaman et al., 2021; Guo et al., 2021; Benkraiem et al., 2022). A DCCA test finds it for some commodity pairs but not others (Santana et al., 2023), and ASEAN integration varies with trade links and volatility (Abdul Karim and Xin Ning, 2013; Lean and Teng, 2013).
+Equity correlations rise in downturns (Longin & Solnik, 2001; Ang & Chen, 2002), but they also rise mechanically with the variance of the conditioning market; thus, a crisis increase may reflect interdependence rather than contagion (Forbes & Rigobon, 2002). The correction can itself be biased toward no contagion because it restricts the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the correction report COVID-19 contagion (Akhtaruzzaman et al., 2021; Guo et al., 2021; Benkraiem et al., 2022). A DCCA test finds it for some commodity pairs but not others (Santana et al., 2023), and ASEAN integration varies with trade links and volatility (Abdul Karim & Xin Ning, 2013; Lean & Teng, 2013).
 :::
 
 ::: {custom-style="heading2"}
@@ -125,9 +125,9 @@ Lemma 1 (Section 4.2) fixes some quantities once the weight and relative amplitu
 
 *H~1~ (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical question. Rule: at every frequency, the lower 95% bound of the like-for-like gap exceeds 0.05, the estimation tolerance of Section 4.4; the gap is VN30–VN100 minus P~cap~–VN30 (P~cap~ is the overlap-purged mid-cap series).
 
-*H~2~ (horizon dependence).* Large caps lead small caps (Lo and MacKinlay, 1990; Hou, 2007), non-synchronous trading depresses short-horizon correlations (Epps, 1979) and information diffuses gradually (Hong and Stein, 1999). Broad-market coefficients should therefore rise with the timescale, whereas the identity predicts a damped VN30–VN100 slope. Rule: among eight broad-market slope tests, at least one pair at each of M30 and H1 has a positive slope with a Holm-adjusted studentized p-value below 0.05. We also report robustness to removing the opening bar and an equivalence test for VN30–VN100.
+*H~2~ (horizon dependence).* Large caps lead small caps (Lo & MacKinlay, 1990; Hou, 2007), non-synchronous trading depresses short-horizon correlations (Epps, 1979) and information diffuses gradually (Hong & Stein, 1999). Broad-market coefficients should therefore rise with the timescale, whereas the identity predicts a damped VN30–VN100 slope. Rule: among eight broad-market slope tests, at least one pair at each of M30 and H1 has a positive slope with a Holm-adjusted studentized p-value below 0.05. We also report robustness to removing the opening bar and an equivalence test for VN30–VN100.
 
-*H~3~ (contagion).* Raw crisis correlations rise with volatility alone (Forbes and Rigobon, 2002), and the volatility correction is biased toward no contagion when idiosyncratic variance rises (Corsetti et al., 2005). Rule: under VN30 volatility regimes, the adjusted correlation of P~cap~ and VN30 exceeds its calm level (one-sided p < 0.05) and the loading of P~cap~ on VN30 rises (two-sided p < 0.05).
+*H~3~ (contagion).* Raw crisis correlations rise with volatility alone (Forbes & Rigobon, 2002), and the volatility correction is biased toward no contagion when idiosyncratic variance rises (Corsetti et al., 2005). Rule: under VN30 volatility regimes, the adjusted correlation of P~cap~ and VN30 exceeds its calm level (one-sided p < 0.05) and the loading of P~cap~ on VN30 rises (two-sided p < 0.05).
 
 *H~4~ (value of regime conditioning).* Rule: an exponentially weighted moving average (EWMA) or real-time regime correlation has a lower quasi-likelihood (QLIKE) loss than the static correlation over 2023–2025, with a Diebold–Mariano p-value below 0.05. We fixed these rules, the eight-test family, and the factor-loading test at revision after the first-round results were known. We also report the original specifications.
 
@@ -177,7 +177,7 @@ Notes: Shaded areas: three chronological crisis episodes; dashed and dotted hori
 :::
 
 ::: {custom-style="p1a"}
-The DCCA coefficient measures the correlation at timescale s after removing local trends (Podobnik and Stanley, 2008; Zebende, 2011). For return series x and y of length N, the profiles are
+The DCCA coefficient measures the correlation at timescale s after removing local trends (Podobnik & Stanley, 2008; Zebende, 2011). For return series x and y of length N, the profiles are
 :::
 
 $$
@@ -287,7 +287,7 @@ so large-cap returns leak into P~cap~ in proportion to the weight error w~t~ −
 The DCCA coefficient becomes noisy at large scales, where the boxes are few. For each sample size, we simulate Gaussian white-noise pairs with correlations of −0.3, 0, 0.3, 0.5, 0.7, and 0.9 (1,002 per frequency) and set s~rel~ to the largest scale before the worst-case mean absolute error on 40 log-spaced scales first exceeds 0.05. We fixed the grid and tolerance in advance. A GARCH(1,1)-t(5) calibration (generalized autoregressive conditional heteroscedasticity with Student-t errors; 300 simulations) checks heavy tails.
 :::
 
-Because the coefficients at different scales come from the same series, all inference uses the stationary block bootstrap (Politis and Romano, 1994) with mean blocks of approximately 20 trading days, recomputing every curve and statistic in each replicate. We use 499 replicates for the DCCA statistics in Tables 4–6 and for the decomposition, hedge-effectiveness, and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag, and materiality (Table S14) statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights, and with 2021 added. The remaining Forbes–Rigobon and relative-error statistics use 1,999 replicates.
+Because the coefficients at different scales come from the same series, all inference uses the stationary block bootstrap (Politis & Romano, 1994) with mean blocks of approximately 20 trading days, recomputing every curve and statistic in each replicate. We use 499 replicates for the DCCA statistics in Tables 4–6 and for the decomposition, hedge-effectiveness, and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag, and materiality (Table S14) statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights, and with 2021 added. The remaining Forbes–Rigobon and relative-error statistics use 1,999 replicates.
 
 Intervals are 95% percentile intervals, capped at ±1 for correlations. With B = 499 replicates, percentile p-values cannot fall below 0.004 (reported as p < 0.005): p = 2 min{k₋ + 1, k₊ + 1}/(B + 1), where k₋ and k₊ count replicates at or below and at or above zero. With 19 tests, the smallest attainable Holm-adjusted value is 0.076. One-sided Forbes–Rigobon p-values use the re-centered bootstrap distribution, and p-values for Δβ and the residual-variance ratio are studentized. Because of the resolution limit, slope tests also use studentized p-values, 2Φ(−\|β̂\|/se~boot~), adjusted by the Holm (1979) and Benjamini and Hochberg (1995) procedures in two families: the original 19 reliable-range tests and the eight broad-market tests of H~2~. We test equivalence of the VN30–VN100 slope to zero with two one-sided tests (TOST; Schuirmann, 1987) and a margin of 0.001 per unit of ln s. Over the 4.5 units of the M30 reliable range, such a slope moves the coefficient by less than a tenth of the 0.05 tolerance.
 
@@ -531,7 +531,7 @@ Positive slopes appear only for broad-market pairs at M30 and H1. In the H~2~ fa
 
 Eq. (14) explains the flat nested slope: the damping factor (the sensitivity) is 0.106–0.112, at M30 and H1 the κ channel partly offsets the ρ~AM~ channel, and the implied slope differs from the observed one by at most 0.8 × 10⁻⁵ (Table S13). A flat nested coefficient therefore says little about the tiers.
 
-The auction bars drive intraday results. The opening bar, where intraday volatility peaks (Andersen and Bollerslev, 1997), accounts for 10% of M30 bars but carries 37% of squared VN30 returns. The last bar holds the closing auction (Table S7). Without the opening bar, the H1 broad-market slopes fall to 0.0003 and −0.0005, and at M30 only VN30–VNINDEX stays significant (0.0020, p = 0.031). Without both auction bars, the M30 slopes are −0.00002 and −0.0002. Within the same replicates, the broad-market slopes exceed the VN30–VN100 slope at M30 and H1 (differences 0.0018–0.0024, p ≤ 0.003), but the differences vanish without the auction bars. The three-pair gap does not change (0.107 [0.094, 0.127] at M30 without the opening bar), and the slope intervals are stable across block lengths (Table S15). Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of continuous trading.
+The auction bars drive intraday results. The opening bar, where intraday volatility peaks (Andersen & Bollerslev, 1997), accounts for 10% of M30 bars but carries 37% of squared VN30 returns. The last bar holds the closing auction (Table S7). Without the opening bar, the H1 broad-market slopes fall to 0.0003 and −0.0005, and at M30 only VN30–VNINDEX stays significant (0.0020, p = 0.031). Without both auction bars, the M30 slopes are −0.00002 and −0.0002. Within the same replicates, the broad-market slopes exceed the VN30–VN100 slope at M30 and H1 (differences 0.0018–0.0024, p ≤ 0.003), but the differences vanish without the auction bars. The three-pair gap does not change (0.107 [0.094, 0.127] at M30 without the opening bar), and the slope intervals are stable across block lengths (Table S15). Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of continuous trading.
 
 ::: {custom-style="heading2"}
 5.5 Crisis dependence (H~3~)
@@ -640,7 +640,7 @@ Notes: Decision rules for H~1~–H~4~ in Section 2.7; all tests at the 5% level;
 Because a child’s variation enters every covariance and both standard deviations of a nested pair, Lemma 1 pins the coefficient near a benchmark set by the weight and relative amplitude. With VN30 at 68% of VN100, the benchmark is near 0.90 and the bound near 0.87, so the observed 0.99 says little about how mid caps move with large caps.
 :::
 
-The purged series has the features that the size literature predicts. Daily VN30 returns lead P~cap~ returns (cross-autocorrelation 0.084, [0.028, 0.136]) while the reverse is negligible (0.007), an asymmetry of 0.076 [0.048, 0.102]; at intraday frequencies, the lead is symmetric (Table S9). The auction-bar horizon dependence of broad-market pairs fits the Epps (1979) effect for small, less liquid stocks (Chen et al., 2021; Tran and Tran, 2025). The higher loading on high-volatility days has several candidate sources that our data cannot rank: herding (Nguyen et al., 2023) and sector connectedness (Bui et al., 2022), limit hits under the ±7% band, margin calls, and foreign flows into large caps.
+The purged series has the features that the size literature predicts. Daily VN30 returns lead P~cap~ returns (cross-autocorrelation 0.084, [0.028, 0.136]) while the reverse is negligible (0.007), an asymmetry of 0.076 [0.048, 0.102]; at intraday frequencies, the lead is symmetric (Table S9). The auction-bar horizon dependence of broad-market pairs fits the Epps (1979) effect for small, less liquid stocks (Chen et al., 2021; Tran & Tran, 2025). The higher loading on high-volatility days has several candidate sources that our data cannot rank: herding (Nguyen et al., 2023) and sector connectedness (Bui et al., 2022), limit hits under the ±7% band, margin calls, and foreign flows into large caps.
 
 ::: {custom-style="heading2"}
 6.2 Implications
@@ -673,269 +673,269 @@ References
 :::
 
 ::: {custom-style="referenceitem"}
-Abdul Karim, B., & Xin Ning, H. (2013). Driving forces of the ASEAN-5 stock markets integration. Asia-Pacific Journal of Business Administration, 5(3), 186–191. https://doi.org/10.1108/APJBA-07-2012-0053
+Abdul Karim, B., & Xin Ning, H. (2013). Driving forces of the ASEAN-5 stock markets integration. *Asia-Pacific Journal of Business Administration*, *5*(3), 186–191. https://doi.org/10.1108/APJBA-07-2012-0053
 :::
 
 ::: {custom-style="referenceitem"}
-Akhtaruzzaman, M., Boubaker, S., & Sensoy, A. (2021). Financial contagion during COVID–19 crisis. Finance Research Letters, 38, 101604. https://doi.org/10.1016/j.frl.2020.101604
+Akhtaruzzaman, M., Boubaker, S., & Sensoy, A. (2021). Financial contagion during COVID–19 crisis. *Finance Research Letters*, *38*, 101604. https://doi.org/10.1016/j.frl.2020.101604
 :::
 
 ::: {custom-style="referenceitem"}
-Al Rababa’a, A. R., Alomari, M., & McMillan, D. (2021). Multiscale stock-bond correlation: Implications for risk management. Research in International Business and Finance, 58, 101435. https://doi.org/10.1016/j.ribaf.2021.101435
+Al Rababa’a, A. R., Alomari, M., & McMillan, D. (2021). Multiscale stock-bond correlation: Implications for risk management. *Research in International Business and Finance*, *58*, 101435. https://doi.org/10.1016/j.ribaf.2021.101435
 :::
 
 ::: {custom-style="referenceitem"}
-Andersen, T. G., & Bollerslev, T. (1997). Intraday periodicity and volatility persistence in financial markets. Journal of Empirical Finance, 4(2–3), 115–158. https://doi.org/10.1016/S0927-5398(97)00004-2
+Andersen, T. G., & Bollerslev, T. (1997). Intraday periodicity and volatility persistence in financial markets. *Journal of Empirical Finance*, *4*(2–3), 115–158. https://doi.org/10.1016/S0927-5398(97)00004-2
 :::
 
 ::: {custom-style="referenceitem"}
-Ang, A., & Chen, J. (2002). Asymmetric correlations of equity portfolios. Journal of Financial Economics, 63(3), 443–494. https://doi.org/10.1016/S0304-405X(02)00068-5
+Ang, A., & Chen, J. (2002). Asymmetric correlations of equity portfolios. *Journal of Financial Economics*, *63*(3), 443–494. https://doi.org/10.1016/S0304-405X(02)00068-5
 :::
 
 ::: {custom-style="referenceitem"}
-Barberis, N., Shleifer, A., & Wurgler, J. (2005). Comovement. Journal of Financial Economics, 75(2), 283–317. https://doi.org/10.1016/j.jfineco.2004.04.003
+Barberis, N., Shleifer, A., & Wurgler, J. (2005). Comovement. *Journal of Financial Economics*, *75*(2), 283–317. https://doi.org/10.1016/j.jfineco.2004.04.003
 :::
 
 ::: {custom-style="referenceitem"}
-Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. Journal of the Royal Statistical Society: Series B (Methodological), 57(1), 289–300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
+Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. *Journal of the Royal Statistical Society: Series B (Methodological)*, *57*(1), 289–300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
 :::
 
 ::: {custom-style="referenceitem"}
-Benkraiem, R., Garfatta, R., Lakhal, F., & Zorgati, I. (2022). Financial contagion intensity during the COVID-19 outbreak: A copula approach. International Review of Financial Analysis, 81, 102136. https://doi.org/10.1016/j.irfa.2022.102136
+Benkraiem, R., Garfatta, R., Lakhal, F., & Zorgati, I. (2022). Financial contagion intensity during the COVID-19 outbreak: A copula approach. *International Review of Financial Analysis*, *81*, 102136. https://doi.org/10.1016/j.irfa.2022.102136
 :::
 
 ::: {custom-style="referenceitem"}
-Bui, H. Q., Tran, T., Pham, T. T., Nguyen, H. L.-P., & Vo, D. H. (2022). Market volatility and spillover across 24 sectors in Vietnam. Cogent Economics & Finance, 10(1), 2122188. https://doi.org/10.1080/23322039.2022.2122188
+Bui, H. Q., Tran, T., Pham, T. T., Nguyen, H. L.-P., & Vo, D. H. (2022). Market volatility and spillover across 24 sectors in Vietnam. *Cogent Economics & Finance*, *10*(1), 2122188. https://doi.org/10.1080/23322039.2022.2122188
 :::
 
 ::: {custom-style="referenceitem"}
-Chang, P., Pienaar, E., & Gebbie, T. (2021). The Epps effect under alternative sampling schemes. Physica A: Statistical Mechanics and its Applications, 583, 126329. https://doi.org/10.1016/j.physa.2021.126329
+Chang, P., Pienaar, E., & Gebbie, T. (2021). The Epps effect under alternative sampling schemes. *Physica A: Statistical Mechanics and its Applications*, *583*, 126329. https://doi.org/10.1016/j.physa.2021.126329
 :::
 
 ::: {custom-style="referenceitem"}
-Chen, H., Singal, V., & Whitelaw, R. F. (2016). Comovement revisited. Journal of Financial Economics, 121(3), 624–644. https://doi.org/10.1016/j.jfineco.2016.05.007
+Chen, H., Singal, V., & Whitelaw, R. F. (2016). Comovement revisited. *Journal of Financial Economics*, *121*(3), 624–644. https://doi.org/10.1016/j.jfineco.2016.05.007
 :::
 
 ::: {custom-style="referenceitem"}
-Chen, R., Geng, H., Lin, H., & Nguyen, P. T. L. (2021). Liquidity, informed trading, and a market surveillance system: Evidence from the Vietnamese stock market. Pacific-Basin Finance Journal, 67, 101567. https://doi.org/10.1016/j.pacfin.2021.101567
+Chen, R., Geng, H., Lin, H., & Nguyen, P. T. L. (2021). Liquidity, informed trading, and a market surveillance system: Evidence from the Vietnamese stock market. *Pacific-Basin Finance Journal*, *67*, 101567. https://doi.org/10.1016/j.pacfin.2021.101567
 :::
 
 ::: {custom-style="referenceitem"}
-Chen, Y., Zhang, J., Lu, L., & Xie, Z. (2024). Cross-correlation and multifractality analysis of the Chinese and American stock markets based on the MF-DCCA model. Heliyon, 10(17), e36537. https://doi.org/10.1016/j.heliyon.2024.e36537
+Chen, Y., Zhang, J., Lu, L., & Xie, Z. (2024). Cross-correlation and multifractality analysis of the Chinese and American stock markets based on the MF-DCCA model. *Heliyon*, *10*(17), e36537. https://doi.org/10.1016/j.heliyon.2024.e36537
 :::
 
 ::: {custom-style="referenceitem"}
-Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd ed.). Lawrence Erlbaum Associates. https://doi.org/10.4324/9780203771587
+Cohen, J. (1988). *Statistical power analysis for the behavioral sciences* (2nd ed.). Lawrence Erlbaum Associates. https://doi.org/10.4324/9780203771587
 :::
 
 ::: {custom-style="referenceitem"}
-Corsetti, G., Pericoli, M., & Sbracia, M. (2005). ‘Some contagion, some interdependence’: More pitfalls in tests of financial contagion. Journal of International Money and Finance, 24(8), 1177–1199. https://doi.org/10.1016/j.jimonfin.2005.08.012
+Corsetti, G., Pericoli, M., & Sbracia, M. (2005). ‘Some contagion, some interdependence’: More pitfalls in tests of financial contagion. *Journal of International Money and Finance*, *24*(8), 1177–1199. https://doi.org/10.1016/j.jimonfin.2005.08.012
 :::
 
 ::: {custom-style="referenceitem"}
-Cremers, K. J. M., & Petajisto, A. (2009). How active is your fund manager? A new measure that predicts performance. The Review of Financial Studies, 22(9), 3329–3365. https://doi.org/10.1093/rfs/hhp057
+Cremers, K. J. M., & Petajisto, A. (2009). How active is your fund manager? A new measure that predicts performance. *The Review of Financial Studies*, *22*(9), 3329–3365. https://doi.org/10.1093/rfs/hhp057
 :::
 
 ::: {custom-style="referenceitem"}
-Cureton, E. E. (1966). Corrected item-test correlations. Psychometrika, 31(1), 93–96. https://doi.org/10.1007/BF02289461
+Cureton, E. E. (1966). Corrected item-test correlations. *Psychometrika*, *31*(1), 93–96. https://doi.org/10.1007/BF02289461
 :::
 
 ::: {custom-style="referenceitem"}
-DeCoste, J. (2025). Comovement and S&P 500 membership. Global Finance Journal, 65, 101110. https://doi.org/10.1016/j.gfj.2025.101110
+DeCoste, J. (2025). Comovement and S&P 500 membership. *Global Finance Journal*, *65*, 101110. https://doi.org/10.1016/j.gfj.2025.101110
 :::
 
 ::: {custom-style="referenceitem"}
-Diebold, F. X., & Mariano, R. S. (1995). Comparing predictive accuracy. Journal of Business & Economic Statistics, 13(3), 253–263. https://doi.org/10.1080/07350015.1995.10524599
+Diebold, F. X., & Mariano, R. S. (1995). Comparing predictive accuracy. *Journal of Business & Economic Statistics*, *13*(3), 253–263. https://doi.org/10.1080/07350015.1995.10524599
 :::
 
 ::: {custom-style="referenceitem"}
-Ederington, L. H. (1979). The hedging performance of the new futures markets. The Journal of Finance, 34(1), 157–170. https://doi.org/10.1111/j.1540-6261.1979.tb02077.x
+Ederington, L. H. (1979). The hedging performance of the new futures markets. *The Journal of Finance*, *34*(1), 157–170. https://doi.org/10.1111/j.1540-6261.1979.tb02077.x
 :::
 
 ::: {custom-style="referenceitem"}
-Epps, T. W. (1979). Comovements in stock prices in the very short run. Journal of the American Statistical Association, 74(366), 291–298. https://doi.org/10.1080/01621459.1979.10482508
+Epps, T. W. (1979). Comovements in stock prices in the very short run. *Journal of the American Statistical Association*, *74*(366), 291–298. https://doi.org/10.1080/01621459.1979.10482508
 :::
 
 ::: {custom-style="referenceitem"}
-Forbes, K. J., & Rigobon, R. (2002). No contagion, only interdependence: Measuring stock market comovements. The Journal of Finance, 57(5), 2223–2261. https://doi.org/10.1111/0022-1082.00494
+Forbes, K. J., & Rigobon, R. (2002). No contagion, only interdependence: Measuring stock market comovements. *The Journal of Finance*, *57*(5), 2223–2261. https://doi.org/10.1111/0022-1082.00494
 :::
 
 ::: {custom-style="referenceitem"}
-FTSE Russell. (2025, October 7). FTSE Russell announces results of September 2025 semi-annual country classification review [Press release]. London Stock Exchange Group. https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2025/ftse-russell-country-classification-september-2025
+FTSE Russell. (2025, October 7). *FTSE Russell announces results of September 2025 semi-annual country classification review* [Press release]. London Stock Exchange Group. https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2025/ftse-russell-country-classification-september-2025
 :::
 
 ::: {custom-style="referenceitem"}
-Ge, X., & Lin, A. (2021). Multiscale multifractal detrended partial cross-correlation analysis of Chinese and American stock markets. Chaos, Solitons & Fractals, 145, 110731. https://doi.org/10.1016/j.chaos.2021.110731
+Ge, X., & Lin, A. (2021). Multiscale multifractal detrended partial cross-correlation analysis of Chinese and American stock markets. *Chaos, Solitons & Fractals*, *145*, 110731. https://doi.org/10.1016/j.chaos.2021.110731
 :::
 
 ::: {custom-style="referenceitem"}
-Government of Vietnam. (2020). Decree No. 155/2020/ND-CP of 31 December 2020 detailing and guiding the implementation of a number of articles of the Law on Securities. Hanoi.
+Government of Vietnam. (2020). *Decree No. 155/2020/ND-CP of 31 December 2020 detailing and guiding the implementation of a number of articles of the Law on Securities*. Hanoi.
 :::
 
 ::: {custom-style="referenceitem"}
-Government of Vietnam. (2025). Decree No. 245/2025/ND-CP of 11 September 2025 amending and supplementing a number of articles of Decree No. 155/2020/ND-CP. Hanoi.
+Government of Vietnam. (2025). *Decree No. 245/2025/ND-CP of 11 September 2025 amending and supplementing a number of articles of Decree No. 155/2020/ND-CP*. Hanoi.
 :::
 
 ::: {custom-style="referenceitem"}
-Greenwood, R. (2008). Excess comovement of stock returns: Evidence from cross-sectional variation in Nikkei 225 weights. The Review of Financial Studies, 21(3), 1153–1186. https://doi.org/10.1093/rfs/hhm052
+Greenwood, R. (2008). Excess comovement of stock returns: Evidence from cross-sectional variation in Nikkei 225 weights. *The Review of Financial Studies*, *21*(3), 1153–1186. https://doi.org/10.1093/rfs/hhm052
 :::
 
 ::: {custom-style="referenceitem"}
-Greenwood, R., & Sammon, M. (2025). The disappearing index effect. The Journal of Finance, 80(2), 657–698. https://doi.org/10.1111/jofi.13410
+Greenwood, R., & Sammon, M. (2025). The disappearing index effect. *The Journal of Finance*, *80*(2), 657–698. https://doi.org/10.1111/jofi.13410
 :::
 
 ::: {custom-style="referenceitem"}
-Guedes, E. F., da Silva Filho, A. M., & Zebende, G. F. (2021). Detrended multiple cross-correlation coefficient with sliding windows approach. Physica A: Statistical Mechanics and its Applications, 574, 125990. https://doi.org/10.1016/j.physa.2021.125990
+Guedes, E. F., da Silva Filho, A. M., & Zebende, G. F. (2021). Detrended multiple cross-correlation coefficient with sliding windows approach. *Physica A: Statistical Mechanics and its Applications*, *574*, 125990. https://doi.org/10.1016/j.physa.2021.125990
 :::
 
 ::: {custom-style="referenceitem"}
-Guo, Y., Li, P., & Li, A. (2021). Tail risk contagion between international financial markets during COVID-19 pandemic. International Review of Financial Analysis, 73, 101649. https://doi.org/10.1016/j.irfa.2020.101649
+Guo, Y., Li, P., & Li, A. (2021). Tail risk contagion between international financial markets during COVID-19 pandemic. *International Review of Financial Analysis*, *73*, 101649. https://doi.org/10.1016/j.irfa.2020.101649
 :::
 
 ::: {custom-style="referenceitem"}
-Ho Chi Minh City Stock Exchange. (2022, September 29). Listing and official trading of DCVFMVNMIDCAP ETF fund certificates [Press release]. HOSE.
+Ho Chi Minh City Stock Exchange. (2022, September 29). *Listing and official trading of DCVFMVNMIDCAP ETF fund certificates* [Press release]. HOSE.
 :::
 
 ::: {custom-style="referenceitem"}
-Holm, S. (1979). A simple sequentially rejective multiple test procedure. Scandinavian Journal of Statistics, 6(2), 65–70. https://www.jstor.org/stable/4615733
+Holm, S. (1979). A simple sequentially rejective multiple test procedure. *Scandinavian Journal of Statistics*, *6*(2), 65–70. https://www.jstor.org/stable/4615733
 :::
 
 ::: {custom-style="referenceitem"}
-Hong, H., & Stein, J. C. (1999). A unified theory of underreaction, momentum trading, and overreaction in asset markets. The Journal of Finance, 54(6), 2143–2184. https://doi.org/10.1111/0022-1082.00184
+Hong, H., & Stein, J. C. (1999). A unified theory of underreaction, momentum trading, and overreaction in asset markets. *The Journal of Finance*, *54*(6), 2143–2184. https://doi.org/10.1111/0022-1082.00184
 :::
 
 ::: {custom-style="referenceitem"}
-Hou, K. (2007). Industry information diffusion and the lead-lag effect in stock returns. The Review of Financial Studies, 20(4), 1113–1138. https://doi.org/10.1093/rfs/hhm003
+Hou, K. (2007). Industry information diffusion and the lead-lag effect in stock returns. *The Review of Financial Studies*, *20*(4), 1113–1138. https://doi.org/10.1093/rfs/hhm003
 :::
 
 ::: {custom-style="referenceitem"}
-J.P. Morgan/Reuters. (1996). RiskMetrics: Technical document (4th ed.). Morgan Guaranty Trust Company.
+J.P. Morgan/Reuters. (1996). *RiskMetrics: Technical document* (4th ed.). Morgan Guaranty Trust Company.
 :::
 
 ::: {custom-style="referenceitem"}
-Jiang, Z.-Q., & Zhou, W.-X. (2011). Multifractal detrending moving-average cross-correlation analysis. Physical Review E, 84(1), 016106. https://doi.org/10.1103/PhysRevE.84.016106
+Jiang, Z.-Q., & Zhou, W.-X. (2011). Multifractal detrending moving-average cross-correlation analysis. *Physical Review E*, *84*(1), 016106. https://doi.org/10.1103/PhysRevE.84.016106
 :::
 
 ::: {custom-style="referenceitem"}
-Kakinaka, S., Hayakawa, T., Kato, D., & Umeno, K. (2025). Fractal portfolio strategies: Does scale preference of investors matter? Applied Economics Letters, 32(3), 415–421. https://doi.org/10.1080/13504851.2023.2274298
+Kakinaka, S., Hayakawa, T., Kato, D., & Umeno, K. (2025). Fractal portfolio strategies: Does scale preference of investors matter? *Applied Economics Letters*, *32*(3), 415–421. https://doi.org/10.1080/13504851.2023.2274298
 :::
 
 ::: {custom-style="referenceitem"}
-Kantelhardt, J. W., Zschiegner, S. A., Koscielny-Bunde, E., Havlin, S., Bunde, A., & Stanley, H. E. (2002). Multifractal detrended fluctuation analysis of nonstationary time series. Physica A: Statistical Mechanics and its Applications, 316(1–4), 87–114. https://doi.org/10.1016/S0378-4371(02)01383-3
+Kantelhardt, J. W., Zschiegner, S. A., Koscielny-Bunde, E., Havlin, S., Bunde, A., & Stanley, H. E. (2002). Multifractal detrended fluctuation analysis of nonstationary time series. *Physica A: Statistical Mechanics and its Applications*, *316*(1–4), 87–114. https://doi.org/10.1016/S0378-4371(02)01383-3
 :::
 
 ::: {custom-style="referenceitem"}
-Kristoufek, L. (2014). Detrending moving-average cross-correlation coefficient: Measuring cross-correlations between non-stationary series. Physica A: Statistical Mechanics and its Applications, 406, 169–175. https://doi.org/10.1016/j.physa.2014.03.015
+Kristoufek, L. (2014). Detrending moving-average cross-correlation coefficient: Measuring cross-correlations between non-stationary series. *Physica A: Statistical Mechanics and its Applications*, *406*, 169–175. https://doi.org/10.1016/j.physa.2014.03.015
 :::
 
 ::: {custom-style="referenceitem"}
-Le, T. T. V., Dang, T. P. T., & Phan, T. H. N. (2025). The nonlinear dependence of the Vietnam stock market on the Asian stock market: Evidence from a quantile-on-quantile regression. International Journal of Innovative Research and Scientific Studies, 8(4), 535–553. https://doi.org/10.53894/ijirss.v8i4.7901
+Le, T. T. V., Dang, T. P. T., & Phan, T. H. N. (2025). The nonlinear dependence of the Vietnam stock market on the Asian stock market: Evidence from a quantile-on-quantile regression. *International Journal of Innovative Research and Scientific Studies*, *8*(4), 535–553. https://doi.org/10.53894/ijirss.v8i4.7901
 :::
 
 ::: {custom-style="referenceitem"}
-Lean, H. H., & Teng, K. T. (2013). Integration of world leaders and emerging powers into the Malaysian stock market: A DCC-MGARCH approach. Economic Modelling, 32, 333–342. https://doi.org/10.1016/j.econmod.2013.02.013
+Lean, H. H., & Teng, K. T. (2013). Integration of world leaders and emerging powers into the Malaysian stock market: A DCC-MGARCH approach. *Economic Modelling*, *32*, 333–342. https://doi.org/10.1016/j.econmod.2013.02.013
 :::
 
 ::: {custom-style="referenceitem"}
-Liao, Y., Coakley, J., & Kellard, N. (2022). Index tracking and beta arbitrage effects in comovement. International Review of Financial Analysis, 83, 102330. https://doi.org/10.1016/j.irfa.2022.102330
+Liao, Y., Coakley, J., & Kellard, N. (2022). Index tracking and beta arbitrage effects in comovement. *International Review of Financial Analysis*, *83*, 102330. https://doi.org/10.1016/j.irfa.2022.102330
 :::
 
 ::: {custom-style="referenceitem"}
-Lo, A. W., & MacKinlay, A. C. (1990). When are contrarian profits due to stock market overreaction? The Review of Financial Studies, 3(2), 175–205. https://doi.org/10.1093/rfs/3.2.175
+Lo, A. W., & MacKinlay, A. C. (1990). When are contrarian profits due to stock market overreaction? *The Review of Financial Studies*, *3*(2), 175–205. https://doi.org/10.1093/rfs/3.2.175
 :::
 
 ::: {custom-style="referenceitem"}
-Longin, F., & Solnik, B. (2001). Extreme correlation of international equity markets. The Journal of Finance, 56(2), 649–676. https://doi.org/10.1111/0022-1082.00340
+Longin, F., & Solnik, B. (2001). Extreme correlation of international equity markets. *The Journal of Finance*, *56*(2), 649–676. https://doi.org/10.1111/0022-1082.00340
 :::
 
 ::: {custom-style="referenceitem"}
-Markowitz, H. (1952). Portfolio selection. The Journal of Finance, 7(1), 77–91. https://doi.org/10.1111/j.1540-6261.1952.tb01525.x
+Markowitz, H. (1952). Portfolio selection. *The Journal of Finance*, *7*(1), 77–91. https://doi.org/10.1111/j.1540-6261.1952.tb01525.x
 :::
 
 ::: {custom-style="referenceitem"}
-Ministry of Finance of Vietnam. (2020). Circular No. 120/2020/TT-BTC of 31 December 2020 on trading of listed and registered shares, fund certificates, corporate bonds and covered warrants listed on the securities trading system. Hanoi.
+Ministry of Finance of Vietnam. (2020). *Circular No. 120/2020/TT-BTC of 31 December 2020 on trading of listed and registered shares, fund certificates, corporate bonds and covered warrants listed on the securities trading system*. Hanoi.
 :::
 
 ::: {custom-style="referenceitem"}
-Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. Econometrica, 55(3), 703–708. https://doi.org/10.2307/1913610
+Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. *Econometrica*, *55*(3), 703–708. https://doi.org/10.2307/1913610
 :::
 
 ::: {custom-style="referenceitem"}
-Nguyen, H. M., Bakry, W., & Vuong, T. H. G. (2023). COVID-19 pandemic and herd behavior: Evidence from a frontier market. Journal of Behavioral and Experimental Finance, 38, 100807. https://doi.org/10.1016/j.jbef.2023.100807
+Nguyen, H. M., Bakry, W., & Vuong, T. H. G. (2023). COVID-19 pandemic and herd behavior: Evidence from a frontier market. *Journal of Behavioral and Experimental Finance*, *38*, 100807. https://doi.org/10.1016/j.jbef.2023.100807
 :::
 
 ::: {custom-style="referenceitem"}
-Okorie, D. I., & Lin, B. (2021). Stock markets and the COVID-19 fractal contagion effects. Finance Research Letters, 38, 101640. https://doi.org/10.1016/j.frl.2020.101640
+Okorie, D. I., & Lin, B. (2021). Stock markets and the COVID-19 fractal contagion effects. *Finance Research Letters*, *38*, 101640. https://doi.org/10.1016/j.frl.2020.101640
 :::
 
 ::: {custom-style="referenceitem"}
-Oświęcimka, P., Drożdż, S., Forczek, M., Jadach, S., & Kwapień, J. (2014). Detrended cross-correlation analysis consistently extended to multifractality. Physical Review E, 89(2), 022805. https://doi.org/10.1103/PhysRevE.89.022805
+Oświęcimka, P., Drożdż, S., Forczek, M., Jadach, S., & Kwapień, J. (2014). Detrended cross-correlation analysis consistently extended to multifractality. *Physical Review E*, *89*(2), 022805. https://doi.org/10.1103/PhysRevE.89.022805
 :::
 
 ::: {custom-style="referenceitem"}
-Patton, A. J. (2011). Volatility forecast comparison using imperfect volatility proxies. Journal of Econometrics, 160(1), 246–256. https://doi.org/10.1016/j.jeconom.2010.03.034
+Patton, A. J. (2011). Volatility forecast comparison using imperfect volatility proxies. *Journal of Econometrics*, *160*(1), 246–256. https://doi.org/10.1016/j.jeconom.2010.03.034
 :::
 
 ::: {custom-style="referenceitem"}
-Pearson, K. (1897). Mathematical contributions to the theory of evolution.—On a form of spurious correlation which may arise when indices are used in the measurement of organs. Proceedings of the Royal Society of London, 60, 489–498. https://doi.org/10.1098/rspl.1896.0076
+Pearson, K. (1897). Mathematical contributions to the theory of evolution.—On a form of spurious correlation which may arise when indices are used in the measurement of organs. *Proceedings of the Royal Society of London*, *60*, 489–498. https://doi.org/10.1098/rspl.1896.0076
 :::
 
 ::: {custom-style="referenceitem"}
-Peng, C.-K., Buldyrev, S. V., Havlin, S., Simons, M., Stanley, H. E., & Goldberger, A. L. (1994). Mosaic organization of DNA nucleotides. Physical Review E, 49(2), 1685–1689. https://doi.org/10.1103/PhysRevE.49.1685
+Peng, C.-K., Buldyrev, S. V., Havlin, S., Simons, M., Stanley, H. E., & Goldberger, A. L. (1994). Mosaic organization of DNA nucleotides. *Physical Review E*, *49*(2), 1685–1689. https://doi.org/10.1103/PhysRevE.49.1685
 :::
 
 ::: {custom-style="referenceitem"}
-Podobnik, B., Jiang, Z.-Q., Zhou, W.-X., & Stanley, H. E. (2011). Statistical tests for power-law cross-correlated processes. Physical Review E, 84(6), 066118. https://doi.org/10.1103/PhysRevE.84.066118
+Podobnik, B., Jiang, Z.-Q., Zhou, W.-X., & Stanley, H. E. (2011). Statistical tests for power-law cross-correlated processes. *Physical Review E*, *84*(6), 066118. https://doi.org/10.1103/PhysRevE.84.066118
 :::
 
 ::: {custom-style="referenceitem"}
-Podobnik, B., & Stanley, H. E. (2008). Detrended cross-correlation analysis: A new method for analyzing two nonstationary time series. Physical Review Letters, 100(8), 084102. https://doi.org/10.1103/PhysRevLett.100.084102
+Podobnik, B., & Stanley, H. E. (2008). Detrended cross-correlation analysis: A new method for analyzing two nonstationary time series. *Physical Review Letters*, *100*(8), 084102. https://doi.org/10.1103/PhysRevLett.100.084102
 :::
 
 ::: {custom-style="referenceitem"}
-Politis, D. N., & Romano, J. P. (1994). The stationary bootstrap. Journal of the American Statistical Association, 89(428), 1303–1313. https://doi.org/10.1080/01621459.1994.10476870
+Politis, D. N., & Romano, J. P. (1994). The stationary bootstrap. *Journal of the American Statistical Association*, *89*(428), 1303–1313. https://doi.org/10.1080/01621459.1994.10476870
 :::
 
 ::: {custom-style="referenceitem"}
-Rigobon, R. (2003). Identification through heteroskedasticity. The Review of Economics and Statistics, 85(4), 777–792. https://doi.org/10.1162/003465303772815727
+Rigobon, R. (2003). Identification through heteroskedasticity. *The Review of Economics and Statistics*, *85*(4), 777–792. https://doi.org/10.1162/003465303772815727
 :::
 
 ::: {custom-style="referenceitem"}
-Santana, T. P., Horta, N., Revez, C., Dias, R. M. T. S., & Zebende, G. F. (2023). Effects of interdependence and contagion on crude oil and precious metals according to ρDCCA: A COVID-19 case study. Sustainability, 15(5), 3945. https://doi.org/10.3390/su15053945
+Santana, T. P., Horta, N., Revez, C., Dias, R. M. T. S., & Zebende, G. F. (2023). Effects of interdependence and contagion on crude oil and precious metals according to ρDCCA: A COVID-19 case study. *Sustainability*, *15*(5), 3945. https://doi.org/10.3390/su15053945
 :::
 
 ::: {custom-style="referenceitem"}
-Schuirmann, D. J. (1987). A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability. Journal of Pharmacokinetics and Biopharmaceutics, 15(6), 657–680. https://doi.org/10.1007/BF01068419
+Schuirmann, D. J. (1987). A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability. *Journal of Pharmacokinetics and Biopharmaceutics*, *15*(6), 657–680. https://doi.org/10.1007/BF01068419
 :::
 
 ::: {custom-style="referenceitem"}
-Shapley, L. S. (1953). A value for n-person games. In H. W. Kuhn & A. W. Tucker (Eds.), Contributions to the theory of games II (pp. 307–317). Princeton University Press. https://doi.org/10.1515/9781400881970-018
+Shapley, L. S. (1953). A value for n-person games. In H. W. Kuhn & A. W. Tucker (Eds.), *Contributions to the theory of games II* (pp. 307–317). Princeton University Press. https://doi.org/10.1515/9781400881970-018
 :::
 
 ::: {custom-style="referenceitem"}
-Tilfani, O., Ferreira, P., & El Boukfaoui, M. Y. (2021). Dynamic cross-correlation and dynamic contagion of stock markets: A sliding windows approach with the DCCA correlation coefficient. Empirical Economics, 60(3), 1127–1156. https://doi.org/10.1007/s00181-019-01806-1
+Tilfani, O., Ferreira, P., & El Boukfaoui, M. Y. (2021). Dynamic cross-correlation and dynamic contagion of stock markets: A sliding windows approach with the DCCA correlation coefficient. *Empirical Economics*, *60*(3), 1127–1156. https://doi.org/10.1007/s00181-019-01806-1
 :::
 
 ::: {custom-style="referenceitem"}
-Tran, M. H., & Tran, N. M. (2025). High-frequency dynamics of the Vietnam stock market. VNU Journal of Economics and Business, 5(2), 51–59. https://doi.org/10.57110/vnu-jeb.v5i2.395
+Tran, M. H., & Tran, N. M. (2025). High-frequency dynamics of the Vietnam stock market. *VNU Journal of Economics and Business*, *5*(2), 51–59. https://doi.org/10.57110/vnu-jeb.v5i2.395
 :::
 
 ::: {custom-style="referenceitem"}
-Vietnam Securities Depository. (2015). Decision No. 211/QĐ-VSD of 18 December 2015 promulgating the Regulation on clearing and settlement of securities transactions. Hanoi.
+Vietnam Securities Depository. (2015). *Decision No. 211/QĐ-VSD of 18 December 2015 promulgating the Regulation on clearing and settlement of securities transactions*. Hanoi.
 :::
 
 ::: {custom-style="referenceitem"}
-Wang, F., Ye, X., Chen, H., & Wu, C. (2021). A portfolio strategy of stock market based on mean-MF-X-DMA model. Chaos, Solitons & Fractals, 143, 110645. https://doi.org/10.1016/j.chaos.2020.110645
+Wang, F., Ye, X., Chen, H., & Wu, C. (2021). A portfolio strategy of stock market based on mean-MF-X-DMA model. *Chaos, Solitons & Fractals*, *143*, 110645. https://doi.org/10.1016/j.chaos.2020.110645
 :::
 
 ::: {custom-style="referenceitem"}
-Zebende, G. F. (2011). DCCA cross-correlation coefficient: Quantifying level of cross-correlation. Physica A: Statistical Mechanics and its Applications, 390(4), 614–618. https://doi.org/10.1016/j.physa.2010.10.022
+Zebende, G. F. (2011). DCCA cross-correlation coefficient: Quantifying level of cross-correlation. *Physica A: Statistical Mechanics and its Applications*, *390*(4), 614–618. https://doi.org/10.1016/j.physa.2010.10.022
 :::
 
 ::: {custom-style="referenceitem"}
-Zhou, W., Huang, J., & Wang, M. (2025). Multifractal characteristics and information flow analysis of stock markets based on multifractal detrended cross-correlation analysis and transfer entropy. Fractal and Fractional, 9(1), 14. https://doi.org/10.3390/fractalfract9010014
+Zhou, W., Huang, J., & Wang, M. (2025). Multifractal characteristics and information flow analysis of stock markets based on multifractal detrended cross-correlation analysis and transfer entropy. *Fractal and Fractional*, *9*(1), 14. https://doi.org/10.3390/fractalfract9010014
 :::
 
 ::: {custom-style="referenceitem"}
-Zhou, W.-X. (2008). Multifractal detrended cross-correlation analysis for two nonstationary signals. Physical Review E, 77(6), 066211. https://doi.org/10.1103/PhysRevE.77.066211
+Zhou, W.-X. (2008). Multifractal detrended cross-correlation analysis for two nonstationary signals. *Physical Review E*, *77*(6), 066211. https://doi.org/10.1103/PhysRevE.77.066211
 :::

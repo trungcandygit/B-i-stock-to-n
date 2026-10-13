@@ -151,3 +151,20 @@ REFERENCES = [
     "Zhou, W., Huang, J., & Wang, M. (2025). Multifractal characteristics and information flow analysis of stock markets based on multifractal detrended cross-correlation analysis and transfer entropy. Fractal and Fractional, 9(1), 14. https://doi.org/10.3390/fractalfract9010014",
     "Zhou, W.-X. (2008). Multifractal detrended cross-correlation analysis for two nonstationary signals. Physical Review E, 77(6), 066211. https://doi.org/10.1103/PhysRevE.77.066211",
 ]
+
+
+def apa_md(r):
+    """APA 7 reference as markdown: italic journal name and volume; italic title for books, reports, documents and
+    press releases; italic book title for chapters."""
+    import re as _re
+    e = r.replace('*', '\\*')
+    m = _re.match(r'^(?P<pre>.*[.?] )(?P<j>[^.?]+?), (?P<v>\d+)(?P<i>\([^)]+\))?, (?P<pg>[^,]+?)\.(?P<doi> https?://\S+)?$', e)
+    if m and '(Eds.)' not in e:
+        return f"{m['pre']}*{m['j']}*, *{m['v']}*{m['i'] or ''}, {m['pg']}.{m['doi'] or ''}"
+    m = _re.match(r'^(?P<pre>.*\(Eds\.\), )(?P<t>.+?)(?P<post> \(pp\..*)$', e)
+    if m:
+        return f"{m['pre']}*{m['t']}*{m['post']}"
+    m = _re.match(r'^(?P<pre>.+?\(\d{4}[^)]*\)\. )(?P<t>.+?)(?P<post>( \(\d+\w* ed\.\))?( \[[^\]]+\])?(?<!No)\. .*)$', e)
+    if m:
+        return f"{m['pre']}*{m['t']}*{m['post']}"
+    return e
