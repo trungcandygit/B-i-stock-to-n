@@ -62,3 +62,62 @@ Above the requested tier (Q1, APC-free route, also plausible): Journal of Asian 
 Excluded for APC > USD 1,000: Journal of Risk and Financial Management (CHF 1,600), International Journal of Financial Studies (~USD 1,515), Economies (CHF 1,400), Fractal and Fractional (CHF 2,700), Entropy (CHF 2,600), Cogent Economics & Finance (~USD 1,680).
 
 Raw agent evidence with source URLs: `journal_shortlist_2026-10-13_evidence.txt`.
+
+## Ranking by ease of acceptance (find-journal Axis 2: acceptance feasibility)
+
+Band = how far the manuscript's bar (single exchange, three indices, extension of a known identity, solid inference) sits below the journal's bar. Order inside a band: lower tier and better scope fit first. A poor scope fit counts as hard, because it leads to desk rejection. No probabilities (find-journal schema §4). * = easy but with an indexing/publisher risk to check.
+
+| Ease rank | Band | Journal | Why |
+|---|---|---|---|
+| 1 | High | Review of Pacific Basin Financial Markets and Policies | Q3, ESCI, JIF ~0.3; fit 4 (Pacific Basin markets) |
+| 2 | High | Journal of Derivatives and Quantitative Studies | Q4, small diamond-OA journal; quant finance fits |
+| 3 | High | Asia-Pacific Financial Markets | Q3 most years (Q2 only in 2025); fit 5; 10-day first decision |
+| 4 | High | Macroeconomics and Finance in Emerging Market Economies | Q3, SJR 0.28; emerging-market finance |
+| 5 | High | Journal of Economics and Development | Vietnam host (NEU), diamond OA, ESCI-only; Vietnamese evidence welcome |
+| 6 | High | Asian Journal of Economics and Banking | Vietnam host (HUB), new to Scopus (09/2026), no quartile yet |
+| 7 | High | Journal of Time Series Econometrics | Q4 every year since 2019; methods fit |
+| 8 | High | Multinational Finance Journal | Q4, coverage gaps; co-movement topics; EUR 50 fee |
+| 9 | High | International Journal of Modern Physics C | Q3; publishes econophysics/DCCA |
+| 10 | High | Journal of Economics and Finance | Q3 (2025), ESCI; 10-day first decision |
+| 11 | High | Annals of Financial Economics | Q2/Q3 (conflicting), ESCI |
+| 12 | High | Investment Analysts Journal | Q3; 36-day first decision |
+| 13 | High | Finance a úvěr – Czech J. of Economics and Finance | Q3/JCR Q4; low bar |
+| 14 | High | Investment Management and Financial Innovations | Q3, broad finance OA (APC ~EUR 685); fit only 2 |
+| 15 | High | European Physical Journal B | Q3; interdisciplinary-physics section takes econophysics |
+| 16 | High* | Quantitative Finance and Economics (AIMS) | Q2/Q3 falling, fit 4; *publisher-risk flag (high-volume OA, other charges) |
+| 17 | High* | Data Science in Finance and Economics (AIMS) | Quartile unverified; *publisher-risk flag, APC unverified |
+| 18 | High* | Journal of Capital Markets Studies | *Indexing unverified: check Scopus/WoS before submitting |
+| 19 | Medium | Physica A | Q2 but high volume and many DCCA papers; fit 5 |
+| 20 | Medium | Journal of Risk Finance | Q2 (SJR 0.92), ESCI; fit 4 |
+| 21 | Medium | Annals of Finance | Q2 with low SJR 0.34; theory-leaning |
+| 22 | Medium | International Journal of Theoretical and Applied Finance | Q2 but JCR Q4, falling; math-finance leaning |
+| 23 | Medium | Journal of Risk | Q3/JCR Q4 but slow, practitioner review |
+| 24 | Medium | Asia-Pacific Journal of Financial Studies | Q2/Q3 swings; fit 4 |
+| 25 | Medium | Managerial Finance | Q2, ESCI |
+| 26 | Medium | Studies in Economics and Finance | Q2 |
+| 27 | Medium | Journal of Asset Management | Q2, ESCI |
+| 28 | Medium | Studies in Nonlinear Dynamics & Econometrics | Q2/Q3, SSCI; demands econometric rigor |
+| 29 | Medium | Asia-Pacific Journal of Accounting & Economics | Q2, SSCI |
+| 30 | Medium | Computational Economics | Q2; 4-day median = many desk rejections |
+| 31 | Medium | Review of Quantitative Finance and Accounting | Q2, SJR 0.70; JCR Q2 |
+| 32 | Medium | Journal of Forecasting | Q2; only the forecasting part fits |
+| 33 | Medium | Journal of Statistical Mechanics: Theory and Experiment | Q3 but theory-heavy |
+| 34 | Medium | Journal of Economic Interaction and Coordination | Q3, SSCI; agent-based focus, fit 2 |
+| 35 | Medium | Advances in Complex Systems | Q2, low SJR; fit 2 |
+| 36 | Low | International Journal of Finance & Economics | SSCI, JCR Q1: selective |
+| 37 | Low | Emerging Markets Finance and Trade | 26% acceptance; China-heavy |
+| 38 | Low | Journal of Applied Statistics | 14% acceptance |
+| 39 | Low | Communications in Statistics – Simulation and Computation | 29% acceptance; fit 2 |
+| 40 | Low | Journal of Statistical Computation and Simulation | Simulation-methods scope; fit 2 |
+| 41 | Low | Asian Economic Journal | Macro/development scope; fit 2 |
+| 42 | Low | Bulletin of Monetary Economics and Banking | Monetary-policy scope; fit 2 |
+| 43 | Low | Asian Academy of Management J. of Accounting and Finance | Accounting-heavy; fit 2 |
+| 44 | Low | Fluctuation and Noise Letters | Finance peripheral; fit 2 |
+| 45 | Low | Journal of Economics, Finance and Administrative Science | Latin America focus; fit 2 |
+| 46 | Low | Applied Economics Letters | Letter limit: needs a full rewrite to letter length |
+| 47 | Low | Modern Physics Letters B | Letter format; paper too long |
+| 48 | Low | Journal of Central Banking Theory and Practice | Central-banking scope; fit 1 |
+| 49 | Low | Review of Behavioral Finance | Behavioral scope; fit 1 |
+| 50 | Low | Journal of Economic Integration | Trade scope, fit 1; Scopus coverage may have ended |
+
+Cascade (speed + ease): 1) Asia-Pacific Financial Markets → 2) Review of Pacific Basin Financial Markets and Policies → 3) Journal of Economics and Finance / Journal of Economics and Development. Only after the JEMF decision or withdrawal.

@@ -606,3 +606,4 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
 - 64 candidates were checked by 4 independent agents using WebSearch (WebFetch, SCImago, LetPub and OpenAlex are blocked by
   the network policy). Output: notes/journal_shortlist_2026-10-13.md (50 ranked) + evidence file with source URLs.
 - Constraint recorded: manuscript is under review at JEMF; no parallel submission.
+- D78 addendum: ease-of-acceptance ranking (High/Medium/Low bands, no probabilities) appended to the shortlist.
