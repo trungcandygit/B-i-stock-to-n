@@ -71,7 +71,7 @@ missing = [f'{a} {y}' for a, y in cited if y.isdigit() and 1890 < int(y) < 2030 
 check(not missing, f'in-text citations found in reference list {missing[:10]}')
 
 # blinding and docx validity
-pk = os.path.join(B, 'submission', 'Revised_submission')
+pk = os.path.join(B, 'submission', 'JEMF_submission')
 for f in sorted(os.listdir(pk)):
     if f.endswith('.docx'):
         with zipfile.ZipFile(os.path.join(pk, f)) as z:
@@ -80,7 +80,7 @@ for f in sorted(os.listdir(pk)):
                 if n.endswith('.xml'):
                     etree.fromstring(z.read(n))
             check(ok, f'{f} is a valid docx')
-            if f.startswith('02_') or f.startswith('10_'):
+            if f.startswith('02_') or f.startswith('03_'):
                 txt = ' '.join(z.read(n).decode('utf-8', 'ignore') for n in z.namelist() if n.endswith('.xml'))
                 bad = [b for b in ('Binh', 'Trung', 'Hanh', 'Diep', 'apd.edu', 'neu.edu', 'Academy of Policy', '15233582') if b in txt]
                 check(not bad, f'{f} blinded {bad}')

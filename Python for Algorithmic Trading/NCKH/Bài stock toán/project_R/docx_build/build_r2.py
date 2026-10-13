@@ -93,7 +93,7 @@ def manuscript(anonymized):
     md.append(para('keywords', '**JEL Classification** ' + TX.JEL))
     md.append(render(TX.body()))
     decl = [('Ethical standards', 'This study uses only publicly available historical index price data from the Ho Chi Minh City '
-             'Stock Exchange; it involves no human participants or personal data, therefore required no ethical approval, and '
+             'Stock Exchange; it involves no human participants or personal data; therefore, it required no ethical approval and '
              'complies with the current laws of Vietnam.'),
             ('Data availability', 'The index price data were obtained from TradingView (exchange: HOSE) and are subject to the '
              'vendor’s terms of use; the merged dataset is available from the corresponding author upon reasonable request.'),

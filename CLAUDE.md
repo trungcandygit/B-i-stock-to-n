@@ -50,8 +50,8 @@ bước của skill để ra bản thảo mạnh nhất.
 
 ## 3. Bài báo
 
-- Bản đang làm việc: `Python for Algorithmic Trading/NCKH/Bài stock toán/submission/*.docx`
-- Bộ hồ sơ nộp Asia-Pacific Financial Markets: `Python for Algorithmic Trading/NCKH/Bài stock toán/submission/APFM_submission/`
-  (dựng lại bằng `project_R/docx_build/build_submission.py`; thứ tự tác giả: Binh, Trung*, Hanh, Diep).
-  (có comment và tracked changes của cô giáo — phải xử lý hết, từng cái một).
+- Bản đang làm việc: nguồn chữ `project_R/docx_build/r2_text.py` + `r2_lit.py` + `build_r2.py`; dựng bằng
+  `python3 build_r2.py` (ra `project_R/docx_build/r2/manuscript_with_authors.docx`, bản ẩn danh, supplement) và
+  `python3 build_jemf.py` (bộ hồ sơ JEMF tại `submission/JEMF_submission/`). Thứ tự tác giả: Binh, Trung*, Hanh, Diep.
+- Các bộ cũ (APFM_submission, Revised_submission, bản Hạnh 24.9) đã xoá khỏi cây thư mục; còn trong lịch sử git.
 - Nhật ký chỉnh sửa: `notes/AUDIT_LEDGER.md` — ghi lại mỗi vòng sửa.

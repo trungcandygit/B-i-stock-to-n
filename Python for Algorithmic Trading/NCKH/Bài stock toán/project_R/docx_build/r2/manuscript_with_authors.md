@@ -19,7 +19,7 @@ Nguyen Thanh Binh^a^, Nguyen Van Trung^a,\*^, Ha Hong Hanh^b^, Nguyen Bach Diep^
 :::
 
 ::: {custom-style="abstract"}
-**Abstract** When one equity index contains another, part of their correlation is fixed by construction. We extend the classical part–whole correlation identity to detrended cross-correlation analysis (DCCA). At every timescale, the coefficient between a parent and a child index is then a closed-form function of the child’s weight, the relative amplitude of the remaining constituents and the overlap-purged coefficient between the child and those constituents. The identity yields a zero-correlation benchmark, an exact lower bound, the sensitivity of the nested coefficient to the purged coefficient and an order-free attribution, and it requires only index-level inputs. On the Ho Chi Minh City Stock Exchange (VN30 within VN100 within VNINDEX, 30-minute to daily data, 2014–2025), the VN30–VN100 coefficient moves by only about 0.11 per unit change in the purged coefficient. Purging the overlap lowers the correlation with large caps by about 0.10 at every frequency. The decomposition barely varies across scales and frequencies, so its Pearson version suffices in these data. The small intraday horizon dependence of broad-market pairs comes from the opening and closing auction bars. Evidence of crisis contagion depends on the test used, and regime-conditioned correlations do not improve out-of-sample portfolio variance forecasts. Correlations between nested indices therefore say little about diversification between size tiers unless the overlap is removed first.
+**Abstract** When one equity index contains another, part of their correlation is fixed by construction. We extend the classical part–whole correlation identity to detrended cross-correlation analysis (DCCA). At every timescale, the coefficient between a parent and a child index is then a closed-form function of the child’s weight, the relative amplitude of the remaining constituents, and the overlap-purged coefficient between the child and those constituents. The identity yields a zero-correlation benchmark, an exact lower bound, the sensitivity of the nested coefficient to the purged coefficient, and an order-free attribution, and it requires only index-level inputs. On the Ho Chi Minh City Stock Exchange (VN30 within VN100 within VNINDEX, 30-minute to daily data, 2014–2025), the VN30–VN100 coefficient moves by only about 0.11 per unit change in the purged coefficient. Purging the overlap lowers the correlation with large caps by about 0.10 at every frequency. The decomposition barely varies across scales and frequencies; therefore, its Pearson version suffices in these data. The small intraday horizon dependence of broad-market pairs comes from the opening and closing auction bars. Evidence of crisis contagion depends on the test used, and regime-conditioned correlations do not improve out-of-sample portfolio variance forecasts. Correlations between nested indices therefore say little about diversification between size tiers unless the overlap is removed first.
 :::
 
 ::: {custom-style="keywords"}
@@ -35,27 +35,27 @@ Nguyen Thanh Binh^a^, Nguyen Van Trung^a,\*^, Ha Hong Hanh^b^, Nguyen Bach Diep^
 :::
 
 ::: {custom-style="p1a"}
-Correlations between published equity indices are a convenient measure of how much one market segment diversifies another (Markowitz 1952). Nested index systems add a problem unrelated to estimation error: the parent contains the child, so part of their correlation is fixed by construction. On the Ho Chi Minh City Stock Exchange (HOSE),
+Correlations between published equity indices are a convenient measure of how much one market segment diversifies another (Markowitz 1952). Nested index systems add a problem unrelated to estimation error: the parent contains the child; therefore, part of their correlation is fixed by construction. On the Ho Chi Minh City Stock Exchange (HOSE),
 :::
 
 $$
 \mathrm{VN30} \subset \mathrm{VN100} \subset \mathrm{VNINDEX}. \qquad (1)
 $$
 
-The 30 largest firms hold about two-thirds of the free-float capitalization of VN100, and the daily VN30–VN100 correlation is 0.988. As a measure of how mid caps move with large caps, this number mixes economic linkage with double counting of VN30 stocks on both sides. Holdings-based risk models avoid the problem; users of index-level data cannot. The arithmetic is old (Pearson 1897; Cureton 1966), but no version exists for the detrended, scale-dependent coefficients of the detrended cross-correlation analysis (DCCA) literature, which studies only pairs without shared constituents (Section 2).
+The 30 largest firms hold about two-thirds of the free-float capitalization of VN100, and the daily VN30–VN100 correlation is 0.988. As a measure of how mid caps move with large caps, this number mixes economic linkage with double counting of VN30 stocks on both sides. Holdings-based risk models avoid this problem; however, users of index-level data cannot. The arithmetic is old (Pearson 1897; Cureton 1966), but no version exists for the detrended, scale-dependent coefficients of the detrended cross-correlation analysis (DCCA) literature, which studies only pairs without shared constituents (Section 2).
 
-Our contribution is to build that version. Lemma 1 shows that, at every timescale, the DCCA coefficient of a nested pair is a known function of the child’s weight, the relative amplitude κ(s) of the remaining constituents and the overlap-purged coefficient between the child and those constituents. It yields a zero-correlation benchmark, an exact lower bound, the sensitivity of the nested coefficient to the purged one and an order-free attribution, all computable from index-level data (Section 4.2). We apply it to VN30, VN100 and VNINDEX at 30-minute to daily frequencies (2014–2025), with a block bootstrap that also draws the index weight. We then use the purged series to test hypotheses on horizon dependence, contagion and the value of regime-conditioned correlations.
+Our contribution is to build this version. Lemma 1 shows that, at every timescale, the DCCA coefficient of a nested pair is a known function of the child’s weight, the relative amplitude κ(s) of the remaining constituents, and the overlap-purged coefficient between the child and those constituents. It yields a zero-correlation benchmark, an exact lower bound, the sensitivity of the nested coefficient to the purged one, and an order-free attribution, all computable from index-level data (Section 4.2). We apply it to VN30, VN100, and VNINDEX at 30-minute to daily frequencies (2014–2025), with a block bootstrap that also draws the index weight. We then use the purged series to test hypotheses on horizon dependence, contagion, and the value of regime-conditioned correlations.
 
-The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of 0.106–0.112, and the like-for-like gap between nested and purged coefficients is 0.099–0.104. Because κ hardly varies with the timescale (0.47–0.52), the Pearson version gives the same answer. Horizon dependence is confined to the auction bars of intraday broad-market pairs. Crisis evidence depends on whether contagion is measured by an adjusted correlation or a factor loading, and regime-conditioned correlations do not outperform a static one out of sample.
+The VN30–VN100 coefficient responds to the purged coefficient with a sensitivity of 0.106–0.112, and the like-for-like gap between the nested and purged coefficients is 0.099–0.104. Because κ hardly varies with the timescale (0.47–0.52), the Pearson version provides the same answer. Horizon dependence is confined to the auction bars of intraday broad-market pairs. Crisis evidence depends on whether contagion is measured by an adjusted correlation or factor loading, and regime-conditioned correlations do not outperform a static one out of sample.
 
-Sections 3–5 present the data, methods and results, Section 6 discusses them and Section 7 concludes. Further checks are in Online Resource 2.
+Sections 3–5 present the data, methods, and results; Section 6 discusses them; and Section 7 concludes. Further checks are in Online Resource 2.
 
 ::: {custom-style="heading1"}
 2 Literature review and hypothesis development
 :::
 
 ::: {custom-style="p1a"}
-Five literatures bear on nested index correlations: part–whole correlation, detrended cross-correlation, index membership, size-based lead–lag effects and contagion.
+Five literatures bear on nested index correlations: part–whole correlation, detrended cross-correlation, index membership, size-based lead–lag effects, and contagion.
 :::
 
 ::: {custom-style="heading2"}
@@ -63,7 +63,7 @@ Five literatures bear on nested index correlations: part–whole correlation, de
 :::
 
 ::: {custom-style="p1a"}
-Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In psychometrics the same arithmetic inflates item–total correlations, and Cureton (1966) gave a standard correction. Finance handles overlap through holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto 2009), holdings-based risk models estimate exposures from constituents, and membership studies build comparison portfolios from stocks outside the index (Barberis et al. 2005). Users who observe only index levels lack a return-based counterpart.
+Pearson (1897) showed that ratios sharing a denominator correlate even when their numerators are independent. In psychometrics, the same arithmetic inflates item–total correlations, and Cureton (1966) gave a standard correction. Finance handles overlap through holdings: Active Share measures how far a fund departs from its benchmark holdings (Cremers and Petajisto 2009), holdings-based risk models estimate exposures from constituents, and membership studies build comparison portfolios from stocks outside the index (Barberis et al. 2005). Users who observe only index levels lack a return-based counterpart.
 :::
 
 ::: {custom-style="heading2"}
@@ -71,7 +71,7 @@ Pearson (1897) showed that ratios sharing a denominator correlate even when thei
 :::
 
 ::: {custom-style="p1a"}
-DCCA extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) proposed tests and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021) or partial correlations (Ge and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. 2021; Ge and Lin 2021; Chen et al. 2024). Others track contagion (Okorie and Lin 2021; Tilfani et al. 2021) or information flow (Zhou et al. 2025) and build scale-aware portfolios (Wang et al. 2021; Kakinaka et al. 2025). These studies treat the coefficient as economic dependence between disjoint assets; none analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale.
+DCCA extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al. 2002) to pairs of nonstationary series (Podobnik and Stanley 2008). Zebende (2011) normalized it into a bounded coefficient, Podobnik et al. (2011) proposed tests, and Zhou (2008) generalized it to multifractal moments (MF-DCCA). Variants use moving-average detrending (Jiang and Zhou 2011; Kristoufek 2014), sliding windows (Guedes et al. 2021), or partial correlations (Ge and Lin 2021), and Oświęcimka et al. (2014) show that absolute local covariances can create spurious multifractality. Applied work finds horizon-dependent stock–bond and cross-market dependence (Al Rababa’a et al. 2021; Ge and Lin 2021; Chen et al. 2024). Others track contagion (Okorie and Lin 2021; Tilfani et al. 2021) or information flow (Zhou et al. 2025) and build scale-aware portfolios (Wang et al. 2021; Kakinaka et al. 2025). These studies treat the coefficient as economic dependence between disjoint assets; none analyzes nested pairs, where the detrended covariance inherits the part–whole arithmetic at every scale.
 :::
 
 ::: {custom-style="heading2"}
@@ -79,7 +79,7 @@ DCCA extends detrended fluctuation analysis (Peng et al. 1994; Kantelhardt et al
 :::
 
 ::: {custom-style="p1a"}
-Stocks added to the S&P 500 co-move more with the index (Barberis et al. 2005), Nikkei 225 stocks with larger weights co-move more with other index stocks (Greenwood 2008), and regression-discontinuity and tracking-demand designs support the effect (Liao et al. 2022; DeCoste 2025). The evidence is contested: much of the post-inclusion rise also appears in matched stocks that were not added (Chen et al. 2016), and the S&P 500 index effect has almost disappeared (Greenwood and Sammon 2025). Membership-based co-movement is therefore a weak guide even where indices do not overlap. Our concern is the arithmetic overlap, which raises correlations even if no investor trades differently.
+Stocks added to the S&P 500 co-move more with the index (Barberis et al. 2005), Nikkei 225 stocks with larger weights co-move more with other index stocks (Greenwood 2008), and regression-discontinuity and tracking-demand designs support the effect (Liao et al. 2022; DeCoste 2025). This evidence is contested: much of the post-inclusion rise also appears in matched stocks that were not added (Chen et al. 2016), and the S&P 500 index effect has almost disappeared (Greenwood and Sammon 2025). Membership-based co-movement is therefore a weak guide, even where the indices do not overlap. Our concern is the arithmetic overlap, which raises correlations even if investors do not trade differently.
 :::
 
 ::: {custom-style="heading2"}
@@ -87,7 +87,7 @@ Stocks added to the S&P 500 co-move more with the index (Barberis et al. 2005), 
 :::
 
 ::: {custom-style="p1a"}
-Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Hou (2007) traces to slow diffusion of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), an effect whose size depends on the sampling scheme (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) lets co-movement build with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al. 2021), and price adjustment is delayed under retail-heavy trading (Tran and Tran 2025). Three forces raise all correlations at once: herding in stress (Nguyen et al. 2023), sector connectedness above 60% that rose to near 90% during COVID-19 (Bui et al. 2022) and nonlinear regional dependence (Le et al. 2025).
+Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Hou (2007) traces to the slow diffusion of industry information. Non-synchronous trading depresses short-horizon correlations (Epps 1979), an effect whose size depends on the sampling scheme (Chang et al. 2021), and gradual diffusion (Hong and Stein 1999) allows co-movement to build with the horizon. On the HOSE, small-firm liquidity fell after a market surveillance system was introduced (Chen et al. 2021), and price adjustment is delayed under retail-heavy trading (Tran and Tran 2025). Three forces raise all correlations at once: herding in stress (Nguyen et al. 2023), sector connectedness above 60% that rose to near 90% during COVID-19 (Bui et al. 2022), and nonlinear regional dependence (Le et al. 2025).
 :::
 
 ::: {custom-style="heading2"}
@@ -95,7 +95,7 @@ Large-firm returns lead small-firm returns (Lo and MacKinlay 1990), a pattern Ho
 :::
 
 ::: {custom-style="p1a"}
-Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically with the variance of the conditioning market, so a crisis increase may reflect interdependence rather than contagion (Forbes and Rigobon 2002). The correction can itself be biased toward no contagion because it restricts the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022). A DCCA test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013).
+Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002), but they also rise mechanically with the variance of the conditioning market; thus, a crisis increase may reflect interdependence rather than contagion (Forbes and Rigobon 2002). The correction can itself be biased toward no contagion because it restricts the variance of idiosyncratic shocks. Corsetti et al. (2005) propose testing for a change in the factor loading instead, and Rigobon (2003) identifies transmission from regime changes in variance. Studies without the correction report COVID-19 contagion (Akhtaruzzaman et al. 2021; Guo et al. 2021; Benkraiem et al. 2022). A DCCA test finds it for some commodity pairs but not others (Santana et al. 2023), and ASEAN integration varies with trade links and volatility (Abdul Karim and Xin Ning 2013; Lean and Teng 2013).
 :::
 
 ::: {custom-style="heading2"}
@@ -103,7 +103,7 @@ Equity correlations rise in downturns (Longin and Solnik 2001; Ang and Chen 2002
 :::
 
 ::: {custom-style="p1a"}
-Table 1 compares representative studies.
+Table 1 compares the representative studies.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -126,17 +126,17 @@ Table 1 compares representative studies.
 | This study | VN30, VN100, VNINDEX; M30 to daily, 2014–2025 | Scale-wise part–whole identity; DCCA | Yes (scale-wise, with weight uncertainty) | Yes | Yes | Purged coefficient is largely masked in the nested one |
 
 ::: {custom-style="Compact"}
-Notes: Overlap treated: whether the study separates dependence created by shared constituents; scale-wise: whether dependence is measured by timescale; volatility-robust test: whether crisis comparisons correct for heteroskedasticity or common shocks; DCCA: detrended cross-correlation analysis; MF-DCCA: multifractal DCCA; DMCA: detrending moving-average cross-correlation analysis; ρDCCA: DCCA coefficient. Source: Authors’ compilation.
+Notes: Overlap treated: whether the study separates dependence created by shared constituents; scale-wise: whether dependence is measured by timescale; volatility-robust test: whether crisis comparisons correct for heteroscedasticity or common shocks; DCCA: detrended cross-correlation analysis; MF-DCCA: multifractal DCCA; DMCA: detrending moving-average cross-correlation analysis; ρDCCA: DCCA coefficient. Source: Authors’ compilation.
 :::
 
-Three gaps follow. The part–whole identity is known for static Pearson correlations but has not been extended to scale-wise detrended coefficients, equipped with inference under weight uncertainty, or turned into a diagnostic computable from published series. Multiscale studies of crises rarely use volatility-robust tests, and volatility-conditioned studies use one horizon and disjoint markets. To our knowledge, no study covers the Vietnamese index system at intraday and daily frequencies. We searched Google Scholar and publisher databases for 2021–2026, plus the classical sources these works cite.
+Three gaps follow. The part–whole identity is known for static Pearson correlations but has not been extended to scale-wise detrended coefficients, equipped with inference under weight uncertainty, or turned into a diagnostic computable from published index data. Multiscale studies of crises rarely use volatility-robust tests, and volatility-conditioned studies use one horizon and disjoint markets. To the best of our knowledge, no study has covered the Vietnamese index system at intraday and daily frequencies. We searched Google Scholar and publisher databases for 2021–2026, in addition to the classical sources cited in these works.
 
 ::: {custom-style="heading2"}
 2.7 Estimands and hypotheses
 :::
 
 ::: {custom-style="p1a"}
-Lemma 1 (Section 4.2) fixes some quantities once the weight and relative amplitude are known; we report these as estimands and test only what the identity does not determine. E1 is the zero-correlation benchmark ρ̲ of the VN30–VN100 coefficient and its share under three attribution conventions, E2 the sensitivity of the nested to the purged coefficient, and E3 the in-sample misstatement of portfolio variance by a static correlation, judged against sampling error.
+Lemma 1 (Section 4.2) fixes some quantities once the weight and relative amplitude are known; we report these as estimands and test only what the identity does not determine. E1 is the zero-correlation benchmark ρ̲ of the VN30–VN100 coefficient and its share under three attribution conventions; E2 is the sensitivity of the nested to the purged coefficient; and E3 is the in-sample misstatement of portfolio variance by a static correlation, judged against sampling error.
 :::
 
 *H~1~ (material overlap gap).* A purged coefficient near one would leave almost no gap, so the gap size is an empirical question. Rule: at every frequency, the lower 95% bound of the like-for-like gap exceeds 0.05, the estimation tolerance of Section 4.4; the gap is VN30–VN100 minus P~cap~–VN30 (P~cap~ is the overlap-purged mid-cap series).
@@ -145,7 +145,7 @@ Lemma 1 (Section 4.2) fixes some quantities once the weight and relative amplitu
 
 *H~3~ (contagion).* Raw crisis correlations rise with volatility alone (Forbes and Rigobon 2002), and the volatility correction is biased toward no contagion when idiosyncratic variance rises (Corsetti et al. 2005). Rule: under VN30 volatility regimes, the adjusted correlation of P~cap~ and VN30 exceeds its calm level (one-sided p < 0.05) and the loading of P~cap~ on VN30 rises (two-sided p < 0.05).
 
-*H~4~ (value of regime conditioning).* Rule: an exponentially weighted moving average (EWMA) or real-time regime correlation has a lower quasi-likelihood (QLIKE) loss than the static correlation over 2023–2025, with a Diebold–Mariano p-value below 0.05. We fixed these rules, the eight-test family and the factor-loading test at revision, after the first-round results were known. We also report the original specifications.
+*H~4~ (value of regime conditioning).* Rule: an exponentially weighted moving average (EWMA) or real-time regime correlation has a lower quasi-likelihood (QLIKE) loss than the static correlation over 2023–2025, with a Diebold–Mariano p-value below 0.05. We fixed these rules, the eight-test family, and the factor-loading test at revision after the first-round results were known. We also report the original specifications.
 
 ::: {custom-style="heading1"}
 3 Institutional background and data
@@ -156,7 +156,7 @@ Lemma 1 (Section 4.2) fixes some quantities once the weight and relative amplitu
 :::
 
 ::: {custom-style="p1a"}
-Prices move within a ±7% daily band, which truncates tails and synchronizes limit hits. Settlement moved from T+3 to T+2 on 1 January 2016 (Vietnam Securities Depository 2015), limiting intraday arbitrage. Each day has an opening call auction (09:00–09:15), continuous trading to 11:30, a break to 13:00, a second continuous session and a closing call auction (14:30–14:45). Circular 120/2020/TT-BTC (Ministry of Finance of Vietnam 2020) provides a framework for covered short sales that, to our knowledge, had not been implemented, and naked short selling is prohibited. The implementing Decree 155/2020/ND-CP (Government of Vietnam 2020) was amended by Decree 245/2025/ND-CP (Government of Vietnam 2025). VN30 futures trade on the Hanoi Stock Exchange, but no mid-cap future exists. A VNMIDCAP exchange-traded fund (FUEDCMID) has been listed since 29 September 2022 (Ho Chi Minh City Stock Exchange 2022), so mid caps can be held long but not shorted. Foreign ownership limits (30% for banks, for example) concentrate foreign flows in large caps with room under their limits. Vietnam is to be reclassified to Secondary Emerging status from 21 September 2026 (FTSE Russell 2025), after the end of our sample.
+Prices move within a ±7% daily band, which truncates tails and synchronizes limit hits. Settlement moved from T+3 to T+2 on 1 January 2016 (Vietnam Securities Depository 2015), limiting intraday arbitrage. Each day has an opening call auction (09:00–09:15), continuous trading to 11:30, a break to 13:00, a second continuous session, and a closing call auction (14:30–14:45). Circular 120/2020/TT-BTC (Ministry of Finance of Vietnam 2020) provides a framework for covered short sales that, to our knowledge, had not been implemented, and naked short selling is prohibited. The implementing Decree 155/2020/ND-CP (Government of Vietnam 2020) was amended by Decree 245/2025/ND-CP (Government of Vietnam 2025). VN30 futures trade on the Hanoi Stock Exchange, but no mid-cap future exists. A VNMIDCAP exchange-traded fund (FUEDCMID) has been listed since 29 September 2022 (Ho Chi Minh City Stock Exchange 2022), so mid caps can be held long but not shorted. Foreign ownership limits (30% for banks, for example) concentrate foreign flows in large caps with room under their limits. Vietnam is to be reclassified to Secondary Emerging status from 21 September 2026 (FTSE Russell 2025), after the end of our sample.
 :::
 
 ::: {custom-style="heading2"}
@@ -164,7 +164,7 @@ Prices move within a ±7% daily band, which truncates tails and synchronizes lim
 :::
 
 ::: {custom-style="p1a"}
-We use VN30, VN100 and VNINDEX levels exported from TradingView (exchange code HOSE). VN30 holds the 30 largest stocks by free-float capitalization, VN100 adds the next 70 (the VNMIDCAP index) and VNINDEX covers all HOSE stocks at full capitalization. Daily (1D) and 30-minute (M30) series run to 12 December 2025, 1-hour (H1) and 4-hour (H4) series to 9 December 2024. M30 bars open at 09:00, 09:30, 10:00, 10:30, 11:00, 11:30, 13:00, 13:30, 14:00, 14:30, H1 bars at 09:00, 10:00, 11:00, 13:00, 14:00, and the two H4 bars cover the two sessions, so at every frequency the first bar of the day holds the overnight return and the opening auction. The vendor has no full VNMIDCAP history, so we recover the mid-cap segment from VN30 and VN100 (Section 4.2). We merge the series by exact timestamp joins without filling gaps. We did not compare them with HOSE closing levels date by date; the replication package records an input checksum. Log returns are
+We use VN30, VN100, and VNINDEX levels exported from TradingView (exchange code HOSE). VN30 holds the 30 largest stocks by free-float capitalization, VN100 adds the next 70 (the VNMIDCAP index), and VNINDEX covers all HOSE stocks at full capitalization. Daily (1D) and 30-minute (M30) series run to 12 December 2025, 1-hour (H1) and 4-hour (H4) series to 9 December 2024. M30 bars open at 09:00, 09:30, 10:00, 10:30, 11:00, 11:30, 13:00, 13:30, 14:00, 14:30, H1 bars at 09:00, 10:00, 11:00, 13:00, 14:00, and the two H4 bars cover the two sessions, so at every frequency the first bar of the day holds the overnight return and the opening auction. The vendor has no full VNMIDCAP history; therefore, we recover the mid-cap segment from VN30 and VN100 (Section 4.2). We merge the series by exact timestamp joins without filling gaps. We did not compare them with HOSE closing levels date by date; the replication package records an input checksum. Log returns are
 :::
 
 $$
@@ -173,7 +173,7 @@ $$
 
 The synchronized window (3 January 2017 to 9 December 2024; 1D: N = 1,983; M30: 19,463; H1: 9,879; H4: 3,953) serves cross-frequency comparisons. All other analyses use the full sample (1D: February 2014 to December 2025, N = 2,963; M30: January 2017 to December 2025, 21,942; H1 and H4: January 2014 to December 2024, 13,523 and 5,410). The indices are computed in real time, so they embed reconstitutions and delistings and carry no survivorship bias.
 
-Regimes use the 20-day rolling standard deviation of returns (Fig. 1). Chronological crises require a VNINDEX drawdown above 25%, at least 45% of days in the top volatility quartile and a documented trigger: the 2018 margin contraction (drawdown 26.2%, 47% of days in the top quartile), COVID-19 in 2020 (33.5%, 52%) and the 2022 bond-market freeze (40.2%, 60%). The three episodes total 539 days, against calm years 2016–2017 and 2023–2024 (1,000 days); the 2021 and 2025 spikes fail the first two conditions (Table S12). Quartile regimes compare the bottom and top quartiles of rolling VNINDEX volatility (10.6% and 20.0% annualized) or of VN30 volatility.
+Regimes use the 20-day rolling standard deviation of returns (Fig. 1). Chronological crises require a VNINDEX drawdown above 25%, at least 45% of days in the top volatility quartile, and a documented trigger: the 2018 margin contraction (drawdown 26.2%, 47% of days in the top quartile), COVID-19 in 2020 (33.5%, 52%), and the 2022 bond-market freeze (40.2%, 60%). The three episodes total 539 days, against calm years 2016–2017 and 2023–2024 (1,000 days); the 2021 and 2025 spikes fail the first two conditions (Table S12). Quartile regimes compare the bottom and top quartiles of rolling VNINDEX volatility (10.6% and 20.0% annualized) or of VN30 volatility.
 
 ![](/home/user/B-i-stock-to-n/Python for Algorithmic Trading/NCKH/Bài stock toán/project_R/docx_build/../outputs/figures/fig1_volatility_regimes.png){width=6.3in}
 
@@ -181,7 +181,7 @@ Regimes use the 20-day rolling standard deviation of returns (Fig. 1). Chronolog
 **Fig. 1** Twenty-day rolling volatility of VNINDEX (annualized) and market regimes, 2014–2025
 :::
 ::: {custom-style="Compact"}
-Notes: Shaded areas: the three chronological crisis episodes; dashed and dotted horizontal lines: 25th and 75th percentiles of rolling volatility. The 2021 and 2025 spikes are not shaded because their drawdowns are below 25% (Section 3.2). Source: Authors’ calculations based on HOSE index data (TradingView).
+Notes: Shaded areas: three chronological crisis episodes; dashed and dotted horizontal lines: 25th and 75th percentiles of rolling volatility. The 2021 and 2025 spikes are not shaded because their drawdowns are below 25% (Section 3.2). Source: Authors’ calculations based on the HOSE index data (TradingView).
 :::
 
 ::: {custom-style="heading1"}
@@ -193,7 +193,7 @@ Notes: Shaded areas: the three chronological crisis episodes; dashed and dotted 
 :::
 
 ::: {custom-style="p1a"}
-The DCCA coefficient measures correlation at timescale s after removing local trends (Podobnik and Stanley 2008; Zebende 2011). For return series x and y of length N, the profiles are
+The DCCA coefficient measures the correlation at timescale s after removing local trends (Podobnik and Stanley 2008; Zebende 2011). For return series x and y of length N, the profiles are
 :::
 
 $$
@@ -212,14 +212,14 @@ $$
 \rho_{XY}(s)=\frac{F^2_{XY}(s)}{F_X(s)\,F_Y(s)}. \qquad (5)
 $$
 
-Eq. (5) is an inner product of stacked residual vectors divided by their norms, so \|ρ~XY~(s)\| ≤ 1 by the Cauchy–Schwarz inequality whenever both fluctuation functions are positive. Because profiles are linear in the series and OLS detrending is a linear projection, the residuals of a weighted sum of series are the same weighted sum of their residuals.
+Eq. (5) is an inner product of stacked residual vectors divided by their norms; therefore, \|ρ~XY~(s)\| ≤ 1 by the Cauchy–Schwarz inequality whenever both fluctuation functions are positive. Because profiles are linear in the series and OLS detrending is a linear projection, the residuals of a weighted sum of series are the same weighted sum of their residuals.
 
 ::: {custom-style="heading2"}
 4.2 The overlap-purged series and the part–whole identity
 :::
 
 ::: {custom-style="p1a"}
-Let A~t~ and B~t~ be VN30 and VN100 returns and w the free-float weight of VN30 in VN100. The overlap-purged mid-cap series is
+Let A~t~ and B~t~ be the VN30 and VN100 returns, respectively, and w the free-float weight of VN30 in VN100. The overlap-purged mid-cap series is
 :::
 
 $$
@@ -234,9 +234,9 @@ $$
 \rho_{AB}(s)=\frac{1+\kappa(s)\,\rho_{AM}(s)}{\sqrt{1+\kappa(s)^2+2\kappa(s)\,\rho_{AM}(s)}}. \qquad (7)
 $$
 
-*Proof.* Residuals are linear in the series, so ε~B~ = wε~A~ + (1 − w)ε~M~ in every box. By bilinearity of Eq. (4), F²~AB~ = wF²~A~ + (1 − w)ρ~AM~ F~A~ F~M~ and F²~B~ = w²F²~A~ + (1 − w)²F²~M~ + 2w(1 − w)ρ~AM~ F~A~ F~M~; substituting into Eq. (5) and dividing by wF²~A~ gives Eq. (7). ∎
+*Proof.* The residuals are linear in the series, so ε~B~ = wε~A~ + (1 − w)ε~M~ in every box. By bilinearity of Eq. (4), F²~AB~ = wF²~A~ + (1 − w)ρ~AM~ F~A~ F~M~ and F²~B~ = w²F²~A~ + (1 − w)²F²~M~ + 2w(1 − w)ρ~AM~ F~A~ F~M~; substituting into Eq. (5) and dividing by wF²~A~ gives Eq. (7). ∎
 
-With one box and no detrending, Eq. (7) is the classical part–whole correlation (Pearson 1897; Cureton 1966), so the lemma adapts a known identity. It holds scale by scale for detrended coefficients, for the detrending moving-average cross-correlation (DMCA) coefficient (Kristoufek 2014) and for any measure built from a bilinear covariance of linearly filtered series. Five corollaries follow; we fix the scale and suppress it in the notation.
+With one box and no detrending, Eq. (7) is the classical part–whole correlation (Pearson 1897; Cureton 1966); therefore, the lemma adapts a known identity. It holds scale by scale for detrended coefficients, for the detrending moving-average cross-correlation (DMCA) coefficient (Kristoufek 2014), and for any measure built from a bilinear covariance of linearly filtered series. Five corollaries follow; we fix the scale and suppress it in the notation.
 
 *Corollary 1 (benchmark and bound).* Setting ρ~AM~ = 0 gives the zero-correlation benchmark
 
@@ -244,25 +244,25 @@ $$
 \underline{\rho}=\frac{1}{\sqrt{1+\kappa^2}}. \qquad (8)
 $$
 
-Eq. (7) increases in ρ~AM~ for ρ~AM~ > −κ, so ρ̲ bounds ρ~AB~ from below only when ρ~AM~ ≥ 0. For κ < 1 the minimum over all admissible ρ~AM~ is
+Eq. (7) increases in ρ~AM~ for ρ~AM~ > −κ; therefore, ρ̲ bounds ρ~AB~ from below only when ρ~AM~ ≥ 0. For κ < 1 the minimum over all admissible ρ~AM~ is
 
 $$
 \min_{\rho_{AM}\in[-1,1]}\rho_{AB}=\sqrt{1-\kappa^2},\qquad \text{attained at } \rho_{AM}=-\kappa; \qquad (9)
 $$
 
-for κ ≥ 1 no positive bound exists. *Corollary 2 (sensitivity).* The sensitivity of ρ~AB~ to ρ~AM~ is
+for κ ≥ 1, no positive bound exists. *Corollary 2 (sensitivity).* The sensitivity of ρ~AB~ to ρ~AM~ is
 
 $$
 \frac{\partial\rho_{AB}}{\partial\rho_{AM}}=\frac{\kappa^2\,(\kappa+\rho_{AM})}{(1+\kappa^2+2\kappa\rho_{AM})^{3/2}}, \qquad (10)
 $$
 
-which is small when the child dominates the parent; its inverse states how far ρ~AM~ must move to change ρ~AB~ by a given amount. *Corollary 3 (direction).* For ρ~AM~ ≥ 0, ρ²~AB~ − ρ²~AM~ = (1 − ρ²~AM~)(1 + 2κρ~AM~)/(1 + κ² + 2κρ~AM~) ≥ 0, so overlap can only raise the coefficient. *Corollary 4 (dominance).* For ρ~AM~ ≥ 0, ρ~AB~ ≤ 1 implies ρ̲/ρ~AB~ ≥ ρ̲, so the benchmark exceeds half of ρ~AB~ whenever κ < √3, that is, F~M~/F~A~ < √3·w/(1 − w) = 3.73 at the factsheet weight; such a share carries no information. *Corollary 5 (attribution).* With neither overlap nor dependence the coefficient is 0, with overlap only ρ̲, with dependence only ρ~AM~ and with both ρ~AB~. The benchmark-first share ρ̲/ρ~AB~ and the dependence-first share ρ~AM~/ρ~AB~ depend on the order; the Shapley (1953) value averages the two orders into an additive split,
+which is small when the child dominates the parent; its inverse states how far ρ~AM~ must move to change ρ~AB~ by a given amount. *Corollary 3 (direction).* For ρ~AM~ ≥ 0, ρ²~AB~ − ρ²~AM~ = (1 − ρ²~AM~)(1 + 2κρ~AM~)/(1 + κ² + 2κρ~AM~) ≥ 0; therefore, the overlap can only increase the coefficient. *Corollary 4 (dominance).* For ρ~AM~ ≥ 0, ρ~AB~ ≤ 1 implies ρ̲/ρ~AB~ ≥ ρ̲, so the benchmark exceeds half of ρ~AB~ whenever κ < √3, that is, F~M~/F~A~ < √3·w/(1 − w) = 3.73 at the factsheet weight; such a share carries no information. *Corollary 5 (attribution).* With neither overlap nor dependence the coefficient is 0, with overlap only ρ̲, with dependence only ρ~AM~ and with both ρ~AB~. The benchmark-first share ρ̲/ρ~AB~ and the dependence-first share ρ~AM~/ρ~AB~ depend on the order; the Shapley (1953) value averages the two orders into an additive split,
 
 $$
 \phi_{\mathrm{overlap}}=\tfrac12\left[\underline{\rho}+(\rho_{AB}-\rho_{AM})\right],\qquad \phi_{\mathrm{dep}}=\tfrac12\left[\rho_{AM}+(\rho_{AB}-\underline{\rho})\right],\qquad \phi_{\mathrm{overlap}}+\phi_{\mathrm{dep}}=\rho_{AB}. \qquad (11)
 $$
 
-We lead with the sensitivity, which needs no attribution convention, and report the Shapley overlap share φ_overlap/ρ~AB~. Eq. (7) reproduces the directly estimated VN30–VN100 coefficient at every scale and frequency to within 4.4 × 10⁻¹⁶. We compute all quantities scale by scale and average them over the reliable range (Section 4.4). Because M is a linear combination of A and B, the decomposition also follows from index-level moments alone (Box 1).
+We lead with the sensitivity, which requires no attribution convention, and report the Shapley overlap share φ_overlap/ρ~AB~. Eq. (7) reproduces the directly estimated VN30–VN100 coefficient at every scale and frequency to within 4.4 × 10⁻¹⁶. We compute all quantities scale by scale and average them over the reliable range (Section 4.4). Because M is a linear combination of A and B, the decomposition also follows from index-level moments alone (Box 1).
 
 ::: {custom-style="tablecaption"}
 **Box 1** Decomposition of a nested correlation from index-level inputs
@@ -278,7 +278,7 @@ We lead with the sensitivity, which needs no attribution convention, and report 
 | 6. Sensitivity | Eq. (10) | 0.103 (inverse 9.7) |
 
 ::: {custom-style="Compact"}
-Notes: Pearson moments of daily log returns, February 2014 to December 2025. Steps 2 and 5 reproduce the volatility and the correlation of the directly constructed overlap-purged series P~cap~ exactly; subscripts A, B and M: child, parent and remaining constituents. Source: Authors’ calculations.
+Notes: Pearson moments of daily log returns, February 2014 to December 2025. Steps 2 and 5 reproduce the volatility and correlation of the directly constructed overlap-purged series P~cap~ exactly; subscripts A, B, and M: child, parent, and remaining constituents. Source: Authors’ calculations.
 :::
 
 ::: {custom-style="heading2"}
@@ -286,7 +286,7 @@ Notes: Pearson moments of daily log returns, February 2014 to December 2025. Ste
 :::
 
 ::: {custom-style="p1a"}
-Capitalizations drift between semi-annual reviews. If the true weight w~t~ differs from w, the purged series becomes
+Capitalization drifts between semi-annual reviews. If the true weight w~t~ differs from w, the purged series becomes
 :::
 
 $$
@@ -300,12 +300,12 @@ so large-cap returns leak into P~cap~ in proportion to the weight error w~t~ −
 :::
 
 ::: {custom-style="p1a"}
-The DCCA coefficient becomes noisy at large scales, where boxes are few. For each sample size we simulate Gaussian white-noise pairs with correlations of −0.3, 0, 0.3, 0.5, 0.7 and 0.9 (1,002 per frequency) and set s~rel~ to the largest scale before the worst-case mean absolute error on 40 log-spaced scales first exceeds 0.05. We fixed the grid and tolerance in advance. A GARCH(1,1)-t(5) calibration (generalized autoregressive conditional heteroskedasticity with Student-t errors; 300 simulations) checks heavy tails.
+The DCCA coefficient becomes noisy at large scales, where the boxes are few. For each sample size, we simulate Gaussian white-noise pairs with correlations of −0.3, 0, 0.3, 0.5, 0.7, and 0.9 (1,002 per frequency) and set s~rel~ to the largest scale before the worst-case mean absolute error on 40 log-spaced scales first exceeds 0.05. We fixed the grid and tolerance in advance. A GARCH(1,1)-t(5) calibration (generalized autoregressive conditional heteroscedasticity with Student-t errors; 300 simulations) checks heavy tails.
 :::
 
-Because coefficients at different scales come from the same series, all inference uses the stationary block bootstrap (Politis and Romano 1994) with mean blocks of about 20 trading days, recomputing every curve and statistic in each replicate. We use 499 replicates for the DCCA statistics of Tables 4–6 and for the decomposition, hedge-effectiveness and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag and materiality (Table S14) statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights and with 2021 added. The remaining Forbes–Rigobon and relative-error statistics use 1,999 replicates.
+Because the coefficients at different scales come from the same series, all inference uses the stationary block bootstrap (Politis and Romano 1994) with mean blocks of approximately 20 trading days, recomputing every curve and statistic in each replicate. We use 499 replicates for the DCCA statistics in Tables 4–6 and for the decomposition, hedge-effectiveness, and tail-dependence statistics; 399 for the like-for-like gap under weight uncertainty; 199 for the trimmed-bar checks of Section 5.4 and Tables S7 and S15 and the 30-minute block-length checks of Table S6; and 999 for the factor-model, lead–lag, and materiality (Table S14) statistics and for the Forbes–Rigobon tests under VN30 quartiles, across weights, and with 2021 added. The remaining Forbes–Rigobon and relative-error statistics use 1,999 replicates.
 
-Intervals are percentile 95% intervals, capped at ±1 for correlations. With B = 499 replicates, percentile p-values cannot fall below 0.004 (reported as p < 0.005): p = 2 min{k₋ + 1, k₊ + 1}/(B + 1), where k₋ and k₊ count replicates at or below and at or above zero. With 19 tests, the smallest attainable Holm-adjusted value is 0.076. One-sided Forbes–Rigobon p-values use the re-centered bootstrap distribution, and p-values for Δβ and the residual-variance ratio are studentized. Because of the resolution limit, slope tests also use studentized p-values, 2Φ(−\|β̂\|/se~boot~), adjusted by the Holm (1979) and Benjamini and Hochberg (1995) procedures in two families: the original 19 reliable-range tests and the eight broad-market tests of H~2~. We test equivalence of the VN30–VN100 slope to zero with two one-sided tests (TOST; Schuirmann 1987) and a margin of 0.001 per unit of ln s. Over the 4.5 units of the M30 reliable range, such a slope moves the coefficient by less than a tenth of the 0.05 tolerance.
+Intervals are 95% percentile intervals, capped at ±1 for correlations. With B = 499 replicates, percentile p-values cannot fall below 0.004 (reported as p < 0.005): p = 2 min{k₋ + 1, k₊ + 1}/(B + 1), where k₋ and k₊ count replicates at or below and at or above zero. With 19 tests, the smallest attainable Holm-adjusted value is 0.076. One-sided Forbes–Rigobon p-values use the re-centered bootstrap distribution, and p-values for Δβ and the residual-variance ratio are studentized. Because of the resolution limit, slope tests also use studentized p-values, 2Φ(−\|β̂\|/se~boot~), adjusted by the Holm (1979) and Benjamini and Hochberg (1995) procedures in two families: the original 19 reliable-range tests and the eight broad-market tests of H~2~. We test equivalence of the VN30–VN100 slope to zero with two one-sided tests (TOST; Schuirmann 1987) and a margin of 0.001 per unit of ln s. Over the 4.5 units of the M30 reliable range, such a slope moves the coefficient by less than a tenth of the 0.05 tolerance.
 
 ::: {custom-style="heading2"}
 4.5 Scaling regressions and slope channels
@@ -332,14 +332,14 @@ so horizon dependence in ρ~AM~ reaches ρ~AB~ damped by the sensitivity of Eq. 
 :::
 
 ::: {custom-style="p1a"}
-If y~t~ = α + βx~t~ + ε~t~ with Var(ε~t~) = σ²~ε~, the correlation [1 + σ²~ε~/(β²σ²~x~)]^−1/2^ rises with the variance of x even when β and σ²~ε~ are constant. Forbes and Rigobon (2002) adjust the crisis correlation as
+If y~t~ = α + βx~t~ + ε~t~ with Var(ε~t~) = σ²~ε~, the correlation [1 + σ²~ε~/(β²σ²~x~)]^−1/2^ increases with the variance of x even when β and σ²~ε~ are constant. Forbes and Rigobon (2002) adjust the crisis correlation as
 :::
 
 $$
 \rho^{*}=\frac{\rho_{\mathrm{high}}}{\sqrt{1+\delta\,(1-\rho_{\mathrm{high}}^2)}},\qquad \delta=\frac{\sigma^2_{x,\mathrm{high}}-\sigma^2_{x,\mathrm{low}}}{\sigma^2_{x,\mathrm{low}}}, \qquad (15)
 $$
 
-with y = P~cap~ and x = VN30. The adjustment assumes constant β and σ²~ε~; if crises raise idiosyncratic variance, ρ* is biased toward no contagion (Corsetti et al. 2005). We therefore also test, regime by regime, for changes in the residual variance and in the loading β; a change in β is contagion in their sense, and β is the structural parameter of Rigobon (2003). Regimes are chronological episodes, VNINDEX volatility quartiles or VN30 volatility quartiles; the last sorts on the conditioning variable rather than on a series containing P~cap~. Statistics are Pearson moments of daily returns, bootstrapped within regimes. We do not test nested pairs, because the parent contains the conditioning index.
+with y = P~cap~ and x = VN30. The adjustment assumes constant β and σ²~ε~; if crises raise idiosyncratic variance, ρ* is biased toward no contagion (Corsetti et al. 2005). We therefore also test, regime by regime, for changes in the residual variance and in the loading β; a change in β is contagion in their sense, and β is the structural parameter of Rigobon (2003). Regimes are chronological episodes, VNINDEX volatility quartiles, or VN30 volatility quartiles; the last sorts on the conditioning variable rather than on a series containing P~cap~. The statistics are Pearson moments of daily returns, bootstrapped within regimes. We do not test nested pairs because the parent contains the conditioning index.
 
 ::: {custom-style="heading2"}
 4.7 Portfolio variance: in-sample misstatement and out-of-sample evaluation
@@ -353,7 +353,7 @@ $$
 \mathrm{RE}=\frac{\rho_{\mathrm{st}}-\rho_{r}}{\tfrac{1}{2}\left(\sigma_1/\sigma_2+\sigma_2/\sigma_1\right)+\rho_{r}}, \qquad (16)
 $$
 
-with regime volatilities σ₁ and σ₂, so only the correlation differs. We obtain intervals by resampling the full sample jointly and re-estimating ρ~st~, and compare \|RE\| with the bootstrap relative standard error of the regime variance. Because these regimes are ex post, we also estimate correlations on 2014–2022 and evaluate forecasts on 2023–2025. Forecasts share one-step-ahead RiskMetrics variances (λ = 0.94; J.P. Morgan/Reuters 1996) and differ only in the correlation: static, EWMA with the same λ, or a regime correlation chosen in real time from lagged rolling volatility with thresholds fixed in the estimation window. Losses are QLIKE (Patton 2011) and squared error, compared by the Diebold and Mariano (1995) test with a Newey and West (1987) variance (five lags).
+with regime volatilities σ₁ and σ₂, so only the correlation differs. We obtain intervals by jointly resampling the full sample and re-estimating ρ~st~, and compare \|RE\| with the bootstrap relative standard error of the regime variance. Because these regimes are ex post, we also estimate correlations for 2014–2022 and evaluate forecasts for 2023–2025. Forecasts share one-step-ahead RiskMetrics variances (λ = 0.94; J.P. Morgan/Reuters 1996) and differ only in the correlation: static, EWMA with the same λ, or a regime correlation chosen in real time from lagged rolling volatility with thresholds fixed in the estimation window. Losses are QLIKE (Patton 2011) and squared error, compared by the Diebold and Mariano (1995) test with a Newey and West (1987) variance (five lags).
 
 ::: {custom-style="heading1"}
 5 Results
@@ -364,7 +364,7 @@ with regime volatilities σ₁ and σ₂, so only the correlation differs. We ob
 :::
 
 ::: {custom-style="p1a"}
-Table 2 reports descriptive statistics and Table 3 the reliability thresholds.
+Table 2 presents descriptive statistics and Table 3 presents reliability thresholds.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -391,7 +391,7 @@ Table 2 reports descriptive statistics and Table 3 the reliability thresholds.
 | P~cap~ | H4 | 5,410 | 0.0002 | 0.0086 | −1.33 | 11.69 | 18,632\*\*\* |
 
 ::: {custom-style="Compact"}
-Notes: Kurt.: non-excess kurtosis; P~cap~: overlap-purged series of Eq. (6); \*\*\* p < 0.01. Source: Authors’ calculations based on HOSE index data (TradingView).
+Notes: Kurt.: non-excess kurtosis; P~cap~: overlap-purged series of Eq. (6); \*\*\* p < 0.01. Source: Authors’ calculations based on the HOSE index data (TradingView).
 :::
 
 All series are negatively skewed and leptokurtic (kurtosis above 33 at M30), and the Jarque–Bera test rejects normality for every series. Neither DCCA nor the block bootstrap requires Gaussian returns.
@@ -408,7 +408,7 @@ All series are negatively skewed and leptokurtic (kurtosis above 33 at M30), and
 | 4-hour (H4) | 5,410 | 88 | 28 |
 
 ::: {custom-style="Compact"}
-Notes: DCCA: detrended cross-correlation analysis; s~rel~: largest scale (bars) at which the worst-case mean absolute error stays below 0.05; Gaussian: 1,002 white-noise simulations; heavy-tailed: 300 GARCH(1,1)-t(5) simulations (generalized autoregressive conditional heteroskedasticity). Source: Authors’ calculations.
+Notes: DCCA: detrended cross-correlation analysis; s~rel~: largest scale (bars) at which the worst-case mean absolute error stays below 0.05; Gaussian: 1,002 white-noise simulations; heavy-tailed: 300 GARCH(1,1)-t(5) simulations (generalized autoregressive conditional heteroscedasticity). Source: Authors’ calculations.
 :::
 
 Gaussian thresholds range from 50 days at 1D to 444 bars at M30, and heavy tails cut them by about two-thirds. Averages below use the Gaussian thresholds. Over the heavy-tailed ranges, the nested averages become 0.975–0.979 and the purged average 0.882–0.890, so no conclusion depends on the choice.
@@ -418,7 +418,7 @@ Gaussian thresholds range from 50 days at 1D to 444 bars at M30, and heavy tails
 :::
 
 ::: {custom-style="p1a"}
-Table 4 compares nested and purged coefficients; Fig. 2 shows the curves with bootstrap bands.
+Table 4 compares the nested and purged coefficients; Fig. 2 shows the curves with bootstrap bands.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -444,7 +444,7 @@ Notes: Averages of ρ(s) over s ≤ s~rel~ (Table 3) with m = 1; nested mean: VN
 
 The nested pairs average 0.975–0.980 at every frequency in both samples, and P~cap~–VN30 averages 0.883–0.892. Corollary 3 fixes the sign of the like-for-like gap, but not its size: the gap is 0.099–0.104 with interval lower bounds of at least 0.084, above the 0.05 tolerance at every frequency, so H~1~ is supported. The three-pair gap is 0.086–0.096, with Cohen’s q (Cohen 1988) of 0.78–0.89. We report q descriptively because both coefficients come from the same sample.
 
-The gap depends on the weight: over w = 0.60–0.75 the daily like-for-like gap is 0.063–0.164 and the three-pair gap 0.052–0.153 (Tables S2 and S3). With w drawn in each replicate, the like-for-like intervals have lower bounds of 0.057–0.061 and every replicate exceeds 0.05, so H~1~ holds under weight uncertainty. The size of the gap is known only to within a factor of about two.
+The gap depends on the weight: over w = 0.60–0.75, the daily like-for-like gap is 0.063–0.164, and the three-pair gap 0.052–0.153 (Tables S2 and S3). With w drawn in each replicate, the like-for-like intervals have lower bounds of 0.057–0.061 and every replicate exceeds 0.05, so H~1~ holds under weight uncertainty. The size of the gap is known only to within a factor of about two.
 
 ![](/home/user/B-i-stock-to-n/Python for Algorithmic Trading/NCKH/Bài stock toán/project_R/docx_build/../outputs/figures/fig2_dcca_curves.png){width=6.3in}
 
@@ -452,7 +452,7 @@ The gap depends on the weight: over w = 0.60–0.75 the daily like-for-like gap 
 **Fig. 2** DCCA coefficients of the nested pairs and P~cap~–VN30 by timescale: (a) 1D, (b) M30, (c) H1, (d) H4
 :::
 ::: {custom-style="Compact"}
-Notes: Line and marker types identify the pairs; P~cap~: overlap-purged mid-cap series; grey bands: pointwise block-bootstrap 95% intervals; vertical dotted lines: s~rel~ (Table 3). Source: Authors’ calculations based on HOSE index data (TradingView).
+Notes: Line and marker types identify the pairs; P~cap~: overlap-purged mid-cap series; gray bands: pointwise block-bootstrap 95% intervals; vertical dotted lines: s~rel~ (Table 3). Source: Authors’ calculations based on the HOSE index data (TradingView).
 :::
 
 ::: {custom-style="heading2"}
@@ -479,12 +479,12 @@ Table 5 applies Lemma 1 to VN30–VN100, and Fig. 3 plots Eq. (7) against the pu
 | 30-minute (M30) |  | 0.883 [0.817, 0.926] |  | 0.893 [0.823, 0.932] |  | 0.112 [0.077, 0.168] | 0.905 [0.834, 0.944] | 0.505 [0.451, 0.555] |
 
 ::: {custom-style="Compact"}
-Notes: Quantities of Eqs. (7)–(11) averaged over s ≤ s~rel~; A = VN30, B = VN100, M = P~cap~ (overlap-purged mid-cap series). Brackets: block-bootstrap 95% intervals; Panel B covers the daily and 30-minute frequencies. Source: Authors’ calculations.
+Notes: Quantities of Eqs. (7)–(11) averaged over s ≤ s~rel~; A = VN30, B = VN100, and M = P~cap~ (overlap-purged mid-cap series). Brackets: block-bootstrap 95% intervals; Panel B covers daily and 30-minute frequencies. Source: Authors’ calculations.
 :::
 
-The sensitivity is 0.106–0.112: moving the nested coefficient by 0.01 requires the purged coefficient to move by about 0.09. Under weight uncertainty, the sensitivity interval is 0.07–0.17. With κ of 0.48–0.50, the remaining 32% of VN100 contributes about half as much detrended variation as VN30, which puts the benchmark at 0.893–0.900 and the lower bound of Eq. (9) at 0.864–0.875.
+The sensitivity is 0.106–0.112: moving the nested coefficient by 0.01 requires the purged coefficient to move by approximately 0.09. Under weight uncertainty, the sensitivity interval is 0.07–0.17. With κ of 0.48–0.50, the remaining 32% of VN100 contributes approximately half as much detrended variation as VN30, which puts the benchmark at 0.893–0.900 and the lower bound of Eq. (9) at 0.864–0.875.
 
-The part of the observed 0.987–0.988 attributable to overlap depends on the attribution convention. The benchmark-first share is 0.905–0.911 and the dependence-first share 0.895–0.900, because either factor alone produces a coefficient near 0.9. The Shapley split attributes 0.505–0.508 to overlap (intervals within 0.497–0.521). Weight uncertainty widens the Shapley intervals to 0.45–0.56 and the benchmark-first intervals to 0.83–0.95, against a sampling-only width of about 0.02, so weight error dominates the uncertainty of any attribution.
+The part of the observed 0.987–0.988 attributable to overlap depends on the attribution convention. The benchmark-first share is 0.905–0.911 and the dependence-first share is 0.895–0.900, because either factor alone produces a coefficient near 0.9. The Shapley split attributes 0.505–0.508 to overlap (intervals within 0.497–0.521). Weight uncertainty widens the Shapley intervals to 0.45–0.56 and the benchmark-first intervals to 0.83–0.95, against a sampling-only width of approximately 0.02; thus, weight error dominates the uncertainty of any attribution.
 
 The decomposition barely varies with the horizon. Across reliable scales and frequencies, κ lies in 0.47–0.52, the benchmark varies by 0.007–0.016 within a frequency, and its slope on ln s is not significant at 5% (p = 0.052–0.456; Holm 0.208–0.828), although at M30 the percentile interval just excludes zero. The slope, about −0.002 per unit of ln s, is negligible. On full-sample Pearson moments, the benchmark is 0.898–0.903 and the benchmark-first share 0.911–0.914, within 0.01 of the DCCA values. In these data, the multiscale layer checks scale invariance, and Box 1 suffices in practice. The DCCA version matters where tiers scale differently, which Eq. (7) reveals as variation in κ(s).
 
@@ -513,7 +513,7 @@ Notes: Contours of Eq. (8) with κ = (1 − w)σ~M~/(wσ~A~); triangle: VN30 in 
 :::
 
 ::: {custom-style="p1a"}
-Table 6 lists reliable-range slopes for the four main pairs.
+Table 6 lists the reliable-range slopes for the four main pairs.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -543,18 +543,18 @@ Table 6 lists reliable-range slopes for the four main pairs.
 Notes: Slopes β of Eq. (13) over s ≤ s~rel~; P~cap~: overlap-purged mid-cap series. Holm, 19 tests: studentized p adjusted over the original 19 tests, which include three statistical proxies at M30 (Table S8); H~2~ family: the eight broad-market tests; TOST: equivalence to zero with a margin of 0.001. Source: Authors’ calculations.
 :::
 
-Positive slopes appear only for broad-market pairs at M30 and H1. In the H~2~ family, four slopes survive Holm adjustment, with estimates of 0.0019–0.0024, a rise of about 0.01 across the reliable range. None is significant at 1D or H4; with significant positive slopes at both frequencies the rule requires, H~2~ is supported on the full data. Over the original 19 tests, Holm keeps one studentized slope and Benjamini–Hochberg four, and with percentile p-values none survives (smallest Benjamini–Hochberg-adjusted p = 0.057). The VN30–VN100 slope is equivalent to zero at M30 and H1 (TOST p = 0.007, 0.012), and the test is inconclusive elsewhere. The P~cap~–VN30 slope is not significant at any frequency.
+Positive slopes appear only for broad-market pairs at M30 and H1. In the H~2~ family, four slopes survive the Holm adjustment, with estimates of 0.0019–0.0024, a rise of approximately 0.01 across the reliable range. None is significant at 1D or H4; with the significant positive slopes at both frequencies that the rule requires, H~2~ is supported on the full data. Over the original 19 tests, Holm keeps one studentized slope and Benjamini–Hochberg four, and with percentile p-values, none survives (smallest Benjamini–Hochberg-adjusted p = 0.057). The VN30–VN100 slope is equivalent to zero at M30 and H1 (TOST p = 0.007, 0.012), and the test is inconclusive elsewhere. The P~cap~–VN30 slope is not significant at any frequency.
 
 Eq. (14) explains the flat nested slope: the damping factor (the sensitivity) is 0.106–0.112, at M30 and H1 the κ channel partly offsets the ρ~AM~ channel, and the implied slope differs from the observed one by at most 0.8 × 10⁻⁵ (Table S13). A flat nested coefficient therefore says little about the tiers.
 
-The auction bars drive the intraday result. The opening bar, where intraday volatility peaks (Andersen and Bollerslev 1997), accounts for 10% of M30 bars but carries 37% of squared VN30 returns. The last bar holds the closing auction (Table S7). Without the opening bar, the H1 broad-market slopes fall to 0.0003 and −0.0005, and at M30 only VN30–VNINDEX stays significant (0.0020, p = 0.031). Without both auction bars, the M30 slopes are −0.00002 and −0.0002. Within the same replicates, the broad-market slopes exceed the VN30–VN100 slope at M30 and H1 (differences 0.0018–0.0024, p ≤ 0.003), but the differences vanish without the auction bars. The three-pair gap does not change (0.107 [0.094, 0.127] at M30 without the opening bar), and the slope intervals are stable across block lengths (Table S15). Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of continuous trading.
+The auction bars drive intraday results. The opening bar, where intraday volatility peaks (Andersen and Bollerslev 1997), accounts for 10% of M30 bars but carries 37% of squared VN30 returns. The last bar holds the closing auction (Table S7). Without the opening bar, the H1 broad-market slopes fall to 0.0003 and −0.0005, and at M30 only VN30–VNINDEX stays significant (0.0020, p = 0.031). Without both auction bars, the M30 slopes are −0.00002 and −0.0002. Within the same replicates, the broad-market slopes exceed the VN30–VN100 slope at M30 and H1 (differences 0.0018–0.0024, p ≤ 0.003), but the differences vanish without the auction bars. The three-pair gap does not change (0.107 [0.094, 0.127] at M30 without the opening bar), and the slope intervals are stable across block lengths (Table S15). Horizon dependence is thus a property of the bars containing the overnight return and the call auctions, not of continuous trading.
 
 ::: {custom-style="heading2"}
 5.5 Crisis dependence (H~3~)
 :::
 
 ::: {custom-style="p1a"}
-Table 7 presents the Forbes–Rigobon and factor-model tests.
+Table 7 presents the results of the Forbes–Rigobon and factor-model tests.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -571,16 +571,16 @@ Table 7 presents the Forbes–Rigobon and factor-model tests.
 Notes: Daily returns; ρ* from Eq. (15); p (FR): one-sided Forbes–Rigobon bootstrap p-value for H0: ρ* ≤ ρ~low~; β: ordinary least squares slope of P~cap~ (overlap-purged mid-cap series) on VN30; residual variance ratio: crisis over calm. Chronological: 1,000 calm and 539 crisis days; quartiles: 739 days per regime. Source: Authors’ calculations.
 :::
 
-The raw correlation rises under every regime definition, from 0.847 to 0.924 chronologically and from 0.744 to 0.932 under VN30 quartiles. The adjusted crisis correlation never exceeds its calm level (one-sided p = 0.974–0.998, and above 0.93 across weights; Table S10), and under VN30 quartiles it is significantly lower (−0.087, [−0.144, −0.018]).
+The raw correlation increases under every regime definition, from 0.847 to 0.924 chronologically and from 0.744 to 0.932 under VN30 quartiles. The adjusted crisis correlation never exceeds its calm level (one-sided p = 0.974–0.998, and above 0.93 across weights; Table S10), and under VN30 quartiles it is significantly lower (−0.087, [−0.144, −0.018]).
 
-The factor model explains why. The residual variance of P~cap~ rises by a factor of 2.70 [1.92, 3.68] under VN30 quartiles (2.57 under VNINDEX quartiles), which violates the assumption behind Eq. (15) and pushes ρ* down (Corsetti et al. 2005). The loading rises from 0.737 to 0.948 under VN30 quartiles (Δβ = 0.210, [0.119, 0.306], p < 0.001) but not between chronological episodes (Δβ = 0.008, [−0.128, 0.140]). Neither result changes when 2021 is added as a crisis (789 days; Forbes–Rigobon p = 0.987; Δβ = −0.005, [−0.122, 0.124]). Under its decision rule, H~3~ is not supported: on high-VN30-volatility days, mid caps respond more strongly to large caps and also carry more mid-cap-specific risk. Because the lower-tail dependence of P~cap~–VN30 (0.75 at the 5% quantile) exceeds its Gaussian-copula value (0.62; Table S5), we cannot tell a structural shift from a stable nonlinear relation.
+The factor model explains this. The residual variance of P~cap~ rises by a factor of 2.70 [1.92, 3.68] under VN30 quartiles (2.57 under VNINDEX quartiles), which violates the assumption behind Eq. (15) and pushes ρ* down (Corsetti et al. 2005). The loading rises from 0.737 to 0.948 under VN30 quartiles (Δβ = 0.210, [0.119, 0.306], p < 0.001) but not between chronological episodes (Δβ = 0.008, [−0.128, 0.140]). Neither result changes when 2021 is added as a crisis (789 days; Forbes–Rigobon p = 0.987; Δβ = −0.005, [−0.122, 0.124]). Under its decision rule, H~3~ is not supported: on high-VN30-volatility days, mid caps respond more strongly to large caps and also carry more mid-cap-specific risk. Because the lower-tail dependence of P~cap~–VN30 (0.75 at the 5% quantile) exceeds its Gaussian-copula value (0.62; Table S5), we cannot distinguish a structural shift from a stable nonlinear relation.
 
 ::: {custom-style="heading2"}
 5.6 Portfolio variance (E3, H~4~)
 :::
 
 ::: {custom-style="p1a"}
-Table 8 reports the in-sample misstatement and the out-of-sample forecast comparison.
+Table 8 presents the in-sample misstatement and out-of-sample forecast comparison.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -605,17 +605,17 @@ Table 8 reports the in-sample misstatement and the out-of-sample forecast compar
 | VN100–VNINDEX | −7.8904 | −7.8880 | −7.8867 | −1.64 (0.100) | −1.43 (0.153) |
 
 ::: {custom-style="Compact"}
-Notes: Panel A: RE: relative error of Eq. (16) for an equally weighted position; P~cap~: overlap-purged mid-cap series; relative SE: bootstrap standard error of the regime portfolio variance. Panel B: QLIKE: quasi-likelihood loss; EWMA: exponentially weighted moving average; mean QLIKE over 735 evaluation days; DM: Diebold–Mariano t-statistic (p) on the QLIKE difference, negative when the static correlation has the lower loss. Source: Authors’ calculations.
+Notes: Panel A: RE: relative error of Eq. (16) for an equally weighted position; P~cap~: overlap-purged mid-cap series; relative SE: bootstrap standard error of the regime portfolio variance. Panel B: QLIKE: quasi-likelihood loss; EWMA: exponentially weighted moving average; mean QLIKE over 735 evaluation days; DM: Diebold–Mariano t-statistic (p) on the QLIKE difference, negative when the static correlation has a lower loss. Source: Authors’ calculations.
 :::
 
-In sample, a static correlation overstates the variance of an equally weighted VN30 and P~cap~ position by 2.23% in chronological calm periods and 9.38% in the low-volatility quartile, and understates it by 1.84% and 2.07% in crisis regimes. For nested pairs, the misstatement is at most 2.35% (Table S14). Relative to sampling error, the magnitudes are small: \|RE\| is 0.13–1.50 standard errors of the regime variance for P~cap~–VN30 and at most 0.43 for nested pairs. Out of sample, the static correlation has the lowest mean QLIKE for every pair, and all Diebold–Mariano statistics are negative (p = 0.069–0.179). H~4~ is not supported: regime variation in correlations is real in sample but too small or too poorly timed to exploit.
+In sample, a static correlation overstates the variance of an equally weighted VN30 and P~cap~ position by 2.23% in chronological calm periods and 9.38% in the low-volatility quartile and understates it by 1.84% and 2.07% in crisis regimes. For nested pairs, the misstatement is at most 2.35% (Table S14). Relative to the sampling error, the magnitudes are small: \|RE\| is 0.13–1.50 standard errors of the regime variance for P~cap~–VN30 and at most 0.43 for nested pairs. Out of sample, the static correlation has the lowest mean QLIKE for every pair, and all Diebold–Mariano statistics are negative (p = 0.069–0.179). H~4~ is not supported: regime variation in correlations is real in sample but too small or too poorly timed to exploit.
 
 ::: {custom-style="heading2"}
 5.7 Further robustness
 :::
 
 ::: {custom-style="p1a"}
-None of the further checks changes the conclusions. DMCA (Kristoufek 2014) satisfies the same identity, so it checks only the detrending; it gives a purged coefficient of 0.882–0.891 and a three-pair gap of 0.086–0.096 (Table S4). The daily three-pair gap interval stays within 0.070–0.119 for blocks of 5–60 days (Table S6), and the daily VN30–VNINDEX average is 0.9665, 0.9663 and 0.9667 for detrending orders 1–3. Proxies that replace the free-float weight, such as the VN30–VN100 correlation (0.9865–0.9885), are unstable (Table S8), and shuffled surrogates attribute most of the multifractal range to fat tails (Fig. S1). Lead–lag, hedge-effectiveness and episode statistics are in Tables S9, S11 and S12.
+None of the further checks changed the conclusions. DMCA (Kristoufek 2014) satisfies the same identity, so it checks only the detrending, giving a purged coefficient of 0.882–0.891 and a three-pair gap of 0.086–0.096 (Table S4). The daily three-pair gap interval stays within 0.070–0.119 for blocks of 5–60 days (Table S6), and the daily VN30–VNINDEX average is 0.9665, 0.9663, and 0.9667 for detrending orders 1–3. Proxies that replace the free-float weight, such as the VN30–VN100 correlation (0.9865–0.9885), are unstable (Table S8), and shuffled surrogates attribute most of the multifractal range to fat tails (Fig. S1). Lead–lag, hedge-effectiveness, and episode statistics are in Tables S9, S11, and S12.
 :::
 
 ::: {custom-style="heading2"}
@@ -623,7 +623,7 @@ None of the further checks changes the conclusions. DMCA (Kristoufek 2014) satis
 :::
 
 ::: {custom-style="p1a"}
-Table 9 summarizes the estimands and hypotheses.
+Table 9 summarizes the estimands and the hypotheses.
 :::
 
 ::: {custom-style="tablecaption"}
@@ -653,10 +653,10 @@ Notes: Decision rules for H~1~–H~4~ in Section 2.7; all tests at the 5% level;
 :::
 
 ::: {custom-style="p1a"}
-Because a child’s variation enters every covariance and both standard deviations of a nested pair, Lemma 1 pins the coefficient near a benchmark set by weight and relative amplitude. With VN30 at 68% of VN100, the benchmark is near 0.90 and the bound near 0.87, so the observed 0.99 says little about how mid caps move with large caps.
+Because a child’s variation enters every covariance and both standard deviations of a nested pair, Lemma 1 pins the coefficient near a benchmark set by the weight and relative amplitude. With VN30 at 68% of VN100, the benchmark is near 0.90 and the bound near 0.87, so the observed 0.99 says little about how mid caps move with large caps.
 :::
 
-The purged series has the features the size literature predicts. Daily VN30 returns lead P~cap~ returns (cross-autocorrelation 0.084, [0.028, 0.136]) while the reverse is negligible (0.007), an asymmetry of 0.076 [0.048, 0.102]; at intraday frequencies the lead is symmetric (Table S9). The auction-bar horizon dependence of broad-market pairs fits the Epps (1979) effect for small, less liquid stocks (Chen et al. 2021; Tran and Tran 2025). The higher loading on high-volatility days has several candidate sources that our data cannot rank: herding (Nguyen et al. 2023) and sector connectedness (Bui et al. 2022), limit hits under the ±7% band, margin calls and foreign flows into large caps.
+The purged series has the features that the size literature predicts. Daily VN30 returns lead P~cap~ returns (cross-autocorrelation 0.084, [0.028, 0.136]) while the reverse is negligible (0.007), an asymmetry of 0.076 [0.048, 0.102]; at intraday frequencies, the lead is symmetric (Table S9). The auction-bar horizon dependence of broad-market pairs fits the Epps (1979) effect for small, less liquid stocks (Chen et al. 2021; Tran and Tran 2025). The higher loading on high-volatility days has several candidate sources that our data cannot rank: herding (Nguyen et al. 2023) and sector connectedness (Bui et al. 2022), limit hits under the ±7% band, margin calls, and foreign flows into large caps.
 
 ::: {custom-style="heading2"}
 6.2 Implications
@@ -674,7 +674,7 @@ Box 1 decomposes nested correlations from published series and the index weight.
 Lemma 1 applies to any child contained in its parent with a known weight under one weighting scheme. Fig. 4 shows benchmarks above 0.7 whenever the child holds half of the parent and the remaining constituents are no more volatile, so large components fixed by construction should be common in families such as SET50 within SET100 or IDX30 within LQ45; we did not compute them because we could not verify their weights. With partial overlap, the shared constituents form a third component, and Eq. (7) does not apply directly. We did not decompose the broad-market pairs: VNINDEX uses full capitalization and VN100 free-float capitalization, so VN100 is not a fixed-weight component of VNINDEX. The mismatch term of Eq. (12) cannot be bounded without constituent data, and the three-pair gap is therefore descriptive for these pairs.
 :::
 
-The evidence comes from one exchange and three indices, so the magnitudes should not be generalized beyond the HOSE. The purged series rests on one factsheet weight; a weight path from semi-annual reviews would narrow the attribution intervals, which weight error dominates. We could not validate P~cap~ against the published VNMIDCAP index or the FUEDCMID net asset value, so we call ρ~AM~ overlap-purged rather than economic. Index-level prices cannot separate microstructure from diffusion, crisis evidence depends on the regime definition, and the out-of-sample period covers three years. The FTSE Russell reclassification from September 2026 offers a test: if foreign inflows raise the large-cap weight or lower the volatility of the remaining constituents relative to large caps, Eq. (8) predicts a higher benchmark.
+The evidence comes from one exchange and three indices; therefore, the magnitudes should not be generalized beyond the HOSE. The purged series rests on one factsheet weight; a weight path from semi-annual reviews would narrow the attribution intervals, which weight error dominates. We could not validate P~cap~ against the published VNMIDCAP index or the FUEDCMID net asset value; therefore, we call ρ~AM~ overlap-purged rather than economic. Index-level prices cannot separate microstructure from diffusion, crisis evidence depends on the regime definition, and the out-of-sample period covers three years. The FTSE Russell reclassification from September 2026 offers a test: if foreign inflows raise the large-cap weight or lower the volatility of the remaining constituents relative to large caps, Eq. (8) predicts a higher benchmark.
 
 ::: {custom-style="heading1"}
 7 Conclusion
@@ -685,7 +685,7 @@ Correlations between nested equity indices contain a component fixed by construc
 :::
 
 ::: {custom-style="p1a"}
-**Ethical standards** This study uses only publicly available historical index price data from the Ho Chi Minh City Stock Exchange; it involves no human participants or personal data, therefore required no ethical approval, and complies with the current laws of Vietnam.
+**Ethical standards** This study uses only publicly available historical index price data from the Ho Chi Minh City Stock Exchange; it involves no human participants or personal data; therefore, it required no ethical approval and complies with the current laws of Vietnam.
 :::
 
 ::: {custom-style="p1a"}

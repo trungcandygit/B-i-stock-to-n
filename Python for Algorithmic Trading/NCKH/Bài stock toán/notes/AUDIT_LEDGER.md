@@ -575,3 +575,25 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
 - User reports the manuscript was submitted to the Journal of Emerging Market Finance (files as built at commit 116bf76).
 - Not applied before submission (stopped by the user): APA in-text citation style ("Author, year" with "&"), abstract
   reduction to ~100 words, JEMF cover letter. Fix these first if the editorial office returns the files.
+
+## D77 — Author language corrections applied (2026-10-13)
+- Input: the author's corrected text of manuscript_with_authors.docx (~200 grammar/punctuation edits). Each edit was
+  diffed word by word against the build and applied to the sources (r2_text.py, r2_lit.py, build_r2.py) when correct.
+- Applied: serial commas; "so" -> "; therefore,"/"; thus,"; added articles; "Capitalization drifts"; "To the best of our
+  knowledge, no study has covered"; "heteroscedasticity" in prose (reference titles kept verbatim); "gray"; reworded
+  sentences in Sections 1, 2, 3.2, 4.1-4.7, 5.1-5.7, 6 and the ethics statement.
+- Not applied (would introduce an error or break a convention): "midcaps/largecaps/mid-caps" (paper uses "mid caps",
+  "large caps"); "broad market pairs" and "full range slopes" (compound modifiers keep hyphens); US dates "December 12,
+  2025" (paper uses day-month); "(Markowitz, 1952)" and "Reuters, 1996" (author-year without comma); "30-min";
+  capitalised "Rule: An" and "(Benchmark and Bound)"; "Note:" and comma-style table notes; dropping "The part of" (changes
+  meaning); "were attributed" (ungrammatical); "compared to the Diebold-Mariano test" (losses are compared by the test);
+  "and crisis evidence ..., and the ..." (double "and"); "M30:19,463" (missing space); "( sensitivity)".
+- Independent agent check (fresh context, no ledger) flagged: mixed tenses introduced in Sections 3.2, 4.4, 5.1, 5.4
+  (reverted to the paper's present tense for results and methods); "In the sample"/"real in the sample" (reverted to the
+  in-sample/out-of-sample term); dropped "also" in Section 4.6 (restored); "(i.e., 2N_s boxes)" (reverted); "crisis over
+  calm period" (reverted); "Correspondence to" (kept "Corresponding author"); the H2 rule clause (now "with the
+  significant positive slopes at both frequencies that the rule requires"). All fixed.
+- Gates: numgate compare: only added commas after "13:00", "1" and "0" differ; no number, citation, cross-reference or
+  outcome changed. checks_v3: FAILED 0 (now validates JEMF_submission). Rebuilt r2/* and JEMF_submission/*.
+- Old versions deleted from the tree at the author's request: submission/APFM_submission, submission/Revised_submission,
+  submission/Co_movement_final_paper. Hạnh edited 24.9.docx (kept in git history).
