@@ -121,3 +121,34 @@ Band = how far the manuscript's bar (single exchange, three indices, extension o
 | 50 | Low | Journal of Economic Integration | Trade scope, fit 1; Scopus coverage may have ended |
 
 Cascade (speed + ease): 1) Asia-Pacific Financial Markets → 2) Review of Pacific Basin Financial Markets and Policies → 3) Journal of Economics and Finance / Journal of Economics and Development. (find-journal post-rejection mode: a desk reject at a Q3 venue signals an importance/fit screen, so lead with the best-fit, more tolerant venues and send a short presubmission inquiry to the primary target.)
+
+
+## Easy-only list: regional and commercial journals (added 2026-10-13, after the JEMF desk reject)
+
+34 more journals checked by 3 independent agents (WebSearch only; evidence with URLs in
+`journal_shortlist_2026-10-13_evidence_regional.txt`). Kept: Scopus active, SJR Q3/Q4 (or a free Vietnam venue), total
+author fees about USD 300 or less where known, no regional exclusion, scope fit at least 3.
+
+| # | Journal | Country | SJR | Fees | Fit | Note |
+|---|---|---|---|---|---|---|
+| 1 | Journal of Derivatives and Quantitative Studies | Korea (Emerald) | Q4 | 0 (diamond) | 3 | Small quantitative-finance journal |
+| 2 | Revista Mexicana de Economía y Finanzas (REMEF) | Mexico | Q4 (2025) | 0 found (diamond OA) | 4 | Finance + econometrics; English accepted |
+| 3 | Scientific Annals of Economics and Business | Romania | Q3 | 0 (DOAJ) | 4 | Accepts emerging-market finance |
+| 4 | Journal of Economics and Development | Vietnam (Emerald, NEU) | Scopus, CiteScore Q2 | 0 | 3 | Vietnamese evidence welcome |
+| 5 | Macroeconomics and Finance in Emerging Market Economies | T&F | Q3 | 0 (subscription) | 3 | Emerging-market finance |
+| 6 | Economic Computation and Economic Cybernetics Studies and Research | Romania | Q3, SSCI | unverified | 4 | Quantitative models in economics/finance |
+| 7 | Ekonomický časopis (Journal of Economics) | Slovakia | Q4, SSCI | 0 | 3 | European focus preferred |
+| 8 | Economic Annals | Serbia | Q4 (old data) | likely 0 | 3 | Emerging/Balkan economics |
+| 9 | International Journal of Modern Physics C | World Scientific | Q3 | 0 (subscription) | 3 | Econophysics/DCCA |
+| 10 | Multinational Finance Journal | Multinational Finance Society | Q4 | EUR 50 submission fee | 3 | International co-movement |
+| 11 | International Journal of Business and Society | Malaysia | Q3, ESCI | USD 200 APC | 3 | Broad business |
+| 12 | Journal of Indonesian Economy and Business | Indonesia (UGM) | Q3 | USD 50 + USD 250 on acceptance | 3 | Indonesia focus |
+| 13 | Estudios Gerenciales | Colombia | Q4 | USD 200 APC (from 2025) | 3 | Management-leaning |
+| 14 | Contaduría y Administración | Mexico (UNAM) | Q3 | none found | 3 | Business/accounting-leaning |
+| 15 | Asian Economic and Financial Review | AESS | Q3 | unverified | 4 | Publisher-risk flag: check Scopus status first |
+
+Avoid: International Journal of Economics and Financial Issues (Scopus discontinued 2025); Journal of Asian Finance,
+Economics and Business (discontinued 2021, ceased); Cuadernos de Economía, Spain (discontinued); Financial Internet
+Quarterly, Theoretical and Applied Economics, Capital Markets Review, Indonesian Capital Market Review (Scopus not
+confirmed); Journal of Business Economics and Management, Central Bank Review, JEF and SAJEMS (fees over USD 1,000);
+AJEMS and JEECAR (Africa-only / Eastern Europe-only scope); Equilibrium and Journal of International Studies (Q1/Q2, not easy).
