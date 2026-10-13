@@ -612,3 +612,4 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
 - User reports a desk rejection from the Journal of Emerging Market Finance. The parallel-submission constraint of D78 is
   lifted; JEMF is excluded. find-journal post-rejection mode: desk reject = importance/fit screen, so the cascade starts
   from the best-fit tolerant venues (APFM, RPBFMP) with a presubmission inquiry; the ease ranking in the shortlist stands.
+- D79 addendum: RPBFMP charges a USD 250 submission fee by mailed check (from the submission form); shortlist corrected.

@@ -11,7 +11,7 @@ Method: find-journal (vendor/find-journal) Phase 2.5 pre-flight (no flags; judge
 | 3 | Physica A: Statistical Mechanics and its Applications | Elsevier | Q2 | SCIE, JCR Q2 | No APC (subscription) | Unverified; high volume (~766 articles/yr) | 5 | Home journal of DCCA/econophysics |
 | 4 | Journal of Risk Finance | Emerald | Q2 | ESCI, JCR Q2 | No APC (subscription) | Unverified | 4 | Risk, contagion, correlation structure |
 | 5 | Asia-Pacific Journal of Financial Studies | Wiley | Q2 (2025; Q3 2024) | JCR Q3 | No APC (subscription) | Unverified | 4 | Asia-Pacific empirical finance |
-| 6 | Review of Pacific Basin Financial Markets and Policies | World Scientific | Q3 | ESCI | No APC (subscription) | Unverified | 4 | Pacific Basin markets; easy entry |
+| 6 | Review of Pacific Basin Financial Markets and Policies | World Scientific | Q3 | ESCI | No APC, but **USD 250 submission fee by mailed check** (payable to the journal; seen on the submission form 2026-10-13) | Unverified | 4 | Pacific Basin markets; easy entry |
 | 7 | Computational Economics | Springer | Q2 | JCR (IF 1.9) | No APC (subscription) | Median 4 days (desk-heavy) | 3 | Computational methods in finance |
 | 8 | Annals of Finance | Springer | Q2 | ESCI, JCR Q3 | No APC (subscription) | Median 12 days | 3 | Quantitative finance |
 | 9 | Journal of Economics and Finance | Springer | Q3 (2025) | ESCI, JCR Q2/Q3 | No APC (subscription) | Median 10 days | 3 | General empirical finance |
@@ -69,7 +69,7 @@ Band = how far the manuscript's bar (single exchange, three indices, extension o
 
 | Ease rank | Band | Journal | Why |
 |---|---|---|---|
-| 1 | High | Review of Pacific Basin Financial Markets and Policies | Q3, ESCI, JIF ~0.3; fit 4 (Pacific Basin markets) |
+| 1 | High | Review of Pacific Basin Financial Markets and Policies | Q3, ESCI, JIF ~0.3; fit 4; **USD 250 submission fee by check, non-refundable even on desk reject** |
 | 2 | High | Journal of Derivatives and Quantitative Studies | Q4, small diamond-OA journal; quant finance fits |
 | 3 | High | Asia-Pacific Financial Markets | Q3 most years (Q2 only in 2025); fit 5; 10-day first decision |
 | 4 | High | Macroeconomics and Finance in Emerging Market Economies | Q3, SJR 0.28; emerging-market finance |
