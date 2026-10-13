@@ -607,3 +607,8 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
   the network policy). Output: notes/journal_shortlist_2026-10-13.md (50 ranked) + evidence file with source URLs.
 - Constraint recorded: manuscript is under review at JEMF; no parallel submission.
 - D78 addendum: ease-of-acceptance ranking (High/Medium/Low bands, no probabilities) appended to the shortlist.
+
+## D79 — JEMF desk reject (reported 2026-10-13)
+- User reports a desk rejection from the Journal of Emerging Market Finance. The parallel-submission constraint of D78 is
+  lifted; JEMF is excluded. find-journal post-rejection mode: desk reject = importance/fit screen, so the cascade starts
+  from the best-fit tolerant venues (APFM, RPBFMP) with a presubmission inquiry; the ease ranking in the shortlist stands.

@@ -1,6 +1,6 @@
 # Journal shortlist (Q2–Q4, APC < USD 1,000) — 2026-10-13
 
-Manuscript: nested-index DCCA part–whole decomposition (VN30/VN100/VNINDEX). **Currently under review at JEMF: do not submit elsewhere until withdrawn or decided.**
+Manuscript: nested-index DCCA part–whole decomposition (VN30/VN100/VNINDEX). **Desk-rejected by JEMF (reported 2026-10-13): free to submit elsewhere; JEMF excluded.**
 
 Method: find-journal (vendor/find-journal) Phase 2.5 pre-flight (no flags; judgement: single market, extension of a known identity → Q2–Q4 is realistic) + journal-recommender (zero565656) workflow: live WebSearch data by 4 independent agents (SCImago/publisher pages where found; aggregators as fallback, marked). WebFetch/SCImago/LetPub direct access blocked in this environment, so every value must be re-checked on the journal site before submission. Ranking = scope fit (40%) + verified speed (30%) + ease of tier (20%) + risk (10%). No acceptance probability is given (no reliable data).
 
@@ -120,4 +120,4 @@ Band = how far the manuscript's bar (single exchange, three indices, extension o
 | 49 | Low | Review of Behavioral Finance | Behavioral scope; fit 1 |
 | 50 | Low | Journal of Economic Integration | Trade scope, fit 1; Scopus coverage may have ended |
 
-Cascade (speed + ease): 1) Asia-Pacific Financial Markets → 2) Review of Pacific Basin Financial Markets and Policies → 3) Journal of Economics and Finance / Journal of Economics and Development. Only after the JEMF decision or withdrawal.
+Cascade (speed + ease): 1) Asia-Pacific Financial Markets → 2) Review of Pacific Basin Financial Markets and Policies → 3) Journal of Economics and Finance / Journal of Economics and Development. (find-journal post-rejection mode: a desk reject at a Q3 venue signals an importance/fit screen, so lead with the best-fit, more tolerant venues and send a short presubmission inquiry to the primary target.)
