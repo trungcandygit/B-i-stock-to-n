@@ -625,7 +625,7 @@ for submission" call, or are acceptable residual polish per S31's judgment call 
   "Online Resource 2" -> "the Supplementary Material"; blinded manuscript checked for author names, e-mail, affiliation.
   LibreOffice page count: 25 A4 pages (<= 30).
 - Author change at the user's explicit request: single author Nguyen Van Trung, National Economics University, Hanoi,
-  Vietnam (e-mail 15233582@st.neu.edu.vn). Former co-authors (Binh, Hanh, Diep) are not listed; the user is responsible
+  Vietnam (e-mail kontrungcany@gmail.com, at the user's request, to match the submission account). Former co-authors (Binh, Hanh, Diep) are not listed; the user is responsible
   for their agreement (SAEB checklist: all contributing authors must agree).
 - AI statement moved into Acknowledgments as SAEB requires; model versions left as "[add model version]" placeholders
   because they are not known here.

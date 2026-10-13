@@ -22,7 +22,7 @@ P = B.para
 
 AUTHOR = 'Nguyen Van Trung'
 AFFIL = 'National Economics University, Hanoi, Vietnam'
-EMAIL = '15233582\\@st.neu.edu.vn'
+EMAIL = 'kontrungcany\@gmail.com'
 KEYWORDS = 'constituent overlap; detrended cross-correlation; part–whole correlation; contagion; Vietnam'
 JEL = 'C14, C58, G11, G15'
 AI_USE = ('Use of AI tools: during the preparation of this work the author used Claude (Anthropic) [add model version] for '
